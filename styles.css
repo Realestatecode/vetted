@@ -27,7 +27,7 @@ body{
   -webkit-font-smoothing:antialiased;
   -moz-osx-font-smoothing:grayscale;
   font-size:var(--body-font-size);
-  line-height:1.6;
+  line-height:1.7;
 }
 
 /* Container */
@@ -61,6 +61,7 @@ body{
   font-size:12px;
   color:var(--muted);
 }
+.site-banner{display:block; max-height:120px; width:auto;}
 .main-nav a{
   margin-left:18px;
   text-decoration:none;
@@ -119,34 +120,6 @@ body{
   margin-top:10px;
 }
 
-/* Video */
-.video-wrap{
-  position:relative;
-  border-radius:6px;
-  overflow:hidden;
-  box-shadow:0 8px 30px rgba(0,0,0,0.08);
-  background:#000;
-  min-height:260px;
-}
-.hero-video{
-  width:100%;
-  height:100%;
-  display:block;
-  object-fit:cover;
-}
-.video-play{
-  position:absolute;
-  left:50%;
-  top:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(255,255,255,0.95);
-  border:0;
-  padding:12px 16px;
-  font-weight:700;
-  cursor:pointer;
-  border-radius:4px;
-}
-
 /* Blowout divider */
 .blowout{
   padding:40px 0;
@@ -154,9 +127,7 @@ body{
   border-top:1px solid #eee;
   border-bottom:1px solid #eee;
 }
-.blowout-inner{
-  text-align:center;
-}
+.blowout-inner{text-align:center;}
 .meta.small{
   font-size:12px;
   color:var(--muted);
@@ -188,17 +159,52 @@ body{
   font-size:26px;
   margin:0 0 12px 0;
 }
-.lede{
+.lede{font-size:16px; font-weight:600; margin-bottom:18px}
+
+/* Longform body */
+.longform{
   font-size:16px;
-  font-weight:600;
-  margin-bottom:18px;
+  line-height:1.85;
+  max-width:72ch;          /* Comfortable reading width */
 }
-.article h5{
+.longform h2, .longform h3{
   font-family:"Playfair Display",serif;
-  margin:22px 0 8px 0;
-  font-size:18px;
+  margin:28px 0 12px;
 }
-.closing{margin-top:28px;font-weight:600;}
+.longform p{margin:0 0 16px 0}
+
+/* Inline video in the middle of longform */
+.video-mid-grid{
+  display:grid;
+  grid-template-columns:1fr minmax(280px, 860px) 1fr; /* centered middle column */
+  gap:20px;
+  margin:36px 0;
+}
+.video-spacer{min-height:1px}
+.video-inline{
+  position:relative;
+  border-radius:10px;
+  overflow:hidden;
+  background:#000;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  aspect-ratio:16/9;       /* responsive 16:9 */
+}
+.yt-thumb{
+  position:absolute; inset:0;
+  background-size:cover; background-position:center;
+  display:flex; align-items:center; justify-content:center;
+}
+.yt-play{
+  background:rgba(255,255,255,0.95);
+  border:0;
+  padding:12px 16px;
+  font-weight:700;
+  border-radius:999px;
+  cursor:pointer;
+}
+.yt-iframe{
+  width:100%; height:100%; border:0; display:block;
+}
 
 /* Aside */
 .aside .subscribe{
@@ -229,9 +235,38 @@ body{
 .subscribe-note{font-size:12px;color:var(--muted);margin-top:10px}
 .quick-facts p, .accredited p{margin:8px 0;font-size:14px}
 .accredited .small{font-size:13px;color:var(--muted)}
-
 .muted{color:var(--muted)}
 .small{font-size:12px}
+
+/* Consultation grid (floating boxes) */
+.consultation-grid{margin:60px auto; text-align:center;}
+.consultation-grid .grid{
+  display:grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap:20px; margin-top:20px;
+}
+.consultation-grid .box{
+  background:#f7f7f7;
+  border:1px solid #e0e0e0;
+  border-radius:12px;
+  padding:20px;
+  font-weight:600;
+  transition:all 0.3s ease;
+}
+.consultation-grid .box:hover{
+  background:#fff;
+  box-shadow:0 4px 10px rgba(0,0,0,0.1);
+}
+
+/* Mini intake form */
+.mini-intake{padding:20px 0 60px}
+.property-form label{display:block; font-weight:600; margin:12px 0 6px}
+.property-form input, .property-form textarea{
+  width:100%; padding:10px; border:1px solid #ddd; border-radius:6px; font-size:14px;
+}
+.property-form button{
+  margin-top:12px; padding:10px 14px; background:var(--accent-2); color:#fff; border:0; border-radius:6px; font-weight:700; cursor:pointer;
+}
 
 /* Footer */
 .site-footer{
@@ -254,13 +289,6 @@ body{
 }
 .disclaimer-title{font-weight:700;margin:0 0 6px 0}
 
-/* Accessibility helpers */
-.sr-only{
-  position:absolute!important;
-  height:1px;width:1px;overflow:hidden;
-  clip:rect(1px,1px,1px,1px);white-space:nowrap;
-}
-
 /* Responsive */
 @media (max-width:980px){
   .hero-inner{grid-template-columns:1fr}
@@ -268,4 +296,6 @@ body{
   .footer-inner{flex-direction:column}
   .footer-left, .footer-right{max-width:100%}
   .blowout-text{font-size:36px}
+  .longform{max-width:100%}
+  .video-mid-grid{grid-template-columns:1fr}
 }

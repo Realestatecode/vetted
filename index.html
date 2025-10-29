@@ -10,7 +10,7 @@
   <meta name="keywords" content="finance, dividends, commercial real estate, real estate investing, Los Angeles property, California real estate, rebuilding projects, inflation protection, growth stocks, real estate opportunities, passive income, property investment, CRE trends, investment growth, LA real estate, real estate market, inflation hedge, opportunity zones, urban development, property growth" />
   <meta property="og:title" content="REAL ESTATE EDGE — Market Insights & Opportunities" />
   <meta property="og:description" content="Discover the latest finance and real estate investing trends in Los Angeles and California, including growth strategies, inflation hedges, and rebuilding opportunities for investors." />
-  <meta property="og:image" content="/Banner.png" />
+  <meta property="og:image" content="Banner.png" />
   <meta property="og:type" content="article" />
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:title" content="REAL ESTATE EDGE — Market Insights & Opportunities" />
@@ -38,9 +38,10 @@
         <p class="brand-sub">WEEKLY</p>
       </div>
 
-      <!-- Banner (separate from video) -->
+      <!-- Banner -->
       <div class="site-banner-wrap" aria-hidden="false">
-        <img src="/Banner.png" alt="Real Estate Edge Banner" class="site-banner">
+        <!-- Use project-relative path to work on GitHub Pages -->
+        <img src="Banner.png" alt="Real Estate Edge Banner" class="site-banner">
       </div>
 
       <nav class="main-nav" aria-label="Main">
@@ -57,8 +58,8 @@
     <div class="hero-inner container">
       <div class="hero-copy">
         <h2 class="hero-eyebrow">MARKET CHALLENGES ARE OPPORTUNITIES</h2>
-        <p class="hero-lead">Macro-economic factors, tighter lending guidelines, maturity dates, and property-level cash flow contractions have become commonplace challenges.</p>
-        <p class="tel">310.728.7974</p>
+        <p class="hero-lead">Macro-economic factors, tighter lending, maturity dates, and property-level cash flow contractions are commonplace. We turn constraints into strategy.</p>
+        <p class="tel">DM / Tel: <a href="tel:+13107287974">310.728.7974</a></p>
 
         <div class="badges">
           <span class="badge">VETTED</span>
@@ -66,16 +67,6 @@
         </div>
 
         <a class="cta" href="#subscribe">MONTHLY DEAL LIST PUBLISHED</a>
-      </div>
-    </div>
-  </section>
-
-  <!-- CENTERED SQUARE VIDEO (YouTube embed, lazy load) -->
-  <section class="video-section container">
-    <div class="video-square-wrap">
-      <!-- Change data-video-id to update monthly -->
-      <div class="yt-thumb-square" id="ytThumbSquare" data-video-id="nGeXAXmhyAA" role="button" aria-label="Play video" tabindex="0" style="background-image: url('/Banner.png');">
-        <button class="yt-play">Play</button>
       </div>
     </div>
   </section>
@@ -100,25 +91,51 @@
     </ul>
   </section>
 
-  <!-- MAGAZINE GRID / ARTICLE -->
+  <!-- MAGAZINE GRID / LONGFORM + SIDEBAR -->
   <main class="container magazine-grid">
+    <!-- LONGFORM ARTICLE (2000-word space) -->
     <article class="article">
-      <h4 class="article-title">Tariffs, Occupancy and Impact on Asset Pricing</h4>
+      <h4 class="article-title">Tariffs, Occupancy, and Impact on Asset Pricing</h4>
+      <p class="lede">Debt yields are reshaping asset pricing. If you’ve been watching cap rates press against long-dated Treasuries, you’ve seen the spread narrow to levels not observed since 2006...</p>
 
-      <p class="lede">Today, we’re diving into debt yields and how they’re shaking up asset pricing in this higher-interest-rate environment. If you’ve been watching cap rates and Treasury yields, buckle up: we’re about to break down why the spread has narrowed to levels we haven’t seen since 2006...</p>
+      <!-- LONGFORM BODY — WRITE HERE -->
+      <div id="longform" class="longform">
+        <!--
+          ✍️ Authoring notes:
+          - This block is designed for ~2,000+ words.
+          - Write normal HTML: <p>, <h2>, <h3>, <ul>, etc.
+          - Mid-article YouTube box appears below (center column).
+        -->
 
-      <h5>Not all asset classes are created equal</h5>
-      <p>Industrial and multifamily properties continue to exhibit strong demand fundamentals, while office and retail sectors face structural headwinds that may necessitate higher cap rate adjustments to offset risk.</p>
+        <h2>Not all asset classes are created equal</h2>
+        <p>Industrial and multifamily continue to exhibit durable demand, while office and select retail face structural headwinds. Investors are repricing risk with higher cap rate cushions, emphasizing proven rent growth...</p>
 
-      <h5>Retail Sector Fallout</h5>
-      <p>Westfield Culver City reports a 22% drop in lease commitments year-over-year. Major anchor tenants — including Macy's and Nordstrom — have not renewed.</p>
+        <h3>Retail Sector Fallout</h3>
+        <p>In Westside submarkets, lease-up cycles have elongated. Anchor health dictates center gravity; weak anchors magnify inline churn...</p>
 
-      <h5>Industrial Properties Facing Recession Shock</h5>
-      <p>Near LAX and Vernon, logistics facilities tied to tariff-impacted goods have seen growing vacancy rates. A large distribution center previously leased by a Chinese import firm defaulted on its lease obligations.</p>
+        <!-- ==== M I D - A R T I C L E  V I D E O  G R I D ==== -->
+        <!-- Update ONE LINE: data-video-id="XXXXXXXXXXX" -->
+        <section class="video-mid-grid" aria-label="Feature video">
+          <div class="video-spacer"></div>
 
-      <p class="closing">We specialize in identifying and stabilizing properties, maximizing both operational efficiency and investor returns. Our Value Proposition includes expertise in generational real estate, stabilization to maximize yield, and a proven track record.</p>
+          <div class="video-inline" id="ytInline" data-video-id="nGeXAXmhyAA">
+            <div class="yt-thumb" role="button" aria-label="Play video" tabindex="0" style="background-image:url('Banner.png')">
+              <button class="yt-play">Play</button>
+            </div>
+          </div>
+
+          <div class="video-spacer"></div>
+        </section>
+        <!-- ================================================ -->
+
+        <h3>Industrial Properties Facing Recession Shock</h3>
+        <p>Near LAX and Vernon, logistics facilities tied to tariff-sensitive goods show rising vacancy. Credit selection and rollover staging matter more than ever...</p>
+
+        <p class="closing">We focus on stabilizing properties to maximize yield and long-run value creation.</p>
+      </div>
     </article>
 
+    <!-- SIDEBAR -->
     <aside class="aside">
       <section class="subscribe" id="subscribe">
         <h6>SUBSCRIBE REAL ESTATE EDGE WEEKLY</h6>
@@ -147,7 +164,18 @@
     </aside>
   </main>
 
-  <!-- MINI PROPERTY INTAKE (collects details and opens email + Google Form backup) -->
+  <!-- PROFESSIONAL CONSULTATION GRID (floating boxes) -->
+  <section class="container consultation-grid">
+    <h4>Professional Consultation Services</h4>
+    <div class="grid">
+      <div class="box">Analyze a Lease</div>
+      <div class="box">Build a Real Estate Argus Financial Model</div>
+      <div class="box">Model a Multifamily Acquisition</div>
+      <div class="box">Create a Financial Package for Lender Financing</div>
+    </div>
+  </section>
+
+  <!-- MINI PROPERTY INTAKE -->
   <section class="container mini-intake">
     <h4>Property Consultation — Quick Intake</h4>
     <form id="propertyForm" class="property-form" novalidate>
@@ -178,12 +206,17 @@
       <button type="submit">Submit</button>
     </form>
   </section>
-</body>
-   <footer class="site-footer">
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
     <div class="container footer-inner">
       <div class="footer-left">
         <p>© 2025 REpitch is managed by LORM LLC. All rights reserved · Real Estate EDGE</p>
-        <p class="fineprint">By using this website, you accept our <a href="/terms.html">Terms of Use</a> and <a href="/privacy.html">Privacy Policy</a>. Nothing on this website should be considered an offer, solicitation of an offer, or advice to buy or sell securities. Past performance is no guarantee of future results. There are risks inherent in any investment, including the possible loss of up to 100% of invested capital. Investors should consider objectives, risks, charges, and expenses carefully before investing.</p>
+        <p class="fineprint">
+          By using this website, you accept our 
+          <a href="terms_Version3.html">Terms of Use</a> and 
+          <a href="privacy_Version3.html">Privacy Policy</a>. Nothing on this website should be considered an offer, solicitation of an offer, or advice to buy or sell securities. Past performance is no guarantee of future results. There are risks inherent in any investment, including the possible loss of up to 100% of invested capital. Investors should consider objectives, risks, charges, and expenses carefully before investing.
+        </p>
       </div>
 
       <div class="footer-right">
@@ -193,7 +226,40 @@
     </div>
   </footer>
 
-  <script src="script.js"></script>
-</body>
+  <!-- Minimal JS: YouTube lazy loader -->
+  <script>
+    // ONE place to update monthly. Paste the YouTube ID below.
+    // The inline block reads its own data-video-id, so you can also just change it in the HTML.
+    const defaultVideoId = "nGeXAXmhyAA";
 
+    function mountYouTube(el){
+      const vid = el.dataset.videoId || defaultVideoId;
+      const iframe = document.createElement('iframe');
+      iframe.setAttribute('src', 'https://www.youtube.com/embed/' + vid + '?autoplay=1&rel=0');
+      iframe.setAttribute('title','YouTube video player');
+      iframe.setAttribute('allow','accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share');
+      iframe.setAttribute('allowfullscreen','');
+      iframe.className = 'yt-iframe';
+      el.innerHTML = '';
+      el.appendChild(iframe);
+    }
+
+    document.addEventListener('click', function(e){
+      const btn = e.target.closest('.yt-play');
+      if(!btn) return;
+      const wrap = btn.closest('.video-inline');
+      if(wrap) mountYouTube(wrap);
+    });
+
+    document.addEventListener('keydown', function(e){
+      if(e.key === 'Enter'){
+        const thumb = document.activeElement.closest?.('.yt-thumb');
+        if(thumb){
+          const wrap = thumb.closest('.video-inline');
+          if(wrap) mountYouTube(wrap);
+        }
+      }
+    });
+  </script>
+</body>
 </html>

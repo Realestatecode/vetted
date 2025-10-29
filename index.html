@@ -4,6 +4,8 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>REAL ESTATE EDGE — Magazine</title>
+
+  <!-- SEO -->
   <meta name="description" content="Explore trending finance and real estate investing insights in Los Angeles and California. Growth strategies, inflation hedges, and vetted property opportunities." />
   <meta name="keywords" content="finance, dividends, commercial real estate, real estate investing, Los Angeles property, California real estate, rebuilding projects, inflation protection, growth stocks, real estate opportunities, passive income, property investment, CRE trends, investment growth, LA real estate, real estate market, inflation hedge, opportunity zones, urban development, property growth" />
   <meta property="og:title" content="REAL ESTATE EDGE — Market Insights & Opportunities" />
@@ -14,8 +16,18 @@
   <meta name="twitter:title" content="REAL ESTATE EDGE — Market Insights & Opportunities" />
   <meta name="twitter:description" content="Discover the latest finance and real estate investing trends in Los Angeles and California, including growth strategies, inflation hedges, and rebuilding opportunities for investors." />
 
-  <!-- Google Fonts: Playfair Display (headlines) + Montserrat (body) -->
+  <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-HH9V5NVG4H"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);} 
+    gtag('js', new Date());
+    gtag('config', 'G-HH9V5NVG4H');
+  </script>
+
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -25,6 +37,12 @@
         <h1 class="brand-title">REAL ESTATE EDGE</h1>
         <p class="brand-sub">WEEKLY</p>
       </div>
+
+      <!-- Banner (separate from video) -->
+      <div class="site-banner-wrap" aria-hidden="false">
+        <img src="/Banner.png" alt="Real Estate Edge Banner" class="site-banner">
+      </div>
+
       <nav class="main-nav" aria-label="Main">
         <a href="#subscribe">Subscribe</a>
         <a href="#opportunities">Opportunities</a>
@@ -34,7 +52,7 @@
     </div>
   </header>
 
-  <!-- HERO -->
+  <!-- HERO TEXT -->
   <section class="hero">
     <div class="hero-inner container">
       <div class="hero-copy">
@@ -49,13 +67,15 @@
 
         <a class="cta" href="#subscribe">MONTHLY DEAL LIST PUBLISHED</a>
       </div>
+    </div>
+  </section>
 
-      <div class="hero-media">
-        <!-- Lazy-loading YouTube embed. Use data-video-id to change the YouTube video monthly.
-             Banner.png (repo root) is used as the poster thumbnail. -->
-        <div class="yt-thumb" id="ytThumb" data-video-id="nGeXAXmhyAA" role="button" aria-label="Play hero video" tabindex="0" style="background-image: url('/Banner.png');">
-          <button class="yt-play" aria-hidden="true">Play</button>
-        </div>
+  <!-- CENTERED SQUARE VIDEO (YouTube embed, lazy load) -->
+  <section class="video-section container">
+    <div class="video-square-wrap">
+      <!-- Change data-video-id to update monthly -->
+      <div class="yt-thumb-square" id="ytThumbSquare" data-video-id="nGeXAXmhyAA" role="button" aria-label="Play video" tabindex="0" style="background-image: url('/Banner.png');">
+        <button class="yt-play">Play</button>
       </div>
     </div>
   </section>
@@ -102,12 +122,7 @@
     <aside class="aside">
       <section class="subscribe" id="subscribe">
         <h6>SUBSCRIBE REAL ESTATE EDGE WEEKLY</h6>
-        <!--
-           This form will redirect to the Google Contact Form provided by the user. To change behavior:
-             - Option A (simple): set form.action to your Google Form POST URL.
-             - Option B (programmatic): set data-endpoint on the form to a Formspree or API endpoint and the script will POST JSON.
-        -->
-        <form id="subscribeForm" class="subscribe-form" novalidate data-gform-redirect="https://docs.google.com/forms/d/e/1FAIpQLSfVe3oUh3DJyBpnXPG7SchfCIlmFcr7DI5hICx3OnRA3_Du7g/viewform" data-endpoint="">
+        <form id="subscribeForm" class="subscribe-form" novalidate data-gform-redirect="https://docs.google.com/forms/d/e/1FAIpQLSfVe3oUh3DJyBpnXPG7SchfCIlmFcr7DI5hICx3OnRA3_Du7g/viewform?usp=sf_link" data-endpoint="">
           <label for="name" class="sr-only">Name</label>
           <input id="name" name="name" type="text" placeholder="Name" required>
           <label for="email" class="sr-only">Email</label>
@@ -122,7 +137,7 @@
         <p>Tel: <a href="tel:+13107287974">310.728.7974</a></p>
         <p><a href="https://coffeebarconnoisseur.com/" target="_blank" rel="noopener">Playlist — Coffee Bar Connoisseur</a></p>
         <p><a href="https://www.youtube.com/@designrenovate" target="_blank" rel="noopener">YouTube — Design Renovate</a></p>
-        <p><a href="https://forms.gle/BguBawmFhehaZSba7" target="_blank" rel="noopener">Property Consultation Signup</a></p>
+        <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSfVe3oUh3DJyBpnXPG7SchfCIlmFcr7DI5hICx3OnRA3_Du7g/viewform?usp=sf_link" target="_blank" rel="noopener">Property Consultation Signup</a></p>
       </section>
 
       <section class="accredited">
@@ -132,20 +147,36 @@
     </aside>
   </main>
 
-  <footer class="site-footer">
-    <div class="container footer-inner">
-      <div class="footer-left">
-        <p>© 2024 REpitch is managed by LORM LLC. All rights reserved · Real Estate EDGE</p>
-        <p class="fineprint">By using this website, you accept our <a href="/terms.html">Terms of Use</a> and <a href="/privacy.html">Privacy Policy</a>. Nothing on this website should be considered an offer, solicitation of an offer, or advice to buy or sell securities. Past performance is no guarantee of future results. There are risks inherent in any investment, including the possible loss of up to 100% of invested capital. Investors should consider objectives, risks, charges, and expenses carefully before investing.</p>
-      </div>
+  <!-- MINI PROPERTY INTAKE (collects details and opens email + Google Form backup) -->
+  <section class="container mini-intake">
+    <h4>Property Consultation — Quick Intake</h4>
+    <form id="propertyForm" class="property-form" novalidate>
+      <label>Email *</label>
+      <input type="email" id="p_email" name="email" required>
 
-      <div class="footer-right">
-        <p class="disclaimer-title">Disclaimer</p>
-        <p class="fineprint">The information provided in this newsletter is based on sources we believe to be accurate; however, we make no guarantees regarding its completeness or accuracy. This content is for informational purposes only and should not be construed as investment advice. Readers are encouraged to conduct their own research or consult before making any investment decisions.</p>
-      </div>
-    </div>
-  </footer>
+      <label>Property Address</label>
+      <input type="text" id="p_address" name="address">
 
-  <script src="script.js"></script>
+      <label>Work Required *</label>
+      <input type="text" id="p_work" name="work" required>
+
+      <label>Square Feet | Units</label>
+      <input type="text" id="p_sqft" name="sqft">
+
+      <label>Financial Summary</label>
+      <textarea id="p_fin" name="financial" rows="3"></textarea>
+
+      <label>Lease Abstract</label>
+      <textarea id="p_lease" name="lease" rows="2"></textarea>
+
+      <label>Marketing Package</label>
+      <input type="text" id="p_marketing" name="marketing">
+
+      <label>Disposition Package</label>
+      <input type="text" id="p_disposition" name="disposition">
+
+      <button type="submit">Submit</button>
+    </form>
+  </section>
 </body>
 </html>

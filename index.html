@@ -3,383 +3,469 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>realfimodel — 50-Unit REI Model</title>
-<meta name="description" content="Free real estate multifamily finance model — value an apartment before you buy, finance, or make an offer." />
-<meta name="keywords" content="free real estate multifamily finance model, apartment valuation, pro forma, IRR, cash-on-cash" />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<title>JPM Style RE Model</title>
+<meta name="description" content="Investment Bank Style Real Estate Financial Model" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root{--bg:#ffffff;--accent:#0ea5a4;--muted:#475569;--yellow:#fff8dc;--formula:#f3f6fb;--drop:#fde68a}
-  html,body{height:100%;margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;color:#0f172a}
-  .wrap{max-width:1100px;margin:10px auto;padding:10px}
-  header{display:flex;align-items:center;gap:12px}
-  #logo{height:48px;width:48px;object-fit:contain}
-  h1{font-size:18px;margin:0}
-  .meta{font-size:12px;color:var(--muted)}
-  .controls{margin-left:auto;display:flex;gap:8px}
-  .btn{padding:8px 12px;border-radius:8px;border:0;cursor:pointer;font-weight:700}
-  .btn.primary{background:linear-gradient(90deg,#06b6d4,#3b82f6);color:white}
+  :root {
+    --bank-blue: #0f1b2d;
+    --bank-accent: #005eb8;
+    --bg: #ffffff;
+    --panel-bg: #ffffff;
+    --border: #cbd5e1;
+    --input-yellow: #fef9c3; /* Subtle yellow for inputs */
+    --readonly: #f8fafc;
+    --text-main: #0f172a;
+    --text-muted: #64748b;
+  }
 
-  .layout{display:grid;grid-template-columns:420px 1fr;gap:12px;margin-top:12px}
-  .panel{border-radius:8px;padding:10px;border:1px solid #e6eef8;background:#fff}
-  .compact-row{display:flex;justify-content:space-between;align-items:center;margin:6px 0;font-size:13px}
-  label{font-size:12px;color:var(--muted);margin-right:8px}
-  input[type=number], input[type=text], select{padding:6px;border-radius:6px;border:1px solid #e6eef8;width:120px}
-  input.input-yellow{background:var(--yellow)}
-  input.readonly{background:var(--formula);border:1px dashed #dbeafe}
-  .units-table{width:100%;border-collapse:collapse;margin-top:6px}
-  .units-table th,.units-table td{padding:6px;border-bottom:1px solid #f3f6fb;font-size:12px}
-  .units-table td input{width:80px}
-  .units-table td.input{background:var(--yellow)}
+  body { margin: 0; padding: 0; background: #f1f5f9; font-family: 'Inter', sans-serif; color: var(--text-main); -webkit-print-color-adjust: exact; }
+  .wrap { max-width: 1000px; margin: 20px auto; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 30px; border-top: 6px solid var(--bank-blue); }
 
-  table.pro{border-collapse:collapse;width:100%;min-width:900px;margin-top:8px}
-  table.pro th, table.pro td{padding:6px;border:1px solid #eef4fb;font-size:12px;text-align:right}
-  table.pro th{background:#fbfdff;color:var(--muted);text-align:left}
+  /* --- TYPOGRAPHY & UTILS --- */
+  h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; }
+  h3 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--bank-blue); padding-bottom: 4px; margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 700; }
+  .logo-text { font-family: 'Times New Roman', serif; font-weight: bold; font-size: 24px; color: var(--bank-blue); }
+  
+  /* --- HEADER --- */
+  header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+  .controls button { background: white; border: 1px solid var(--border); padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--text-main); cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+  .controls button:hover { background: #f1f5f9; border-color: var(--bank-accent); }
+  .controls button.primary { background: var(--bank-blue); color: white; border-color: var(--bank-blue); }
+  .controls button.primary:hover { background: #1e3a8a; }
 
-  .kpis{display:flex;gap:8px;margin-top:10px}
-  .kpi{flex:1;padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);text-align:center}
+  /* --- GRID LAYOUTS --- */
+  .input-grid { display: grid; grid-template-columns: 320px 1fr; gap: 25px; margin-bottom: 30px; }
+  .section-box { margin-bottom: 20px; }
+  
+  /* --- INPUT ROWS --- */
+  .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12px; }
+  .row label { color: var(--text-muted); font-weight: 500; }
+  input { font-family: 'Roboto Mono', monospace; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); width: 100px; text-align: right; outline: none; border-radius: 0; }
+  input:focus { border-color: var(--bank-accent); box-shadow: 0 0 0 1px var(--bank-accent); }
+  input.yellow { background-color: var(--input-yellow); border-color: #e2e8f0; }
+  input.readonly { background-color: var(--readonly); border: none; color: var(--text-main); font-weight: 600; }
 
-  .media-grid{display:grid;grid-template-columns:1fr 480px 1fr;gap:12px;margin-top:12px}
-  .video-drop{border:3px dashed var(--drop);border-radius:8px;min-height:200px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(253,230,138,0.15),rgba(255,255,255,0.02));color:#92400e}
-  .video-drop .hint{font-weight:700}
+  /* --- TABLES (Bank Style) --- */
+  table { width: 100%; border-collapse: collapse; font-size: 11px; }
+  th { text-align: left; font-weight: 600; color: var(--text-muted); border-bottom: 1px solid var(--text-muted); padding: 6px 4px; text-transform: uppercase; font-size: 10px; }
+  td { padding: 6px 4px; border-bottom: 1px solid #f1f5f9; }
+  td.num { text-align: right; font-family: 'Roboto Mono', monospace; }
+  tr:last-child td { border-bottom: none; }
+  tfoot td { border-top: 2px solid var(--text-muted); font-weight: 700; background: #f8fafc; }
+  .highlight-row td { background-color: #f0f9ff; font-weight: 600; border-top: 1px solid #bae6fd; border-bottom: 1px solid #bae6fd; }
 
-  footer{margin-top:14px;padding-top:8px;border-top:1px solid #eef4fb;text-align:center;font-size:12px;color:var(--muted)}
-  footer a{color:var(--accent);margin:0 6px}
+  /* --- UNIT INPUT TABLE --- */
+  .unit-table input { width: 100%; box-sizing: border-box; border: none; background: transparent; text-align: center; }
+  .unit-table input.yellow { background: var(--input-yellow); }
+  .unit-table td { border: 1px solid #e2e8f0; padding: 0; }
 
-  @media print{
-    .controls,.btn{display:none}
-    .layout{grid-template-columns:1fr 1fr}
-    .media-grid{grid-template-columns:1fr}
-    .video-drop{border-style:solid}
-    table.pro{font-size:10px}
+  /* --- MIDDLE SECTION --- */
+  .mid-section { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 20px; align-items: center; margin: 30px 0; text-align: center; }
+  
+  /* CTA BOX */
+  .cta-box { grid-column: 1 / -1; background: var(--bank-blue); color: white; padding: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 20px; border-radius: 2px; text-transform: uppercase; }
+  .cta-box a { color: white; text-decoration: none; border-bottom: 1px dotted white; }
+
+  /* VIDEO DROP */
+  .video-drop { height: 150px; border: 2px dashed #94a3b8; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #64748b; font-weight: 600; margin: 0 auto; width: 100%; max-width: 600px; grid-column: 1 / -1; }
+
+  /* --- KPI CARDS --- */
+  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 15px; }
+  .kpi { background: #f8fafc; border: 1px solid var(--border); padding: 10px; text-align: center; }
+  .kpi span { display: block; font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+  .kpi strong { font-size: 16px; color: var(--bank-blue); font-family: 'Roboto Mono', monospace; }
+
+  /* --- FOOTER --- */
+  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 11px; color: var(--text-muted); line-height: 1.6; }
+  footer a { color: var(--bank-accent); text-decoration: none; font-weight: 500; }
+  footer a:hover { text-decoration: underline; }
+
+  /* --- PRINT --- */
+  @media print {
+    body { background: white; }
+    .wrap { box-shadow: none; margin: 0; padding: 0; border: none; width: 100%; max-width: 100%; }
+    .controls, .cta-box { display: none; }
+    .video-drop { border: 1px solid #ccc; height: 100px; }
+    input { border: none; padding: 0; background: transparent !important; text-align: right; }
+    .input-grid { gap: 20px; }
+    h3 { font-size: 12px; border-bottom: 1px solid #000; color: #000; }
+    table { font-size: 9px; }
+    th { color: #000; border-color: #000; }
   }
 </style>
 </head>
 <body>
+
 <div class="wrap">
+  
+  <!-- LOGO ROW -->
   <header>
-    <img id="logo" src="logo.png" alt="logo">
-    <div>
-      <h1>realfimodel</h1>
-      <div class="meta">Free real estate multifamily finance model — value an apartment before you buy, finance, or make an offer.</div>
-    </div>
+    <div class="logo-text">J.P. MORGAN <span style="font-weight:400; font-size:16px; color:#64748b;">| Real Estate Analytics</span></div>
     <div class="controls">
-      <button class="btn" id="resetBtn">Reset</button>
-      <button class="btn primary" id="calcInBtn">Calculate In → Populate Pro Forma</button>
-      <button class="btn primary" id="recalcBtn">Recalculate</button>
-      <button class="btn" id="exportBtn">Export CSV</button>
+      <button id="btnReset">Reset</button>
+      <button class="primary" id="btnCalcIn">Copy In-Place Rents</button>
+      <button class="primary" id="btnExport">Export CSV</button>
     </div>
   </header>
 
-  <div class="layout">
-    <!-- Left: Inputs + Operating Expenses (YR1) -->
-    <div class="panel">
-      <h3 style="margin:0 0 6px">TAB 1 — INPUTS (Edit yellow fields)</h3>
-      <div class="meta">Only edit yellow fields. Formula fields are grey and auto-calculated.</div>
+  <!-- INPUTS GRID -->
+  <div class="input-grid">
+    
+    <!-- LEFT: ASSUMPTIONS -->
+    <div class="left-panel">
+      <div class="section-box">
+        <h3>1. Deal Assumptions (Inputs)</h3>
+        <div class="row"><label>Project Name</label><input id="i_name" type="text" class="yellow" style="text-align:left; width:140px" value="1045 Ocean"></div>
+        <div class="row"><label>Purchase Price</label><input id="i_price" type="text" class="yellow" value="20,000,000"></div>
+        <div class="row"><label>Closing Costs %</label><input id="i_close" type="number" class="yellow" value="1.0"></div>
+        <div class="row"><label>Reno Budget</label><input id="i_reno" type="text" class="yellow" value="500,000"></div>
+        <div class="row"><label><strong>Total Basis</strong></label><input id="o_basis" class="readonly" readonly></div>
+      </div>
 
-      <div style="margin-top:8px">
-        <h4 style="margin:6px 0">A. Property & Acquisition</h4>
-        <div class="compact-row"><label>Project Name</label><input id="projectName" type="text" class="input-yellow" value="1045 Ocean"></div>
-        <div class="compact-row"><label>Total Units</label><input id="totalUnits" type="number" class="input-yellow" value="50"></div>
-        <div class="compact-row"><label>Rentable Sq Ft</label><input id="rentableSqft" type="number" class="input-yellow" value="51745"></div>
-        <div class="compact-row"><label>Purchase Price</label><input id="purchasePrice" type="number" class="input-yellow" value="20000000"></div>
-        <div class="compact-row"><label>Closing Costs %</label><input id="closingPct" type="number" class="input-yellow" value="1"></div>
-        <div class="compact-row"><label>Renovation Budget</label><input id="renovation" type="number" class="input-yellow" value="500000"></div>
-        <div class="compact-row"><label>Total Initial Basis</label><input id="totalBasis" class="readonly" readonly value="0"></div>
+      <div class="section-box">
+        <h3>2. Financing</h3>
+        <div class="row"><label>LTV %</label><input id="i_ltv" type="number" class="yellow" value="60.0"></div>
+        <div class="row"><label>Interest Rate %</label><input id="i_rate" type="number" class="yellow" value="5.50"></div>
+        <div class="row"><label>Amortization (Yrs)</label><input id="i_amort" type="number" class="yellow" value="30"></div>
+        <div class="row"><label>Loan Amount</label><input id="o_loan" class="readonly" readonly></div>
+        <div class="row"><label>Annual Debt Service</label><input id="o_debt" class="readonly" readonly></div>
+      </div>
 
-        <h4 style="margin:10px 0 6px">B. Financing (Debt)</h4>
-        <div class="compact-row"><label>LTV %</label><input id="ltv" type="number" class="input-yellow" value="60"></div>
-        <div class="compact-row"><label>Loan Amount</label><input id="loanAmount" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Interest Rate %</label><input id="interestRate" type="number" class="input-yellow" value="5.5"></div>
-        <div class="compact-row"><label>Amortization (yrs)</label><input id="amortYears" type="number" class="input-yellow" value="30"></div>
-        <div class="compact-row"><label>Loan Term (yrs)</label><input id="loanTerm" type="number" class="input-yellow" value="10"></div>
-
-        <h4 style="margin:10px 0 6px">D. Other Income & Growth</h4>
-        <div class="compact-row"><label>Other Income (monthly)</label><input id="otherIncome" type="number" class="input-yellow" value="10500"></div>
-        <div class="compact-row"><label>Vacancy %</label><input id="vacancy" type="number" class="input-yellow" value="5"></div>
-        <div class="compact-row"><label>Rent Growth %</label><input id="rentGrowth" type="number" class="input-yellow" value="5"></div>
-        <div class="compact-row"><label>Expense Growth %</label><input id="expenseGrowth" type="number" class="input-yellow" value="3"></div>
-
-        <h4 style="margin:10px 0 6px">E. Operating Expenses (Year 1) — Inputs</h4>
-        <div class="compact-row"><label>Property Taxes %</label><input id="propTaxPct" type="number" class="input-yellow" value="1.25"></div>
-        <div class="compact-row"><label>Insurance $/unit/yr</label><input id="insPerUnit" type="number" class="input-yellow" value="500"></div>
-        <div class="compact-row"><label>Mgmt Fee % of EGI</label><input id="mgmtPct" type="number" class="input-yellow" value="4"></div>
-        <div class="compact-row"><label>Repairs $/unit/yr</label><input id="repairsPerUnit" type="number" class="input-yellow" value="750"></div>
-        <div class="compact-row"><label>Utilities $/unit/yr</label><input id="utilPerUnit" type="number" class="input-yellow" value="600"></div>
-        <div class="compact-row"><label>Turn/Leasing $/unit/yr</label><input id="turnPerUnit" type="number" class="input-yellow" value="200"></div>
-        <div class="compact-row"><label>Asset Mgmt % of EGI</label><input id="assetPct" type="number" class="input-yellow" value="1"></div>
-
-        <h4 style="margin:10px 0 6px">F. Tax Assumptions</h4>
-        <div class="compact-row"><label>Improvement %</label><input id="improvePct" type="number" class="input-yellow" value="75"></div>
-        <div class="compact-row"><label>Depreciation Life</label><input id="deprLife" type="number" class="input-yellow" value="27.5"></div>
-        <div class="compact-row"><label>Investor Tax Rate %</label><input id="taxRate" type="number" class="input-yellow" value="35"></div>
-
-        <h4 style="margin:10px 0 6px">Calculated Formulas (Year 1)</h4>
-        <div class="compact-row"><label>Property Taxes (Yr1)</label><input id="propTaxYr1" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Insurance (Yr1)</label><input id="insYr1" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Repairs (Yr1)</label><input id="repYr1" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Utilities (Yr1)</label><input id="utilYr1" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Prop Mgmt Fee (Yr1)</label><input id="propMgmtYr1" class="readonly" readonly value="0"></div>
-        <div class="compact-row"><label>Asset Mgmt Fee (Yr1)</label><input id="assetMgmtYr1" class="readonly" readonly value="0"></div>
+      <div class="section-box">
+        <h3>3. OpEx & Growth (Year 1)</h3>
+        <div class="row"><label>Prop Taxes (% Price)</label><input id="i_tax" type="number" class="yellow" value="1.25"></div>
+        <div class="row"><label>Insurance ($/unit)</label><input id="i_ins" type="number" class="yellow" value="500"></div>
+        <div class="row"><label>Mgmt Fee (% EGI)</label><input id="i_mgmt" type="number" class="yellow" value="4.0"></div>
+        <div class="row"><label>R&M / Utilities ($/u)</label><input id="i_rm_util" type="number" class="yellow" value="1350"></div>
+        <div class="row"><label>Other Income ($/mo)</label><input id="i_other" type="number" class="yellow" value="10500"></div>
+        <div class="row"><label>Vacancy / Growth %</label><input id="i_vac_gro" type="number" class="yellow" value="5.0"></div>
       </div>
     </div>
 
-    <!-- Right: Unit Mix + LTV/Other Income/Improvements -->
-    <div class="panel">
-      <h3 style="margin:0 0 6px">Unit Mix & Finance</h3>
-      <div class="meta">In-place rent and Pro Forma rent retained. Monthly totals are calculated from Pro Forma rent.</div>
-
-      <table class="units-table">
-        <thead><tr><th>Unit Type</th><th>Count</th><th>Sq Ft</th><th>In-place Rent</th><th>Pro Forma Rent</th><th>Monthly Total</th></tr></thead>
+    <!-- RIGHT: UNIT MIX -->
+    <div class="right-panel">
+      <h3>4. Unit Mix Analysis</h3>
+      <table class="unit-table">
+        <thead>
+          <tr>
+            <th style="width:30%">Type</th>
+            <th style="width:12%">Cnt</th>
+            <th style="width:12%">SqFt</th>
+            <th style="width:18%">In-Place</th>
+            <th style="width:18%; background:#fefce8; color:#b45309">Pro Forma</th>
+            <th style="width:20%">Total/Mo</th>
+          </tr>
+        </thead>
         <tbody id="unitBody">
-          <tr><td>Studio/Loft</td><td class="input"><input class="u-count input-yellow" type="number" value="8"></td><td class="input"><input class="u-sqft input-yellow" type="number" value="600"></td><td class="input"><input class="u-cur input-yellow" type="number" value="1026"></td><td class="input"><input class="u-pro input-yellow" type="number" value="1600"></td><td class="formula right" data-rowindex="0">0</td></tr>
-          <tr><td>Studio</td><td class="input"><input class="u-count input-yellow" type="number" value="8"></td><td class="input"><input class="u-sqft input-yellow" type="number" value="650"></td><td class="input"><input class="u-cur input-yellow" type="number" value="2603"></td><td class="input"><input class="u-pro input-yellow" type="number" value="2800"></td><td class="formula right" data-rowindex="1">0</td></tr>
-          <tr><td>1BR</td><td class="input"><input class="u-count input-yellow" type="number" value="12"></td><td class="input"><input class="u-sqft input-yellow" type="number" value="750"></td><td class="input"><input class="u-cur input-yellow" type="number" value="3601"></td><td class="input"><input class="u-pro input-yellow" type="number" value="3800"></td><td class="formula right" data-rowindex="2">0</td></tr>
-          <tr><td>2BR</td><td class="input"><input class="u-count input-yellow" type="number" value="15"></td><td class="input"><input class="u-sqft input-yellow" type="number" value="900"></td><td class="input"><input class="u-cur input-yellow" type="number" value="4375"></td><td class="input"><input class="u-pro input-yellow" type="number" value="4600"></td><td class="formula right" data-rowindex="3">0</td></tr>
-          <tr><td>3BR</td><td class="input"><input class="u-count input-yellow" type="number" value="7"></td><td class="input"><input class="u-sqft input-yellow" type="number" value="1200"></td><td class="input"><input class="u-cur input-yellow" type="number" value="5050"></td><td class="input"><input class="u-pro input-yellow" type="number" value="5300"></td><td class="formula right" data-rowindex="4">0</td></tr>
+          <!-- Rows Generated by JS below, but hardcoded structure for stability -->
+          <tr>
+            <td><input type="text" value="Studio/Loft" readonly></td>
+            <td><input class="yellow u-cnt" type="number" value="8"></td>
+            <td><input class="yellow u-sq" type="number" value="600"></td>
+            <td><input class="yellow u-cur" type="number" value="1026"></td>
+            <td><input class="yellow u-pro" type="number" value="1600"></td>
+            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
+          </tr>
+          <tr>
+            <td><input type="text" value="Studio" readonly></td>
+            <td><input class="yellow u-cnt" type="number" value="8"></td>
+            <td><input class="yellow u-sq" type="number" value="650"></td>
+            <td><input class="yellow u-cur" type="number" value="2603"></td>
+            <td><input class="yellow u-pro" type="number" value="2800"></td>
+            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
+          </tr>
+          <tr>
+            <td><input type="text" value="1 Bedroom" readonly></td>
+            <td><input class="yellow u-cnt" type="number" value="12"></td>
+            <td><input class="yellow u-sq" type="number" value="750"></td>
+            <td><input class="yellow u-cur" type="number" value="3601"></td>
+            <td><input class="yellow u-pro" type="number" value="3800"></td>
+            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
+          </tr>
+          <tr>
+            <td><input type="text" value="2 Bedroom" readonly></td>
+            <td><input class="yellow u-cnt" type="number" value="15"></td>
+            <td><input class="yellow u-sq" type="number" value="900"></td>
+            <td><input class="yellow u-cur" type="number" value="4375"></td>
+            <td><input class="yellow u-pro" type="number" value="4600"></td>
+            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
+          </tr>
+          <tr>
+            <td><input type="text" value="3 Bedroom" readonly></td>
+            <td><input class="yellow u-cnt" type="number" value="7"></td>
+            <td><input class="yellow u-sq" type="number" value="1200"></td>
+            <td><input class="yellow u-cur" type="number" value="5050"></td>
+            <td><input class="yellow u-pro" type="number" value="5300"></td>
+            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
+          </tr>
         </tbody>
         <tfoot>
-          <tr><td><strong>TOTALS</strong></td><td id="unitTotal" class="formula">0</td><td id="sqftTotal" class="formula">0</td><td></td><td></td><td id="rentTotal" class="formula">0</td></tr>
+          <tr>
+            <td colspan="3" style="text-align:right; padding-right:10px;">TOTALS:</td>
+            <td class="num" id="t_cur">0</td>
+            <td class="num" id="t_pro">0</td>
+            <td class="num" id="t_tot" style="background:#f0fdf4; color:#166534">0</td>
+          </tr>
         </tfoot>
       </table>
-
-      <hr style="margin:8px 0">
-      <div class="compact-row"><label>LTV %</label><input id="ltv2" type="number" class="input-yellow" value="60"></div>
-      <div class="compact-row"><label>Interest Rate %</label><input id="interestRate2" type="number" class="input-yellow" value="5.5"></div>
-      <div class="compact-row"><label>Other Income (monthly)</label><input id="otherIncome2" type="number" class="input-yellow" value="10500"></div>
-      <div class="compact-row"><label>Improvement %</label><input id="improvePct2" type="number" class="input-yellow" value="75"></div>
-
-    </div>
-
-    <!-- Pro Forma (10-year projection) full width -->
-    <div style="grid-column:1 / -1">
-      <div class="panel">
-        <h3 style="margin:0 0 6px">TAB 2 — PRO FORMA (10-Year)</h3>
-        <div class="meta">Years 1–10 calculation engine. Use Calculate In to copy in-place rents (or edit Pro Forma rents directly).</div>
-
-        <table class="pro" id="proTable">
-          <thead>
-            <tr><th>Line Item</th>
-              <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
-              <th>Year 6</th><th>Year 7</th><th>Year 8</th><th>Year 9</th><th>Year 10</th>
-            </tr>
-          </thead>
-          <tbody>
-            <tr><th style="text-align:left">Gross Potential Rent</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="gpr${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">(+) Other Income</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="oi${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">(-) Vacancy Loss</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="vac${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">= Effective Gross Income</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="egi${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Property Taxes</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="tax${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Insurance</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="ins${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Management Fee</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="mgmt${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Repairs & Maint</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="rep${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Utilities</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="util${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Asset Mgmt / Other</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="asset${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">= Total Expenses</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="totexp${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">= NOI</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="noi${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">(-) Debt Service</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="debt${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">(-) Capital Reserves</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="capres${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">= Cash Flow After Debt</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="cf${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">TAXABLE INCOME</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="taxable${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Tax Liability (Savings)</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="taxliab${i+1}">0</td>`).join('') + "</tr>
-            <tr><th style="text-align:left">Net Cash Flow (for IRR)</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="ncf${i+1}">0</td>`).join('') + "</tr>
-          </tbody>
-        </table>
-
-        <div class="kpis" style="margin-top:10px">
-          <div class="kpi"><h3>Purchase Price</h3><p id="k_purchase">—</p></div>
-          <div class="kpi"><h3>Initial Equity</h3><p id="k_equity">—</p></div>
-          <div class="kpi"><h3>Project IRR</h3><p id="k_irr">—</p></div>
-          <div class="kpi"><h3>Equity Multiple</h3><p id="k_em">—</p></div>
-          <div class="kpi"><h3>Avg Cash-on-Cash</h3><p id="k_coc">—</p></div>
-        </div>
-
-        <div class="media-grid">
-          <div></div>
-          <div class="video-drop" id="videoDrop"><div class="hint">DROP YOUTUBE VIDEO EMBED HERE</div></div>
-          <div></div>
-        </div>
-
+      
+      <div style="margin-top:15px; font-size:11px; color:#64748b; line-height:1.4">
+        * <strong>Total/Mo Formula:</strong> Pro Forma Rent × Unit Count.<br>
+        * Pro Forma model below annualizes this figure (×12).
       </div>
     </div>
-
-    
   </div>
 
+  <!-- CTA BAR -->
+  <div class="cta-box">
+    Follow us on <a href="https://realestatecode.github.io" target="_blank">realestatecode.github.io</a>
+  </div>
+
+  <!-- MIDDLE LOGO & VIDEO -->
+  <div class="mid-section">
+    <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
+    <div class="logo-text" style="font-size:20px">J.P. MORGAN</div>
+    <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
+  </div>
+  
+  <div class="video-drop">
+    [ DROP YOUTUBE VIDEO EMBED HERE ]
+  </div>
+
+  <br>
+
+  <!-- PRO FORMA ENGINE -->
+  <div class="section-box">
+    <h3>5. 10-Year Pro Forma Projection</h3>
+    
+    <div class="kpi-row">
+      <div class="kpi"><span>Initial Equity</span><strong id="k_eq">-</strong></div>
+      <div class="kpi"><span>IRR (Levered)</span><strong id="k_irr">-</strong></div>
+      <div class="kpi"><span>Equity Multiple</span><strong id="k_em">-</strong></div>
+      <div class="kpi"><span>Avg Cash/Cash</span><strong id="k_coc">-</strong></div>
+      <div class="kpi"><span>Exit Price (Yr10)</span><strong id="k_exit">-</strong></div>
+    </div>
+
+    <div style="overflow-x:auto">
+      <table id="proTable">
+        <thead>
+          <!-- JS Populated -->
+        </thead>
+        <tbody>
+          <!-- JS Populated -->
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
   <footer>
     <div><a href="https://www.coffeebarconnoisseur.com">coffeebarconnoisseur.com</a> · <a href="https://www.coffeebarroasters.com">coffeebarroasters.com</a> · <a href="https://www.dividond.com">dividond.com</a> · <a href="https://www.decodedmusic.com">decodedmusic.com</a></div>
     <div style="margin-top:6px"><a href="https://www.youtube.com/@designrenovate">YouTube — DesignRenovate</a></div>
   </footer>
+
 </div>
 
 <script>
-// Helpers
-function toNum(v){return typeof v==='number'?v: (v===''?0:parseFloat(String(v).replace(/[,\$]/g,''))||0)}
-function fmt(n){ if(n===null||n===undefined) return '0'; return (Math.round(n)).toLocaleString(); }
+/* --- HELPERS --- */
+const $ = id => document.getElementById(id);
+const toNum = val => parseFloat(String(val).replace(/[,\$]/g,'')) || 0;
+const fmt = (n, d=0) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
 
-// Update monthly totals (calculated from PRO FORMA rent)
-function updateUnitTotals(){
-  const rows = document.querySelectorAll('#unitBody tr');
-  let unitTotal=0; let sqftTotal=0; let rentMonthlyTotal=0;
-  rows.forEach((r,idx)=>{
-    const count = toNum(r.querySelector('.u-count').value);
-    const sqft = toNum(r.querySelector('.u-sqft').value);
-    const pro = toNum(r.querySelector('.u-pro').value);
-    const monthly = count * pro;
-    r.querySelector('td.formula').textContent = fmt(monthly);
-    unitTotal += count; sqftTotal += sqft*count; rentMonthlyTotal += monthly;
-  });
-  document.getElementById('unitTotal').textContent = unitTotal;
-  document.getElementById('sqftTotal').textContent = fmt(sqftTotal);
-  document.getElementById('rentTotal').textContent = fmt(rentMonthlyTotal);
-  return {rentMonthlyTotal,unitTotal,sqftTotal};
+/* --- FINANCIAL MATH --- */
+function PMT(rate, nper, pv) {
+  if(!rate) return -(pv/nper);
+  const r = rate/12; 
+  const n = nper*12;
+  return - (pv * r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
 }
 
-// PMT and IRR
-function pmty(rate, nper, pv){ if(rate<=0) return -(pv)/nper; const r = rate/12; return -(pv*r*Math.pow(1+r,nper))/(Math.pow(1+r,nper)-1); }
-function irr(cashflows, guess=0.12){ let x0=guess; for(let i=0;i<200;i++){ let f=0, df=0; for(let t=0;t<cashflows.length;t++){ f += cashflows[t]/Math.pow(1+x0,t); df += -t*cashflows[t]/Math.pow(1+x0,t+1);} const x1 = x0 - f/df; if(!isFinite(x1)) break; if(Math.abs(x1-x0) < 1e-6) return x1; x0=x1;} return NaN; }
-
-// Calculate In: copies In-place rents to Pro Forma rents (if user chooses), then populates pro forma for 10 years
-function calculateIn(){
-  document.querySelectorAll('#unitBody tr').forEach(r=>{
-    const cur = r.querySelector('.u-cur').value;
-    if(cur !== undefined && cur !== null && cur !== ''){
-      r.querySelector('.u-pro').value = cur;
+function IRR(values, guess=0.1) {
+  const maxIter = 1000; const tol = 1e-6;
+  let x0 = guess;
+  for(let i=0; i<maxIter; i++){
+    let f=0, df=0;
+    for(let j=0; j<values.length; j++){
+      f += values[j]/Math.pow(1+x0, j);
+      df += -j*values[j]/Math.pow(1+x0, j+1);
     }
+    let x1 = x0 - f/df;
+    if(Math.abs(x1-x0) < tol) return x1;
+    x0 = x1;
+  }
+  return 0;
+}
+
+/* --- MAIN CALCULATION --- */
+function calculate() {
+  // 1. Unit Mix Logic
+  let totalMonthly = 0;
+  let totalCur = 0, totalPro = 0;
+  document.querySelectorAll('#unitBody tr').forEach(row => {
+    const cnt = toNum(row.querySelector('.u-cnt').value);
+    const cur = toNum(row.querySelector('.u-cur').value);
+    const pro = toNum(row.querySelector('.u-pro').value);
+    
+    // Formula: Pro Rent * Count
+    const lineTotal = pro * cnt;
+    row.querySelector('.u-tot').textContent = fmt(lineTotal);
+    
+    totalMonthly += lineTotal;
+    totalCur += cur * cnt;
+    totalPro += pro * cnt;
   });
-  recalc(true);
-}
+  
+  $('t_cur').textContent = fmt(totalCur);
+  $('t_pro').textContent = fmt(totalPro);
+  $('t_tot').textContent = fmt(totalMonthly);
 
-function recalc(isCalculateIn){
-  const unitInfo = updateUnitTotals();
-  const rentMonthlyTotal = unitInfo.rentMonthlyTotal;
-  const purchase = toNum(document.getElementById('purchasePrice').value);
-  const closingPct = toNum(document.getElementById('closingPct').value)/100;
-  const renovation = toNum(document.getElementById('renovation').value);
-  const totalBasis = purchase + (purchase*closingPct) + renovation;
-  document.getElementById('totalBasis').value = fmt(totalBasis);
+  // 2. Acquisition & Debt
+  const price = toNum($('i_price').value);
+  const close = price * (toNum($('i_close').value)/100);
+  const reno = toNum($('i_reno').value);
+  const basis = price + close + reno;
+  $('o_basis').value = fmt(basis);
 
-  // loan amount formula (primary from left LTV)
-  const ltv = toNum(document.getElementById('ltv').value)/100;
-  const loan = purchase * ltv;
-  document.getElementById('loanAmount').value = fmt(loan);
+  const loan = price * (toNum($('i_ltv').value)/100);
+  $('o_loan').value = fmt(loan);
+  
+  const rate = toNum($('i_rate').value)/100;
+  const amort = toNum($('i_amort').value);
+  // Calculate annual debt service
+  let annualDebt = 0;
+  if(amort > 0) {
+    annualDebt = Math.abs(PMT(rate, amort, loan)) * 12;
+  } else {
+    annualDebt = loan * rate; // Interest Only
+  }
+  $('o_debt').value = fmt(annualDebt);
 
-  // inputs for year math
-  const interest = toNum(document.getElementById('interestRate').value)/100;
-  const otherMonthly = toNum(document.getElementById('otherIncome').value);
-  const vacancy = toNum(document.getElementById('vacancy').value)/100;
-  const units = toNum(document.getElementById('totalUnits').value);
-  const propTaxPct = toNum(document.getElementById('propTaxPct').value)/100;
-  const insPerUnit = toNum(document.getElementById('insPerUnit').value);
-  const mgmtPct = toNum(document.getElementById('mgmtPct').value)/100;
-  const repairs = toNum(document.getElementById('repairsPerUnit').value);
-  const util = toNum(document.getElementById('utilPerUnit').value);
-  const assetPct = toNum(document.getElementById('assetPct').value)/100;
-  const improvePct = toNum(document.getElementById('improvePct').value)/100;
-  const rentGrowth = toNum(document.getElementById('rentGrowth').value)/100;
-  const expenseGrowth = toNum(document.getElementById('expenseGrowth').value)/100;
-  const amort = toNum(document.getElementById('amortYears').value);
+  // 3. 10-Year Pro Forma
+  const years = 10;
+  const growth = toNum($('i_vac_gro').value)/100; // Use same % for vacancy and growth for simplicity
+  const vacancyRate = toNum($('i_vac_gro').value)/100;
+  const otherIncMo = toNum($('i_other').value);
+  const taxStart = price * (toNum($('i_tax').value)/100);
+  
+  // Expense inputs (Sum of unit based expenses)
+  // Hardcoding unit count to 50 based on prompt inputs if dynamic count isn't needed globally, 
+  // but better to sum the 'cnt' from table.
+  let unitCount = 0;
+  document.querySelectorAll('.u-cnt').forEach(i => unitCount += toNum(i.value));
+  
+  const insStart = toNum($('i_ins').value) * unitCount;
+  const rmStart = toNum($('i_rm_util').value) * unitCount;
+  const mgmtPct = toNum($('i_mgmt').value)/100;
 
-  const years = 10; const gpr = [], oi = [], vac = [], egi = [], totExp = [], noi = [], debt = [], capres = [], cf = [], taxable = [], taxliab = [], ncf = [];
+  let d_gpr=[], d_egi=[], d_exp=[], d_noi=[], d_cf=[];
 
-  for(let y=0;y<years;y++){
-    const gf = Math.pow(1+rentGrowth,y);
-    gpr[y] = rentMonthlyTotal * 12 * gf;
-    oi[y] = otherMonthly * 12 * Math.pow(1+rentGrowth,y);
-    vac[y] = - (gpr[y] + oi[y]) * vacancy;
-    egi[y] = gpr[y] + oi[y] + vac[y];
+  for(let y=1; y<=years; y++) {
+    // Revenue
+    // Year 1 = Base, Year 2+ = Growth
+    const gf = Math.pow(1.03, y-1); // 3% Expense growth standard
+    const rg = Math.pow(1+growth, y-1); // Revenue growth
 
-    const propTax = purchase * propTaxPct * Math.pow(1+expenseGrowth,y);
-    const insurance = insPerUnit * units * Math.pow(1+expenseGrowth,y);
-    const mgmt = egi[y] * mgmtPct;
-    const rep = repairs * units * Math.pow(1+expenseGrowth,y);
-    const utilities = util * units * Math.pow(1+expenseGrowth,y);
-    const asset = egi[y] * assetPct;
-    totExp[y] = propTax + insurance + mgmt + rep + utilities + asset;
-    noi[y] = egi[y] - totExp[y];
+    const gpr = (totalMonthly * 12) * rg;
+    const other = (otherIncMo * 12) * rg;
+    const vac = -(gpr + other) * vacancyRate;
+    const egi = gpr + other + vac;
 
-    if(amort===0) debt[y] = loan * interest; else debt[y] = - pmty(interest, amort*12, loan) * 12;
-    capres[y] = - (toNum(document.getElementById('turnPerUnit').value) * units);
-    cf[y] = noi[y] - debt[y] + capres[y];
+    // Expenses
+    const tax = taxStart * gf; // Prop 13 style or standard 2-3%
+    const ins = insStart * gf;
+    const rm = rmStart * gf;
+    const mgmt = egi * mgmtPct;
+    const totalExp = tax + ins + rm + mgmt;
 
-    // tax analysis
-    const mortgageInterest = loan * interest; // simplification
-    const buildingValue = purchase * improvePct;
-    const depreciation = buildingValue / toNum(document.getElementById('deprLife').value);
-    taxable[y] = noi[y] - mortgageInterest - depreciation;
-    taxliab[y] = taxable[y] * (toNum(document.getElementById('taxRate').value)/100);
-    ncf[y] = cf[y];
+    const noi = egi - totalExp;
+    const cf = noi - annualDebt; // Pre-tax cash flow
+
+    d_gpr.push(gpr); d_egi.push(egi); d_exp.push(totalExp); d_noi.push(noi); d_cf.push(cf);
   }
 
-  // Populate pro forma table and Inputs' Year1 summary fields
-  for(let y=1;y<=10;y++){
-    document.getElementById('gpr'+y).textContent = fmt(gpr[y-1]);
-    document.getElementById('oi'+y).textContent = fmt(oi[y-1]);
-    document.getElementById('vac'+y).textContent = fmt(vac[y-1]);
-    document.getElementById('egi'+y).textContent = fmt(egi[y-1]);
-    document.getElementById('tax'+y).textContent = fmt(Math.round(purchase * propTaxPct * Math.pow(1+expenseGrowth,y-1)));
-    document.getElementById('ins'+y).textContent = fmt(Math.round(insPerUnit * units * Math.pow(1+expenseGrowth,y-1)));
-    document.getElementById('mgmt'+y).textContent = fmt(Math.round(egi[y-1]*mgmtPct));
-    document.getElementById('rep'+y).textContent = fmt(Math.round(repairs * units * Math.pow(1+expenseGrowth,y-1)));
-    document.getElementById('util'+y).textContent = fmt(Math.round(util * units * Math.pow(1+expenseGrowth,y-1)));
-    document.getElementById('asset'+y).textContent = fmt(Math.round(egi[y-1]*assetPct));
-    document.getElementById('totexp'+y).textContent = fmt(Math.round(totExp[y-1]));
-    document.getElementById('noi'+y).textContent = fmt(Math.round(noi[y-1]));
-    document.getElementById('debt'+y).textContent = fmt(Math.round(-debt[y-1]));
-    document.getElementById('capres'+y).textContent = fmt(Math.round(capres[y-1]));
-    document.getElementById('cf'+y).textContent = fmt(Math.round(cf[y-1]));
-    document.getElementById('taxable'+y).textContent = fmt(Math.round(taxable[y-1]));
-    document.getElementById('taxliab'+y).textContent = fmt(Math.round(taxliab[y-1]));
-    document.getElementById('ncf'+y).textContent = fmt(Math.round(ncf[y-1]));
-  }
-
-  // Fill calculated Year1 totals in Inputs section
-  document.getElementById('propTaxYr1').value = fmt(Math.round(purchase * propTaxPct));
-  document.getElementById('insYr1').value = fmt(Math.round(insPerUnit * units));
-  document.getElementById('repYr1').value = fmt(Math.round(repairs * units));
-  document.getElementById('utilYr1').value = fmt(Math.round(util * units));
-  document.getElementById('propMgmtYr1').value = fmt(Math.round(( (rentMonthlyTotal*12 + otherMonthly*12) * mgmtPct )));
-  document.getElementById('assetMgmtYr1').value = fmt(Math.round(( (rentMonthlyTotal*12 + otherMonthly*12) * assetPct )));
-
-  // KPIs and returns
-  const initialEquity = totalBasis - loan; // equity = total basis - loan
-  // create cashflows for IRR: Year0 = -initialEquity, Year1..Year10 = ncf
-  const cashflows = [-initialEquity].concat(ncf.map(v=>Math.round(v)));
-  const noiYear10 = noi[9]||0; const noiYear11 = noiYear10 * 1.03; const exitCap = 0.045; const exitPrice = noiYear11 / exitCap; const sellingCosts = exitPrice * 0.02; const loanPayoff = loan; const netProceeds = exitPrice - sellingCosts - loanPayoff;
-  cashflows[cashflows.length-1] += Math.round(netProceeds);
-  const irrVal = irr(cashflows);
-  const em = (ncf.reduce((a,b)=>a+b,0) + netProceeds)/initialEquity;
-  const avgCoc = ((ncf.reduce((a,b)=>a+b,0)/10)/initialEquity)*100;
-
-  document.getElementById('k_purchase').textContent = '$'+fmt(purchase);
-  document.getElementById('k_equity').textContent = '$'+fmt(Math.round(initialEquity));
-  document.getElementById('k_irr').textContent = isNaN(irrVal)?'—':((irrVal*100).toFixed(1)+'%');
-  document.getElementById('k_em').textContent = isFinite(em)?em.toFixed(2)+'x':'—';
-  document.getElementById('k_coc').textContent = isFinite(avgCoc)?avgCoc.toFixed(1)+'%':'—';
+  renderTable(d_gpr, d_egi, d_exp, d_noi, annualDebt, d_cf);
+  updateKPIs(basis, loan, d_cf, d_noi[9]);
 }
 
-// wire up events
-function attachEvents(){
-  document.getElementById('recalcBtn').addEventListener('click',()=>recalc(false));
-  document.getElementById('calcInBtn').addEventListener('click',calculateIn);
-  document.getElementById('exportBtn').addEventListener('click',exportCSV);
-  document.getElementById('resetBtn').addEventListener('click',()=>location.reload());
-  document.querySelectorAll('#unitBody input').forEach(i=>i.addEventListener('input',updateUnitTotals));
-  document.querySelectorAll('.input-yellow').forEach(i=>i.addEventListener('input',()=>{ /* live preview formulas */ recalc(false);}));
+function renderTable(gpr, egi, exp, noi, debt, cf) {
+  const thead = $('proTable').querySelector('thead');
+  const tbody = $('proTable').querySelector('tbody');
+  
+  let h = `<tr><th style="min-width:120px">Item</th>`;
+  for(let i=1; i<=10; i++) h += `<th>Year ${i}</th>`;
+  h += `</tr>`;
+  thead.innerHTML = h;
+
+  const mkRow = (lbl, data, cls='') => {
+    let r = `<tr class="${cls}"><td>${lbl}</td>`;
+    data.forEach(v => r += `<td class="num">${fmt(v)}</td>`);
+    return r + `</tr>`;
+  };
+
+  let b = '';
+  b += mkRow('Gross Potential Rent', gpr);
+  b += mkRow('Effective Gross Inc', egi, 'highlight-row');
+  b += mkRow('Total Expenses', exp.map(x=>-x)); // Show as negative for visual? Or positive in calc? Usually expense is positive number subtracted. Let's show standard accounting (positive number implied deduction).
+  b += mkRow('Net Operating Income', noi, 'highlight-row');
+  b += mkRow('Debt Service', Array(10).fill(-debt));
+  b += mkRow('CASH FLOW', cf, 'highlight-row');
+  
+  tbody.innerHTML = b;
 }
 
-function exportCSV(){
-  const rows = [];
-  rows.push(['Line Item','Year1','Year2','Year3','Year4','Year5','Year6','Year7','Year8','Year9','Year10'].join(','));
-  const tb = document.getElementById('proTable');
-  for(let r=0;r<tb.tBodies[0].rows.length;r++){
-    const row = tb.tBodies[0].rows[r]; const cols=[row.cells[0].textContent.trim().replace(/,/g,'')]; for(let c=1;c<row.cells.length;c++) cols.push(row.cells[c].textContent.trim().replace(/,/g,'')); rows.push(cols.join(',')); }
-  const csv = rows.join('
-'); const blob = new Blob([csv],{type:'text/csv'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='proforma_10yr.csv'; a.click(); URL.revokeObjectURL(url);
+function updateKPIs(basis, loan, cfs, noi10) {
+  const equity = basis - loan;
+  $('k_eq').textContent = '$' + fmt(equity);
+
+  // Exit
+  const cap = 0.05; // 5% exit cap assumption
+  const exitPrice = noi10 / cap;
+  const netSale = exitPrice * 0.98 - loan; // 2% cost of sale
+  
+  // IRR Stream
+  let stream = [-equity, ...cfs];
+  stream[10] += netSale;
+  
+  const irr = IRR(stream);
+  const mult = (cfs.reduce((a,b)=>a+b,0) + netSale) / equity;
+  const avgCoc = (cfs.reduce((a,b)=>a+b,0)/10) / equity;
+
+  $('k_irr').textContent = (irr*100).toFixed(2) + '%';
+  $('k_em').textContent = mult.toFixed(2) + 'x';
+  $('k_coc').textContent = (avgCoc*100).toFixed(2) + '%';
+  $('k_exit').textContent = '$' + fmt(exitPrice);
 }
 
-// init
-attachEvents(); updateUnitTotals();
+/* --- EVENTS --- */
+document.addEventListener('DOMContentLoaded', () => {
+  const inputs = document.querySelectorAll('input');
+  inputs.forEach(i => i.addEventListener('input', calculate));
+
+  $('btnCalcIn').addEventListener('click', () => {
+    document.querySelectorAll('#unitBody tr').forEach(r => {
+      const cur = r.querySelector('.u-cur').value;
+      if(cur) r.querySelector('.u-pro').value = cur;
+    });
+    calculate();
+  });
+  
+  $('btnReset').addEventListener('click', () => location.reload());
+
+  $('btnExport').addEventListener('click', () => {
+    let csv = [];
+    document.querySelectorAll('#proTable tr').forEach(tr => {
+      let cols = Array.from(tr.querySelectorAll('td,th')).map(td => '"'+td.innerText.replace(/,/g,'')+'"');
+      csv.push(cols.join(','));
+    });
+    const blob = new Blob([csv.join('\n')], {type:'text/csv'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href=url; a.download='jpm_model_export.csv'; a.click();
+  });
+
+  calculate(); // Init
+});
 </script>
 </body>
 </html>

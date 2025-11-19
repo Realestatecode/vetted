@@ -7,7 +7,7 @@
 
   <!-- SEO -->
   <meta name="description" content="Financial insights and real estate investment strategies for the modern investor. Los Angeles, California, and Global Markets." />
-  <meta name="keywords" content="finance, hotels, apartments, multifamily, Commercial Real Estate, real estate investing, Los Angeles, inflation hedge, passive income, realfimo" />
+  <meta name="keywords" content="finance, CRE, real estate investing, Los Angeles, inflation hedge, passive income, realfimodel" />
 
   <!-- Fonts: Playfair (Vogue Style) & Inter (Bank Style) -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -40,11 +40,10 @@
     body { background: var(--white); color: var(--black); font-family: var(--font-sans); line-height: 1.6; -webkit-font-smoothing: antialiased; }
     
     a { color: inherit; text-decoration: none; transition: 0.2s; }
-    a:hover { color: var(--dark-navy); opacity: 0.7; }
+    a:hover { color: var(--dark-navy); text-decoration: underline; }
 
     /* LAYOUT UTILS */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
-    .grid { display: grid; gap: 40px; }
     
     /* HEADER */
     header { border-bottom: 4px double var(--black); padding: 30px 0 20px; text-align: center; margin-bottom: 40px; }
@@ -54,15 +53,14 @@
     /* NAV */
     nav { margin-top: 25px; border-top: 1px solid var(--border); padding-top: 15px; display: flex; justify-content: center; gap: 30px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
     nav a { position: relative; }
-    nav a::after { content: ''; position: absolute; width: 0; height: 1px; bottom: -4px; left: 0; background: var(--black); transition: 0.3s; }
-    nav a:hover::after { width: 100%; }
+    nav a:hover { text-decoration: none; color: var(--dark-navy); opacity: 0.7; }
 
     /* HERO */
     .hero { text-align: center; padding: 60px 0; max-width: 800px; margin: 0 auto; }
     .hero-eyebrow { font-size: 0.75rem; letter-spacing: 2px; text-transform: uppercase; color: var(--dark-navy); font-weight: 700; margin-bottom: 15px; }
     .hero-lead { font-family: var(--font-serif); font-size: 2.2rem; line-height: 1.3; margin-bottom: 20px; font-weight: 400; }
     .cta-btn { display: inline-block; background: var(--black); color: var(--white); padding: 15px 30px; font-size: 0.8rem; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; margin-top: 20px; border: 1px solid var(--black); }
-    .cta-btn:hover { background: var(--white); color: var(--black); }
+    .cta-btn:hover { background: var(--white); color: var(--black); text-decoration: none; }
 
     /* MAGAZINE LAYOUT */
     .magazine-layout { display: grid; grid-template-columns: 2fr 1fr; gap: 60px; margin-top: 40px; border-top: 1px solid var(--black); padding-top: 40px; }
@@ -99,6 +97,7 @@
     /* FOOTER */
     footer { background: var(--gray); padding: 60px 0; margin-top: 80px; font-size: 0.8rem; color: #666; border-top: 1px solid var(--border); }
     .footer-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; }
+    .network-links a { margin-right: 10px; display: inline-block; color: var(--dark-navy); font-weight: 500; }
     
     /* RESPONSIVE */
     @media(max-width: 768px) {
@@ -121,8 +120,7 @@
       <nav>
         <a href="#subscribe">Subscribe</a>
         <a href="#opportunities">Opportunities</a>
-        <!-- LINK TO REALFIMODEL.COM ADDED HERE -->
-        <a href="https://www.realfimodel.com" target="https://www.realfimodel.com" style="color:var(--dark-navy);"> Real Estate Financial Models (Realfimo)</a>
+        <a href="https://www.realfimodel.com" target="_blank" style="color:var(--dark-navy);">Models (Realfimodel)</a>
         <a href="#contact">Contact</a>
       </nav>
     </div>
@@ -169,11 +167,11 @@
           <h4 class="sidebar-title">Subscribe Weekly</h4>
           <p style="font-size:0.9rem; margin-bottom:15px;">Join our vetted list of investors receiving off-market deals.</p>
           
-          <!-- IMPORTANT: Replace the action URL below with your Formspree URL -->
+          <!-- FORMSPREE -->
           <form action="https://formspree.io/f/xanvbedp" method="POST">
             <input type="text" name="name" placeholder="Full Name" required>
             <input type="email" name="email" placeholder="Email Address" required>
-            <!-- Hidden subject field for email clarity -->
+            <!-- Hidden subject field -->
             <input type="hidden" name="_subject" value="New Subscription - RE Edge">
             <button type="submit">Subscribe</button>
           </form>
@@ -194,12 +192,19 @@
           </ul>
         </div>
 
+        <!-- CONTACT BLOCK -->
         <div class="sidebar-block" id="contact">
           <h4 class="sidebar-title">Contact</h4>
           <p style="font-size:0.9rem;">
             <strong>Tel:</strong> <a href="tel:+13107287974">310.728.7974</a><br>
             <strong>Email:</strong> vetted@algocontentseo.com
           </p>
+        </div>
+
+        <!-- APPLE MUSIC EMBED BLOCK -->
+        <div class="sidebar-block">
+          <h4 class="sidebar-title">Featured Album</h4>
+          <iframe allow="autoplay *; encrypted-media *; fullscreen *; clipboard-write" frameborder="0" height="450" style="width:100%;max-width:660px;overflow:hidden;border-radius:10px;" sandbox="allow-forms allow-popups allow-same-origin allow-scripts allow-storage-access-by-user-activation allow-top-navigation-by-user-activation" src="https://embed.music.apple.com/us/album/rooftop-confessions/1842910284"></iframe>
         </div>
 
       </aside>
@@ -233,7 +238,7 @@
       <h4 class="sidebar-title">Property Intake</h4>
       <p style="font-size:0.9rem; margin-bottom:20px;">Submit a property for preliminary review.</p>
       
-      <!-- IMPORTANT: Replace the action URL below with your Formspree URL -->
+      <!-- FORMSPREE -->
       <form id="propertyForm" action="https://formspree.io/f/xanvbedp" method="POST">
         <label style="font-size:0.8rem; font-weight:600;">Your Email</label>
         <input type="email" name="email" required>
@@ -253,12 +258,29 @@
 
   <footer>
     <div class="container footer-grid">
+      
+      <!-- Left Footer: Network Links -->
       <div>
-        <h5 style="text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Real Estate Edge</h5>
-        <p>© 2025 REpitch is managed by LORM LLC.<br>All rights reserved.</p>
+        <h5 style="text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">The Network</h5>
+        <div class="network-links" style="font-size:0.8rem; line-height:1.8;">
+          <a href="https://www.coffeebarconnoisseur.com" target="_blank">coffeebarconnoisseur.com</a> · 
+          <a href="https://www.coffeebarroasters.com" target="_blank">coffeebarroasters.com</a> · 
+          <a href="https://www.dividond.com" target="_blank">dividond.com</a> · 
+          <a href="https://www.decodedmusic.com" target="_blank">decodedmusic.com</a>
+          <br>
+          <a href="https://www.youtube.com/@designrenovate" target="_blank">YouTube — DesignRenovate</a>
+        </div>
+        
+        <div style="margin-top:20px; font-size:0.75rem;">
+           © 2025 REpitch is managed by LORM LLC. All rights reserved.
+        </div>
       </div>
+
+      <!-- Right Footer: Disclaimer & Legal -->
       <div>
+        <h5 style="text-transform:uppercase; letter-spacing:1px; margin-bottom:15px;">Disclaimer & Legal</h5>
         <p style="font-size:0.75rem; opacity:0.7;">
+          By using this website, you accept our <a href="terms_Version3.html" style="text-decoration:underline;">Terms of Use</a> and <a href="privacy_Version3.html" style="text-decoration:underline;">Privacy Policy</a>.
           The information provided in this newsletter is based on sources we believe to be accurate; however, we make no guarantees regarding its completeness. This content is for informational purposes only. Past performance is no guarantee of future results.
         </p>
       </div>

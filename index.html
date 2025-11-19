@@ -11,7 +11,7 @@
 <style>
   :root{--bg:#ffffff;--accent:#0ea5a4;--muted:#475569;--yellow:#fff8dc;--formula:#f3f6fb;--drop:#fde68a}
   html,body{height:100%;margin:0;background:var(--bg);font-family:Inter,system-ui,Arial,sans-serif;color:#0f172a}
-  .wrap{max-width:1024px;margin:10px auto;padding:10px}
+  .wrap{max-width:1100px;margin:10px auto;padding:10px}
   header{display:flex;align-items:center;gap:12px}
   #logo{height:48px;width:48px;object-fit:contain}
   h1{font-size:18px;margin:0}
@@ -26,20 +26,19 @@
   label{font-size:12px;color:var(--muted);margin-right:8px}
   input[type=number], input[type=text], select{padding:6px;border-radius:6px;border:1px solid #e6eef8;width:120px}
   input.input-yellow{background:var(--yellow)}
-  .formula{background:var(--formula)}
+  input.readonly{background:var(--formula);border:1px dashed #dbeafe}
   .units-table{width:100%;border-collapse:collapse;margin-top:6px}
   .units-table th,.units-table td{padding:6px;border-bottom:1px solid #f3f6fb;font-size:12px}
   .units-table td input{width:80px}
   .units-table td.input{background:var(--yellow)}
 
-  table.pro{border-collapse:collapse;width:100%;min-width:700px;margin-top:8px}
+  table.pro{border-collapse:collapse;width:100%;min-width:900px;margin-top:8px}
   table.pro th, table.pro td{padding:6px;border:1px solid #eef4fb;font-size:12px;text-align:right}
   table.pro th{background:#fbfdff;color:var(--muted);text-align:left}
 
   .kpis{display:flex;gap:8px;margin-top:10px}
   .kpi{flex:1;padding:10px;border-radius:8px;background:linear-gradient(180deg,#fff,#fbfdff);text-align:center}
 
-  /* center area for youtube video drop zone */
   .media-grid{display:grid;grid-template-columns:1fr 480px 1fr;gap:12px;margin-top:12px}
   .video-drop{border:3px dashed var(--drop);border-radius:8px;min-height:200px;display:flex;align-items:center;justify-content:center;background:linear-gradient(180deg,rgba(253,230,138,0.15),rgba(255,255,255,0.02));color:#92400e}
   .video-drop .hint{font-weight:700}
@@ -73,31 +72,55 @@
   </header>
 
   <div class="layout">
-    <!-- Left: Inputs + Operating Expenses (moved here, marked yellow) -->
+    <!-- Left: Inputs + Operating Expenses (YR1) -->
     <div class="panel">
       <h3 style="margin:0 0 6px">TAB 1 — INPUTS (Edit yellow fields)</h3>
-      <div class="meta">Operating expenses moved here — these are inputs. Use "Calculate In" to push rents into the Pro Forma.</div>
+      <div class="meta">Only edit yellow fields. Formula fields are grey and auto-calculated.</div>
 
       <div style="margin-top:8px">
-        <div class="compact-row"><label>Project Name</label><input id="projectName" type="text" class="input-yellow" value="xyz"></div>
+        <h4 style="margin:6px 0">A. Property & Acquisition</h4>
+        <div class="compact-row"><label>Project Name</label><input id="projectName" type="text" class="input-yellow" value="1045 Ocean"></div>
         <div class="compact-row"><label>Total Units</label><input id="totalUnits" type="number" class="input-yellow" value="50"></div>
         <div class="compact-row"><label>Rentable Sq Ft</label><input id="rentableSqft" type="number" class="input-yellow" value="51745"></div>
         <div class="compact-row"><label>Purchase Price</label><input id="purchasePrice" type="number" class="input-yellow" value="20000000"></div>
         <div class="compact-row"><label>Closing Costs %</label><input id="closingPct" type="number" class="input-yellow" value="1"></div>
         <div class="compact-row"><label>Renovation Budget</label><input id="renovation" type="number" class="input-yellow" value="500000"></div>
-        <div class="compact-row"><label>Total Initial Basis</label><input id="totalBasis" class="formula" readonly value="20,700,000"></div>
-        <hr>
-        <h4 style="margin:8px 0 6px">OPERATING EXPENSES (YR1) — Inputs</h4>
-        <div class="compact-row"><label>Prop Taxes %</label><input id="propTaxPct" type="number" class="input-yellow" value="1.25"></div>
+        <div class="compact-row"><label>Total Initial Basis</label><input id="totalBasis" class="readonly" readonly value="0"></div>
+
+        <h4 style="margin:10px 0 6px">B. Financing (Debt)</h4>
+        <div class="compact-row"><label>LTV %</label><input id="ltv" type="number" class="input-yellow" value="60"></div>
+        <div class="compact-row"><label>Loan Amount</label><input id="loanAmount" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Interest Rate %</label><input id="interestRate" type="number" class="input-yellow" value="5.5"></div>
+        <div class="compact-row"><label>Amortization (yrs)</label><input id="amortYears" type="number" class="input-yellow" value="30"></div>
+        <div class="compact-row"><label>Loan Term (yrs)</label><input id="loanTerm" type="number" class="input-yellow" value="10"></div>
+
+        <h4 style="margin:10px 0 6px">D. Other Income & Growth</h4>
+        <div class="compact-row"><label>Other Income (monthly)</label><input id="otherIncome" type="number" class="input-yellow" value="10500"></div>
+        <div class="compact-row"><label>Vacancy %</label><input id="vacancy" type="number" class="input-yellow" value="5"></div>
+        <div class="compact-row"><label>Rent Growth %</label><input id="rentGrowth" type="number" class="input-yellow" value="5"></div>
+        <div class="compact-row"><label>Expense Growth %</label><input id="expenseGrowth" type="number" class="input-yellow" value="3"></div>
+
+        <h4 style="margin:10px 0 6px">E. Operating Expenses (Year 1) — Inputs</h4>
+        <div class="compact-row"><label>Property Taxes %</label><input id="propTaxPct" type="number" class="input-yellow" value="1.25"></div>
         <div class="compact-row"><label>Insurance $/unit/yr</label><input id="insPerUnit" type="number" class="input-yellow" value="500"></div>
         <div class="compact-row"><label>Mgmt Fee % of EGI</label><input id="mgmtPct" type="number" class="input-yellow" value="4"></div>
         <div class="compact-row"><label>Repairs $/unit/yr</label><input id="repairsPerUnit" type="number" class="input-yellow" value="750"></div>
         <div class="compact-row"><label>Utilities $/unit/yr</label><input id="utilPerUnit" type="number" class="input-yellow" value="600"></div>
         <div class="compact-row"><label>Turn/Leasing $/unit/yr</label><input id="turnPerUnit" type="number" class="input-yellow" value="200"></div>
         <div class="compact-row"><label>Asset Mgmt % of EGI</label><input id="assetPct" type="number" class="input-yellow" value="1"></div>
-        <div class="compact-row"><label>Vacancy %</label><input id="vacancy" type="number" class="input-yellow" value="5"></div>
-        <div class="compact-row"><label>Rent Growth %</label><input id="rentGrowth" type="number" class="input-yellow" value="5"></div>
-        <div class="compact-row"><label>Expense Growth %</label><input id="expenseGrowth" type="number" class="input-yellow" value="3"></div>
+
+        <h4 style="margin:10px 0 6px">F. Tax Assumptions</h4>
+        <div class="compact-row"><label>Improvement %</label><input id="improvePct" type="number" class="input-yellow" value="75"></div>
+        <div class="compact-row"><label>Depreciation Life</label><input id="deprLife" type="number" class="input-yellow" value="27.5"></div>
+        <div class="compact-row"><label>Investor Tax Rate %</label><input id="taxRate" type="number" class="input-yellow" value="35"></div>
+
+        <h4 style="margin:10px 0 6px">Calculated Formulas (Year 1)</h4>
+        <div class="compact-row"><label>Property Taxes (Yr1)</label><input id="propTaxYr1" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Insurance (Yr1)</label><input id="insYr1" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Repairs (Yr1)</label><input id="repYr1" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Utilities (Yr1)</label><input id="utilYr1" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Prop Mgmt Fee (Yr1)</label><input id="propMgmtYr1" class="readonly" readonly value="0"></div>
+        <div class="compact-row"><label>Asset Mgmt Fee (Yr1)</label><input id="assetMgmtYr1" class="readonly" readonly value="0"></div>
       </div>
     </div>
 
@@ -121,32 +144,45 @@
       </table>
 
       <hr style="margin:8px 0">
-      <div class="compact-row"><label>LTV %</label><input id="ltv" type="number" class="input-yellow" value="60"></div>
-      <div class="compact-row"><label>Interest Rate %</label><input id="interestRate" type="number" class="input-yellow" value="5.5"></div>
-      <div class="compact-row"><label>Other Income (monthly)</label><input id="otherIncome" type="number" class="input-yellow" value="10500"></div>
-      <div class="compact-row"><label>Improvement %</label><input id="improvePct" type="number" class="input-yellow" value="75"></div>
+      <div class="compact-row"><label>LTV %</label><input id="ltv2" type="number" class="input-yellow" value="60"></div>
+      <div class="compact-row"><label>Interest Rate %</label><input id="interestRate2" type="number" class="input-yellow" value="5.5"></div>
+      <div class="compact-row"><label>Other Income (monthly)</label><input id="otherIncome2" type="number" class="input-yellow" value="10500"></div>
+      <div class="compact-row"><label>Improvement %</label><input id="improvePct2" type="number" class="input-yellow" value="75"></div>
 
     </div>
 
-    <!-- Pro Forma (2-year projection) full width -->
+    <!-- Pro Forma (10-year projection) full width -->
     <div style="grid-column:1 / -1">
       <div class="panel">
-        <h3 style="margin:0 0 6px">TAB 2 — PRO FORMA (2-Year)</h3>
-        <div class="small meta">"Calculate In" will copy In-place rents into Pro Forma rents (if you choose) and populate Years 1–2.</div>
+        <h3 style="margin:0 0 6px">TAB 2 — PRO FORMA (10-Year)</h3>
+        <div class="meta">Years 1–10 calculation engine. Use Calculate In to copy in-place rents (or edit Pro Forma rents directly).</div>
 
         <table class="pro" id="proTable">
           <thead>
-            <tr><th>Line Item</th><th>Year 1</th><th>Year 2</th></tr>
+            <tr><th>Line Item</th>
+              <th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th>
+              <th>Year 6</th><th>Year 7</th><th>Year 8</th><th>Year 9</th><th>Year 10</th>
+            </tr>
           </thead>
           <tbody>
-            <tr><th style="text-align:left">Gross Potential Rent</th><td class="formula" id="gpr1">0</td><td class="formula" id="gpr2">0</td></tr>
-            <tr><th style="text-align:left">(+) Other Income</th><td class="formula" id="oi1">0</td><td class="formula" id="oi2">0</td></tr>
-            <tr><th style="text-align:left">(-) Vacancy Loss</th><td class="formula" id="vac1">0</td><td class="formula" id="vac2">0</td></tr>
-            <tr><th style="text-align:left">= Effective Gross Income</th><td class="formula" id="egi1">0</td><td class="formula" id="egi2">0</td></tr>
-            <tr><th style="text-align:left">Total Expenses</th><td class="formula" id="totexp1">0</td><td class="formula" id="totexp2">0</td></tr>
-            <tr><th style="text-align:left">= NOI</th><td class="formula" id="noi1">0</td><td class="formula" id="noi2">0</td></tr>
-            <tr><th style="text-align:left">(-) Debt Service</th><td class="formula" id="debt1">0</td><td class="formula" id="debt2">0</td></tr>
-            <tr><th style="text-align:left">= Cash Flow After Debt</th><td class="formula" id="cf1">0</td><td class="formula" id="cf2">0</td></tr>
+            <tr><th style="text-align:left">Gross Potential Rent</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="gpr${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">(+) Other Income</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="oi${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">(-) Vacancy Loss</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="vac${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">= Effective Gross Income</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="egi${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Property Taxes</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="tax${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Insurance</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="ins${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Management Fee</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="mgmt${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Repairs & Maint</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="rep${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Utilities</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="util${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Asset Mgmt / Other</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="asset${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">= Total Expenses</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="totexp${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">= NOI</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="noi${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">(-) Debt Service</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="debt${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">(-) Capital Reserves</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="capres${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">= Cash Flow After Debt</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="cf${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">TAXABLE INCOME</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="taxable${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Tax Liability (Savings)</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="taxliab${i+1}">0</td>`).join('') + "</tr>
+            <tr><th style="text-align:left">Net Cash Flow (for IRR)</th>" + Array.from({length:10},(_,i)=>`<td class="formula" id="ncf${i+1}">0</td>`).join('') + "</tr>
           </tbody>
         </table>
 
@@ -203,26 +239,32 @@ function updateUnitTotals(){
 function pmty(rate, nper, pv){ if(rate<=0) return -(pv)/nper; const r = rate/12; return -(pv*r*Math.pow(1+r,nper))/(Math.pow(1+r,nper)-1); }
 function irr(cashflows, guess=0.12){ let x0=guess; for(let i=0;i<200;i++){ let f=0, df=0; for(let t=0;t<cashflows.length;t++){ f += cashflows[t]/Math.pow(1+x0,t); df += -t*cashflows[t]/Math.pow(1+x0,t+1);} const x1 = x0 - f/df; if(!isFinite(x1)) break; if(Math.abs(x1-x0) < 1e-6) return x1; x0=x1;} return NaN; }
 
-// Calculate In: copies In-place rents to Pro Forma rents if user chooses, then populates pro forma
+// Calculate In: copies In-place rents to Pro Forma rents (if user chooses), then populates pro forma for 10 years
 function calculateIn(){
-  // Option: copy in-place rents to pro-forma (we'll do it by default)
   document.querySelectorAll('#unitBody tr').forEach(r=>{
     const cur = r.querySelector('.u-cur').value;
     if(cur !== undefined && cur !== null && cur !== ''){
       r.querySelector('.u-pro').value = cur;
     }
   });
-  // update totals and populate proforma
   recalc(true);
 }
 
 function recalc(isCalculateIn){
-  // update unit totals from pro-forma rents
   const unitInfo = updateUnitTotals();
   const rentMonthlyTotal = unitInfo.rentMonthlyTotal;
   const purchase = toNum(document.getElementById('purchasePrice').value);
+  const closingPct = toNum(document.getElementById('closingPct').value)/100;
+  const renovation = toNum(document.getElementById('renovation').value);
+  const totalBasis = purchase + (purchase*closingPct) + renovation;
+  document.getElementById('totalBasis').value = fmt(totalBasis);
+
+  // loan amount formula (primary from left LTV)
   const ltv = toNum(document.getElementById('ltv').value)/100;
   const loan = purchase * ltv;
+  document.getElementById('loanAmount').value = fmt(loan);
+
+  // inputs for year math
   const interest = toNum(document.getElementById('interestRate').value)/100;
   const otherMonthly = toNum(document.getElementById('otherIncome').value);
   const vacancy = toNum(document.getElementById('vacancy').value)/100;
@@ -236,10 +278,10 @@ function recalc(isCalculateIn){
   const improvePct = toNum(document.getElementById('improvePct').value)/100;
   const rentGrowth = toNum(document.getElementById('rentGrowth').value)/100;
   const expenseGrowth = toNum(document.getElementById('expenseGrowth').value)/100;
-  const amort = document.getElementById('amortYears')?toNum(document.getElementById('amortYears').value):30;
+  const amort = toNum(document.getElementById('amortYears').value);
 
-  // Year 1 and Year 2 calculations
-  const years = 2; const gpr = [], oi = [], vac = [], egi = [], totExp = [], noi = [], debt = [], cf = [];
+  const years = 10; const gpr = [], oi = [], vac = [], egi = [], totExp = [], noi = [], debt = [], capres = [], cf = [], taxable = [], taxliab = [], ncf = [];
+
   for(let y=0;y<years;y++){
     const gf = Math.pow(1+rentGrowth,y);
     gpr[y] = rentMonthlyTotal * 12 * gf;
@@ -257,30 +299,61 @@ function recalc(isCalculateIn){
     noi[y] = egi[y] - totExp[y];
 
     if(amort===0) debt[y] = loan * interest; else debt[y] = - pmty(interest, amort*12, loan) * 12;
-    cf[y] = noi[y] - debt[y];
+    capres[y] = - (toNum(document.getElementById('turnPerUnit').value) * units);
+    cf[y] = noi[y] - debt[y] + capres[y];
+
+    // tax analysis
+    const mortgageInterest = loan * interest; // simplification
+    const buildingValue = purchase * improvePct;
+    const depreciation = buildingValue / toNum(document.getElementById('deprLife').value);
+    taxable[y] = noi[y] - mortgageInterest - depreciation;
+    taxliab[y] = taxable[y] * (toNum(document.getElementById('taxRate').value)/100);
+    ncf[y] = cf[y];
   }
 
-  // populate pro forma fields formatted with commas
-  for(let y=1;y<=2;y++){
+  // Populate pro forma table and Inputs' Year1 summary fields
+  for(let y=1;y<=10;y++){
     document.getElementById('gpr'+y).textContent = fmt(gpr[y-1]);
     document.getElementById('oi'+y).textContent = fmt(oi[y-1]);
     document.getElementById('vac'+y).textContent = fmt(vac[y-1]);
     document.getElementById('egi'+y).textContent = fmt(egi[y-1]);
-    document.getElementById('totexp'+y).textContent = fmt(totExp[y-1]);
-    document.getElementById('noi'+y).textContent = fmt(noi[y-1]);
-    document.getElementById('debt'+y).textContent = fmt(-Math.round(debt[y-1]||0));
-    document.getElementById('cf'+y).textContent = fmt(cf[y-1]);
+    document.getElementById('tax'+y).textContent = fmt(Math.round(purchase * propTaxPct * Math.pow(1+expenseGrowth,y-1)));
+    document.getElementById('ins'+y).textContent = fmt(Math.round(insPerUnit * units * Math.pow(1+expenseGrowth,y-1)));
+    document.getElementById('mgmt'+y).textContent = fmt(Math.round(egi[y-1]*mgmtPct));
+    document.getElementById('rep'+y).textContent = fmt(Math.round(repairs * units * Math.pow(1+expenseGrowth,y-1)));
+    document.getElementById('util'+y).textContent = fmt(Math.round(util * units * Math.pow(1+expenseGrowth,y-1)));
+    document.getElementById('asset'+y).textContent = fmt(Math.round(egi[y-1]*assetPct));
+    document.getElementById('totexp'+y).textContent = fmt(Math.round(totExp[y-1]));
+    document.getElementById('noi'+y).textContent = fmt(Math.round(noi[y-1]));
+    document.getElementById('debt'+y).textContent = fmt(Math.round(-debt[y-1]));
+    document.getElementById('capres'+y).textContent = fmt(Math.round(capres[y-1]));
+    document.getElementById('cf'+y).textContent = fmt(Math.round(cf[y-1]));
+    document.getElementById('taxable'+y).textContent = fmt(Math.round(taxable[y-1]));
+    document.getElementById('taxliab'+y).textContent = fmt(Math.round(taxliab[y-1]));
+    document.getElementById('ncf'+y).textContent = fmt(Math.round(ncf[y-1]));
   }
 
-  // KPIs
-  document.getElementById('k_purchase').textContent = '$'+fmt(purchase);
-  const initialEquity = purchase - loan; document.getElementById('k_equity').textContent = '$'+fmt(initialEquity);
-  const capRate = 0.045; const noiYear2 = noi[1]||0; const noiYear3 = noiYear2 * 1.03; const exitPrice = noiYear3 / capRate; const sellingCosts = exitPrice * 0.02; const loanPayoff = loan; const netProceeds = exitPrice - sellingCosts - loanPayoff;
-  const cashflows = [-initialEquity, Math.round(cf[0]||0), Math.round((cf[1]||0) + netProceeds)];
+  // Fill calculated Year1 totals in Inputs section
+  document.getElementById('propTaxYr1').value = fmt(Math.round(purchase * propTaxPct));
+  document.getElementById('insYr1').value = fmt(Math.round(insPerUnit * units));
+  document.getElementById('repYr1').value = fmt(Math.round(repairs * units));
+  document.getElementById('utilYr1').value = fmt(Math.round(util * units));
+  document.getElementById('propMgmtYr1').value = fmt(Math.round(( (rentMonthlyTotal*12 + otherMonthly*12) * mgmtPct )));
+  document.getElementById('assetMgmtYr1').value = fmt(Math.round(( (rentMonthlyTotal*12 + otherMonthly*12) * assetPct )));
+
+  // KPIs and returns
+  const initialEquity = totalBasis - loan; // equity = total basis - loan
+  // create cashflows for IRR: Year0 = -initialEquity, Year1..Year10 = ncf
+  const cashflows = [-initialEquity].concat(ncf.map(v=>Math.round(v)));
+  const noiYear10 = noi[9]||0; const noiYear11 = noiYear10 * 1.03; const exitCap = 0.045; const exitPrice = noiYear11 / exitCap; const sellingCosts = exitPrice * 0.02; const loanPayoff = loan; const netProceeds = exitPrice - sellingCosts - loanPayoff;
+  cashflows[cashflows.length-1] += Math.round(netProceeds);
   const irrVal = irr(cashflows);
-  const em = ((cf[0]||0) + (cf[1]||0) + netProceeds)/initialEquity;
-  const avgCoc = (((cf[0]||0) + (cf[1]||0))/2) / initialEquity * 100;
-  document.getElementById('k_irr').textContent = isNaN(irrVal)?'—':( (irrVal*100).toFixed(1) + '%' );
+  const em = (ncf.reduce((a,b)=>a+b,0) + netProceeds)/initialEquity;
+  const avgCoc = ((ncf.reduce((a,b)=>a+b,0)/10)/initialEquity)*100;
+
+  document.getElementById('k_purchase').textContent = '$'+fmt(purchase);
+  document.getElementById('k_equity').textContent = '$'+fmt(Math.round(initialEquity));
+  document.getElementById('k_irr').textContent = isNaN(irrVal)?'—':((irrVal*100).toFixed(1)+'%');
   document.getElementById('k_em').textContent = isFinite(em)?em.toFixed(2)+'x':'—';
   document.getElementById('k_coc').textContent = isFinite(avgCoc)?avgCoc.toFixed(1)+'%':'—';
 }
@@ -292,16 +365,17 @@ function attachEvents(){
   document.getElementById('exportBtn').addEventListener('click',exportCSV);
   document.getElementById('resetBtn').addEventListener('click',()=>location.reload());
   document.querySelectorAll('#unitBody input').forEach(i=>i.addEventListener('input',updateUnitTotals));
+  document.querySelectorAll('.input-yellow').forEach(i=>i.addEventListener('input',()=>{ /* live preview formulas */ recalc(false);}));
 }
 
 function exportCSV(){
   const rows = [];
-  rows.push(['Line Item','Year1','Year2'].join(','));
+  rows.push(['Line Item','Year1','Year2','Year3','Year4','Year5','Year6','Year7','Year8','Year9','Year10'].join(','));
   const tb = document.getElementById('proTable');
   for(let r=0;r<tb.tBodies[0].rows.length;r++){
     const row = tb.tBodies[0].rows[r]; const cols=[row.cells[0].textContent.trim().replace(/,/g,'')]; for(let c=1;c<row.cells.length;c++) cols.push(row.cells[c].textContent.trim().replace(/,/g,'')); rows.push(cols.join(',')); }
   const csv = rows.join('
-'); const blob = new Blob([csv],{type:'text/csv'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='proforma_2yr.csv'; a.click(); URL.revokeObjectURL(url);
+'); const blob = new Blob([csv],{type:'text/csv'}); const url = URL.createObjectURL(blob); const a=document.createElement('a'); a.href=url; a.download='proforma_10yr.csv'; a.click(); URL.revokeObjectURL(url);
 }
 
 // init

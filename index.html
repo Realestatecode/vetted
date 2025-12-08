@@ -146,7 +146,9 @@
         <div class="row"><label>Prop Taxes (% Price)</label><input id="i_tax" type="number" class="yellow" value="1.25"></div>
         <div class="row"><label>Insurance ($/unit)</label><input id="i_ins" type="number" class="yellow" value="500"></div>
         <div class="row"><label>Mgmt Fee (% EGI)</label><input id="i_mgmt" type="number" class="yellow" value="4.0"></div>
-        <div class="row"><label>R&M / Utilities ($/u)</label><input id="i_rm_util" type="number" class="yellow" value="1350"></div>
+        <div class="row"><label>R&amp;M / Utilities ($/u)</label><input id="i_rm_util" type="number" class="yellow" value="1350"></div>
+        <!-- NEW FIXED OPEX LINE ITEM -->
+        <div class="row"><label>Fixed OpEx ($/yr)</label><input id="i_fixed_opex" type="number" class="yellow" value="0"></div>
         <div class="row"><label>Other Income ($/mo)</label><input id="i_other" type="number" class="yellow" value="10500"></div>
         <div class="row"><label>Vacancy / Growth %</label><input id="i_vac_gro" type="number" class="yellow" value="5.0"></div>
       </div>
@@ -210,8 +212,11 @@
           </tr>
         </tbody>
         <tfoot>
+          <!-- UPDATED FOOTER WITH TOTAL UNITS & TOTAL SQFT -->
           <tr>
-            <td colspan="3" style="text-align:right; padding-right:10px;">TOTALS:</td>
+            <td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td>
+            <td class="num" id="t_units">0</td>
+            <td class="num" id="t_sqft">0</td>
             <td class="num" id="t_cur">0</td>
             <td class="num" id="t_pro">0</td>
             <td class="num" id="t_tot" style="background:#f0fdf4; color:#166534">0</td>
@@ -223,6 +228,57 @@
         * <strong>Total/Mo Formula:</strong> Pro Forma Rent × Unit Count.<br>
         * Pro Forma model below annualizes this figure (×12).
       </div>
+
+      <!-- 4B. COMMERCIAL LEASES / RETAIL -->
+      <div class="section-box" style="margin-top:20px;">
+        <h3>4B. Commercial Leases (Ground Floor / Retail)</h3>
+        <table class="unit-table">
+          <thead>
+            <tr>
+              <th style="width:28%">Space</th>
+              <th style="width:10%">Units</th>
+              <th style="width:16%">SqFt</th>
+              <th style="width:18%">In-Place Rent</th>
+              <th style="width:18%; background:#fefce8; color:#b45309">Market Rent</th>
+              <th style="width:10%">Growth %</th>
+              <th style="width:20%">Total/Mo</th>
+            </tr>
+          </thead>
+          <tbody id="commBody">
+            <tr>
+              <td><input type="text" value="Retail 1"></td>
+              <td><input class="yellow c-unit" type="number" value="1"></td>
+              <td><input class="yellow c-sq" type="number" value="2500"></td>
+              <td><input class="yellow c-cur" type="number" value="5000"></td>
+              <td><input class="yellow c-mkt" type="number" value="6000"></td>
+              <td><input class="yellow c-gro" type="number" value="3.0"></td>
+              <td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td>
+            </tr>
+          </tbody>
+          <tfoot>
+            <tr>
+              <td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td>
+              <td class="num" id="c_units_total">0</td>
+              <td class="num" id="c_sqft_total">0</td>
+              <td></td>
+              <td></td>
+              <td></td>
+              <td class="num" id="c_tot_monthly" style="background:#f0fdf4; color:#166534">0</td>
+            </tr>
+          </tfoot>
+        </table>
+        <div style="margin-top:10px; font-size:11px; color:#64748b; line-height:1.4">
+          <div class="row" style="justify-content:space-between; margin-bottom:4px;">
+            <label>Retail 3-Year Cash Flow</label>
+            <input id="retail3" class="readonly" readonly style="width:120px;">
+          </div>
+          <div class="row" style="justify-content:space-between;">
+            <label>Retail 5-Year Cash Flow</label>
+            <input id="retail5" class="readonly" readonly style="width:120px;">
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
 
@@ -239,7 +295,15 @@
   </div>
   
   <div class="video-drop">
-    [ DROP YOUTUBE VIDEO EMBED HERE ]
+    <!-- EMBEDDED YOUTUBE VIDEO -->
+    <iframe width="560" height="315"
+      src="https://www.youtube.com/embed/8zhx59oxXy4"
+      title="YouTube video player"
+      frameborder="0"
+      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+      allowfullscreen
+      style="width:100%; height:100%;">
+    </iframe>
   </div>
 
   <br>
@@ -308,26 +372,73 @@ function IRR(values, guess=0.1) {
 
 /* --- MAIN CALCULATION --- */
 function calculate() {
-  // 1. Unit Mix Logic
-  let totalMonthly = 0;
+  const years = 10;
+
+  // 1. Residential Unit Mix Logic
+  let resMonthly = 0;
   let totalCur = 0, totalPro = 0;
+  let unitCount = 0;
+  let unitSqft = 0;
+
   document.querySelectorAll('#unitBody tr').forEach(row => {
     const cnt = toNum(row.querySelector('.u-cnt').value);
+    const sfPerUnit = toNum(row.querySelector('.u-sq').value);
     const cur = toNum(row.querySelector('.u-cur').value);
     const pro = toNum(row.querySelector('.u-pro').value);
     
-    // Formula: Pro Rent * Count
+    // Formula: Pro Rent × Count
     const lineTotal = pro * cnt;
     row.querySelector('.u-tot').textContent = fmt(lineTotal);
     
-    totalMonthly += lineTotal;
+    resMonthly += lineTotal;
     totalCur += cur * cnt;
     totalPro += pro * cnt;
+    unitCount += cnt;
+    unitSqft += sfPerUnit * cnt;
   });
   
+  $('t_units').textContent = fmt(unitCount);
+  $('t_sqft').textContent = fmt(unitSqft);
   $('t_cur').textContent = fmt(totalCur);
   $('t_pro').textContent = fmt(totalPro);
-  $('t_tot').textContent = fmt(totalMonthly);
+  $('t_tot').textContent = fmt(resMonthly);
+
+  // 1B. Commercial / Retail Leases
+  let retailAnnual = new Array(years).fill(0);
+  let retailUnits = 0;
+  let retailSqft = 0;
+  let retailMonthlyY1 = 0;
+
+  document.querySelectorAll('#commBody tr').forEach(row => {
+    const cUnits = toNum(row.querySelector('.c-unit').value);
+    const cSqft = toNum(row.querySelector('.c-sq').value);
+    const curRent = toNum(row.querySelector('.c-cur').value);
+    const mktRent = toNum(row.querySelector('.c-mkt').value);
+    const gRate = toNum(row.querySelector('.c-gro').value) / 100;
+
+    // Use market rent where available, otherwise in-place
+    const baseRent = mktRent || curRent;
+    const lineMonthlyY1 = baseRent * cUnits;
+    row.querySelector('.c-tot').textContent = fmt(lineMonthlyY1);
+
+    retailUnits += cUnits;
+    retailSqft += cSqft * cUnits;
+    retailMonthlyY1 += lineMonthlyY1;
+
+    for(let y=1; y<=years; y++) {
+      const factor = Math.pow(1+gRate, y-1);
+      retailAnnual[y-1] += lineMonthlyY1 * 12 * factor;
+    }
+  });
+
+  $('c_units_total').textContent = fmt(retailUnits);
+  $('c_sqft_total').textContent = fmt(retailSqft);
+  $('c_tot_monthly').textContent = fmt(retailMonthlyY1);
+
+  const retail3 = retailAnnual.slice(0,3).reduce((a,b)=>a+b,0);
+  const retail5 = retailAnnual.slice(0,5).reduce((a,b)=>a+b,0);
+  $('retail3').value = '$' + fmt(retail3);
+  $('retail5').value = '$' + fmt(retail5);
 
   // 2. Acquisition & Debt
   const price = toNum($('i_price').value);
@@ -350,58 +461,62 @@ function calculate() {
   }
   $('o_debt').value = fmt(annualDebt);
 
-  // 3. 10-Year Pro Forma
-  const years = 10;
-  const growth = toNum($('i_vac_gro').value)/100; // Use same % for vacancy and growth for simplicity
-  const vacancyRate = toNum($('i_vac_gro').value)/100;
+  // 3. 10-Year Pro Forma (Residential + Retail)
+  const growth = toNum($('i_vac_gro').value)/100; // Used for residential rev & vacancy
+  const vacancyRate = growth;
   const otherIncMo = toNum($('i_other').value);
   const taxStart = price * (toNum($('i_tax').value)/100);
   
-  // Expense inputs (Sum of unit based expenses)
-  // Hardcoding unit count to 50 based on prompt inputs if dynamic count isn't needed globally, 
-  // but better to sum the 'cnt' from table.
-  let unitCount = 0;
-  document.querySelectorAll('.u-cnt').forEach(i => unitCount += toNum(i.value));
-  
+  // Expense inputs
   const insStart = toNum($('i_ins').value) * unitCount;
   const rmStart = toNum($('i_rm_util').value) * unitCount;
+  const fixedOpexStart = toNum($('i_fixed_opex').value);
   const mgmtPct = toNum($('i_mgmt').value)/100;
 
-  let d_gpr=[], d_egi=[], d_exp=[], d_noi=[], d_cf=[];
+  let d_resGpr = [], d_retail = [], d_other = [], d_vac = [], d_egi = [], d_exp = [], d_noi = [], d_cf = [];
 
   for(let y=1; y<=years; y++) {
     // Revenue
-    // Year 1 = Base, Year 2+ = Growth
-    const gf = Math.pow(1.03, y-1); // 3% Expense growth standard
-    const rg = Math.pow(1+growth, y-1); // Revenue growth
+    const gf = Math.pow(1.03, y-1);        // 3% expense growth
+    const rg = Math.pow(1+growth, y-1);    // residential revenue growth
 
-    const gpr = (totalMonthly * 12) * rg;
+    const resGpr = (resMonthly * 12) * rg;
+    const retInc = retailAnnual[y-1];      // already grown by its own rate
     const other = (otherIncMo * 12) * rg;
-    const vac = -(gpr + other) * vacancyRate;
-    const egi = gpr + other + vac;
+    const gprTotal = resGpr + retInc;
+    const vac = -(gprTotal + other) * vacancyRate;
+    const egi = gprTotal + other + vac;
 
     // Expenses
-    const tax = taxStart * gf; // Prop 13 style or standard 2-3%
+    const tax = taxStart * gf;
     const ins = insStart * gf;
     const rm = rmStart * gf;
+    const fixed = fixedOpexStart * gf;
     const mgmt = egi * mgmtPct;
-    const totalExp = tax + ins + rm + mgmt;
+    const totalExp = tax + ins + rm + fixed + mgmt;
 
     const noi = egi - totalExp;
     const cf = noi - annualDebt; // Pre-tax cash flow
 
-    d_gpr.push(gpr); d_egi.push(egi); d_exp.push(totalExp); d_noi.push(noi); d_cf.push(cf);
+    d_resGpr.push(resGpr);
+    d_retail.push(retInc);
+    d_other.push(other);
+    d_vac.push(vac);
+    d_egi.push(egi);
+    d_exp.push(totalExp);
+    d_noi.push(noi);
+    d_cf.push(cf);
   }
 
-  renderTable(d_gpr, d_egi, d_exp, d_noi, annualDebt, d_cf);
+  renderTable(d_resGpr, d_retail, d_other, d_vac, d_egi, d_exp, d_noi, annualDebt, d_cf);
   updateKPIs(basis, loan, d_cf, d_noi[9]);
 }
 
-function renderTable(gpr, egi, exp, noi, debt, cf) {
+function renderTable(gprRes, retail, other, vac, egi, exp, noi, debt, cf) {
   const thead = $('proTable').querySelector('thead');
   const tbody = $('proTable').querySelector('tbody');
   
-  let h = `<tr><th style="min-width:120px">Item</th>`;
+  let h = `<tr><th style="min-width:140px">Item</th>`;
   for(let i=1; i<=10; i++) h += `<th>Year ${i}</th>`;
   h += `</tr>`;
   thead.innerHTML = h;
@@ -413,9 +528,12 @@ function renderTable(gpr, egi, exp, noi, debt, cf) {
   };
 
   let b = '';
-  b += mkRow('Gross Potential Rent', gpr);
+  b += mkRow('Gross Potential Rent (Res)', gprRes);
+  b += mkRow('Retail Income', retail, 'highlight-row');
+  b += mkRow('Other Income', other);
+  b += mkRow('Vacancy (Loss)', vac);
   b += mkRow('Effective Gross Inc', egi, 'highlight-row');
-  b += mkRow('Total Expenses', exp.map(x=>-x)); // Show as negative for visual? Or positive in calc? Usually expense is positive number subtracted. Let's show standard accounting (positive number implied deduction).
+  b += mkRow('Total Expenses', exp.map(x=>-x));
   b += mkRow('Net Operating Income', noi, 'highlight-row');
   b += mkRow('Debt Service', Array(10).fill(-debt));
   b += mkRow('CASH FLOW', cf, 'highlight-row');
@@ -452,9 +570,15 @@ document.addEventListener('DOMContentLoaded', () => {
   inputs.forEach(i => i.addEventListener('input', calculate));
 
   $('btnCalcIn').addEventListener('click', () => {
+    // Copy in-place residential rents to pro forma
     document.querySelectorAll('#unitBody tr').forEach(r => {
       const cur = r.querySelector('.u-cur').value;
       if(cur) r.querySelector('.u-pro').value = cur;
+    });
+    // Copy in-place retail rents to market where desired
+    document.querySelectorAll('#commBody tr').forEach(r => {
+      const cur = r.querySelector('.c-cur').value;
+      if(cur) r.querySelector('.c-mkt').value = cur;
     });
     calculate();
   });

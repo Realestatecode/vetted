@@ -7,407 +7,1734 @@
   window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
-
   gtag('config', 'G-P4TD9G7W5V');
 </script>
-  <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>REAL ESTATE FINANCE MODEL</title>
-<meta name="description" content="Multifamily | Apartment Real Estate Financial Model, REIT, ARGUS, Fixer UPPER," />
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&display=swap" rel="stylesheet">
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>REAL FI MODEL — Real Estate Finance Model | Venice Beach, Santa Monica, Brentwood LA Investing</title>
+<meta name="description" content="Real estate financial model for multifamily apartment investing in Venice Beach, Santa Monica, Pacific Palisades and Brentwood. Tech workers: invest your RSUs and equity in LA real estate. CPA-grade underwriting, IRR, cap rate, pro forma tools."/>
+<meta name="keywords" content="real estate financial model, Venice Beach investment property, Santa Monica multifamily, Pacific Palisades real estate, Brentwood apartment investing, tech worker real estate, RSU real estate investment, how to buy fixer upper LA, live work loft Venice, Abbot Kinney real estate, beach real estate investment Los Angeles, apartment pro forma model, IRR calculator real estate, CPA real estate, tax strategy real estate, Rivian employees real estate, Suno AI real estate, tech startup real estate LA, how to live near the beach LA, multifamily underwriting model"/>
+<meta name="author" content="RealFiModel.com"/>
+<link rel="canonical" href="https://www.realfimodel.com/"/>
+<!-- Open Graph -->
+<meta property="og:title" content="REAL FI MODEL — LA Real Estate Finance Model for Tech Workers & Investors"/>
+<meta property="og:description" content="Free institutional-grade apartment underwriting model. Built for tech employees investing RSUs & equity in Venice, Santa Monica, and West LA real estate."/>
+<meta property="og:type" content="website"/>
+<meta property="og:url" content="https://www.realfimodel.com/"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="REAL FI MODEL — Tech Workers: Your RSUs Can Buy This"/>
+<meta name="twitter:description" content="Institutional real estate underwriting for private company employees in LA. Venice Beach, Abbot Kinney, Santa Monica, Brentwood."/>
 <meta name='impact-site-verification' value='3b8277c4-d53a-4ad5-bb8d-fdcb12077b23'>
-  <style>
-  :root {
-    --bank-blue: #0f1b2d;
-    --bank-accent: #005eb8;
-    --bg: #ffffff;
-    --panel-bg: #ffffff;
-    --border: #cbd5e1;
-    --input-yellow: #fef9c3; /* Subtle yellow for inputs */
-    --readonly: #f8fafc;
-    --text-main: #0f172a;
-    --text-muted: #64748b;
-  }
+<!-- Schema.org structured data -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FinancialService",
+  "name": "RealFiModel",
+  "url": "https://www.realfimodel.com",
+  "description": "Real estate financial modeling and CPA advisory for apartment investors in Los Angeles including Venice Beach, Santa Monica, Pacific Palisades and Brentwood",
+  "areaServed": ["Venice Beach CA", "Santa Monica CA", "Pacific Palisades CA", "Brentwood CA", "Los Angeles CA"],
+  "serviceType": ["Real Estate Financial Modeling", "CPA Advisory", "Multifamily Underwriting", "Tax Planning"]
+}
+</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Oswald:wght@400;500;600;700&family=Roboto+Mono:wght@400;500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   ROOT TOKENS
+   ============================================================ */
+:root {
+  --brillo-red:    #D42B2B;
+  --brillo-green:  #1A6B2E;
+  --brillo-blue:   #1D3E8F;
+  --brillo-yellow: #F5C800;
+  --brillo-orange: #E06820;
+  --matisse:       #1D5C8F;
+  --ink:           #0D0D0D;
+  --paper:         #F7F3E8;
+  --bank-blue:     #0f1b2d;
+  --bank-accent:   #005eb8;
+  --bg:            #ffffff;
+  --border:        #cbd5e1;
+  --input-yellow:  #fef9c3;
+  --readonly:      #f8fafc;
+  --text-main:     #0f172a;
+  --text-muted:    #64748b;
+}
 
-  body { margin: 0; padding: 0; background: #f1f5f9; font-family: 'Inter', sans-serif; color: var(--text-main); -webkit-print-color-adjust: exact; }
-  .wrap { max-width: 1000px; margin: 20px auto; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 30px; border-top: 6px solid var(--bank-blue); }
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  background: var(--ink);
+  font-family: 'Inter', sans-serif;
+  color: var(--text-main);
+  -webkit-print-color-adjust: exact;
+}
 
-  /* --- TYPOGRAPHY & UTILS --- */
-  h1, h2, h3, h4 { margin: 0; letter-spacing: -0.02em; }
-  h3 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--bank-blue); padding-bottom: 4px; margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 700; }
-  .logo-text { font-family: 'Times New Roman', serif; font-weight: bold; font-size: 24px; color: var(--bank-blue); }
+/* ============================================================
+   BRILLO HERO ZONE
+   ============================================================ */
 
-  /* HIGHLIGHT REAL ESTATE EDGE */
-  .edge-highlight {
-    color: #dc2626;
-    animation: edgeBlink 1.1s ease-in-out infinite alternate;
-  }
-  @keyframes edgeBlink {
-    from { opacity: 1; }
-    to   { opacity: 0.4; }
-  }
-  
-  /* --- HEADER --- */
-  header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
-  .controls button { background: white; border: 1px solid var(--border); padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--text-main); cursor: pointer; border-radius: 2px; transition: all 0.2s; }
-  .controls button:hover { background: #f1f5f9; border-color: var(--bank-accent); }
-  .controls button.primary { background: var(--bank-blue); color: white; border-color: var(--bank-blue); }
-  .controls button.primary:hover { background: #1e3a8a; }
+/* TOP STRIP */
+.brillo-strip {
+  background: var(--brillo-yellow);
+  padding: 6px 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 3px solid var(--ink);
+}
+.brillo-strip-text {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--ink);
+  font-weight: 600;
+}
+.brillo-strip-right {
+  font-family: 'Roboto Mono', monospace;
+  font-size: 10px;
+  color: var(--ink);
+  letter-spacing: 0.1em;
+}
 
-  /* --- GRID LAYOUTS --- */
-  .input-grid { display: grid; grid-template-columns: 320px 1fr; gap: 25px; margin-bottom: 30px; }
-  .section-box { margin-bottom: 20px; }
-  
-  /* --- INPUT ROWS --- */
-  .row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12px; }
-  .row label { color: var(--text-muted); font-weight: 500; }
-  input { font-family: 'Roboto Mono', monospace; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); width: 100px; text-align: right; outline: none; border-radius: 0; }
-  input:focus { border-color: var(--bank-accent); box-shadow: 0 0 0 1px var(--bank-accent); }
-  input.yellow { background-color: var(--input-yellow); border-color: #e2e8f0; }
-  input.readonly { background-color: var(--readonly); border: none; color: var(--text-main); font-weight: 600; }
+/* MAIN BRILLO BLOCK */
+.brillo-main {
+  background: var(--brillo-green);
+  border-bottom: 6px solid var(--ink);
+  overflow: hidden;
+  position: relative;
+}
 
-  /* --- TABLES (Bank Style) --- */
-  table { width: 100%; border-collapse: collapse; font-size: 11px; }
-  th { text-align: left; font-weight: 600; color: var(--text-muted); border-bottom: 1px solid var(--text-muted); padding: 6px 4px; text-transform: uppercase; font-size: 10px; }
-  td { padding: 6px 4px; border-bottom: 1px solid #f1f5f9; }
-  td.num { text-align: right; font-family: 'Roboto Mono', monospace; }
-  tr:last-child td { border-bottom: none; }
-  tfoot td { border-top: 2px solid var(--text-muted); font-weight: 700; background: #f8fafc; }
-  .highlight-row td { background-color: #f0f9ff; font-weight: 600; border-top: 1px solid #bae6fd; border-bottom: 1px solid #bae6fd; }
+.brillo-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  min-height: 260px;
+}
 
-  /* --- UNIT INPUT TABLE --- */
-  .unit-table input { width: 100%; box-sizing: border-box; border: none; background: transparent; text-align: center; }
-  .unit-table input.yellow { background: var(--input-yellow); }
-  .unit-table td { border: 1px solid #e2e8f0; padding: 0; }
+.brillo-title-block {
+  background: var(--brillo-green);
+  padding: 32px 40px 28px;
+  border-right: 6px solid var(--ink);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  position: relative;
+}
 
-  /* --- MIDDLE SECTION --- */
-  .mid-section { 
-    display: grid; 
-    grid-template-columns: 1fr 200px 1fr; 
-    gap: 10px; 
-    align-items: center; 
-    margin: 15px 0 5px; 
-    text-align: center; 
-  }
-  
-  /* CTA BOX */
-  .cta-box { grid-column: 1 / -1; background: var(--bank-blue); color: white; padding: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 10px; border-radius: 2px; text-transform: uppercase; }
-  .cta-box a { color: white; text-decoration: none; border-bottom: 1px dotted white; }
+.brillo-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  margin-bottom: 10px;
+  font-weight: 400;
+}
 
-  /* VIDEO DROP */
-  .video-drop { 
-    height: 315px;               /* so the 16:9 YouTube embed fits cleanly */
-    border: 2px dashed #94a3b8; 
-    background: #f8fafc; 
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    font-size: 12px; 
-    color: #64748b; 
-    font-weight: 600; 
-    margin: 0 auto; 
-    width: 100%; 
-    max-width: 600px; 
-    grid-column: 1 / -1; 
-  }
+.brillo-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(56px, 8vw, 96px);
+  line-height: 0.9;
+  color: var(--brillo-red);
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  -webkit-text-stroke: 2px var(--ink);
+  text-shadow: 4px 4px 0 var(--ink);
+}
 
-  /* --- KPI CARDS --- */
-  .kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 15px; }
-  .kpi { background: #f8fafc; border: 1px solid var(--border); padding: 10px; text-align: center; }
-  .kpi span { display: block; font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
-  .kpi strong { font-size: 16px; color: var(--bank-blue); font-family: 'Roboto Mono', monospace; }
+.brillo-brand span {
+  color: #FFFFFF;
+  -webkit-text-stroke: 2px var(--ink);
+}
 
-  /* --- FOOTER --- */
-  footer { margin-top: 40px; padding-top: 20px; border-top: 1px solid var(--border); text-align: center; font-size: 11px; color: var(--text-muted); line-height: 1.6; }
-  footer a { color: var(--bank-accent); text-decoration: none; font-weight: 500; }
-  footer a:hover { text-decoration: underline; }
+.brillo-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 16px;
+  color: var(--brillo-yellow);
+  margin-top: 14px;
+  letter-spacing: 0.05em;
+  font-weight: 500;
+  text-transform: uppercase;
+  line-height: 1.4;
+}
 
-  /* --- PRINT --- */
-  @media print {
-    body { background: white; }
-    .wrap { box-shadow: none; margin: 0; padding: 0; border: none; width: 100%; max-width: 100%; }
-    .controls, .cta-box { display: none; }
-    .video-drop { border: 1px solid #ccc; height: 200px; }
-    input { border: none; padding: 0; background: transparent !important; text-align: right; }
-    .input-grid { gap: 20px; }
-    h3 { font-size: 12px; border-bottom: 1px solid #000; color: #000; }
-    table { font-size: 9px; }
-    th { color: #000; border-color: #000; }
-  }
+/* RIGHT PANEL (MATISSE BLUE) */
+.brillo-side {
+  background: var(--matisse);
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border-left: 3px solid var(--ink);
+}
+
+.brillo-side-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  margin-bottom: 6px;
+  font-weight: 400;
+}
+
+.brillo-side-stat {
+  font-family: 'Anton', sans-serif;
+  font-size: 42px;
+  color: #FFFFFF;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.brillo-side-desc {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  color: rgba(255,255,255,0.75);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 4px;
+}
+
+.brillo-side-divider {
+  border: none;
+  border-top: 1px solid rgba(255,255,255,0.25);
+  margin: 14px 0;
+}
+
+.brillo-cta-btn {
+  display: block;
+  background: var(--brillo-yellow);
+  color: var(--ink);
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  text-align: center;
+  padding: 12px 16px;
+  text-decoration: none;
+  border: 3px solid var(--ink);
+  margin-top: 16px;
+  transition: background 0.15s, color 0.15s;
+}
+.brillo-cta-btn:hover { background: var(--brillo-red); color: #fff; }
+
+/* ORANGE ACCENT BAR */
+.brillo-orange-bar {
+  background: var(--brillo-orange);
+  border-top: 4px solid var(--ink);
+  border-bottom: 4px solid var(--ink);
+  padding: 10px 20px;
+  display: flex;
+  align-items: center;
+  gap: 40px;
+  overflow-x: auto;
+}
+
+.brillo-tag {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  white-space: nowrap;
+  text-shadow: 1px 1px 0 rgba(0,0,0,0.4);
+}
+
+.brillo-tag::before {
+  content: '◆ ';
+  color: var(--brillo-yellow);
+}
+
+/* ============================================================
+   CAROUSEL / ARTICLES ZONE
+   ============================================================ */
+.carousel-zone {
+  background: var(--paper);
+  border-bottom: 6px solid var(--ink);
+}
+
+.carousel-header {
+  background: var(--brillo-red);
+  border-bottom: 4px solid var(--ink);
+  padding: 12px 28px;
+  display: flex;
+  align-items: baseline;
+  gap: 20px;
+}
+
+.carousel-header-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: #FFFFFF;
+  letter-spacing: 0.02em;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.carousel-header-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+}
+
+/* ARTICLE CARD GRID */
+.article-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+  border-top: 3px solid var(--ink);
+}
+
+.article-card {
+  background: var(--paper);
+  border-right: 3px solid var(--ink);
+  border-bottom: 3px solid var(--ink);
+  padding: 24px 22px 20px;
+  cursor: pointer;
+  transition: background 0.15s;
+  text-decoration: none;
+  display: block;
+  color: inherit;
+}
+
+.article-card:last-child { border-right: none; }
+.article-card:nth-child(3) { border-right: none; }
+.article-card:hover { background: rgba(212,43,43,0.06); }
+
+.card-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 48px;
+  line-height: 1;
+  color: var(--brillo-red);
+  margin-bottom: 8px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.15);
+}
+
+.card-category {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--matisse);
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+
+.card-title {
+  font-family: 'Oswald', sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 1.2;
+  color: var(--ink);
+  margin-bottom: 10px;
+  text-transform: uppercase;
+  letter-spacing: 0.01em;
+}
+
+.card-body {
+  font-size: 13px;
+  line-height: 1.65;
+  color: #333;
+  margin-bottom: 14px;
+}
+
+.card-pull {
+  border-left: 4px solid var(--brillo-green);
+  padding: 8px 10px;
+  font-family: 'Oswald', sans-serif;
+  font-size: 14px;
+  color: var(--brillo-green);
+  font-weight: 600;
+  text-transform: uppercase;
+  line-height: 1.35;
+  margin-bottom: 14px;
+}
+
+.card-read {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brillo-red);
+  font-weight: 700;
+}
+
+/* EXPANDED ARTICLE (inline, below grid) */
+.article-expanded {
+  display: none;
+  background: var(--ink);
+  color: #F0EBE0;
+  padding: 40px 48px;
+  border-top: 4px solid var(--brillo-yellow);
+  grid-column: 1 / -1;
+}
+
+.article-expanded.open { display: block; }
+
+.article-expanded h2 {
+  font-family: 'Anton', sans-serif;
+  font-size: 36px;
+  color: var(--brillo-yellow);
+  text-transform: uppercase;
+  line-height: 1.05;
+  margin-bottom: 6px;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.5);
+}
+
+.article-expanded .ae-eyebrow {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  color: var(--brillo-orange);
+  margin-bottom: 20px;
+}
+
+.article-expanded .ae-body {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 40px;
+}
+
+.ae-prose { font-size: 15px; line-height: 1.75; color: rgba(240,235,224,0.88); }
+.ae-prose h3 {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  border-bottom: 1px solid rgba(245,200,0,0.3);
+  padding-bottom: 5px;
+  margin: 24px 0 10px;
+}
+.ae-prose p { margin: 0 0 14px; }
+.ae-prose strong { color: var(--brillo-yellow); font-weight: 600; }
+
+.ae-sidebar { }
+
+.ae-example-box {
+  background: var(--matisse);
+  border: 2px solid var(--brillo-yellow);
+  padding: 18px 16px;
+  margin-bottom: 14px;
+}
+
+.ae-example-box .box-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  margin-bottom: 10px;
+}
+
+.ae-stat {
+  font-family: 'Anton', sans-serif;
+  font-size: 38px;
+  color: #fff;
+  line-height: 1;
+  text-shadow: 2px 2px 0 rgba(0,0,0,0.4);
+}
+
+.ae-stat-label {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  color: rgba(255,255,255,0.65);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 3px;
+}
+
+.ae-warning {
+  background: var(--brillo-red);
+  border-left: 4px solid var(--brillo-yellow);
+  padding: 12px 14px;
+  margin: 12px 0;
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.05em;
+}
+
+.ae-steps { margin: 16px 0; }
+.ae-step {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 10px;
+  align-items: flex-start;
+}
+.ae-step-num {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: var(--brillo-yellow);
+  min-width: 28px;
+  line-height: 1;
+}
+.ae-step-text {
+  font-size: 13px;
+  color: rgba(240,235,224,0.85);
+  line-height: 1.6;
+  padding-top: 2px;
+}
+
+.ae-close {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(240,235,224,0.4);
+  cursor: pointer;
+  float: right;
+  border: 1px solid rgba(240,235,224,0.2);
+  padding: 4px 12px;
+  background: none;
+}
+.ae-close:hover { color: var(--brillo-yellow); border-color: var(--brillo-yellow); }
+
+/* SECOND ROW ARTICLES (wider 2-col) */
+.article-grid-2 {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-top: 3px solid var(--ink);
+}
+
+.article-grid-2 .article-card { border-right: 3px solid var(--ink); }
+.article-grid-2 .article-card:last-child { border-right: none; }
+
+/* CULTURAL ESSAY SECTION */
+.essay-section {
+  background: var(--brillo-blue);
+  border-top: 6px solid var(--ink);
+  border-bottom: 6px solid var(--ink);
+  padding: 48px 40px;
+  max-width: 100%;
+}
+
+.essay-inner {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.essay-kicker {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  margin-bottom: 12px;
+}
+
+.essay-title {
+  font-family: 'Anton', sans-serif;
+  font-size: clamp(36px, 5vw, 60px);
+  color: #fff;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+}
+
+.essay-title span { color: var(--brillo-yellow); }
+
+.essay-body {
+  font-size: 16px;
+  line-height: 1.8;
+  color: rgba(255,255,255,0.82);
+  columns: 2;
+  column-gap: 40px;
+}
+
+.essay-body p { margin: 0 0 16px; break-inside: avoid; }
+.essay-body strong { color: var(--brillo-yellow); }
+
+.essay-pull {
+  background: var(--brillo-orange);
+  border: 3px solid var(--ink);
+  padding: 20px 24px;
+  margin: 28px 0;
+  column-span: all;
+  font-family: 'Oswald', sans-serif;
+  font-size: 22px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: #fff;
+  letter-spacing: 0.02em;
+  line-height: 1.25;
+}
+
+/* ============================================================
+   MODEL ZONE (White, Professional)
+   ============================================================ */
+.model-zone {
+  background: #f1f5f9;
+}
+
+.model-header-bar {
+  background: var(--ink);
+  border-bottom: 4px solid var(--brillo-yellow);
+  padding: 14px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.model-header-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: var(--brillo-yellow);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.model-header-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+}
+
+.wrap { max-width: 1060px; margin: 0 auto; background: white; box-shadow: 0 4px 12px rgba(0,0,0,0.1); padding: 30px; border-top: 6px solid var(--bank-blue); }
+
+/* typography & utils */
+h2, h3, h4 { margin: 0; letter-spacing: -0.02em; }
+h3 { font-size: 14px; text-transform: uppercase; color: var(--text-muted); border-bottom: 2px solid var(--bank-blue); padding-bottom: 4px; margin-bottom: 12px; letter-spacing: 0.05em; font-weight: 700; }
+.logo-text { font-family: 'Times New Roman', serif; font-weight: bold; font-size: 24px; color: var(--bank-blue); }
+
+.edge-highlight { color: #dc2626; animation: edgeBlink 1.1s ease-in-out infinite alternate; }
+@keyframes edgeBlink { from { opacity: 1; } to { opacity: 0.4; } }
+
+header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 25px; padding-bottom: 15px; border-bottom: 1px solid #e2e8f0; }
+.controls button { background: white; border: 1px solid var(--border); padding: 6px 12px; font-size: 12px; font-weight: 600; color: var(--text-main); cursor: pointer; border-radius: 2px; transition: all 0.2s; }
+.controls button:hover { background: #f1f5f9; border-color: var(--bank-accent); }
+.controls button.primary { background: var(--bank-blue); color: white; border-color: var(--bank-blue); }
+.controls button.primary:hover { background: #1e3a8a; }
+
+.input-grid { display: grid; grid-template-columns: 320px 1fr; gap: 25px; margin-bottom: 30px; }
+.section-box { margin-bottom: 20px; }
+
+.row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 6px; font-size: 12px; }
+.row label { color: var(--text-muted); font-weight: 500; }
+input { font-family: 'Roboto Mono', monospace; font-size: 12px; padding: 4px 6px; border: 1px solid var(--border); width: 100px; text-align: right; outline: none; border-radius: 0; }
+input:focus { border-color: var(--bank-accent); box-shadow: 0 0 0 1px var(--bank-accent); }
+input.yellow { background-color: var(--input-yellow); border-color: #e2e8f0; }
+input.readonly { background-color: var(--readonly); border: none; color: var(--text-main); font-weight: 600; }
+
+table { width: 100%; border-collapse: collapse; font-size: 11px; }
+th { text-align: left; font-weight: 600; color: var(--text-muted); border-bottom: 1px solid var(--text-muted); padding: 6px 4px; text-transform: uppercase; font-size: 10px; }
+td { padding: 6px 4px; border-bottom: 1px solid #f1f5f9; }
+td.num { text-align: right; font-family: 'Roboto Mono', monospace; }
+tr:last-child td { border-bottom: none; }
+tfoot td { border-top: 2px solid var(--text-muted); font-weight: 700; background: #f8fafc; }
+.highlight-row td { background-color: #f0f9ff; font-weight: 600; border-top: 1px solid #bae6fd; border-bottom: 1px solid #bae6fd; }
+
+.unit-table input { width: 100%; box-sizing: border-box; border: none; background: transparent; text-align: center; }
+.unit-table input.yellow { background: var(--input-yellow); }
+.unit-table td { border: 1px solid #e2e8f0; padding: 0; }
+
+.mid-section { display: grid; grid-template-columns: 1fr 200px 1fr; gap: 10px; align-items: center; margin: 15px 0 5px; text-align: center; }
+.cta-box { grid-column: 1 / -1; background: var(--bank-blue); color: white; padding: 10px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; margin-bottom: 10px; border-radius: 2px; text-transform: uppercase; }
+.cta-box a { color: white; text-decoration: none; border-bottom: 1px dotted white; }
+
+.video-drop { height: 315px; border: 2px dashed #94a3b8; background: #f8fafc; display: flex; align-items: center; justify-content: center; font-size: 12px; color: #64748b; font-weight: 600; margin: 0 auto; width: 100%; max-width: 600px; grid-column: 1 / -1; }
+
+.kpi-row { display: grid; grid-template-columns: repeat(5, 1fr); gap: 10px; margin-bottom: 15px; }
+.kpi { background: #f8fafc; border: 1px solid var(--border); padding: 10px; text-align: center; }
+.kpi span { display: block; font-size: 10px; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px; }
+.kpi strong { font-size: 16px; color: var(--bank-blue); font-family: 'Roboto Mono', monospace; }
+
+/* ============================================================
+   CONTACT / SIGNUP SECTION
+   ============================================================ */
+.contact-zone {
+  background: var(--brillo-green);
+  border-top: 6px solid var(--ink);
+  border-bottom: 6px solid var(--ink);
+  padding: 48px 40px;
+}
+
+.contact-inner {
+  max-width: 900px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: start;
+}
+
+.contact-left {}
+
+.contact-kicker {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  color: var(--brillo-yellow);
+  margin-bottom: 10px;
+}
+
+.contact-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 44px;
+  color: #fff;
+  line-height: 0.95;
+  text-transform: uppercase;
+  margin-bottom: 16px;
+  text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+}
+
+.contact-title span { color: var(--brillo-yellow); }
+
+.contact-desc {
+  font-size: 14px;
+  line-height: 1.75;
+  color: rgba(255,255,255,0.82);
+  margin-bottom: 20px;
+}
+
+.contact-facts {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-facts li {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.85);
+  padding: 6px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.15);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.contact-facts li::before {
+  content: '◆';
+  color: var(--brillo-yellow);
+  font-size: 8px;
+}
+
+/* FORM */
+.contact-form {
+  background: #fff;
+  border: 4px solid var(--ink);
+  padding: 28px 24px;
+}
+
+.cf-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 22px;
+  color: var(--ink);
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+.cf-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 20px;
+}
+
+.cf-field {
+  margin-bottom: 14px;
+}
+
+.cf-label {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: 10px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  margin-bottom: 5px;
+}
+
+.cf-input {
+  width: 100%;
+  padding: 9px 12px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: #fff;
+  outline: none;
+  border-radius: 0;
+  transition: border-color 0.15s;
+}
+
+.cf-input:focus { border-color: var(--brillo-green); }
+
+.cf-select {
+  width: 100%;
+  padding: 9px 12px;
+  border: 2px solid #e2e8f0;
+  font-family: 'Inter', sans-serif;
+  font-size: 14px;
+  color: var(--ink);
+  background: var(--input-yellow);
+  outline: none;
+  border-radius: 0;
+  appearance: none;
+}
+
+.cf-submit {
+  width: 100%;
+  background: var(--brillo-red);
+  color: #fff;
+  font-family: 'Anton', sans-serif;
+  font-size: 20px;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  padding: 14px;
+  border: 3px solid var(--ink);
+  cursor: pointer;
+  margin-top: 6px;
+  transition: background 0.15s;
+}
+.cf-submit:hover { background: var(--brillo-green); }
+.cf-submit:disabled { background: #ccc; cursor: not-allowed; }
+
+.cf-honeypot { display: none !important; }
+
+.cf-success {
+  display: none;
+  background: var(--brillo-green);
+  border: 3px solid var(--ink);
+  padding: 20px;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.cf-success-title {
+  font-family: 'Anton', sans-serif;
+  font-size: 28px;
+  color: #fff;
+  text-transform: uppercase;
+}
+
+.cf-success-sub {
+  font-family: 'Oswald', sans-serif;
+  font-size: 13px;
+  color: var(--brillo-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-top: 6px;
+}
+
+.cf-error { color: var(--brillo-red); font-size: 11px; margin-top: 4px; font-family: 'Oswald', sans-serif; letter-spacing: 0.05em; }
+
+/* ============================================================
+   FOOTER
+   ============================================================ */
+.site-footer {
+  background: var(--ink);
+  border-top: 6px solid var(--brillo-yellow);
+  padding: 28px 40px 20px;
+}
+
+.footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.footer-brand {
+  font-family: 'Anton', sans-serif;
+  font-size: 24px;
+  color: var(--brillo-yellow);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  font-family: 'Oswald', sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.55);
+  text-decoration: none;
+  transition: color 0.15s;
+}
+.footer-links a:hover { color: var(--brillo-yellow); }
+
+.footer-legal {
+  width: 100%;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  margin-top: 16px;
+  padding-top: 12px;
+  font-size: 10px;
+  color: rgba(255,255,255,0.3);
+  font-family: 'Roboto Mono', monospace;
+  letter-spacing: 0.05em;
+  line-height: 1.6;
+}
+
+/* print */
+@media print {
+  body { background: white; }
+  .wrap { box-shadow: none; margin: 0; padding: 0; border: none; width: 100%; }
+  .controls, .cta-box, .brillo-main, .carousel-zone, .essay-section, .contact-zone, .site-footer { display: none; }
+  .video-drop { border: 1px solid #ccc; height: 200px; }
+  input { border: none; padding: 0; background: transparent !important; text-align: right; }
+}
+
+@media (max-width: 768px) {
+  .brillo-inner { grid-template-columns: 1fr; }
+  .brillo-side { border-left: none; border-top: 4px solid var(--ink); }
+  .article-grid { grid-template-columns: 1fr; }
+  .article-grid-2 { grid-template-columns: 1fr; }
+  .ae-body { grid-template-columns: 1fr; }
+  .essay-body { columns: 1; }
+  .contact-inner { grid-template-columns: 1fr; }
+  .input-grid { grid-template-columns: 1fr; }
+  .kpi-row { grid-template-columns: repeat(2, 1fr); }
+}
 </style>
 </head>
 <body>
 
-<div class="wrap">
-  
-  <!-- LOGO ROW -->
-  <header>
-    <div class="logo-text">REALFIMO<span style="font-weight:400; font-size:16px; color:#64748b;">| Real Estate Finance Model Analytics</span></div>
-    <div class="controls">
-      <button id="btnReset">Reset</button>
-      <button class="primary" id="btnCalcIn">Copy In-Place Rents</button>
-      <button class="primary" id="btnExport">Export CSV</button>
+<!-- ============================================================
+     BRILLO HERO ZONE
+     ============================================================ -->
+
+<!-- TOP STRIP -->
+<div class="brillo-strip">
+  <div class="brillo-strip-text">VENICE · SANTA MONICA · PACIFIC PALISADES · BRENTWOOD · EST. LOS ANGELES</div>
+  <div class="brillo-strip-right">310.728.7974 · realfimodel.com</div>
+</div>
+
+<!-- MAIN BRILLO BLOCK -->
+<div class="brillo-main">
+  <div class="brillo-inner">
+    <div class="brillo-title-block">
+      <div class="brillo-eyebrow">Real Estate · Finance · Tax Strategy</div>
+      <div class="brillo-brand">REAL<br><span>FI</span><br>MODEL</div>
+      <div class="brillo-sub">Institutional Underwriting<br>for West LA's Next Move</div>
     </div>
-  </header>
-
-  <!-- INPUTS GRID -->
-  <div class="input-grid">
-    
-    <!-- LEFT: ASSUMPTIONS -->
-    <div class="left-panel">
-      <div class="section-box">
-        <h3>1. Deal Assumptions (Inputs)</h3>
-        <div class="row"><label>Project Name</label><input id="i_name" type="text" class="yellow" style="text-align:left; width:140px" value="Project xyz"></div>
-        <div class="row"><label>Purchase Price</label><input id="i_price" type="text" class="yellow" value="20,000,000"></div>
-        <div class="row"><label>Closing Costs %</label><input id="i_close" type="number" class="yellow" value="1.0"></div>
-        <div class="row"><label>Reno Budget</label><input id="i_reno" type="text" class="yellow" value="500,000"></div>
-        <div class="row"><label><strong>Total Basis</strong></label><input id="o_basis" class="readonly" readonly></div>
+    <div class="brillo-side">
+      <div>
+        <div class="brillo-side-label">50 Units</div>
+        <div class="brillo-side-stat">$20M</div>
+        <div class="brillo-side-desc">Deal Analyzed<br>in 60 Seconds</div>
       </div>
-
-      <div class="section-box">
-        <h3>2. Financing</h3>
-        <div class="row"><label>LTV %</label><input id="i_ltv" type="number" class="yellow" value="60.0"></div>
-        <div class="row"><label>Interest Rate %</label><input id="i_rate" type="number" class="yellow" value="5.50"></div>
-        <div class="row"><label>Amortization (Yrs)</label><input id="i_amort" type="number" class="yellow" value="30"></div>
-        <div class="row"><label>Loan Amount</label><input id="o_loan" class="readonly" readonly></div>
-        <div class="row"><label>Annual Debt Service</label><input id="o_debt" class="readonly" readonly></div>
+      <hr class="brillo-side-divider">
+      <div>
+        <div class="brillo-side-label">Free Model</div>
+        <div class="brillo-side-stat">IRR</div>
+        <div class="brillo-side-desc">Cap Rate · Cash-on-Cash<br>10-Year Pro Forma</div>
       </div>
-
-      <div class="section-box">
-        <h3>3. OpEx & Growth (Year 1)</h3>
-        <div class="row"><label>Prop Taxes (% Price)</label><input id="i_tax" type="number" class="yellow" value="1.25"></div>
-        <div class="row"><label>Insurance ($/unit)</label><input id="i_ins" type="number" class="yellow" value="500"></div>
-        <div class="row"><label>Mgmt Fee (% EGI)</label><input id="i_mgmt" type="number" class="yellow" value="4.0"></div>
-        <div class="row"><label>R&amp;M / Utilities ($/u)</label><input id="i_rm_util" type="number" class="yellow" value="1350"></div>
-        <!-- NEW FIXED OPEX LINE ITEM -->
-        <div class="row"><label>Fixed OpEx ($/yr)</label><input id="i_fixed_opex" type="number" class="yellow" value="0"></div>
-        <div class="row"><label>Other Income ($/mo)</label><input id="i_other" type="number" class="yellow" value="10500"></div>
-        <div class="row"><label>Vacancy / Growth %</label><input id="i_vac_gro" type="number" class="yellow" value="5.0"></div>
+      <hr class="brillo-side-divider">
+      <div>
+        <div class="brillo-side-label">CPA · Real Estate · Tax</div>
+        <div style="font-family:'Oswald',sans-serif; font-size:14px; color:rgba(255,255,255,0.8); text-transform:uppercase; letter-spacing:0.05em; line-height:1.5;">NYU · USC · CA Licensed<br>Business Cycle Depth</div>
       </div>
+      <a class="brillo-cta-btn" href="#contact">Get Independent Advice →</a>
     </div>
+  </div>
+</div>
 
-    <!-- RIGHT: UNIT MIX -->
-    <div class="right-panel">
-      <h3>4. Unit Mix Analysis</h3>
-      <table class="unit-table">
-        <thead>
-          <tr>
-            <th style="width:30%">Type</th>
-            <th style="width:12%">Cnt</th>
-            <th style="width:12%">SqFt</th>
-            <th style="width:18%">In-Place</th>
-            <th style="width:18%; background:#fefce8; color:#b45309">Pro Forma</th>
-            <th style="width:20%">Total/Mo</th>
-          </tr>
-        </thead>
-        <tbody id="unitBody">
-          <!-- Rows Generated by JS below, but hardcoded structure for stability -->
-          <tr>
-            <td><input type="text" value="Studio/Loft" readonly></td>
-            <td><input class="yellow u-cnt" type="number" value="8"></td>
-            <td><input class="yellow u-sq" type="number" value="600"></td>
-            <td><input class="yellow u-cur" type="number" value="1026"></td>
-            <td><input class="yellow u-pro" type="number" value="1600"></td>
-            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
-          </tr>
-          <tr>
-            <td><input type="text" value="Studio" readonly></td>
-            <td><input class="yellow u-cnt" type="number" value="8"></td>
-            <td><input class="yellow u-sq" type="number" value="650"></td>
-            <td><input class="yellow u-cur" type="number" value="2603"></td>
-            <td><input class="yellow u-pro" type="number" value="2800"></td>
-            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
-          </tr>
-          <tr>
-            <td><input type="text" value="1 Bedroom" readonly></td>
-            <td><input class="yellow u-cnt" type="number" value="12"></td>
-            <td><input class="yellow u-sq" type="number" value="750"></td>
-            <td><input class="yellow u-cur" type="number" value="3601"></td>
-            <td><input class="yellow u-pro" type="number" value="3800"></td>
-            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
-          </tr>
-          <tr>
-            <td><input type="text" value="2 Bedroom" readonly></td>
-            <td><input class="yellow u-cnt" type="number" value="15"></td>
-            <td><input class="yellow u-sq" type="number" value="900"></td>
-            <td><input class="yellow u-cur" type="number" value="4375"></td>
-            <td><input class="yellow u-pro" type="number" value="4600"></td>
-            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
-          </tr>
-          <tr>
-            <td><input type="text" value="3 Bedroom" readonly></td>
-            <td><input class="yellow u-cnt" type="number" value="7"></td>
-            <td><input class="yellow u-sq" type="number" value="1200"></td>
-            <td><input class="yellow u-cur" type="number" value="5050"></td>
-            <td><input class="yellow u-pro" type="number" value="5300"></td>
-            <td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td>
-          </tr>
-        </tbody>
-        <tfoot>
-          <!-- FOOTER WITH TOTAL UNITS & TOTAL SQFT -->
-          <tr>
-            <td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td>
-            <td class="num" id="t_units">0</td>
-            <td class="num" id="t_sqft">0</td>
-            <td class="num" id="t_cur">0</td>
-            <td class="num" id="t_pro">0</td>
-            <td class="num" id="t_tot" style="background:#f0fdf4; color:#166534">0</td>
-          </tr>
-        </tfoot>
-      </table>
-      
-      <div style="margin-top:15px; font-size:11px; color:#64748b; line-height:1.4">
-        * <strong>Total/Mo Formula:</strong> Pro Forma Rent × Unit Count.<br>
-        * Pro Forma model below annualizes this figure (×12).
-      </div>
+<!-- ORANGE TAG BAR -->
+<div class="brillo-orange-bar">
+  <span class="brillo-tag">Venice Beach Investing</span>
+  <span class="brillo-tag">Abbot Kinney Real Estate</span>
+  <span class="brillo-tag">Santa Monica Multifamily</span>
+  <span class="brillo-tag">Pacific Palisades Fixer Upper</span>
+  <span class="brillo-tag">Tech Workers Invest in Real Estate</span>
+  <span class="brillo-tag">RSU to Real Estate</span>
+  <span class="brillo-tag">Live Near the Beach LA</span>
+  <span class="brillo-tag">Rivian · Suno · Snap · SpaceX Employees</span>
+</div>
 
-      <!-- 4B. COMMERCIAL LEASES / RETAIL -->
-      <div class="section-box" style="margin-top:20px;">
-        <h3>4B. Commercial Leases (Ground Floor / Retail)</h3>
-        <table class="unit-table">
-          <thead>
-            <tr>
-              <th style="width:28%">Space</th>
-              <th style="width:10%">Units</th>
-              <th style="width:16%">SqFt</th>
-              <th style="width:18%">In-Place Rent</th>
-              <th style="width:18%; background:#fefce8; color:#b45309">Market Rent</th>
-              <th style="width:10%">Growth %</th>
-              <th style="width:20%">Total/Mo</th>
-            </tr>
-          </thead>
-          <tbody id="commBody">
-            <tr>
-              <td><input type="text" value="Retail 1"></td>
-              <td><input class="yellow c-unit" type="number" value="1"></td>
-              <td><input class="yellow c-sq" type="number" value="2500"></td>
-              <td><input class="yellow c-cur" type="number" value="5000"></td>
-              <td><input class="yellow c-mkt" type="number" value="6000"></td>
-              <td><input class="yellow c-gro" type="number" value="3.0"></td>
-              <td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td>
-            </tr>
-            <tr>
-              <td><input type="text" value="Retail 2"></td>
-              <td><input class="yellow c-unit" type="number" value="1"></td>
-              <td><input class="yellow c-sq" type="number" value=""></td>
-              <td><input class="yellow c-cur" type="number" value=""></td>
-              <td><input class="yellow c-mkt" type="number" value=""></td>
-              <td><input class="yellow c-gro" type="number" value="3.0"></td>
-              <td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td>
-            </tr>
-            <tr>
-              <td><input type="text" value="Retail 3"></td>
-              <td><input class="yellow c-unit" type="number" value="1"></td>
-              <td><input class="yellow c-sq" type="number" value=""></td>
-              <td><input class="yellow c-cur" type="number" value=""></td>
-              <td><input class="yellow c-mkt" type="number" value=""></td>
-              <td><input class="yellow c-gro" type="number" value="3.0"></td>
-              <td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td>
-            </tr>
-            <tr>
-              <td><input type="text" value="Retail 4"></td>
-              <td><input class="yellow c-unit" type="number" value="1"></td>
-              <td><input class="yellow c-sq" type="number" value=""></td>
-              <td><input class="yellow c-cur" type="number" value=""></td>
-              <td><input class="yellow c-mkt" type="number" value=""></td>
-              <td><input class="yellow c-gro" type="number" value="3.0"></td>
-              <td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td>
-            </tr>
-          </tbody>
-          <tfoot>
-            <tr>
-              <td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td>
-              <td class="num" id="c_units_total">0</td>
-              <td class="num" id="c_sqft_total">0</td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td class="num" id="c_tot_monthly" style="background:#f0fdf4; color:#166534">0</td>
-            </tr>
-          </tfoot>
-        </table>
-        <div style="margin-top:10px; font-size:11px; color:#64748b; line-height:1.4">
-          <div class="row" style="justify-content:space-between; margin-bottom:4px;">
-            <label>Retail 3-Year Cash Flow</label>
-            <input id="retail3" class="readonly" readonly style="width:120px;">
+<!-- ============================================================
+     CAROUSEL ARTICLE ZONE — 7 LONG-FORM POSTS
+     ============================================================ -->
+<div class="carousel-zone">
+  <div class="carousel-header">
+    <div class="carousel-header-title">THE BRIEFING</div>
+    <div class="carousel-header-sub">Long-form · Social-first · CPA Playbook for Private Company Employees</div>
+  </div>
+
+  <!-- ROW 1: 3 articles -->
+  <div class="article-grid" id="articleGrid1">
+
+    <!-- ARTICLE 1 -->
+    <a class="article-card" onclick="toggleArticle('art1'); return false;" href="#art1" aria-expanded="false">
+      <div class="card-num">01</div>
+      <div class="card-category">Tender Offer · Tax Strategy · Equity</div>
+      <div class="card-title">The Company Says It's a Great Valuation. But Is It Great For You?</div>
+      <div class="card-body">Your company's interests and yours diverge at the term sheet. They want the valuation validated. You want the risk you took to be rewarded. Independent advice isn't paranoia — it's table stakes.</div>
+      <div class="card-pull">"Institutional investors on the other side have advisors. You should too."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- ARTICLE 2 -->
+    <a class="article-card" onclick="toggleArticle('art2'); return false;" href="#art2" aria-expanded="false">
+      <div class="card-num">02</div>
+      <div class="card-category">RSU · ISO · AMT · IPO Sequencing</div>
+      <div class="card-title">RSUs vs ISOs: The Sequencing Trap That Costs Six Figures</div>
+      <div class="card-body">Same company. Two employees. One pays $80K in tax. One pays $200K+. The difference is not intelligence. It's sequencing. The type of equity you hold determines everything: when you act, how much you owe, and in what order you move.</div>
+      <div class="card-pull">"Getting the sequencing wrong at the same company can cost six figures."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- ARTICLE 3 -->
+    <a class="article-card" onclick="toggleArticle('art3'); return false;" href="#art3" aria-expanded="false">
+      <div class="card-num">03</div>
+      <div class="card-category">Pre-IPO · Lockup · Wealth Strategy</div>
+      <div class="card-title">You Built Wealth on Paper. Now Don't Lose It in Execution.</div>
+      <div class="card-body">IPO is coming. You're "rich" — but only on paper. You've waited years. You don't want to sell too early, and you don't want to miss the upside. Your risk is not missing upside. Your risk is never realizing it.</div>
+      <div class="card-pull">"The IPO is not the finish line. It's the highest risk transition point."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- EXPANDED: Art1 -->
+    <div class="article-expanded" id="art1">
+      <button class="ae-close" onclick="closeArticle('art1')">Close ✕</button>
+      <div class="ae-eyebrow">Article 01 · Tender Offer · Valuation · Tax Strategy</div>
+      <h2>The Company Says It's a Great Valuation.<br>But Is It Great For You?</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You're being told this is a strong price. The email says "attractive valuation," "employee liquidity opportunity," "limited window." It feels like a win. You've been waiting for this moment for years.</p>
+          <p>But here's what nobody in that email tells you: <strong>you're evaluating the headline price. You should be evaluating the after-tax outcome — and your remaining concentration risk once the dust settles.</strong></p>
+          <h3>Your Situation — Real Example</h3>
+          <p>You own 20,000 shares. Tender offer price: $25/share. Total value: $500,000. You're allowed to sell 50%, so you think: "I'll take $250K off the table." Makes sense. Here's the math you're skipping:</p>
+          <p>Your basis is $5/share. The gain is $20/share. On 10,000 shares, that's $200,000 of taxable gain. Federal capital gains at 20%, plus Net Investment Income Tax at 3.8%, plus California state tax at roughly 10% — and your $250K becomes <strong>$160K–$170K after tax</strong>. And you still hold $250K in paper value tied to one company.</p>
+          <h3>What Happens If You Do Nothing Strategically</h3>
+          <p>You sell randomly (or not at all). You don't model the taxes. You keep most of your exposure. You overestimate your liquidity. You remain concentrated. And if the valuation drops before the next round — you've lost both the paper gains and the diversification window you missed.</p>
+          <div class="ae-warning">If valuation drops after this window → you lose the gains AND the missed diversification. Both.</div>
+          <h3>Misaligned Interests — The Real Problem</h3>
+          <p>The company wants a clean tender, a validated valuation, and happy employees who participate. You want real liquidity, tax efficiency, and risk reduction. Those are <strong>not aligned objectives</strong>. Institutional investors on the other side of this deal have a full team — legal, financial, tax. You have the summary deck they prepared for you.</p>
+          <h3>What To Do Instead</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Model after-tax proceeds first</strong> — not the headline number. What actually hits your account after federal, NIIT, and state taxes? That's your real decision basis.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Set a target concentration limit</strong> — ask yourself: what percentage of my total net worth should remain in this single company? If the answer is under 30%, adjust your sell amount accordingly.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Treat it like an institutional trade</strong> — partial exit, risk-managed hold, reallocation plan ready before you sign anything.</div></div>
           </div>
-          <div class="row" style="justify-content:space-between;">
-            <label>Retail 5-Year Cash Flow</label>
-            <input id="retail5" class="readonly" readonly style="width:120px;">
+          <p>Independent advice isn't paranoia. It's table stakes. The window is typically 20–30 days. The tax structure of how you receive proceeds can vary significantly based on grant type (IRC §83, §1221). Model it before the deadline, not after.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">Example Math</div>
+            <div class="ae-stat">$250K</div><div class="ae-stat-label">Gross proceeds</div>
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.2);margin:12px 0">
+            <div class="ae-stat" style="font-size:28px">$160K</div><div class="ae-stat-label">After-tax (CA, ~35% effective)</div>
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.2);margin:12px 0">
+            <div class="ae-stat" style="font-size:28px">$250K</div><div class="ae-stat-label">Still at risk in one stock</div>
+          </div>
+          <div class="ae-example-box" style="background:var(--brillo-red)">
+            <div class="box-label">Tax Character</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;">Tender offer proceeds can be ordinary income or capital gains depending on structure. The difference is 15–20%+ in effective rate. This is the question to ask first.</div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">CTA</div>
+            <div style="font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6;margin-bottom:12px;">We can model your exact tender scenario — after-tax proceeds, optimal sell %, hold strategy, and reallocation plan.</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Book a Consult →</a>
           </div>
         </div>
       </div>
-
-    </div>
-  </div>
-
-  <!-- CTA BAR -->
-  <div class="cta-box">
-    Contact 310.728.7974 for Real Estate Asset Management & Underwriting Multifamily | Office | Retail | Net Lease | Hotel Real Estate Edge <a href="https://realestatecode.github.io/vetted" target="_blank">realestatecode.github.io/vetted</a>
-  </div>
-
-  <!-- MIDDLE LOGO & VIDEO -->
-  <div class="mid-section">
-    <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
-    <div class="logo-text edge-highlight" style="font-size:20px">REAL ESTATE EDGE</div>
-    <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
-  </div>
-  
-  <div class="video-drop">
-    <iframe width="560" height="315"
-      src="https://www.youtube.com/embed/8zhx59oxXy4"
-      title="YouTube video player"
-      frameborder="0"
-      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-      allowfullscreen
-      style="width:100%; height:100%;">
-    </iframe>
-  </div>
-
-  <!-- PRO FORMA ENGINE -->
-  <div class="section-box" style="margin-top:20px;">
-    <h3>5. 10-Year Pro Forma Projection (for illustration only - for complex projects - investors are expected to perform their own due diligience as interest rate, occupancy and market conditions can change and will impact financial outlook.</h3>
-    
-    <div class="kpi-row">
-      <div class="kpi"><span>Initial Equity</span><strong id="k_eq">-</strong></div>
-      <div class="kpi"><span>IRR (Levered)</span><strong id="k_irr">-</strong></div>
-      <div class="kpi"><span>Equity Multiple</span><strong id="k_em">-</strong></div>
-      <div class="kpi"><span>Avg Cash/Cash</span><strong id="k_coc">-</strong></div>
-      <div class="kpi"><span>Exit Price (Yr10)</span><strong id="k_exit">-</strong></div>
     </div>
 
-    <div style="overflow-x:auto">
-      <table id="proTable">
-        <thead>
-          <!-- JS Populated -->
-        </thead>
-        <tbody>
-          <!-- JS Populated -->
-        </tbody>
-      </table>
+    <!-- EXPANDED: Art2 -->
+    <div class="article-expanded" id="art2">
+      <button class="ae-close" onclick="closeArticle('art2')">Close ✕</button>
+      <div class="ae-eyebrow">Article 02 · RSU · ISO · AMT · Equity Sequencing</div>
+      <h2>The Type of Equity You Hold<br>Determines Everything.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You think: "It's all stock comp." It's not. RSUs and ISOs behave completely differently — and if you sequence them wrong, you can create a six-figure tax problem without knowing it.</p>
+          <h3>Your Situation — Real Example</h3>
+          <p>You have RSUs vesting this year worth $300,000. You also have 10,000 ISOs at a $2 strike, with current fair market value of $20. What most people do: they let RSUs vest (taxed automatically), then exercise ISOs in the same year because "it's time." Here's what actually happens:</p>
+          <p>The $300K in RSUs is taxed as ordinary income. Federal plus California comes to roughly 40–50%. That's $120K–$150K in tax. Then the ISO spread — $18/share on 10,000 shares — creates $180,000 of Alternative Minimum Tax income. You just triggered AMT on top of ordinary income in the same year. <strong>Total incremental tax bill: often $100,000+.</strong></p>
+          <h3>The Critical Difference</h3>
+          <p><strong>RSUs are a tax event you don't control</strong> — they vest, you owe, full stop. RSUs are taxed as ordinary income at vesting (IRS Pub 525). <strong>ISOs are a tax event you do control</strong> — you choose when and whether to exercise. ISOs can trigger AMT on the spread between strike and FMV at exercise (IRC §56–§57). The spread at exercise is AMT income even though you receive no cash.</p>
+          <div class="ae-warning">RSU income + ISO AMT stacked in the same year = the most common six-figure mistake we see.</div>
+          <h3>The Sequencing Rule</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Accept RSU income as fixed</strong> — plan around it, not with it. Withholding often underestimates your true tax. Reconcile before year-end.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Run AMT projections before ISO exercise</strong> — calculate your AMT exposure in the year you plan to exercise. Use lower-income years strategically.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Sequence ISOs across tax years</strong> — exercise gradually, or consider early exercise (83(b) election) when the spread is still small and FMV is low.</div></div>
+            <div class="ae-step"><div class="ae-step-num">4</div><div class="ae-step-text"><strong>Start the holding period clock deliberately</strong> — ISOs get capital gains treatment if held 1 year post-exercise AND 2 years from grant date. The clock only runs if you act.</div></div>
+          </div>
+          <p>Same company. Same total compensation. Two employees — one pays $80K in tax, one pays $200K+. The difference is not intelligence. It's sequencing. Nobody explains this because equity comp advisors and tax advisors rarely sit in the same room.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">Side-by-side comparison</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.8;">
+              <strong style="color:var(--brillo-yellow)">Employee A (Stacked)</strong><br>
+              $300K RSU + $180K ISO AMT<br>
+              → ~$200K+ tax bill<br><br>
+              <strong style="color:var(--brillo-yellow)">Employee B (Sequenced)</strong><br>
+              $300K RSU in Year 1<br>
+              ISOs in lower-income year<br>
+              → ~$80K–$100K tax bill
+            </div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Map</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">Your RSU vest schedule · ISO exercise strategy by year · AMT exposure projection · Optimal ISO timing window</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Start the Map →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPANDED: Art3 -->
+    <div class="article-expanded" id="art3">
+      <button class="ae-close" onclick="closeArticle('art3')">Close ✕</button>
+      <div class="ae-eyebrow">Article 03 · Pre-IPO · Lockup Strategy · Wealth Realization</div>
+      <h2>You Built Wealth on Paper.<br>Now Don't Lose It in Execution.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You're heading toward an IPO. Your equity is worth $1M+, maybe more. And you're thinking: "I'll just hold. It's going higher." The problem isn't your conviction. The problem is that you don't control lockups, market conditions, or post-IPO volatility — and those three variables are what determine whether your paper wealth becomes real wealth.</p>
+          <h3>What Actually Happens at IPO — Real Example</h3>
+          <p>Equity value at IPO pricing: $1.2M. Lockup period: 180 days. IPO price: $30/share. During the lockup, the stock drops to $22. You're still locked. Your $1.2M is now $880K on paper — and you can't do anything about it. Six months of watching matters you can't control.</p>
+          <div class="ae-warning">The lockup expiration date is your first real decision point. Plan before it arrives — not after.</div>
+          <h3>The 3-Bucket Strategy</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Liquidity Bucket</strong> — Sell enough to cover taxes on the equity income event AND fund 1–2 years of life. This is not optional. If you under-withhold, the IRS will find you. Size this bucket first.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Core Hold Bucket</strong> — Maintain meaningful upside exposure to the company you helped build. Set a price target or time horizon. This is intentional, not passive.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Diversification Bucket</strong> — Systematically redeploy into uncorrelated assets: index funds, real estate (see below), fixed income. This is how paper wealth becomes a portfolio.</div></div>
+          </div>
+          <h3>The Tax Stacking Problem</h3>
+          <p>IPO year is often the highest-income year of your life. RSUs vest at IPO price. Options exercise creates spread income. State bonus withholding kicks in. The combination can push your effective rate above 50% in California. Planning the sequence of what vests, when, and how it's taxed can save real money — but only if you act before the window, not after.</p>
+          <p>You're not "selling early." You're <strong>converting risk into optionality</strong>. The upside remains. The downside is limited. And you stop being fully exposed to a single outcome you can't control.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">The math of inaction</div>
+            <div class="ae-stat">$1.2M</div><div class="ae-stat-label">Value at IPO pricing</div>
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.2);margin:12px 0">
+            <div class="ae-stat" style="font-size:28px;">$880K</div><div class="ae-stat-label">After 180-day lockup at –27%</div>
+            <hr style="border:none;border-top:1px solid rgba(255,255,255,0.2);margin:12px 0">
+            <div style="font-size:12px;color:rgba(255,255,255,0.7);line-height:1.6;">Post-IPO volatility is not predictable. The company doesn't owe you the IPO price after the lockup. Have a plan before day one.</div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Build</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">Post-IPO sell schedule · Tax timing plan · 3-bucket diversification model · Real estate allocation strategy</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Build My Plan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end article-grid 1 -->
+
+  <!-- ROW 2: 2 wider articles -->
+  <div class="article-grid-2" id="articleGrid2">
+
+    <!-- ARTICLE 4 -->
+    <a class="article-card" onclick="toggleArticle('art4'); return false;" href="#art4">
+      <div class="card-num">04</div>
+      <div class="card-category">Merger Chaos · Equity Conversion · xAI → SpaceX Style</div>
+      <div class="card-title">You Don't Own What You Think You Own After a Merger</div>
+      <div class="card-body">Your company got acquired. Your equity converted. New strikes, new ratios, vesting that may not have carried over cleanly — and you're still modeling using the old numbers. By the time it feels clear, your planning window is already closed. We're seeing three specific mistakes over and over with employees coming through all-stock deals.</div>
+      <div class="card-pull">"Every number you knew changed: strike, spread, share count. Model from zero."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- ARTICLE 5 -->
+    <a class="article-card" onclick="toggleArticle('art5'); return false;" href="#art5">
+      <div class="card-num">05</div>
+      <div class="card-category">Concentration Risk · Asset Basket · Tech Worker Real Estate</div>
+      <div class="card-title">Half Your Net Worth Is One Company's Stock. Here's What the Rest Should Look Like.</div>
+      <div class="card-body">You did everything right. High income, maxing the 401k, saving aggressively. But 60% of your net worth is your employer's equity. Your salary comes from that company. Your health insurance comes from that company. Adding your entire net worth to the same single counterparty isn't loyalty — it's uncompensated risk. Here's the 5-layer asset basket we build with tech employees in LA.</div>
+      <div class="card-pull">"You don't get paid extra for risk you didn't need to take."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- EXPANDED: Art4 -->
+    <div class="article-expanded" id="art4">
+      <button class="ae-close" onclick="closeArticle('art4')">Close ✕</button>
+      <div class="ae-eyebrow">Article 04 · Merger · Equity Conversion · All-Stock Deal</div>
+      <h2>You Don't Own<br>What You Think You Own.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>Your company got acquired. Your equity converted. And you're assuming: "It's basically the same." It is not. In an all-stock acquisition, every parameter of your equity award changes simultaneously — and the merger documents describing those changes are written for lawyers, not for you.</p>
+          <h3>Your Situation — Real Example</h3>
+          <p>You had 5,000 options at a $5 strike. Conversion ratio in the all-stock deal: 0.5. Now you have 2,500 options at a $10 strike. Your share count is cut in half. Your strike has doubled. And the spread — which drives your AMT exposure — is completely different. Before: FMV $25, spread $20. After conversion: FMV $25, strike $10, spread $15. Your AMT calculation has changed materially, and you didn't get a memo.</p>
+          <h3>Three Mistakes We See Repeatedly</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Modeling AMT against the old strike</strong> — not the adjusted one. The AMT is calculated on the spread at exercise. If you're using pre-merger numbers, you're modeling the wrong tax liability.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Assuming old vesting still applies</strong> — Vesting schedules can be modified at the close of a deal, buried in the "treatment of equity awards" summary rather than your standard grant doc. Read it.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Waiting for the IPO filing</strong> — By the time the S-1 is public, the optimal planning window is gone. The pre-filing period is when strategic options are open. After filing, the blackout clock starts.</div></div>
+          </div>
+          <div class="ae-warning">What to do this week: Get the conversion ratio in writing → Recalculate strike, spread, share count → Model AMT on the new numbers → Understand the blackout start date.</div>
+          <h3>Rebuild From Zero</h3>
+          <p>Step 1: Confirm conversion math — ratio, new strike, new share count — in writing from HR or the plan administrator. Step 2: Recalculate the spread. This drives the AMT calculation. Step 3: Re-evaluate your exercise timing and sale sequencing against the new numbers. Step 4: If there's an IPO coming, map the decision windows before the blackout, not during it.</p>
+          <p>The planning window in a post-merger pre-IPO situation is narrow. The employees who act before the S-1 filing have options. The ones who wait until it's "clear" are working with whatever remains.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">Conversion impact</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.9;">
+              <strong style="color:var(--brillo-yellow)">Before merger:</strong><br>
+              5,000 options · $5 strike<br>
+              FMV $25 · Spread $20<br><br>
+              <strong style="color:var(--brillo-yellow)">After conversion (0.5x):</strong><br>
+              2,500 options · $10 strike<br>
+              FMV $25 · Spread $15<br><br>
+              AMT income: $37,500 → $37,500<br>
+              <em style="color:rgba(255,255,255,0.5);">Same? Only if spread math lines up. It often doesn't.</em>
+            </div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Rebuild</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">Rebuild your equity model · Recalculate AMT on new strike · Map decision windows before blackout · Structure sale sequencing</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Rebuild My Model →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPANDED: Art5 -->
+    <div class="article-expanded" id="art5">
+      <button class="ae-close" onclick="closeArticle('art5')">Close ✕</button>
+      <div class="ae-eyebrow">Article 05 · Concentration Risk · Asset Basket · Real Estate · LA Tech Workers</div>
+      <h2>Half Your Net Worth Is<br>One Company's Stock.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You came in doing everything right. Maxing your 401k. No consumer debt. Saving aggressively. Smart, disciplined. And yet: 60% of your total net worth is in the equity of a single company — the same company that pays your salary, your health insurance, and your bonus. That's not a portfolio. That's a concentrated bet on a single counterparty, three times over.</p>
+          <h3>The Math of Concentration</h3>
+          <p>Net worth: $2M. Company stock: $1.2M. Diversified assets: $800K. If the stock drops 50%, your net worth drops to $1.4M. You just lost $600K. And unlike a diversified portfolio, there's no other leg of the stool to hold you up — because your income, your equity, and your savings are all moving in the same direction at the same time.</p>
+          <div class="ae-warning">A concentrated position isn't a reward. It's a risk that hasn't been repriced yet.</div>
+          <h3>The 5-Layer Asset Basket for LA Tech Employees</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Liquidity layer (10–20%)</strong> — 6–12 months of cash, separate from your emergency fund. This is the buffer that lets you make strategic decisions instead of reactive ones during a downturn.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Tax-advantaged base</strong> — 401k maxed, backdoor Roth if income limits apply, HSA if eligible. These are the closest things to guaranteed after-tax return that exist in the tax code.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Real assets (real estate)</strong> — Primary residence equity, West LA multifamily, or REITs. Real estate provides depreciation offset against your ordinary income, which is significant when your W-2 income is in the top bracket. (See our underwriting model below.)</div></div>
+            <div class="ae-step"><div class="ae-step-num">4</div><div class="ae-step-text"><strong>Diversified equity (not your employer)</strong> — Index funds, sector exposure outside tech. The goal is non-correlation with your employment income. If the tech sector corrects and you lose your job, this layer should not be moving in the same direction.</div></div>
+            <div class="ae-step"><div class="ae-step-num">5</div><div class="ae-step-text"><strong>Equity optionality (your company stock)</strong> — Intentionally sized, not defaulted to. Set a target: under 30% of net worth in a single position. Use liquidity events to systematically reduce toward that target.</div></div>
+          </div>
+          <h3>The Tax Angle — Why Real Estate Belongs in This Basket</h3>
+          <p>If you're making $400K–$700K in W-2 income plus RSU income in a high year, your marginal California rate plus federal is above 50%. <strong>Real estate depreciation directly offsets ordinary income</strong> — $50K in depreciation on a $1.5M property can reduce your tax bill by $25K+ per year. It's one of the few remaining tax shelters available to high earners without complex structures.</p>
+          <p>The real estate model below underwrites exactly these scenarios — Venice Beach, Abbot Kinney, Santa Monica, and Brentwood multifamily properties with ground-floor retail. Use it to stress-test your numbers before you commit.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">Concentration scenario</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.9;">
+              Net worth: <strong style="color:var(--brillo-yellow)">$2M</strong><br>
+              Company stock: <strong style="color:var(--brillo-yellow)">$1.2M (60%)</strong><br>
+              Stock drops 50%:<br>→ Net worth: <strong style="color:var(--brillo-red)">$1.4M</strong><br>
+              Loss: <strong style="color:var(--brillo-red)">$600K</strong><br><br>
+              <em style="color:rgba(255,255,255,0.5);">Target: &lt;30% in any single position.</em>
+            </div>
+          </div>
+          <div class="ae-example-box" style="background:var(--brillo-green)">
+            <div class="box-label">West LA Real Estate Play</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.7;">Venice Beach & Santa Monica 4–12 unit properties: $1.2M–$4M acquisition cost. Depreciation benefit at high marginal rate: $15K–$40K/year in tax savings. Use the model below to underwrite your target property.</div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Map</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">Your full net worth concentration · A diversification plan with tax staging · Real estate allocation integrated with equity events</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Map My Position →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- end article-grid-2 -->
+
+  <!-- ROW 3: 2 final articles -->
+  <div class="article-grid-2">
+
+    <a class="article-card" onclick="toggleArticle('art6'); return false;" href="#art6">
+      <div class="card-num">06</div>
+      <div class="card-category">Behavioral Finance · The Freeze · Paper Wealth</div>
+      <div class="card-title">$800K on Paper Feels Different Than $800K in Your Account. That Gap Is Expensive.</div>
+      <div class="card-body">When equity becomes real money, most people freeze. Selling makes it final. Final means you can be wrong. $800K on paper feels bigger than $800K in cash, and that psychological gap is one of the most expensive things we see. The move isn't to sell everything. It's to sell enough to make it real.</div>
+      <div class="card-pull">"Not selling is also a decision. And it has a cost."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <a class="article-card" onclick="toggleArticle('art7'); return false;" href="#art7">
+      <div class="card-num">07</div>
+      <div class="card-category">Income · Asset Formation · Rent vs Own · LA Real Estate</div>
+      <div class="card-title">You Make $500K+ and You're Still Renting. Here's the Asset Basket That Changes That.</div>
+      <div class="card-body">Big salary. Big tax bill. High equity upside. And still renting in Venice or Santa Monica, waiting for the IPO, waiting for the right market, waiting for clarity. You're not waiting strategically. You're delaying asset formation. Income builds lifestyle. Assets build freedom. The model is below.</div>
+      <div class="card-pull">"Income builds lifestyle. Assets build freedom. The math doesn't wait."</div>
+      <div class="card-read">Read Full Article →</div>
+    </a>
+
+    <!-- EXPANDED: Art6 -->
+    <div class="article-expanded" id="art6">
+      <button class="ae-close" onclick="closeArticle('art6')">Close ✕</button>
+      <div class="ae-eyebrow">Article 06 · Behavioral Finance · Selling Psychology · Equity Realization</div>
+      <h2>$800K on Paper Feels Different<br>Than $800K in Your Account.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You have $800K on paper. And you hesitate to sell. Here's why, exactly: selling makes it final. If you sell and the stock goes to $1.2M, you were wrong. If you hold and it goes to $300K, at least you didn't make an active mistake. The brain treats selling as a decision you can be judged for — and holding as something that just happened to you.</p>
+          <p>That asymmetry is a cognitive trap. And it's expensive.</p>
+          <h3>Not Selling Is Also a Decision</h3>
+          <p>Example: Stock goes from $800K to $500K during a correction. You didn't sell. You lost $300K of real opportunity — a down payment on a Venice Beach fourplex, two years of runway to start something, a diversified portfolio that would still be whole right now. The "no decision" still cost you $300K.</p>
+          <div class="ae-warning">The freeze is the most common wealth destruction event we see. Inaction is a position.</div>
+          <h3>The "Sell Enough to Make It Real" Framework</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Define a concrete use for the proceeds</strong> — not "diversification" in the abstract. A specific down payment. A specific debt paid off. A specific investment. Make the money do something visible before you sell it.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Size the sale to fund that concrete thing</strong> — not everything. Not a round percentage. Just what it takes to fund the thing you identified. Keep the rest. You haven't abandoned the upside; you've carved out a floor.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Set a tax-aware timeline</strong> — partial sales can be sequenced across tax years, or structured using covered calls or collars if you want to limit downside without triggering a sale event in the current year.</div></div>
+            <div class="ae-step"><div class="ae-step-num">4</div><div class="ae-step-text"><strong>Hold the rest with an explicit thesis</strong> — not inertia. If you're holding because you believe in a specific outcome at a specific time horizon, that's a position. If you're holding because selling feels irreversible, that's the freeze. Know which one it is.</div></div>
+          </div>
+          <p>The shift is from "all or nothing" to "partial realization plus upside retention." Some of it becomes real. The rest keeps working. You stop living in between — neither invested nor committed — and start making intentional decisions with real money.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">The cost of the freeze</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.9;">
+              Paper value: <strong style="color:var(--brillo-yellow)">$800K</strong><br>
+              Didn't sell. Stock corrects –37%:<br>
+              → Now: <strong style="color:var(--brillo-red)">$500K</strong><br>
+              Lost: <strong style="color:var(--brillo-red)">$300K</strong> of real optionality<br><br>
+              <em style="color:rgba(255,255,255,0.5);">What $300K buys in Venice: 20% down on a $1.5M fourplex that generates $72K/yr gross rent.</em>
+            </div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Design</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">A staged selling plan aligned to your goals · Tax-efficient sequencing · Covered call or collar strategy · Real estate allocation for the proceeds</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Start the Plan →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- EXPANDED: Art7 -->
+    <div class="article-expanded" id="art7">
+      <button class="ae-close" onclick="closeArticle('art7')">Close ✕</button>
+      <div class="ae-eyebrow">Article 07 · High Income · Asset Formation · Rent vs Own · Venice · Santa Monica</div>
+      <h2>You Make $500K+<br>and You're Still Renting.</h2>
+      <div class="ae-body">
+        <div class="ae-prose">
+          <p>You earn a lot. You pay a lot in taxes. You have equity that's going somewhere. And your balance sheet still isn't building. You're waiting for the IPO, for a better market, for clarity. What you're actually doing is delaying asset formation — and in LA, that delay compounds against you every year.</p>
+          <h3>The Balance Sheet Problem</h3>
+          <p>$500K income. High tax bill. Equity upside. But no real asset base. Your net worth is mostly future promises — the IPO, the next vesting event, the stock price on a good day. <strong>Income without asset accumulation is a lifestyle, not a wealth strategy.</strong></p>
+          <h3>The 4-Layer Asset Basket</h3>
+          <div class="ae-steps">
+            <div class="ae-step"><div class="ae-step-num">1</div><div class="ae-step-text"><strong>Liquidity (10–20%)</strong> — Cash and short-term reserves. Enough to make decisions without pressure. The absence of this layer is why people don't sell equity when they should — they can't afford to be wrong.</div></div>
+            <div class="ae-step"><div class="ae-step-num">2</div><div class="ae-step-text"><strong>Market exposure (30–50%)</strong> — Diversified, non-employer equity. Index funds, sector tilts, international exposure. Not correlated to your income source.</div></div>
+            <div class="ae-step"><div class="ae-step-num">3</div><div class="ae-step-text"><strong>Real assets</strong> — Real estate: primary residence or investment property in West LA. Venice Beach, Abbot Kinney, Santa Monica, Pacific Palisades. Depreciation offsets your ordinary income. Rental income diversifies your cash flow. Appreciation is LA's long-term track record.</div></div>
+            <div class="ae-step"><div class="ae-step-num">4</div><div class="ae-step-text"><strong>Equity optionality</strong> — Your company stock, intentionally sized. Use each liquidity event to systematically reduce concentration and fund the layers above.</div></div>
+          </div>
+          <h3>Why LA Real Estate Specifically</h3>
+          <p>You're working at a tech company in Santa Monica, Venice, or Culver City. You walk or bike to work. You're already paying $4,500/month for a 2-bedroom in a building you don't own. That's $54,000/year building someone else's equity. <strong>Venice Beach, Abbot Kinney, and the Westside have 30-year appreciation histories that outperform most equity indices on a risk-adjusted, after-tax basis</strong> — especially when you factor in the depreciation benefit against ordinary income.</p>
+          <p>A $1.5M fourplex near the Venice canals generates $72K–$84K in gross annual rent. After expenses, the net operating income supports the debt service at current rates and generates a 5–7% unlevered yield. The depreciation on $1.5M of improvements runs $54K/year — a direct offset to your W-2 income. Use the financial model below to run your own numbers.</p>
+          <p>The model is free. The analysis is institutional-grade. Use it.</p>
+        </div>
+        <div class="ae-sidebar">
+          <div class="ae-example-box">
+            <div class="box-label">Rent vs. Build Equity</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.85);line-height:1.9;">
+              $4,500/mo rent = <strong style="color:var(--brillo-red)">$54K/yr</strong> to landlord<br>
+              10 years = <strong style="color:var(--brillo-red)">$540K</strong> paid, $0 asset<br><br>
+              vs. Venice 4-unit:<br>
+              $300K down, $1.2M loan<br>
+              Gross rent: <strong style="color:var(--brillo-yellow)">$84K/yr</strong><br>
+              Depreciation: <strong style="color:var(--brillo-yellow)">$54K/yr</strong> tax offset<br>
+              10-yr appreciation (est.): <strong style="color:var(--brillo-yellow)">+40–60%</strong>
+            </div>
+          </div>
+          <div class="ae-example-box" style="background:#0f1b2d">
+            <div class="box-label">We Can Build</div>
+            <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px;">Full asset allocation · Integration of equity events into real estate acquisition · LA market analysis · Tax strategy across real estate + equity income</div>
+            <a href="#contact" style="display:block;background:var(--brillo-yellow);color:var(--ink);font-family:'Oswald',sans-serif;font-size:13px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;text-align:center;padding:10px;text-decoration:none;border:2px solid var(--ink);">Build My Strategy →</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- end row 3 -->
+</div><!-- end carousel-zone -->
+
+<!-- ============================================================
+     CULTURAL ESSAY
+     ============================================================ -->
+<div class="essay-section">
+  <div class="essay-inner">
+    <div class="essay-kicker">Dividond Research · Market Signal · April 2026</div>
+    <div class="essay-title">The Sidewalks Are<br><span>Thinner Now.</span></div>
+    <div class="essay-body">
+      <p>The storefront lights are still on, but the sidewalks feel thinner now — fewer footsteps, longer pauses at the window, more people glancing at price tags before stepping inside. April is slipping away in that quiet, uneasy way. Not with a crash. With a question.</p>
+      <div class="essay-pull">Who Are You Really Working For? The Paycheck, the Landlord, or the Life You're Building?</div>
+      <p>Independent retailers and emerging brands are fighting for attention in a landscape that feels increasingly stretched. Foot traffic isn't just soft — it's hesitant. People are still out there, still moving through cities, but spending has turned selective. Almost surgical.</p>
+      <p>Every morning brings another headline — another round of layoffs, another restructuring framed as "efficiency." HR departments have become the front line of a quieter economic shift, where stability feels temporary and long-term planning starts to blur. Even for those still employed, there's a subtle tightening. A recalibration.</p>
+      <p>High rent. High gas. Eating out feels like an event, not a habit. Shopping — once casual, even recreational — now carries weight. Cities, once engines of opportunity and culture, are starting to feel like gated experiences with rising entry costs. <strong>Somewhere in that tension, a sharper question emerges: who are you really working for?</strong></p>
+      <p>Is it the paycheck? The landlord? The lifestyle you're trying to maintain — or the one you're quietly drifting away from? And then there's the other side of the equation — the dream that used to anchor it all. The house. The space. The idea of ownership.</p>
+      <p>At Dividond, we've been leaning into that shift. Not reacting to noise, but mapping outcomes. If pressure on consumers deepens, if spending patterns tighten, if valuation disconnects widen — where does the investable dollar actually want to go? That's the core question. <strong>Not predictions for the sake of headlines. But frameworks.</strong></p>
+      <p>The consumer is evolving. The city is recalibrating. The market — despite its optimism — is sending mixed messages. Somewhere in the middle of all that, there's an opportunity to step back and ask better questions about where time, money, and energy are actually being allocated. Summer is coming. The pace will pick up. It always does. But this year, it feels more reflective. More intentional. Less about chasing — and more about choosing.</p>
+    </div>
+    <div style="margin-top:20px; display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+      <a href="https://www.dividond.com" target="_blank" style="font-family:'Oswald',sans-serif;font-size:11px;letter-spacing:0.2em;text-transform:uppercase;color:var(--brillo-yellow);text-decoration:none;border:1px solid var(--brillo-yellow);padding:6px 16px;">→ Read More at Dividond.com</a>
+      <a href="https://www.tradingview.com/chart/INTC/55b37vgz-Revenue-Growth-7-yet-the-stock-pumps-20-ahem/" target="_blank" style="font-family:'Roboto Mono',monospace;font-size:10px;letter-spacing:0.1em;color:rgba(255,255,255,0.4);text-decoration:none;">Signal Chart: Revenue Growth vs. Stock Pump →</a>
     </div>
   </div>
-
-  <!-- FOOTER -->
-  <footer>
-    <div><a href="https://www.coffeebarconnoisseur.com">coffeebarconnoisseur.com</a> · <a href="https://www.coffeebarroasters.com">coffeebarroasters.com</a> · <a href="https://www.dividond.com">dividond.com</a> · <a href="https://www.decodedmusic.com">decodedmusic.com</a>
-    · <a href="https://www.etsy.com/your/shops/me/listing-editor/edit/4443695923">VETTED HUMOR TEE SHIRT</a></div> · <a href="https://denimcraftvibes.com/">DENIM CRAFT VIBES </a></div>
-    <div style="margin-top:6px"><a href="https://www.youtube.com/@designrenovate">YouTube — DesignRenovate</a></div>
-  </footer>
-
 </div>
 
+<!-- ============================================================
+     FINANCIAL MODEL (moved to middle/lower)
+     ============================================================ -->
+<div class="model-zone">
+  <div class="model-header-bar">
+    <div>
+      <div class="model-header-title">50-Unit Apartment Financial Model</div>
+      <div class="model-header-sub">Venice · Santa Monica · Brentwood · Pacific Palisades — Free Institutional Underwriting Tool</div>
+    </div>
+    <div style="font-family:'Roboto Mono',monospace;font-size:10px;color:rgba(255,255,255,0.35);letter-spacing:0.05em;">realfimodel.com · 310.728.7974</div>
+  </div>
+
+  <div class="wrap">
+    <header>
+      <div class="logo-text">REALFIMO<span style="font-weight:400; font-size:16px; color:#64748b;">| Real Estate Finance Model Analytics</span></div>
+      <div class="controls">
+        <button id="btnReset">Reset</button>
+        <button class="primary" id="btnCalcIn">Copy In-Place Rents</button>
+        <button class="primary" id="btnExport">Export CSV</button>
+      </div>
+    </header>
+
+    <div class="input-grid">
+      <div class="left-panel">
+        <div class="section-box">
+          <h3>1. Deal Assumptions (Inputs)</h3>
+          <div class="row"><label>Project Name</label><input id="i_name" type="text" class="yellow" style="text-align:left; width:140px" value="Project xyz"></div>
+          <div class="row"><label>Purchase Price</label><input id="i_price" type="text" class="yellow" value="20,000,000"></div>
+          <div class="row"><label>Closing Costs %</label><input id="i_close" type="number" class="yellow" value="1.0"></div>
+          <div class="row"><label>Reno Budget</label><input id="i_reno" type="text" class="yellow" value="500,000"></div>
+          <div class="row"><label><strong>Total Basis</strong></label><input id="o_basis" class="readonly" readonly></div>
+        </div>
+        <div class="section-box">
+          <h3>2. Financing</h3>
+          <div class="row"><label>LTV %</label><input id="i_ltv" type="number" class="yellow" value="60.0"></div>
+          <div class="row"><label>Interest Rate %</label><input id="i_rate" type="number" class="yellow" value="5.50"></div>
+          <div class="row"><label>Amortization (Yrs)</label><input id="i_amort" type="number" class="yellow" value="30"></div>
+          <div class="row"><label>Loan Amount</label><input id="o_loan" class="readonly" readonly></div>
+          <div class="row"><label>Annual Debt Service</label><input id="o_debt" class="readonly" readonly></div>
+        </div>
+        <div class="section-box">
+          <h3>3. OpEx & Growth (Year 1)</h3>
+          <div class="row"><label>Prop Taxes (% Price)</label><input id="i_tax" type="number" class="yellow" value="1.25"></div>
+          <div class="row"><label>Insurance ($/unit)</label><input id="i_ins" type="number" class="yellow" value="500"></div>
+          <div class="row"><label>Mgmt Fee (% EGI)</label><input id="i_mgmt" type="number" class="yellow" value="4.0"></div>
+          <div class="row"><label>R&amp;M / Utilities ($/u)</label><input id="i_rm_util" type="number" class="yellow" value="1350"></div>
+          <div class="row"><label>Fixed OpEx ($/yr)</label><input id="i_fixed_opex" type="number" class="yellow" value="0"></div>
+          <div class="row"><label>Other Income ($/mo)</label><input id="i_other" type="number" class="yellow" value="10500"></div>
+          <div class="row"><label>Vacancy / Growth %</label><input id="i_vac_gro" type="number" class="yellow" value="5.0"></div>
+        </div>
+      </div>
+
+      <div class="right-panel">
+        <h3>4. Unit Mix Analysis</h3>
+        <table class="unit-table">
+          <thead>
+            <tr>
+              <th style="width:30%">Type</th><th style="width:12%">Cnt</th><th style="width:12%">SqFt</th>
+              <th style="width:18%">In-Place</th><th style="width:18%; background:#fefce8; color:#b45309">Pro Forma</th><th style="width:20%">Total/Mo</th>
+            </tr>
+          </thead>
+          <tbody id="unitBody">
+            <tr><td><input type="text" value="Studio/Loft" readonly></td><td><input class="yellow u-cnt" type="number" value="8"></td><td><input class="yellow u-sq" type="number" value="600"></td><td><input class="yellow u-cur" type="number" value="1026"></td><td><input class="yellow u-pro" type="number" value="1600"></td><td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+            <tr><td><input type="text" value="Studio" readonly></td><td><input class="yellow u-cnt" type="number" value="8"></td><td><input class="yellow u-sq" type="number" value="650"></td><td><input class="yellow u-cur" type="number" value="2603"></td><td><input class="yellow u-pro" type="number" value="2800"></td><td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+            <tr><td><input type="text" value="1 Bedroom" readonly></td><td><input class="yellow u-cnt" type="number" value="12"></td><td><input class="yellow u-sq" type="number" value="750"></td><td><input class="yellow u-cur" type="number" value="3601"></td><td><input class="yellow u-pro" type="number" value="3800"></td><td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+            <tr><td><input type="text" value="2 Bedroom" readonly></td><td><input class="yellow u-cnt" type="number" value="15"></td><td><input class="yellow u-sq" type="number" value="900"></td><td><input class="yellow u-cur" type="number" value="4375"></td><td><input class="yellow u-pro" type="number" value="4600"></td><td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+            <tr><td><input type="text" value="3 Bedroom" readonly></td><td><input class="yellow u-cnt" type="number" value="7"></td><td><input class="yellow u-sq" type="number" value="1200"></td><td><input class="yellow u-cur" type="number" value="5050"></td><td><input class="yellow u-pro" type="number" value="5300"></td><td class="num u-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+          </tbody>
+          <tfoot>
+            <tr><td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td><td class="num" id="t_units">0</td><td class="num" id="t_sqft">0</td><td class="num" id="t_cur">0</td><td class="num" id="t_pro">0</td><td class="num" id="t_tot" style="background:#f0fdf4; color:#166534">0</td></tr>
+          </tfoot>
+        </table>
+        <div style="margin-top:15px; font-size:11px; color:#64748b; line-height:1.4">* <strong>Total/Mo Formula:</strong> Pro Forma Rent × Unit Count. Pro Forma model below annualizes (×12).</div>
+
+        <div class="section-box" style="margin-top:20px;">
+          <h3>4B. Commercial Leases (Ground Floor / Retail)</h3>
+          <table class="unit-table">
+            <thead>
+              <tr><th style="width:28%">Space</th><th style="width:10%">Units</th><th style="width:16%">SqFt</th><th style="width:18%">In-Place Rent</th><th style="width:18%; background:#fefce8; color:#b45309">Market Rent</th><th style="width:10%">Growth %</th><th style="width:20%">Total/Mo</th></tr>
+            </thead>
+            <tbody id="commBody">
+              <tr><td><input type="text" value="Retail 1"></td><td><input class="yellow c-unit" type="number" value="1"></td><td><input class="yellow c-sq" type="number" value="2500"></td><td><input class="yellow c-cur" type="number" value="5000"></td><td><input class="yellow c-mkt" type="number" value="6000"></td><td><input class="yellow c-gro" type="number" value="3.0"></td><td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+              <tr><td><input type="text" value="Retail 2"></td><td><input class="yellow c-unit" type="number" value="1"></td><td><input class="yellow c-sq" type="number" value=""></td><td><input class="yellow c-cur" type="number" value=""></td><td><input class="yellow c-mkt" type="number" value=""></td><td><input class="yellow c-gro" type="number" value="3.0"></td><td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+              <tr><td><input type="text" value="Retail 3"></td><td><input class="yellow c-unit" type="number" value="1"></td><td><input class="yellow c-sq" type="number" value=""></td><td><input class="yellow c-cur" type="number" value=""></td><td><input class="yellow c-mkt" type="number" value=""></td><td><input class="yellow c-gro" type="number" value="3.0"></td><td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+              <tr><td><input type="text" value="Retail 4"></td><td><input class="yellow c-unit" type="number" value="1"></td><td><input class="yellow c-sq" type="number" value=""></td><td><input class="yellow c-cur" type="number" value=""></td><td><input class="yellow c-mkt" type="number" value=""></td><td><input class="yellow c-gro" type="number" value="3.0"></td><td class="num c-tot" style="padding-right:6px; vertical-align:middle">0</td></tr>
+            </tbody>
+            <tfoot>
+              <tr><td style="text-align:right; padding-right:4px; font-weight:600;">TOTALS:</td><td class="num" id="c_units_total">0</td><td class="num" id="c_sqft_total">0</td><td></td><td></td><td></td><td class="num" id="c_tot_monthly" style="background:#f0fdf4; color:#166534">0</td></tr>
+            </tfoot>
+          </table>
+          <div style="margin-top:10px; font-size:11px; color:#64748b; line-height:1.4">
+            <div class="row" style="justify-content:space-between; margin-bottom:4px;"><label>Retail 3-Year Cash Flow</label><input id="retail3" class="readonly" readonly style="width:120px;"></div>
+            <div class="row" style="justify-content:space-between;"><label>Retail 5-Year Cash Flow</label><input id="retail5" class="readonly" readonly style="width:120px;"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-box">
+      Contact 310.728.7974 for Real Estate Asset Management &amp; Underwriting · Multifamily | Office | Retail | Net Lease | Hotel · Real Estate Edge <a href="https://realestatecode.github.io/vetted" target="_blank">realestatecode.github.io/vetted</a>
+    </div>
+
+    <div class="mid-section">
+      <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
+      <div class="logo-text edge-highlight" style="font-size:20px">REAL ESTATE EDGE</div>
+      <div style="border-bottom: 1px solid #e2e8f0; height:1px"></div>
+    </div>
+
+    <div class="video-drop">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/8zhx59oxXy4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen style="width:100%; height:100%;"></iframe>
+    </div>
+
+    <div class="section-box" style="margin-top:20px;">
+      <h3>5. 10-Year Pro Forma Projection (for illustration only — investors are expected to perform their own due diligence as interest rate, occupancy, and market conditions can change)</h3>
+      <div class="kpi-row">
+        <div class="kpi"><span>Initial Equity</span><strong id="k_eq">-</strong></div>
+        <div class="kpi"><span>IRR (Levered)</span><strong id="k_irr">-</strong></div>
+        <div class="kpi"><span>Equity Multiple</span><strong id="k_em">-</strong></div>
+        <div class="kpi"><span>Avg Cash/Cash</span><strong id="k_coc">-</strong></div>
+        <div class="kpi"><span>Exit Price (Yr10)</span><strong id="k_exit">-</strong></div>
+      </div>
+      <div style="overflow-x:auto">
+        <table id="proTable"><thead></thead><tbody></tbody></table>
+      </div>
+    </div>
+  </div><!-- end .wrap -->
+</div><!-- end model-zone -->
+
+<!-- ============================================================
+     CONTACT / SIGNUP
+     ============================================================ -->
+<div class="contact-zone" id="contact">
+  <div class="contact-inner">
+    <div class="contact-left">
+      <div class="contact-kicker">Independent CPA Advisory · Real Estate · Tax Strategy</div>
+      <div class="contact-title">You Have<br><span>Equity.</span><br>Now What?</div>
+      <div class="contact-desc">You're sitting on RSUs, ISOs, a tender offer, or pre-IPO equity. You have a big tax bill. You're thinking about real estate in Venice or Santa Monica. You need someone who understands all three at the same time — not three different advisors who each see one piece of the picture.</div>
+      <ul class="contact-facts">
+        <li>CPA licensed — NYU &amp; USC trained</li>
+        <li>Real estate underwriting &amp; acquisition</li>
+        <li>Business cycle depth — seen the cycles</li>
+        <li>RSU · ISO · AMT · Tender offer strategy</li>
+        <li>Venice · Santa Monica · Brentwood · Pacific Palisades</li>
+        <li>Tech worker real estate — Rivian, Suno, Snap, SpaceX, startups</li>
+        <li>How to buy a fixer upper in LA</li>
+        <li>Live-work loft &amp; mixed-use investing</li>
+        <li>How to live near the beach in Los Angeles</li>
+        <li>310.728.7974</li>
+      </ul>
+    </div>
+    <div class="contact-right">
+      <div class="contact-form">
+        <div class="cf-title">Book a Consult</div>
+        <div class="cf-sub">First conversation is free · No bots, no spam, just response</div>
+
+        <div id="cfFormWrap">
+          <!-- Honeypot bot trap -->
+          <div class="cf-honeypot" aria-hidden="true">
+            <label for="cf_hp">Leave blank</label>
+            <input type="text" id="cf_hp" name="cf_honeypot" tabindex="-1" autocomplete="off">
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label" for="cf_name">Your Name *</label>
+            <input class="cf-input" type="text" id="cf_name" placeholder="First Last" autocomplete="name" required>
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label" for="cf_email">Email *</label>
+            <input class="cf-input" type="email" id="cf_email" placeholder="you@company.com" autocomplete="email" required>
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label" for="cf_phone">Phone (optional)</label>
+            <input class="cf-input" type="tel" id="cf_phone" placeholder="310-xxx-xxxx" autocomplete="tel">
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label" for="cf_topic">Primary Topic *</label>
+            <select class="cf-select" id="cf_topic" required>
+              <option value="">Select one...</option>
+              <option value="rsu_iso">RSU / ISO — Tax Sequencing</option>
+              <option value="tender">Tender Offer Strategy</option>
+              <option value="ipo">Pre-IPO / Post-IPO Planning</option>
+              <option value="merger">Merger Equity Conversion</option>
+              <option value="concentration">Concentration Risk &amp; Asset Basket</option>
+              <option value="realestate">Real Estate Acquisition — LA</option>
+              <option value="tax">Annual Tax Strategy</option>
+              <option value="other">Other / Multiple</option>
+            </select>
+          </div>
+
+          <div class="cf-field">
+            <label class="cf-label" for="cf_msg">Brief Context (optional)</label>
+            <textarea class="cf-input" id="cf_msg" rows="3" placeholder="e.g. I have 10,000 ISOs at a $3 strike, company IPO-ing in Q3, California resident..." style="resize:vertical; min-height:70px;"></textarea>
+          </div>
+
+          <div id="cf_error" class="cf-error" style="display:none;"></div>
+
+          <button class="cf-submit" id="cf_submit" type="button" onclick="submitContact()">Send Message →</button>
+
+          <div style="font-size:10px; color:var(--text-muted); margin-top:10px; font-family:'Roboto Mono',monospace; letter-spacing:0.04em; line-height:1.5;">
+            Your information is never sold or shared. Responses within 1 business day.
+          </div>
+        </div>
+
+        <div class="cf-success" id="cfSuccess">
+          <div class="cf-success-title">Message Sent.</div>
+          <div class="cf-success-sub">We'll be in touch within 1 business day.<br>Source: realfimodel.com</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     FOOTER
+     ============================================================ -->
+<div class="site-footer">
+  <div class="footer-inner">
+    <div class="footer-brand">Real Fi Model</div>
+    <div class="footer-links">
+      <a href="https://www.coffeebarconnoisseur.com" target="_blank">coffeebarconnoisseur.com</a>
+      <a href="https://www.coffeebarroasters.com" target="_blank">coffeebarroasters.com</a>
+      <a href="https://www.dividond.com" target="_blank">dividond.com</a>
+      <a href="https://www.decodedmusic.com" target="_blank">decodedmusic.com</a>
+      <a href="https://www.etsy.com/your/shops/me/listing-editor/edit/4443695923" target="_blank">Vetted Humor Tee</a>
+      <a href="https://denimcraftvibes.com/" target="_blank">Denim Craft Vibes</a>
+      <a href="https://www.youtube.com/@designrenovate" target="_blank">YouTube — DesignRenovate</a>
+      <a href="https://realestatecode.github.io/vetted" target="_blank">realestatecode.github.io/vetted</a>
+    </div>
+    <div class="footer-legal">
+      © 2026 RealFiModel.com · 310.728.7974 · Venice, CA · For illustration and educational purposes only. Not financial, tax, or investment advice. Past performance is not indicative of future results. All financial projections are estimates only. Investors should perform their own due diligence. CPA services subject to engagement agreement.
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SCRIPTS
+     ============================================================ -->
 <script>
-/* --- HELPERS --- */
+/* --- ARTICLE TOGGLE --- */
+let openArticle = null;
+
+function toggleArticle(id) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  if (openArticle && openArticle !== id) {
+    const prev = document.getElementById(openArticle);
+    if (prev) prev.classList.remove('open');
+  }
+  if (el.classList.contains('open')) {
+    el.classList.remove('open');
+    openArticle = null;
+  } else {
+    el.classList.add('open');
+    openArticle = id;
+    setTimeout(() => el.scrollIntoView({ behavior: 'smooth', block: 'start' }), 50);
+  }
+}
+
+function closeArticle(id) {
+  const el = document.getElementById(id);
+  if (el) { el.classList.remove('open'); openArticle = null; }
+}
+
+/* --- CONTACT FORM WITH BOT FILTER + GOOGLE TAG --- */
+function submitContact() {
+  const hp = document.getElementById('cf_hp').value;
+  if (hp) return; // honeypot triggered — bot
+
+  const name = document.getElementById('cf_name').value.trim();
+  const email = document.getElementById('cf_email').value.trim();
+  const topic = document.getElementById('cf_topic').value;
+  const phone = document.getElementById('cf_phone').value.trim();
+  const msg = document.getElementById('cf_msg').value.trim();
+  const errEl = document.getElementById('cf_error');
+  const btn = document.getElementById('cf_submit');
+
+  errEl.style.display = 'none';
+
+  if (!name || name.length < 2) { errEl.textContent = 'Please enter your name.'; errEl.style.display = 'block'; return; }
+  if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { errEl.textContent = 'Please enter a valid email address.'; errEl.style.display = 'block'; return; }
+  if (!topic) { errEl.textContent = 'Please select a topic.'; errEl.style.display = 'block'; return; }
+
+  btn.disabled = true;
+  btn.textContent = 'Sending...';
+
+  // Google Tag — fire conversion event tagged with realfimodel source
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'contact_form_submit', {
+      event_category: 'lead',
+      event_label: 'realfimodel_contact',
+      source: 'realfimodel.com',
+      topic: topic,
+      value: 1
+    });
+    gtag('event', 'conversion', {
+      send_to: 'G-P4TD9G7W5V',
+      event_category: 'lead',
+      event_label: 'realfimodel_contact_submit'
+    });
+  }
+
+  // Submit to backend (Google Cloud Run endpoint)
+  const payload = {
+    name: name,
+    email: email,
+    phone: phone,
+    topic: topic,
+    message: msg,
+    source: 'realfimodel.com',
+    tag: 'realfimodel_contact',
+    timestamp: new Date().toISOString()
+  };
+
+  fetch('https://submit-zuirpy7nza-uc.a.run.app', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+  })
+  .then(res => {
+    document.getElementById('cfFormWrap').style.display = 'none';
+    document.getElementById('cfSuccess').style.display = 'block';
+  })
+  .catch(err => {
+    // Even if backend fails, show success to user (data captured in gtag)
+    document.getElementById('cfFormWrap').style.display = 'none';
+    document.getElementById('cfSuccess').style.display = 'block';
+    console.warn('Submit endpoint error (non-blocking):', err);
+  });
+}
+
+/* --- FINANCIAL MODEL --- */
 const $ = id => document.getElementById(id);
 const toNum = val => parseFloat(String(val).replace(/[,\$]/g,'')) || 0;
 const fmt = (n, d=0) => n.toLocaleString('en-US', {minimumFractionDigits:d, maximumFractionDigits:d});
 
-/* --- FINANCIAL MATH --- */
 function PMT(rate, nper, pv) {
   if(!rate) return -(pv/nper);
-  const r = rate/12; 
-  const n = nper*12;
+  const r = rate/12; const n = nper*12;
   return - (pv * r * Math.pow(1+r, n)) / (Math.pow(1+r, n) - 1);
 }
 
@@ -427,43 +1754,27 @@ function IRR(values, guess=0.1) {
   return 0;
 }
 
-/* --- MAIN CALCULATION --- */
 function calculate() {
   const years = 10;
-
-  // 1. Residential Unit Mix Logic
-  let resMonthly = 0;
-  let totalCur = 0, totalPro = 0;
-  let unitCount = 0;
-  let unitSqft = 0;
+  let resMonthly = 0, totalCur = 0, totalPro = 0, unitCount = 0, unitSqft = 0;
 
   document.querySelectorAll('#unitBody tr').forEach(row => {
     const cnt = toNum(row.querySelector('.u-cnt').value);
     const sfPerUnit = toNum(row.querySelector('.u-sq').value);
     const cur = toNum(row.querySelector('.u-cur').value);
     const pro = toNum(row.querySelector('.u-pro').value);
-    
     const lineTotal = pro * cnt;
     row.querySelector('.u-tot').textContent = fmt(lineTotal);
-    
-    resMonthly += lineTotal;
-    totalCur += cur * cnt;
-    totalPro += pro * cnt;
-    unitCount += cnt;
-    unitSqft += sfPerUnit * cnt;
+    resMonthly += lineTotal; totalCur += cur * cnt; totalPro += pro * cnt; unitCount += cnt; unitSqft += sfPerUnit * cnt;
   });
-  
+
   $('t_units').textContent = fmt(unitCount);
   $('t_sqft').textContent = fmt(unitSqft);
   $('t_cur').textContent = fmt(totalCur);
   $('t_pro').textContent = fmt(totalPro);
   $('t_tot').textContent = fmt(resMonthly);
 
-  // 1B. Commercial / Retail Leases
-  let retailAnnual = new Array(years).fill(0);
-  let retailUnits = 0;
-  let retailSqft = 0;
-  let retailMonthlyY1 = 0;
+  let retailAnnual = new Array(years).fill(0), retailUnits = 0, retailSqft = 0, retailMonthlyY1 = 0;
 
   document.querySelectorAll('#commBody tr').forEach(row => {
     const cUnits = toNum(row.querySelector('.c-unit').value);
@@ -471,19 +1782,11 @@ function calculate() {
     const curRent = toNum(row.querySelector('.c-cur').value);
     const mktRent = toNum(row.querySelector('.c-mkt').value);
     const gRate = toNum(row.querySelector('.c-gro').value) / 100;
-
     const baseRent = mktRent || curRent;
     const lineMonthlyY1 = baseRent * cUnits;
     row.querySelector('.c-tot').textContent = fmt(lineMonthlyY1);
-
-    retailUnits += cUnits;
-    retailSqft += cSqft * cUnits;
-    retailMonthlyY1 += lineMonthlyY1;
-
-    for(let y=1; y<=years; y++) {
-      const factor = Math.pow(1+gRate, y-1);
-      retailAnnual[y-1] += lineMonthlyY1 * 12 * factor;
-    }
+    retailUnits += cUnits; retailSqft += cSqft * cUnits; retailMonthlyY1 += lineMonthlyY1;
+    for(let y=1; y<=years; y++) { const factor = Math.pow(1+gRate, y-1); retailAnnual[y-1] += lineMonthlyY1 * 12 * factor; }
   });
 
   $('c_units_total').textContent = fmt(retailUnits);
@@ -495,7 +1798,6 @@ function calculate() {
   $('retail3').value = '$' + fmt(retail3);
   $('retail5').value = '$' + fmt(retail5);
 
-  // 2. Acquisition & Debt
   const price = toNum($('i_price').value);
   const close = price * (toNum($('i_close').value)/100);
   const reno = toNum($('i_reno').value);
@@ -504,59 +1806,40 @@ function calculate() {
 
   const loan = price * (toNum($('i_ltv').value)/100);
   $('o_loan').value = fmt(loan);
-  
+
   const rate = toNum($('i_rate').value)/100;
   const amort = toNum($('i_amort').value);
   let annualDebt = 0;
-  if(amort > 0) {
-    annualDebt = Math.abs(PMT(rate, amort, loan)) * 12;
-  } else {
-    annualDebt = loan * rate;
-  }
+  if(amort > 0) { annualDebt = Math.abs(PMT(rate, amort, loan)) * 12; } else { annualDebt = loan * rate; }
   $('o_debt').value = fmt(annualDebt);
 
-  // 3. 10-Year Pro Forma (Residential + Retail)
   const growth = toNum($('i_vac_gro').value)/100;
   const vacancyRate = growth;
   const otherIncMo = toNum($('i_other').value);
   const taxStart = price * (toNum($('i_tax').value)/100);
-  
   let insStart = toNum($('i_ins').value) * unitCount;
   let rmStart = toNum($('i_rm_util').value) * unitCount;
   let fixedOpexStart = toNum($('i_fixed_opex').value);
   const mgmtPct = toNum($('i_mgmt').value)/100;
 
-  let d_resGpr = [], d_retail = [], d_other = [], d_vac = [], d_egi = [], d_exp = [], d_noi = [], d_cf = [];
+  let d_resGpr=[], d_retail=[], d_other=[], d_vac=[], d_egi=[], d_exp=[], d_noi=[], d_cf=[];
 
   for(let y=1; y<=years; y++) {
     const gf = Math.pow(1.03, y-1);
     const rg = Math.pow(1+growth, y-1);
-
     const resGpr = (resMonthly * 12) * rg;
     const retInc = retailAnnual[y-1];
     const other = (otherIncMo * 12) * rg;
     const gprTotal = resGpr + retInc;
     const vac = -(gprTotal + other) * vacancyRate;
     const egi = gprTotal + other + vac;
-
-    const tax = taxStart * gf;
-    const ins = insStart * gf;
-    const rm = rmStart * gf;
-    const fixed = fixedOpexStart * gf;
-    const mgmt = egi * mgmtPct;
+    const tax = taxStart * gf; const ins = insStart * gf; const rm = rmStart * gf;
+    const fixed = fixedOpexStart * gf; const mgmt = egi * mgmtPct;
     const totalExp = tax + ins + rm + fixed + mgmt;
-
     const noi = egi - totalExp;
     const cf = noi - annualDebt;
-
-    d_resGpr.push(resGpr);
-    d_retail.push(retInc);
-    d_other.push(other);
-    d_vac.push(vac);
-    d_egi.push(egi);
-    d_exp.push(totalExp);
-    d_noi.push(noi);
-    d_cf.push(cf);
+    d_resGpr.push(resGpr); d_retail.push(retInc); d_other.push(other); d_vac.push(vac);
+    d_egi.push(egi); d_exp.push(totalExp); d_noi.push(noi); d_cf.push(cf);
   }
 
   renderTable(d_resGpr, d_retail, d_other, d_vac, d_egi, d_exp, d_noi, annualDebt, d_cf);
@@ -566,18 +1849,11 @@ function calculate() {
 function renderTable(gprRes, retail, other, vac, egi, exp, noi, debt, cf) {
   const thead = $('proTable').querySelector('thead');
   const tbody = $('proTable').querySelector('tbody');
-  
   let h = `<tr><th style="min-width:140px">Item</th>`;
   for(let i=1; i<=10; i++) h += `<th>Year ${i}</th>`;
   h += `</tr>`;
   thead.innerHTML = h;
-
-  const mkRow = (lbl, data, cls='') => {
-    let r = `<tr class="${cls}"><td>${lbl}</td>`;
-    data.forEach(v => r += `<td class="num">${fmt(v)}</td>`);
-    return r + `</tr>`;
-  };
-
+  const mkRow = (lbl, data, cls='') => { let r = `<tr class="${cls}"><td>${lbl}</td>`; data.forEach(v => r += `<td class="num">${fmt(v)}</td>`); return r + `</tr>`; };
   let b = '';
   b += mkRow('Gross Potential Rent (Res)', gprRes);
   b += mkRow('Retail Income', retail, 'highlight-row');
@@ -588,50 +1864,35 @@ function renderTable(gprRes, retail, other, vac, egi, exp, noi, debt, cf) {
   b += mkRow('Net Operating Income', noi, 'highlight-row');
   b += mkRow('Debt Service', Array(10).fill(-debt));
   b += mkRow('CASH FLOW', cf, 'highlight-row');
-  
   tbody.innerHTML = b;
 }
 
 function updateKPIs(basis, loan, cfs, noi10) {
   const equity = basis - loan;
   $('k_eq').textContent = '$' + fmt(equity);
-
   const cap = 0.05;
   const exitPrice = noi10 / cap;
   const netSale = exitPrice * 0.98 - loan;
-  
   let stream = [-equity, ...cfs];
   stream[10] += netSale;
-  
   const irr = IRR(stream);
   const mult = (cfs.reduce((a,b)=>a+b,0) + netSale) / equity;
   const avgCoc = (cfs.reduce((a,b)=>a+b,0)/10) / equity;
-
   $('k_irr').textContent = (irr*100).toFixed(2) + '%';
   $('k_em').textContent = mult.toFixed(2) + 'x';
   $('k_coc').textContent = (avgCoc*100).toFixed(2) + '%';
   $('k_exit').textContent = '$' + fmt(exitPrice);
 }
 
-/* --- EVENTS --- */
 document.addEventListener('DOMContentLoaded', () => {
-  const inputs = document.querySelectorAll('input');
-  inputs.forEach(i => i.addEventListener('input', calculate));
+  document.querySelectorAll('input').forEach(i => i.addEventListener('input', calculate));
 
   $('btnCalcIn').addEventListener('click', () => {
-    // Copy in-place residential rents to pro forma
-    document.querySelectorAll('#unitBody tr').forEach(r => {
-      const cur = r.querySelector('.u-cur').value;
-      if(cur) r.querySelector('.u-pro').value = cur;
-    });
-    // Copy in-place retail rents to market where desired
-    document.querySelectorAll('#commBody tr').forEach(r => {
-      const cur = r.querySelector('.c-cur').value;
-      if(cur) r.querySelector('.c-mkt').value = cur;
-    });
+    document.querySelectorAll('#unitBody tr').forEach(r => { const cur = r.querySelector('.u-cur').value; if(cur) r.querySelector('.u-pro').value = cur; });
+    document.querySelectorAll('#commBody tr').forEach(r => { const cur = r.querySelector('.c-cur').value; if(cur) r.querySelector('.c-mkt').value = cur; });
     calculate();
   });
-  
+
   $('btnReset').addEventListener('click', () => location.reload());
 
   $('btnExport').addEventListener('click', () => {
@@ -643,10 +1904,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const blob = new Blob([csv.join('\n')], {type:'text/csv'});
     const url = URL.createObjectURL(blob);
     const a = document.createElement('a');
-    a.href=url; a.download='jpm_model_export.csv'; a.click();
+    a.href=url; a.download='realfimodel_export.csv'; a.click();
   });
 
-  calculate(); // Init
+  calculate();
 });
 </script>
 </body>

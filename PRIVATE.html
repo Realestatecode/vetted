@@ -1,0 +1,1232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Where to Invest in Real Estate Now — RealFi Model</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Neue+Haas+Grotesk+Display+Pro:wght@300;400;500&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black: #0a0a0a;
+    --white: #f7f4ef;
+    --gold: #b89a5a;
+    --gold-light: #d4b87a;
+    --slate: #1c1c1e;
+    --mid: #2e2e30;
+    --muted: #888580;
+    --border: rgba(184,154,90,0.25);
+    --border-soft: rgba(247,244,239,0.08);
+    --ff-serif: 'Cormorant Garamond', Georgia, serif;
+    --ff-sans: 'Neue Haas Grotesk Display Pro', 'Helvetica Neue', sans-serif;
+    --ff-mono: 'Space Mono', monospace;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: var(--ff-sans);
+    font-weight: 300;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  /* NAV */
+  nav {
+    position: fixed;
+    top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.25rem 3rem;
+    background: rgba(10,10,10,0.92);
+    backdrop-filter: blur(12px);
+    border-bottom: 0.5px solid var(--border);
+  }
+  .nav-logo {
+    font-family: var(--ff-serif);
+    font-size: 1.1rem;
+    font-weight: 300;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+  }
+  .nav-links {
+    display: flex;
+    gap: 2.5rem;
+    list-style: none;
+    align-items: center;
+  }
+  .nav-links a {
+    color: var(--white);
+    text-decoration: none;
+    font-size: 0.75rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: opacity 0.2s;
+  }
+  .nav-links a:hover { opacity: 1; color: var(--gold); }
+  .nav-cta {
+    background: transparent;
+    border: 0.5px solid var(--gold);
+    color: var(--gold) !important;
+    padding: 0.5rem 1.25rem;
+    opacity: 1 !important;
+    transition: all 0.2s !important;
+  }
+  .nav-cta:hover { background: var(--gold) !important; color: var(--black) !important; }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 0 3rem 5rem;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(to bottom, transparent 0%, rgba(10,10,10,0.6) 60%, var(--black) 100%),
+      linear-gradient(135deg, #0a0a0a 0%, #1a1208 40%, #0d0c0a 100%);
+  }
+  .hero-grid {
+    position: absolute;
+    inset: 0;
+    background-image:
+      linear-gradient(rgba(184,154,90,0.04) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(184,154,90,0.04) 1px, transparent 1px);
+    background-size: 80px 80px;
+  }
+  .hero-accent {
+    position: absolute;
+    top: 15%;
+    right: 8%;
+    width: 340px;
+    height: 340px;
+    border: 0.5px solid var(--border);
+    border-radius: 50%;
+    opacity: 0.5;
+  }
+  .hero-accent2 {
+    position: absolute;
+    top: 20%;
+    right: 12%;
+    width: 220px;
+    height: 220px;
+    border: 0.5px solid var(--border);
+    border-radius: 50%;
+    opacity: 0.3;
+  }
+  .hero-overline {
+    position: relative;
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 1.5rem;
+  }
+  .hero-overline::before {
+    content: '';
+    display: inline-block;
+    width: 2.5rem;
+    height: 0.5px;
+    background: var(--gold);
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+  .hero-title {
+    position: relative;
+    font-family: var(--ff-serif);
+    font-size: clamp(3.5rem, 7vw, 7.5rem);
+    font-weight: 300;
+    line-height: 0.95;
+    letter-spacing: -0.01em;
+    max-width: 14ch;
+    margin-bottom: 2rem;
+  }
+  .hero-title em {
+    font-style: italic;
+    color: var(--gold);
+  }
+  .hero-sub {
+    position: relative;
+    max-width: 52ch;
+    font-size: 1.05rem;
+    font-weight: 300;
+    color: rgba(247,244,239,0.65);
+    line-height: 1.75;
+    margin-bottom: 3rem;
+  }
+  .hero-actions {
+    position: relative;
+    display: flex;
+    gap: 1.25rem;
+    align-items: center;
+  }
+  .btn-primary {
+    display: inline-block;
+    background: var(--gold);
+    color: var(--black);
+    padding: 0.9rem 2.25rem;
+    font-size: 0.72rem;
+    font-weight: 400;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: all 0.25s;
+  }
+  .btn-primary:hover { background: var(--gold-light); }
+  .btn-ghost {
+    display: inline-block;
+    color: var(--white);
+    padding: 0.9rem 2.25rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: 0.5px solid rgba(247,244,239,0.3);
+    transition: all 0.25s;
+  }
+  .btn-ghost:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* SECTION WRAPPER */
+  section { padding: 6rem 3rem; }
+  .section-inner { max-width: 1200px; margin: 0 auto; }
+
+  .label {
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    margin-bottom: 1.25rem;
+  }
+  .label::before {
+    content: '';
+    display: block;
+    width: 1.5rem;
+    height: 0.5px;
+    background: var(--gold);
+  }
+
+  .section-title {
+    font-family: var(--ff-serif);
+    font-size: clamp(2.2rem, 4.5vw, 4rem);
+    font-weight: 300;
+    line-height: 1.1;
+    letter-spacing: -0.01em;
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { font-style: italic; color: var(--gold); }
+
+  .divider {
+    width: 100%;
+    height: 0.5px;
+    background: var(--border);
+    margin: 4rem 0;
+  }
+
+  /* IS RE RIGHT FOR YOU */
+  .right-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 3.5rem;
+  }
+  .right-col-text {
+    font-size: 1rem;
+    color: rgba(247,244,239,0.72);
+    line-height: 1.8;
+  }
+  .right-col-text p + p { margin-top: 1.25rem; }
+
+  .checklist {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+  .checklist li {
+    display: flex;
+    gap: 1rem;
+    align-items: flex-start;
+    font-size: 0.95rem;
+    color: rgba(247,244,239,0.8);
+  }
+  .checklist li::before {
+    content: '→';
+    color: var(--gold);
+    font-family: var(--ff-mono);
+    flex-shrink: 0;
+    margin-top: 0.05rem;
+  }
+
+  .stat-row {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+    border: 0.5px solid var(--border);
+    margin-top: 3rem;
+  }
+  .stat-block {
+    background: var(--slate);
+    padding: 2rem 1.75rem;
+  }
+  .stat-num {
+    font-family: var(--ff-serif);
+    font-size: 3rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.4rem;
+  }
+  .stat-label {
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    color: rgba(247,244,239,0.5);
+    text-transform: uppercase;
+  }
+
+  /* SOCIOECONOMIC / CITY CARDS */
+  .city-intro {
+    font-size: 1.1rem;
+    color: rgba(247,244,239,0.65);
+    max-width: 70ch;
+    line-height: 1.8;
+    margin-bottom: 3.5rem;
+  }
+  .city-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+  }
+  .city-card {
+    background: var(--slate);
+    padding: 2.5rem;
+    position: relative;
+    overflow: hidden;
+    transition: background 0.3s;
+  }
+  .city-card:hover { background: var(--mid); }
+  .city-card-num {
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.18em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+    opacity: 0.7;
+  }
+  .city-card h3 {
+    font-family: var(--ff-serif);
+    font-size: 1.7rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .city-card h3 em { font-style: italic; color: var(--gold); }
+  .city-tag {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 0.5px solid var(--border);
+    padding: 0.25rem 0.65rem;
+    margin-bottom: 1.25rem;
+  }
+  .city-body {
+    font-size: 0.9rem;
+    color: rgba(247,244,239,0.65);
+    line-height: 1.75;
+    margin-bottom: 1.5rem;
+  }
+  .city-drivers {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+  }
+  .city-drivers li {
+    font-size: 0.82rem;
+    color: rgba(247,244,239,0.7);
+    padding-left: 1.1rem;
+    position: relative;
+  }
+  .city-drivers li::before {
+    content: '◆';
+    font-size: 0.4rem;
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+    top: 0.2rem;
+  }
+  .city-opportunity {
+    background: rgba(184,154,90,0.07);
+    border-left: 2px solid var(--gold);
+    padding: 0.85rem 1rem;
+    font-size: 0.82rem;
+    color: rgba(247,244,239,0.75);
+    line-height: 1.6;
+    margin-bottom: 1.25rem;
+    font-style: italic;
+  }
+  .city-cta {
+    display: inline-block;
+    font-family: var(--ff-mono);
+    font-size: 0.65rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-decoration: none;
+    border-bottom: 0.5px solid var(--gold);
+    padding-bottom: 0.15rem;
+    transition: all 0.2s;
+  }
+  .city-cta:hover { color: var(--gold-light); letter-spacing: 0.22em; }
+
+  /* INFOGRAPHIC */
+  .infographic-wrap {
+    background: var(--slate);
+    border: 0.5px solid var(--border);
+    padding: 3.5rem;
+    margin-top: 3.5rem;
+  }
+  .infographic-title {
+    font-family: var(--ff-serif);
+    font-size: 2.2rem;
+    font-weight: 300;
+    margin-bottom: 0.5rem;
+  }
+  .infographic-sub {
+    font-size: 0.85rem;
+    color: rgba(247,244,239,0.5);
+    letter-spacing: 0.05em;
+    margin-bottom: 2.5rem;
+  }
+  .tip-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    margin-bottom: 2.5rem;
+  }
+  .tip-card {
+    background: var(--black);
+    padding: 2rem 1.75rem;
+  }
+  .tip-num {
+    font-family: var(--ff-mono);
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--gold);
+    opacity: 0.25;
+    line-height: 1;
+    margin-bottom: 0.75rem;
+  }
+  .tip-headline {
+    font-family: var(--ff-serif);
+    font-size: 1.2rem;
+    font-weight: 300;
+    margin-bottom: 0.65rem;
+  }
+  .tip-body {
+    font-size: 0.82rem;
+    color: rgba(247,244,239,0.6);
+    line-height: 1.7;
+  }
+  .tip-keyword {
+    display: inline-block;
+    margin-top: 0.85rem;
+    font-family: var(--ff-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+  }
+
+  /* FUNNEL: IS RE RIGHT */
+  .quiz-wrap {
+    background: var(--slate);
+    border: 0.5px solid var(--border);
+    padding: 3.5rem;
+  }
+  .quiz-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    margin-top: 2.5rem;
+    align-items: start;
+  }
+  .buyer-type {
+    border: 0.5px solid var(--border);
+    padding: 2rem;
+    transition: border-color 0.25s;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+  }
+  .buyer-type:hover { border-color: var(--gold); }
+  .buyer-type.active { border-color: var(--gold); background: rgba(184,154,90,0.05); }
+  .buyer-type-num {
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.75rem;
+  }
+  .buyer-type h4 {
+    font-family: var(--ff-serif);
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-bottom: 0.75rem;
+  }
+  .buyer-type p {
+    font-size: 0.85rem;
+    color: rgba(247,244,239,0.6);
+    line-height: 1.7;
+  }
+  .buyer-type ul {
+    list-style: none;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+  }
+  .buyer-type ul li {
+    font-size: 0.8rem;
+    color: rgba(247,244,239,0.65);
+    padding-left: 1rem;
+    position: relative;
+  }
+  .buyer-type ul li::before {
+    content: '→';
+    font-size: 0.7rem;
+    color: var(--gold);
+    position: absolute;
+    left: 0;
+  }
+
+  /* ASSET TABLE */
+  .table-wrap {
+    overflow-x: auto;
+    margin-top: 2.5rem;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.82rem;
+  }
+  thead tr {
+    border-bottom: 0.5px solid var(--gold);
+  }
+  thead th {
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-family: var(--ff-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 400;
+  }
+  tbody tr {
+    border-bottom: 0.5px solid var(--border-soft);
+    transition: background 0.2s;
+  }
+  tbody tr:hover { background: rgba(184,154,90,0.04); }
+  tbody td {
+    padding: 1rem;
+    color: rgba(247,244,239,0.75);
+    vertical-align: middle;
+  }
+  .td-code {
+    font-family: var(--ff-mono);
+    font-size: 0.75rem;
+    color: var(--gold);
+  }
+  .badge {
+    display: inline-block;
+    padding: 0.2rem 0.6rem;
+    font-family: var(--ff-mono);
+    font-size: 0.58rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+  .badge-pos { background: rgba(60,120,60,0.18); color: #7fc87f; }
+  .badge-neg { background: rgba(180,60,60,0.15); color: #e08080; }
+  .badge-neu { background: rgba(184,154,90,0.12); color: var(--gold); }
+
+  /* ECONOMICS MACRO SECTION */
+  .macro-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5px;
+    background: var(--border);
+    margin: 2.5rem 0;
+  }
+  .macro-card {
+    background: var(--slate);
+    padding: 1.75rem 1.5rem;
+    text-align: center;
+  }
+  .macro-icon {
+    font-size: 1.5rem;
+    margin-bottom: 0.75rem;
+    opacity: 0.8;
+  }
+  .macro-val {
+    font-family: var(--ff-serif);
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--gold);
+    line-height: 1;
+    margin-bottom: 0.35rem;
+  }
+  .macro-desc {
+    font-size: 0.75rem;
+    color: rgba(247,244,239,0.5);
+    line-height: 1.5;
+  }
+
+  /* FOOTER / CTA STRIP */
+  .cta-strip {
+    background: var(--slate);
+    border-top: 0.5px solid var(--border);
+    border-bottom: 0.5px solid var(--border);
+    padding: 5rem 3rem;
+    text-align: center;
+  }
+  .cta-strip .section-title { margin-bottom: 1.25rem; }
+  .cta-strip p {
+    font-size: 1rem;
+    color: rgba(247,244,239,0.55);
+    max-width: 52ch;
+    margin: 0 auto 2.5rem;
+    line-height: 1.75;
+  }
+  .cta-contacts {
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    margin-top: 2.5rem;
+  }
+  .cta-contact-item {
+    font-family: var(--ff-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.12em;
+    color: var(--gold);
+    text-decoration: none;
+    transition: opacity 0.2s;
+  }
+  .cta-contact-item:hover { opacity: 0.7; }
+
+  footer {
+    padding: 2.5rem 3rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 0.5px solid var(--border-soft);
+  }
+  footer p {
+    font-family: var(--ff-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.12em;
+    color: rgba(247,244,239,0.3);
+    text-transform: uppercase;
+  }
+  footer a { color: var(--gold); text-decoration: none; }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(2rem); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  .hero-overline { animation: fadeUp 0.8s ease 0.2s both; }
+  .hero-title { animation: fadeUp 0.9s ease 0.35s both; }
+  .hero-sub { animation: fadeUp 0.9s ease 0.5s both; }
+  .hero-actions { animation: fadeUp 0.9s ease 0.65s both; }
+
+  /* KEYWORD CLOUD */
+  .keyword-cloud {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 2rem;
+  }
+  .kw-tag {
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    border: 0.5px solid var(--border);
+    padding: 0.35rem 0.85rem;
+    color: rgba(247,244,239,0.5);
+    transition: all 0.2s;
+  }
+  .kw-tag:hover { border-color: var(--gold); color: var(--gold); }
+
+  /* TIMELINE / ECONOMIC STORY */
+  .timeline {
+    position: relative;
+    padding-left: 2rem;
+    margin-top: 2.5rem;
+  }
+  .timeline::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 0.5px;
+    background: var(--border);
+  }
+  .timeline-item {
+    position: relative;
+    padding-bottom: 2rem;
+  }
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.1rem;
+    top: 0.35rem;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--gold);
+  }
+  .timeline-year {
+    font-family: var(--ff-mono);
+    font-size: 0.62rem;
+    letter-spacing: 0.15em;
+    color: var(--gold);
+    margin-bottom: 0.4rem;
+  }
+  .timeline-headline {
+    font-family: var(--ff-serif);
+    font-size: 1.15rem;
+    font-weight: 300;
+    margin-bottom: 0.4rem;
+  }
+  .timeline-body {
+    font-size: 0.85rem;
+    color: rgba(247,244,239,0.6);
+    line-height: 1.7;
+    max-width: 60ch;
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="https://www.realfimodel.com" class="nav-logo">REALFI MODEL</a>
+  <ul class="nav-links">
+    <li><a href="#why-now">Why Now</a></li>
+    <li><a href="#westside">Westside Markets</a></li>
+    <li><a href="#valuation">Valuation Guide</a></li>
+    <li><a href="#assets">Live Assets</a></li>
+    <li><a href="mailto:officeRE310@gmail.com" class="nav-cta">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-accent"></div>
+  <div class="hero-accent2"></div>
+
+  <div class="hero-overline">Real Estate Services · Los Angeles Westside · Est. 2026</div>
+  <h1 class="hero-title">Where to invest. <em>Right now.</em></h1>
+  <p class="hero-sub">
+    The Westside isn't a market. It's a moat. Eight coastal cities, three economic supercycles, and one fundamental truth: the people who move here don't leave — and neither does the capital that follows them.
+  </p>
+  <div class="hero-actions">
+    <a href="#westside" class="btn-primary">Explore the Markets</a>
+    <a href="mailto:officeRE310@gmail.com" class="btn-ghost">Speak With Us</a>
+  </div>
+</section>
+
+<!-- IS RE RIGHT FOR YOU -->
+<section id="why-now" style="background: var(--slate);">
+  <div class="section-inner">
+    <div class="label">Positioning</div>
+    <h2 class="section-title">Is real estate<br><em>right for you?</em></h2>
+
+    <div class="right-grid">
+      <div class="right-col-text">
+        <p>You don't need to understand every variable of a cap rate to know this: Los Angeles Westside real estate has outperformed almost every liquid asset class on a risk-adjusted, tax-sheltered basis over any 10-year hold you choose to examine.</p>
+        <p>What you do need to understand is what kind of investor you are — and whether the structural advantages of small-balance multifamily align with how you actually live, think, and plan.</p>
+        <p>The Westside isn't Manhattan. It isn't Miami. Supply is constitutionally constrained. Coastal Commission rules, local rent-control exposure, and strict height limits mean the apartment you buy today cannot easily be replicated around the corner. That scarcity is the thesis.</p>
+        <p>Depreciation shelters income. Leverage amplifies appreciation. Owner-user optionality gives you a hedge no stock ticker offers. And if you buy well — below replacement cost, below stabilized value, with a path to rents — you are buying a compounding machine that also comes with a roof.</p>
+      </div>
+      <div>
+        <ul class="checklist">
+          <li>You have a 5–10 year horizon and don't need daily liquidity</li>
+          <li>You want to shelter W-2 or passive income through depreciation</li>
+          <li>You are interested in owner-user optionality — the ability to occupy a unit while renting others</li>
+          <li>You believe coastal LA housing demand is structurally supported by tech, entertainment, aerospace, and healthcare employment</li>
+          <li>You understand that DSCR below 1.0x at acquisition is normal in high-appreciation coastal markets — and plan for it</li>
+          <li>You want a hard asset that responds to inflation in your favor</li>
+          <li>You are prepared to engage a local CPA for passive-loss planning and a title company for proper diligence</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="stat-row">
+      <div class="stat-block">
+        <div class="stat-num">54%</div>
+        <div class="stat-label">Santa Monica residents hold a bachelor's degree or higher</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">$8.3B</div>
+        <div class="stat-label">LA venture capital raised in 2025 across 450+ deals</div>
+      </div>
+      <div class="stat-block">
+        <div class="stat-num">11,000</div>
+        <div class="stat-label">New aerospace & defense jobs added in LA County, 2022–2024</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOCIOECONOMIC: WESTSIDE -->
+<section id="westside">
+  <div class="section-inner">
+    <div class="label">Socioeconomic Overview</div>
+    <h2 class="section-title">The cities that<br><em>don't depreciate.</em></h2>
+    <p class="city-intro">
+      Three distinct economic forces are converging on the same eight-mile coastal corridor: Silicon Beach's technology capital, the new space economy anchored at Hawthorne and El Segundo, and the content-to-AI transformation reshaping entertainment. Each of these industries employs people who live — and want to live — on the Westside.
+    </p>
+
+    <!-- Macro drivers -->
+    <div class="macro-grid">
+      <div class="macro-card">
+        <div class="macro-icon">🛰</div>
+        <div class="macro-val">$4B+</div>
+        <div class="macro-desc">Defense tech VC in LA in 2025 — more than double 2024</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-icon">🤖</div>
+        <div class="macro-val">$2.1B</div>
+        <div class="macro-desc">AI-specific VC in LA in 2025. 2nd in the US for AI funding</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-icon">🎬</div>
+        <div class="macro-val">$3B</div>
+        <div class="macro-desc">Combined tourist-industry payroll anchoring Santa Monica economy</div>
+      </div>
+      <div class="macro-card">
+        <div class="macro-icon">📈</div>
+        <div class="macro-val">36%</div>
+        <div class="macro-desc">of Silicon Beach startups call this three-mile coastal corridor home</div>
+      </div>
+    </div>
+
+    <div class="city-grid">
+
+      <!-- SANTA MONICA -->
+      <div class="city-card">
+        <div class="city-card-num">01 — MARKET</div>
+        <h3><em>Santa Monica</em></h3>
+        <div class="city-tag">Silicon Beach · Tourism · Creative Economy</div>
+        <p class="city-body">
+          The original Silicon Beach node. Snapchat launched here. Headspace, GoodRx, and Activision's creative divisions set up here. Andreessen Horowitz and Upfront Ventures maintain presence along the bluffs. The city draws 3.8 million visitors annually and those visitors create permanent hospitality and service employment that supports the tenant base for smaller multifamily. Over 60% of residents hold managerial or professional roles.
+        </p>
+        <ul class="city-drivers">
+          <li>Strict supply constraints: no new large-scale residential approved since the 2010s</li>
+          <li>Expo Line terminus at 4th & Colorado — transit-premium pricing</li>
+          <li>Third Street Promenade, Main Street, and Montana Avenue creating walkable retail rents</li>
+          <li>Santa Monica Place redevelopment driving sustained foot traffic and F&B employment</li>
+          <li>$2.1B LA AI funding boom recruiting aggressively from UCLA and UCSB — workers live here</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> Ocean Park corridor small-balance 4-units under $2.5M remain attainable entry points with Ocean Walk access and strong Airbnb-adjacent demand. Mills Act properties on historic blocks carry significant tax reduction potential.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss Santa Monica positions →</a>
+      </div>
+
+      <!-- WESTWOOD / UCLA -->
+      <div class="city-card">
+        <div class="city-card-num">02 — MARKET</div>
+        <h3><em>Westwood & UCLA</em></h3>
+        <div class="city-tag">University · Medical · Century City Employment</div>
+        <p class="city-body">
+          UCLA employs 42,000 people, admits 6,000 graduate students annually, and sits adjacent to one of the most concentrated medical campuses on the West Coast. Century City — a 15-minute walk south — is adding office density to its already formidable tenant roster. The student and postdoctoral population creates perpetual rental demand that doesn't soften in recession: people are always in school, and PhDs don't move for yield.
+        </p>
+        <ul class="city-drivers">
+          <li>UCLA Health expanding — healthcare employment is countercyclical demand support</li>
+          <li>YC-backed AI startups recruiting from UCLA's CS and engineering programs</li>
+          <li>Century City office expansion adding 10,000+ white-collar jobs within walkable zone</li>
+          <li>Westwood Village revitalization creating new F&B and retail foot traffic</li>
+          <li>Trust and estate-held triplexes available below market — motivated by probate timeline</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> Triplex and 4-unit assets in the $1.9M–$2.1M range with two vacant units offer immediate rent reset — mark to market on day one, ADU conversion of garages for third income stream.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss Westwood positions →</a>
+      </div>
+
+      <!-- VENICE BEACH / ABBOT KINNEY -->
+      <div class="city-card">
+        <div class="city-card-num">03 — MARKET</div>
+        <h3><em>Venice Beach</em></h3>
+        <div class="city-tag">Creative · Lifestyle · Tech Adjacency</div>
+        <p class="city-body">
+          Venice is where counterculture learned to code. The creative director and the machine learning engineer live on the same block. That cultural synthesis — art, tech, ocean access — created a demand profile that makes Venice unique: the renter here is not yield-maximizing; they are lifestyle-purchasing. Market rents on a renovated 2-bed/1-bath routinely clear $3,800–$4,200 per month.
+        </p>
+        <ul class="city-drivers">
+          <li>Abbot Kinney ranked among most valuable retail corridors in the US</li>
+          <li>Google, Snap, and IMAX maintain Venice/Playa Vista offices — walking-distance employment</li>
+          <li>Short-term rental demand supports premium pricing in compliant owner-operator setups</li>
+          <li>ADU ordinance unlocks rear-lot garage conversions for 4-unit assets</li>
+          <li>Walk-street lots command 20–35% premium over comparable off-beach blocks</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> 4-unit assets in the Sunset/Oakwood pocket in the $2.4–$3.0M range. Last 90-day comps show a tight 15–17% spread — compressed for a creative district. The basis is not cheap; the upside is in rent growth and ADU density.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss Venice positions →</a>
+      </div>
+
+      <!-- BRENTWOOD -->
+      <div class="city-card">
+        <div class="city-card-num">04 — MARKET</div>
+        <h3><em>Brentwood</em></h3>
+        <div class="city-tag">Affluent Residential · Long-Hold · Trophy Basis</div>
+        <p class="city-body">
+          Brentwood is not bought for yield. It is bought because Brentwood never goes on sale. The median household income in the 90049 zip code regularly exceeds $200,000. Montana Avenue anchors the retail strip. The public schools draw upper-income families. And the multifamily investor here is buying a zip code with a proven 30-year track record of appreciation that outperforms the broader LA market by 200–300 basis points annually.
+        </p>
+        <ul class="city-drivers">
+          <li>Proximity to Wilshire Corridor luxury employment: law firms, family offices, private equity</li>
+          <li>UCLA Medical and healthcare economy creates stable high-income tenant base</li>
+          <li>Long-held properties (30+ year owner basis) coming to market via estate sales — no modern reset</li>
+          <li>Studio and 1-bed asking rents above $2,000/mo — entry-level luxury segment</li>
+          <li>Adjacent Santa Monica and Westwood transit options support car-free premium tenants</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> 5-studio buildings under $1.9M held by original ownership since the 1960s represent generational transfer events — buy below replacement cost, reset rents, hold for appreciation. Tax basis reset is the largest single underwriting risk; plan accordingly.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss Brentwood positions →</a>
+      </div>
+
+      <!-- CULVER CITY / MAR VISTA -->
+      <div class="city-card">
+        <div class="city-card-num">05 — MARKET</div>
+        <h3><em>Culver City & Mar Vista</em></h3>
+        <div class="city-tag">Entertainment Tech · Apple · Amazon · Studios</div>
+        <p class="city-body">
+          Culver City is the fastest-transforming node on the Westside. Apple's 536,000 sq ft Culver Crossings campus. Amazon Studios. Sony Pictures. HBO. These are not hypothetical tenants — they are the employers of the people who need your apartment. The city has 3.5% of all LA startup formation by address, and its tech-entertainment hybrid economy makes it one of the few submarkets where office and residential demand move in the same direction.
+        </p>
+        <ul class="city-drivers">
+          <li>Apple Culver Crossings campus operational — 2,000+ local hires expected by end of 2026</li>
+          <li>Amazon Studios anchor employing hundreds of creative and production roles locally</li>
+          <li>Culver City housing stock is older — renovation premium significant for stabilized assets</li>
+          <li>Light rail (Expo Line) connects to Downtown and Santa Monica — transit-premium renters</li>
+          <li>Mar Vista: Family formation demand, strong school ratings, lower entry price with Venice adjacency</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> 4–6 unit assets in the $1.75–$2.5M range in the Washington Corridor and Mar Vista pocket — close enough to Abbot Kinney for lifestyle, affordable enough for a working creative-class tenant who earns $85K–$130K. Best risk-adjusted entry point on the Westside right now.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss Culver City positions →</a>
+      </div>
+
+      <!-- MALIBU / MARINA DEL REY -->
+      <div class="city-card">
+        <div class="city-card-num">06 — MARKET</div>
+        <h3><em>Malibu & Marina del Rey</em></h3>
+        <div class="city-tag">Ultra-Luxury · Seasonal · Trophy Coastal</div>
+        <p class="city-body">
+          Malibu is not a rental market — it is a capital preservation and legacy-wealth market. The sub-$5M multifamily opportunity here is structural rather than yield-driven. Marina del Rey occupies a different quadrant: a man-made harbor with 9,000+ units already built, a boating community, and proximity to Silicon Beach and LAX that makes it a natural landing zone for relocated executives and defense-tech employees arriving from the South Bay.
+        </p>
+        <ul class="city-drivers">
+          <li>Aerospace & defense corridor (El Segundo, Hawthorne, Torrance) commute-proximate via PCH/405</li>
+          <li>Marina del Rey redevelopment adding hospitality and F&B — increasing desirability</li>
+          <li>Malibu: post-wildfire rebuild cycle creating unique acquisition windows at basis</li>
+          <li>SpaceX Hawthorne operations employ ~6,000+ — many live in Marina/Venice/Playa Vista</li>
+          <li>Defense tech VC over $4B in 2025 funding new companies in El Segundo and Hawthorne — those employees rent up-market</li>
+        </ul>
+        <div class="city-opportunity">
+          <strong>Opportunity:</strong> Marina del Rey offers small-balance waterfront-adjacent assets with boating community premiums. Malibu entry is better accessed as a distressed-rebuild thesis post-fire events. Call to discuss current off-market positioning.
+        </div>
+        <a href="mailto:officeRE310@gmail.com" class="city-cta">Message to discuss coastal positions →</a>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ECONOMIC TIMELINE -->
+<section style="background: var(--slate);">
+  <div class="section-inner">
+    <div class="label">Economic Story</div>
+    <h2 class="section-title">The forces that<br><em>don't reverse.</em></h2>
+    <p style="max-width: 65ch; color: rgba(247,244,239,0.6); font-size: 0.95rem; line-height: 1.8; margin-bottom: 1rem;">
+      Every durable real estate market is underwritten by durable employment. Here is what is compounding beneath the surface of Westside property values right now.
+    </p>
+    <div class="timeline">
+      <div class="timeline-item">
+        <div class="timeline-year">TECHNOLOGY · ONGOING</div>
+        <div class="timeline-headline">Silicon Beach becomes a permanent tech capital — not a trend</div>
+        <div class="timeline-body">LA raised $8.3B in VC across 450+ deals in 2025. AI companies captured $2.1B of that alone — placing LA second in the US for AI funding. Snapchat, GoodRx, Headspace, and Riot Games proved the market. The next generation of companies — in AI-driven content creation, healthcare tech, and vertical SaaS — is scaling from the same three-mile strip between Santa Monica and Playa Vista. Their employees need housing within commuting distance of the Pacific.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">AEROSPACE & DEFENSE · ACCELERATING</div>
+        <div class="timeline-headline">The new space economy adds 11,000 jobs — average wage $141,000</div>
+        <div class="timeline-body">LA County's aerospace and defense industries added 11,000 jobs between 2022 and 2024. Average wages exceed $141,000 — more than double the county average. SpaceX in Hawthorne, Aerojet Rocketdyne in El Segundo, and dozens of defense-tech startups funded by $4B+ in 2025 VC are creating a high-income workforce that lives on the Westside. Industrial vacancy in El Segundo dropped below 2% at end of 2025. These workers are your tenants.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">ENTERTAINMENT TO AI · STRUCTURAL SHIFT</div>
+        <div class="timeline-headline">Studios become software companies — Culver City leads the transformation</div>
+        <div class="timeline-body">Apple's 536,000 sq ft Culver City campus, Amazon Studios, and Sony Pictures are not just content companies anymore — they are AI-infrastructure companies building recommendation, generation, and synthesis platforms. The creative-technical hybrid role this creates commands $100K–$180K salaries. These professionals are choosing Culver City, Mar Vista, Venice, and Santa Monica as their home base. The housing supply to absorb them doesn't exist at scale. That is the investment thesis.</div>
+      </div>
+      <div class="timeline-item">
+        <div class="timeline-year">SUPPLY CONSTRAINT · PERMANENT</div>
+        <div class="timeline-headline">Coastal Commission + local zoning = scarcity that cannot be legislated away</div>
+        <div class="timeline-body">Santa Monica, Malibu, and Venice are subject to multi-layer supply constraints: California Coastal Commission review, Santa Monica's own height and density limits, and NIMBY pressure that has slowed meaningful new multifamily supply for a decade. The sub-$5M 4-unit building you buy today is genuinely scarce. It cannot be replicated at cost in the same location. This is not promotional language — it is structural economics.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUATION INFOGRAPHIC -->
+<section id="valuation">
+  <div class="section-inner">
+    <div class="label">Valuation Guide</div>
+    <h2 class="section-title">What serious buyers<br><em>actually measure.</em></h2>
+    <p style="max-width: 65ch; color: rgba(247,244,239,0.6); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">
+      Bartle Bogle Hegarty once said that the best ideas are the ones hiding in plain sight. In real estate, the best deals are found by those who read the numbers differently — and ask the questions nobody else thinks to ask.
+    </p>
+
+    <div class="infographic-wrap">
+      <div class="infographic-title">The 9 metrics that matter.</div>
+      <div class="infographic-sub">A framework for screening sub-$5M Westside multifamily — in plain language.</div>
+
+      <div class="tip-grid">
+        <div class="tip-card">
+          <div class="tip-num">01</div>
+          <div class="tip-headline">Reset Tax Basis</div>
+          <div class="tip-body">California's Prop 13 means the seller's tax bill is fiction. When you close, the county reassesses at purchase price. A property showing $3,200/year in taxes may reset to $37,500 the day you take title. Run your underwriting on the reset number — always.</div>
+          <div class="tip-keyword">↳ Prop 13 · Supplemental Assessment · Reassessment Trigger</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">02</div>
+          <div class="tip-headline">DSCR Reality Check</div>
+          <div class="tip-body">Coastal Westside multifamily routinely underwrites below 1.0x DSCR at acquisition. This is not a warning sign — it is the market clearing mechanism. The question is not whether you're cash-flow negative today but whether the basis, the rent trajectory, and the appreciation curve justify the carry.</div>
+          <div class="tip-keyword">↳ Debt Service Coverage · 6.75% Investment Spread · 50% LTV</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">03</div>
+          <div class="tip-headline">Depreciation Shield</div>
+          <div class="tip-body">At a 37% federal bracket, a $3M purchase generates approximately $76,000/year in depreciation allowance. That is a $28,000 annual tax shield — before passive-loss optimization. For W-2 earners with real estate professional status, the shield is immediate. This is the return most spreadsheets don't model.</div>
+          <div class="tip-keyword">↳ 27.5-Year Schedule · Cost Segregation · Passive Loss Rules</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">04</div>
+          <div class="tip-headline">Rent Control Exposure</div>
+          <div class="tip-body">Santa Monica has its own rent control ordinance — one of the strictest in California. Venice and West LA fall under the LA City RSO. Westwood and Century City have exemptions for units built after 1978. Know your city, know your vintage, know your vacancy-decontrol rights before you make an offer.</div>
+          <div class="tip-keyword">↳ LA RSO · Santa Monica Ordinance · AB 1482 · Vacancy Decontrol</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">05</div>
+          <div class="tip-headline">ADU Path</div>
+          <div class="tip-body">California's ADU ordinance is among the most permissive in the country. A single garage conversion on a 4-unit lot can add $1,800–$2,400/month in gross income — and add $300,000–$450,000 to the resale value. Request a feasibility analysis on every asset before you close. The ADU creates the equity event.</div>
+          <div class="tip-keyword">↳ SB 9 · Garage Conversion · Junior ADU · Setback Waiver</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">06</div>
+          <div class="tip-headline">Market Rent vs. In-Place</div>
+          <div class="tip-body">The spread between in-place rents and market rents is the unrealized value. A 4-unit paying $8,200/month in a market clearing $15,400 contains nearly $87K in latent annual income. That spread — accessed through voluntary vacancy, owner move-in, or ADU — is what you're buying. Model the path, not just the current roll.</div>
+          <div class="tip-keyword">↳ Rent Roll · Estoppel Certificate · Market Comp Set · GRM</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">07</div>
+          <div class="tip-headline">Title & Ownership Events</div>
+          <div class="tip-body">Long-held properties — owned since 1968, trust-transferred, with judicial decrees on title — carry complexity that creates opportunity. A seller who hasn't reset since 1969 doesn't know what the market will bear. Pull the vesting deed, confirm the chain of title, and check probate status before any soft offer is issued.</div>
+          <div class="tip-keyword">↳ Vesting Deed · Assessor APN · Probate Sale · Trust Transfer</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">08</div>
+          <div class="tip-headline">Expense Load Honesty</div>
+          <div class="tip-body">A 45% operating-cost load is a starting point, not a ceiling. Insurance premiums on Westside coastal assets have risen materially in 2024–2026. Water, sewer, and trash expenses vary by city. Deferred maintenance on a 1940s–1960s building is not hypothetical. Underwrite at 50% before you negotiate, and 55% before you close.</div>
+          <div class="tip-keyword">↳ Operating Expense Ratio · Insurance Loss Runs · Utility History</div>
+        </div>
+        <div class="tip-card">
+          <div class="tip-num">09</div>
+          <div class="tip-headline">Basis vs. Replacement Cost</div>
+          <div class="tip-body">The final filter. Can you build this asset new, at this location, for less than the asking price? On the Westside, the answer is almost never yes. Land cost alone exceeds acquisition price per unit in most corridors. You are buying below replacement cost by definition — and that margin is your permanent cushion against the downside.</div>
+          <div class="tip-keyword">↳ Land Value · Hard Construction Cost · Entitlement Risk · Comp Basis</div>
+        </div>
+      </div>
+
+      <div style="border-top: 0.5px solid var(--border); padding-top: 2rem;">
+        <div class="label" style="margin-bottom: 1rem;">SEO Keywords · Search Intelligence</div>
+        <div class="keyword-cloud">
+          <span class="kw-tag">LA multifamily investing 2026</span>
+          <span class="kw-tag">Westside real estate under $5M</span>
+          <span class="kw-tag">Santa Monica apartment buildings for sale</span>
+          <span class="kw-tag">Venice 4-plex investment</span>
+          <span class="kw-tag">Westwood triplex UCLA rental</span>
+          <span class="kw-tag">Brentwood multifamily acquisition</span>
+          <span class="kw-tag">Culver City real estate investors</span>
+          <span class="kw-tag">Marina del Rey income property</span>
+          <span class="kw-tag">Silicon Beach landlord investment</span>
+          <span class="kw-tag">ADU California coastal income</span>
+          <span class="kw-tag">LA Prop 13 reset tax strategy</span>
+          <span class="kw-tag">depreciation real estate tax shelter</span>
+          <span class="kw-tag">coastal multifamily DSCR underwriting</span>
+          <span class="kw-tag">private buyer off-market LA apartments</span>
+          <span class="kw-tag">small balance multifamily 1031 exchange</span>
+          <span class="kw-tag">rent control exposure Santa Monica RSO</span>
+          <span class="kw-tag">Mar Vista income property</span>
+          <span class="kw-tag">Malibu real estate investment</span>
+          <span class="kw-tag">SpaceX aerospace employee housing</span>
+          <span class="kw-tag">tech worker renter demand LA</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LIVE ASSET SNAPSHOT -->
+<section id="assets" style="background: var(--slate);">
+  <div class="section-inner">
+    <div class="label">Current Market Positions</div>
+    <h2 class="section-title">What's<br><em>available now.</em></h2>
+    <p style="max-width: 65ch; color: rgba(247,244,239,0.6); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">
+      Five screened sub-$5M Westside positions — actively listed or recently confirmed. Underwritten at 50% LTV, 6.75% debt constant, and 55% operating cost load. All tax figures reflect expected post-acquisition basis reset.
+    </p>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th>Code</th>
+            <th>Location</th>
+            <th>Price</th>
+            <th>Units</th>
+            <th>Market Rent/mo</th>
+            <th>NOI/yr</th>
+            <th>Cash Flow/mo</th>
+            <th>DSCR</th>
+            <th>Depreciation/yr</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td class="td-code">MP-01</td>
+            <td>Venice / Abbot Kinney</td>
+            <td>$3,000,000</td>
+            <td>4</td>
+            <td>$15,400</td>
+            <td>$83,160</td>
+            <td><span class="badge badge-neg">−$2,799</span></td>
+            <td>0.71x</td>
+            <td>$76,364</td>
+            <td><span class="badge badge-pos">Active</span></td>
+          </tr>
+          <tr>
+            <td class="td-code">MP-02</td>
+            <td>Santa Monica Ocean Park</td>
+            <td>$2,215,000</td>
+            <td>4</td>
+            <td>$17,400</td>
+            <td>$93,960</td>
+            <td><span class="badge badge-pos">+$647</span></td>
+            <td>1.09x</td>
+            <td>$56,382</td>
+            <td><span class="badge badge-pos">Active</span></td>
+          </tr>
+          <tr>
+            <td class="td-code">MP-03</td>
+            <td>Santa Monica Wilshire-Montana</td>
+            <td>$2,795,000</td>
+            <td>3</td>
+            <td>$11,700</td>
+            <td>$63,180</td>
+            <td><span class="badge badge-neg">−$3,799</span></td>
+            <td>0.58x</td>
+            <td>$71,145</td>
+            <td><span class="badge badge-pos">Active</span></td>
+          </tr>
+          <tr>
+            <td class="td-code">MP-04</td>
+            <td>Westwood / UCLA Hub</td>
+            <td>$1,900,000</td>
+            <td>3</td>
+            <td>$11,700</td>
+            <td>$63,180</td>
+            <td><span class="badge badge-neg">−$897</span></td>
+            <td>0.85x</td>
+            <td>$48,364</td>
+            <td><span class="badge badge-pos">Active</span></td>
+          </tr>
+          <tr>
+            <td class="td-code">MP-05</td>
+            <td>Brentwood / West LA Edge</td>
+            <td>$1,850,000</td>
+            <td>5</td>
+            <td>$10,000</td>
+            <td>$54,000</td>
+            <td><span class="badge badge-neg">−$1,500</span></td>
+            <td>0.75x</td>
+            <td>$47,091</td>
+            <td><span class="badge badge-neu">Verify</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p style="margin-top: 1.5rem; font-family: var(--ff-mono); font-size: 0.62rem; letter-spacing: 0.08em; color: rgba(247,244,239,0.3); line-height: 1.7;">
+      This is screening analysis only. Underwriting assumes 50% LTV / 6.75% debt constant / 30-year amortization / 55% operating cost load. Tax figures reflect estimated post-acquisition reassessment — not seller's historical bill. Verify all owner, rent, tax, insurance, and lease facts through title, lender, CPA, and seller documents before proceeding. Not tax, legal, or lending advice.
+    </p>
+  </div>
+</section>
+
+<!-- CALL TO ACTION STRIP -->
+<section class="cta-strip" id="contact">
+  <div class="section-inner">
+    <div class="label" style="justify-content: center; margin-bottom: 1.5rem;">Real Estate Services</div>
+    <h2 class="section-title">You've read the thesis.<br><em>Now act on it.</em></h2>
+    <p>
+      The Westside has rewarded patient, well-positioned capital for 40 years. The next 10 are already underway. If you are ready to move from analysis to acquisition — or simply want to understand how these positions fit your portfolio — reach out directly. We work with private buyers only.
+    </p>
+    <div style="display: flex; justify-content: center; gap: 1.25rem; flex-wrap: wrap;">
+      <a href="mailto:officeRE310@gmail.com" class="btn-primary">Email to Begin</a>
+      <a href="tel:3107287974" class="btn-ghost">310.728.7974</a>
+    </div>
+    <div class="cta-contacts">
+      <a href="mailto:officeRE310@gmail.com" class="cta-contact-item">officeRE310@gmail.com</a>
+      <a href="tel:3107287974" class="cta-contact-item">310.728.7974</a>
+      <a href="https://www.realfimodel.com" class="cta-contact-item">realfimodel.com</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>© 2026 <a href="https://www.realfimodel.com">RealFi Model</a> · Real Estate Services · Los Angeles Westside</p>
+  <p>Prepared May 10, 2026 · Private Buyer Use Only · Not for public distribution</p>
+</footer>
+
+</body>
+</html>

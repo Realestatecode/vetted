@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>The Goldmine — Issue 01 | Can Westside Rents Keep Growing at 5%? | realfimodel</title>
+<meta name="description" content="Editorial market analysis on Westside Los Angeles and Santa Monica multifamily rents: concession math, the new ancillary-income playbook, and how to keep a tenant when a new building opens every six months." />
+<meta name="author" content="realfimodel research" />
+<meta name="robots" content="index, follow" />
+<meta name="impact-site-verification" value="3b8277c4-d53a-4ad5-bb8d-fdcb12077b23">
+
+<!-- Open Graph -->
+<meta property="og:title" content="The Goldmine — Issue 01: Can Westside Rents Keep Growing at 5%?" />
+<meta property="og:description" content="An editorial-grade read on Santa Monica and Westside multifamily rents — written for the professional and private real estate investor." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://www.realfimodel.com/goldmine/01" />
+<meta property="og:site_name" content="realfimodel" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="The Goldmine — Issue 01: Can Westside Rents Keep Growing at 5%?" />
+<meta name="twitter:description" content="Editorial-grade Westside multifamily intelligence for real estate investors." />
+
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-P4TD9G7W5V"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-P4TD9G7W5V');
+</script>
+
+<!-- Fonts -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+
+<!-- Chart.js -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.min.js"></script>
+
+<style>
+  :root {
+    --paper: #ffffff;
+    --ink: #0e1a2b;
+    --ink-soft: #2a3a4f;
+    --rule: #d9d2c4;
+    --butter: #f6e7a3;          /* butter yellow */
+    --butter-soft: #fff6d1;
+    --matisse: #1a3a6b;          /* matisse blue */
+    --matisse-deep: #0f2649;
+    --gold: #b08d2c;             /* restrained luxury gold */
+    --gold-soft: #d9b557;
+    --cream: #faf6ed;
+    --shadow: 0 1px 0 rgba(14,26,43,.06), 0 20px 40px -28px rgba(14,26,43,.18);
+  }
+
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; background: var(--paper); color: var(--ink); }
+  body {
+    font-family: 'Cormorant Garamond', 'Garamond', Georgia, serif;
+    font-size: 19px;
+    line-height: 1.62;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar {
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    position: sticky; top: 0; z-index: 50;
+  }
+  .topbar-inner {
+    max-width: 1180px; margin: 0 auto;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 14px 28px;
+  }
+  .brand {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 12px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--matisse-deep);
+  }
+  .brand b { color: var(--gold); }
+  .top-nav a {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .18em; text-transform: uppercase;
+    color: var(--ink-soft); text-decoration: none; margin-left: 28px;
+  }
+  .top-nav a:hover { color: var(--gold); }
+
+  /* ---------- Hero ---------- */
+  .hero {
+    max-width: 1180px; margin: 0 auto;
+    padding: 64px 28px 24px;
+    border-bottom: 1px solid var(--rule);
+  }
+  .eyebrow {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .32em; text-transform: uppercase;
+    color: var(--gold);
+    display: flex; align-items: center; gap: 14px;
+  }
+  .eyebrow::after {
+    content: ""; flex: 1; height: 1px; background: var(--rule); display: inline-block;
+  }
+  h1.headline {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(44px, 6.4vw, 84px);
+    line-height: 1.02;
+    letter-spacing: -0.01em;
+    margin: 18px 0 14px;
+    color: var(--matisse-deep);
+  }
+  h1.headline em {
+    font-style: italic; color: var(--gold);
+  }
+  .deck {
+    font-size: clamp(20px, 2.2vw, 26px);
+    font-style: italic; color: var(--ink-soft);
+    max-width: 780px; margin: 0 0 28px; font-weight: 300;
+  }
+  .byline {
+    font-family: 'Space Mono', ui-monospace, monospace;
+    font-size: 11px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-soft);
+    display: flex; flex-wrap: wrap; gap: 22px;
+    padding-bottom: 18px;
+  }
+  .byline span b { color: var(--matisse); }
+
+  /* ---------- Article body ---------- */
+  .article {
+    max-width: 760px; margin: 0 auto; padding: 0 28px;
+  }
+  .article p { margin: 0 0 20px; }
+  .article p.lede::first-letter {
+    font-family: 'Cormorant Garamond', serif;
+    float: left;
+    font-size: 92px;
+    line-height: .85;
+    padding: 8px 12px 0 0;
+    color: var(--matisse-deep);
+    font-weight: 500;
+  }
+  .article h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 3.4vw, 44px);
+    color: var(--matisse-deep);
+    margin: 56px 0 8px;
+    line-height: 1.08;
+    letter-spacing: -.005em;
+  }
+  .article h2 .num {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    color: var(--gold);
+    display: block;
+    letter-spacing: .3em;
+    margin-bottom: 6px;
+  }
+  .article h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 600;
+    font-style: italic;
+    font-size: 26px;
+    color: var(--matisse);
+    margin: 30px 0 10px;
+  }
+  .article a { color: var(--gold); text-decoration: none; border-bottom: 1px dotted var(--gold-soft); }
+  .pullquote {
+    border-left: 3px solid var(--gold);
+    background: var(--butter-soft);
+    padding: 22px 28px;
+    margin: 28px 0;
+    font-size: 26px;
+    line-height: 1.32;
+    font-style: italic;
+    color: var(--matisse-deep);
+    font-weight: 400;
+  }
+  .pullquote cite {
+    display: block;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-style: normal;
+    margin-top: 12px;
+  }
+  .kicker {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: .26em; text-transform: uppercase;
+    color: var(--gold); margin-top: 26px;
+  }
+
+  /* ---------- Stat strip ---------- */
+  .stat-strip {
+    max-width: 1180px; margin: 28px auto 0; padding: 0 28px;
+    display: grid; grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+  }
+  .stat {
+    border-top: 2px solid var(--matisse);
+    padding-top: 14px;
+  }
+  .stat .v {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 46px;
+    line-height: 1;
+    color: var(--matisse-deep);
+    font-weight: 500;
+  }
+  .stat .l {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: .22em; text-transform: uppercase;
+    color: var(--ink-soft);
+    margin-top: 6px;
+  }
+  @media (max-width: 760px) { .stat-strip { grid-template-columns: repeat(2, 1fr); } }
+
+  /* ---------- Tables ---------- */
+  .table-wrap {
+    margin: 30px 0;
+    border-top: 2px solid var(--matisse);
+    border-bottom: 1px solid var(--rule);
+    overflow-x: auto;
+  }
+  .table-wrap caption {
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .22em;
+    text-transform: uppercase;
+    color: var(--gold);
+    padding: 12px 0 14px;
+    caption-side: top;
+  }
+  table.editorial {
+    width: 100%; border-collapse: collapse;
+    font-family: 'Cormorant Garamond', serif; font-size: 17px;
+  }
+  table.editorial th {
+    text-align: left;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--matisse-deep);
+    border-bottom: 1px solid var(--rule);
+    padding: 12px 14px 10px 0;
+    font-weight: 700;
+    background: var(--cream);
+  }
+  table.editorial td {
+    padding: 12px 14px 12px 0;
+    border-bottom: 1px dotted var(--rule);
+    vertical-align: top;
+  }
+  table.editorial td.num, table.editorial th.num { text-align: right; font-family: 'Space Mono', monospace; font-size: 14px; }
+  table.editorial tbody tr:hover { background: var(--butter-soft); }
+
+  /* ---------- Charts ---------- */
+  .chart-card {
+    background: var(--cream);
+    border: 1px solid var(--rule);
+    padding: 22px 22px 14px;
+    margin: 28px 0;
+    box-shadow: var(--shadow);
+  }
+  .chart-card h4 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 22px; color: var(--matisse-deep);
+    margin: 0 0 4px; font-weight: 600;
+  }
+  .chart-card .sub {
+    font-family: 'Space Mono', monospace; font-size: 10px;
+    letter-spacing: .22em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 16px;
+  }
+  .chart-canvas { position: relative; height: 320px; }
+
+  /* ---------- Gate / Subscribe ---------- */
+  .gate-wrap {
+    max-width: 1180px; margin: 64px auto 0; padding: 0 28px;
+  }
+  .gate {
+    background: linear-gradient(180deg, var(--butter-soft) 0%, var(--paper) 100%);
+    border: 1px solid var(--rule);
+    border-top: 3px solid var(--gold);
+    padding: 44px 36px;
+    text-align: center;
+    box-shadow: var(--shadow);
+    position: relative;
+  }
+  .gate::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 50%; transform: translate(-50%, -50%);
+    background: var(--paper);
+    color: var(--gold);
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: .3em;
+    padding: 6px 18px;
+    text-transform: uppercase;
+    border: 1px solid var(--gold);
+  }
+  .gate-eyebrow {
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: .28em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 14px;
+  }
+  .gate h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(30px, 3.6vw, 44px);
+    line-height: 1.08;
+    color: var(--matisse-deep);
+    margin: 0 0 12px;
+  }
+  .gate h2 em { color: var(--gold); }
+  .gate p { max-width: 620px; margin: 0 auto 22px; color: var(--ink-soft); font-size: 19px; }
+
+  .subscribe-form {
+    max-width: 520px; margin: 0 auto;
+    display: grid; grid-template-columns: 1fr; gap: 12px;
+    text-align: left;
+  }
+  .field label {
+    font-family: 'Space Mono', monospace;
+    font-size: 10px; letter-spacing: .2em; text-transform: uppercase;
+    color: var(--matisse-deep);
+    display: block; margin-bottom: 6px;
+  }
+  .field input, .field textarea, .field select {
+    width: 100%; padding: 12px 14px;
+    border: 1px solid var(--rule);
+    background: var(--paper);
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px; color: var(--ink);
+    border-radius: 0;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus {
+    outline: none; border-color: var(--gold);
+    box-shadow: 0 0 0 3px rgba(176,141,44,.15);
+  }
+  .field textarea { min-height: 84px; resize: vertical; }
+  .row-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  @media (max-width: 520px) { .row-2 { grid-template-columns: 1fr; } }
+
+  /* Honeypot (hidden trap) */
+  .hp {
+    position: absolute !important;
+    left: -9999px !important; top: -9999px !important;
+    width: 1px; height: 1px; opacity: 0;
+    tab-index: -1; aria-hidden: true;
+  }
+
+  .human-check {
+    display: flex; align-items: center; gap: 10px;
+    background: var(--paper);
+    border: 1px dashed var(--gold);
+    padding: 12px 14px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; color: var(--ink-soft);
+    letter-spacing: .04em;
+  }
+  .human-check input { width: 18px; height: 18px; accent-color: var(--matisse); }
+  .math-q { color: var(--matisse-deep); font-weight: 700; }
+
+  .submit-btn {
+    background: var(--matisse-deep);
+    color: var(--butter);
+    border: none;
+    padding: 16px 22px;
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; letter-spacing: .28em; text-transform: uppercase;
+    cursor: pointer;
+    transition: background .2s ease, color .2s ease, transform .2s ease;
+    border: 1px solid var(--matisse-deep);
+  }
+  .submit-btn:hover { background: var(--gold); color: var(--matisse-deep); border-color: var(--gold); }
+  .submit-btn[disabled] { opacity: .5; cursor: not-allowed; transform: none; }
+
+  .form-msg {
+    font-family: 'Space Mono', monospace;
+    font-size: 12px; color: var(--matisse);
+    margin-top: 10px; text-align: center;
+  }
+  .form-msg.error { color: #8a1c1c; }
+  .form-msg.ok { color: #0d6b3a; }
+
+  /* ---------- Locked section ---------- */
+  .locked {
+    position: relative;
+    max-height: 280px;
+    overflow: hidden;
+    -webkit-mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 100%);
+            mask-image: linear-gradient(180deg, #000 0%, #000 30%, transparent 100%);
+    transition: max-height .8s ease;
+  }
+  .locked.is-open {
+    max-height: none;
+    -webkit-mask-image: none;
+            mask-image: none;
+  }
+  .locked-stamp {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 10px;
+    letter-spacing: .3em;
+    text-transform: uppercase;
+    color: var(--gold);
+    border: 1px solid var(--gold);
+    padding: 5px 12px;
+    margin-bottom: 14px;
+  }
+
+  /* ---------- Series / Footer ---------- */
+  .series-banner {
+    background: var(--matisse-deep);
+    color: var(--butter);
+    padding: 56px 28px;
+    margin-top: 72px;
+    text-align: center;
+  }
+  .series-banner .eyebrow { color: var(--gold-soft); justify-content: center; }
+  .series-banner .eyebrow::after,
+  .series-banner .eyebrow::before {
+    content: ""; flex: 0 0 60px; height: 1px; background: var(--gold-soft);
+  }
+  .series-banner h2 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500;
+    font-size: clamp(34px, 4vw, 54px);
+    margin: 14px 0 10px;
+    color: var(--butter);
+  }
+  .series-banner h2 em { color: var(--gold-soft); }
+  .series-banner p { max-width: 640px; margin: 0 auto 24px; color: rgba(255,255,255,.86); }
+
+  /* Contact box (message form, no email displayed) */
+  .contact {
+    max-width: 760px; margin: 56px auto 0; padding: 0 28px;
+  }
+  .contact-card {
+    border: 1px solid var(--rule);
+    padding: 32px;
+    background: var(--cream);
+  }
+  .contact h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 500; font-size: 30px; color: var(--matisse-deep); margin: 0 0 6px;
+  }
+  .contact p { color: var(--ink-soft); margin: 0 0 16px; }
+  .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .contact-form .full { grid-column: 1 / -1; }
+  @media (max-width: 600px) { .contact-form { grid-template-columns: 1fr; } }
+
+  footer.foot {
+    border-top: 1px solid var(--rule);
+    padding: 32px 28px;
+    margin-top: 56px;
+    font-family: 'Space Mono', monospace;
+    font-size: 11px; letter-spacing: .14em; text-transform: uppercase;
+    color: var(--ink-soft);
+    text-align: center;
+  }
+  footer.foot a { color: var(--gold); text-decoration: none; }
+
+  /* ---------- Print ---------- */
+  @media print {
+    .topbar, .gate-wrap, .series-banner, .contact, footer.foot, .top-nav, .submit-btn { display: none !important; }
+    .locked { max-height: none !important; -webkit-mask-image: none !important; mask-image: none !important; }
+    body { font-size: 11.5pt; line-height: 1.4; color: #000; background: #fff; }
+    h1.headline { color: #0e1a2b; font-size: 28pt; }
+    h2 { color: #0e1a2b; }
+    .chart-card { break-inside: avoid; box-shadow: none; }
+    .table-wrap { break-inside: avoid; }
+    a { color: #000; border-bottom: none; }
+    .pullquote { background: #fff; border-left: 2px solid #000; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ TOP BAR ============ -->
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="brand">real<b>fi</b>model &nbsp;|&nbsp; The Goldmine</div>
+    <nav class="top-nav" aria-label="primary">
+      <a href="#analysis">Analysis</a>
+      <a href="#data">Data</a>
+      <a href="#subscribe">Subscribe</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</div>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="eyebrow">Issue 01 &nbsp;·&nbsp; The Goldmine Series &nbsp;·&nbsp; May 2026</div>
+  <h1 class="headline">Can Westside Rents <em>Still Grow at 5%</em><br/>When a New Building Opens Every Six Months?</h1>
+  <p class="deck">A market read for the professional and private investor — written from inside the lease-up battle on Lincoln, Broadway, and the corridors that decide what Santa Monica is worth.</p>
+  <div class="byline">
+    <span>By <b>realfimodel research</b></span>
+    <span>Filed · Santa Monica · West LA</span>
+    <span>Read · 14 min</span>
+    <span>Print-ready</span>
+  </div>
+</header>
+
+<!-- ============ STAT STRIP (visible) ============ -->
+<section class="stat-strip" aria-label="Market at a glance">
+  <div class="stat"><div class="v">$3,827</div><div class="l">Santa Monica avg effective rent</div></div>
+  <div class="stat"><div class="v">4.6%</div><div class="l">Submarket vacancy</div></div>
+  <div class="stat"><div class="v">-116</div><div class="l">Q1 2026 net absorption (units)</div></div>
+  <div class="stat"><div class="v">8–9 wks</div><div class="l">Free rent on Class A lease-ups</div></div>
+</section>
+
+<!-- ============ PUBLIC LEDE (1 paragraph) ============ -->
+<article class="article" id="analysis">
+  <p class="lede">
+    Santa Monica is not a broken rental market. It is a market that is being asked to absorb a generation of glass and stucco in less than thirty-six months — and to do it while the entry-level renter is being priced in net effective terms and the institutional owner is being priced in basis. Walk Lincoln from Wilshire to Pico on a Tuesday morning and you will see leasing banners outnumber dog walkers. Every one of them is offering a number on the door, and a quieter number behind it. The first is rent. The second is the truth. The question every investor we speak with is asking — and the question this issue of <em>The Goldmine</em> exists to answer — is whether the Westside, with all of its sunlight and gridlock and density bonuses and Equinox lobbies, can keep compounding rents at five percent a year when the building across the street is six months old and the one going up behind it will open in nine.
+  </p>
+
+  <!-- ====== GATE / SUBSCRIBE (placed in the middle) ====== -->
+  <div class="gate-wrap" id="subscribe">
+    <div class="gate" data-marker="GATE">
+      <div class="gate-eyebrow">Member access · Free</div>
+      <h2>Unlock the full <em>Goldmine</em> Issue 01.</h2>
+      <p>The rest of this issue includes the concession-adjusted rent grid, the ancillary-income playbook, the developer execution scorecard, the “five-percent test,” and the tenant retention framework — built for the operator, the LP, and the private investor who underwrites in net effective dollars, not brochure dollars.</p>
+
+      <form class="subscribe-form" id="gateForm" novalidate>
+        <div class="field">
+          <label for="g-name">Full name</label>
+          <input id="g-name" name="name" type="text" autocomplete="name" required />
+        </div>
+        <div class="row-2">
+          <div class="field">
+            <label for="g-email">Email</label>
+            <input id="g-email" name="email" type="email" autocomplete="email" required />
+          </div>
+          <div class="field">
+            <label for="g-role">You are a…</label>
+            <select id="g-role" name="role" required>
+              <option value="">Select</option>
+              <option>Professional investor / fund</option>
+              <option>Private investor / family office</option>
+              <option>Operator / sponsor</option>
+              <option>Lender / capital markets</option>
+              <option>Advisor / broker</option>
+              <option>Other</option>
+            </select>
+          </div>
+        </div>
+        <div class="field">
+          <label for="g-market">Market focus (optional)</label>
+          <input id="g-market" name="market" type="text" placeholder="e.g., Santa Monica, Culver City, Westside multifamily" />
+        </div>
+
+        <!-- HONEYPOT: bots fill anything they can see, this should remain empty -->
+        <div class="hp" aria-hidden="true">
+          <label>Website</label>
+          <input type="text" name="website" id="g-website" tabindex="-1" autocomplete="off" />
+        </div>
+
+        <!-- Simple human-verification: math captcha + human checkbox + time gate -->
+        <div class="human-check">
+          <input type="checkbox" id="g-human" name="human" />
+          <label for="g-human" style="margin:0; text-transform:none; letter-spacing:.04em; font-family:'Space Mono', monospace; font-size:12px; color:var(--ink-soft); font-weight:400;">
+            I am a human. <span class="math-q" id="mathQ">Quick check: what is <b id="mathA">3</b> + <b id="mathB">4</b>?</span>
+            <input type="number" id="mathAnswer" name="mathAnswer" inputmode="numeric" style="width:64px; margin-left:8px; padding:6px 8px; font-family:'Space Mono', monospace;" />
+          </label>
+        </div>
+
+        <button type="submit" class="submit-btn" id="gateSubmit">Unlock the issue →</button>
+        <div class="form-msg" id="gateMsg" role="status" aria-live="polite"></div>
+      </form>
+      <p style="font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);margin-top:18px;">
+        Free monthly issue · No third-party resale · One click to unsubscribe
+      </p>
+    </div>
+  </div>
+
+  <!-- ============ LOCKED CONTENT (revealed on subscribe) ============ -->
+  <section class="locked" id="locked" aria-hidden="true">
+    <div style="text-align:center; margin-top:32px;">
+      <span class="locked-stamp">Member content · Issue 01</span>
+    </div>
+
+    <h2><span class="num">01 · The Setup</span>The market is not what it looks like from the brochure.</h2>
+    <p>
+      The Los Angeles multifamily backdrop, on its surface, is the kind of slide a sponsor would put in the front of a Q1 deck and let speak for itself. Regional occupancy sits at 95.3 percent. Net absorption in the first quarter of 2026 was a positive 2,511 units, a clean recovery from a soft prior quarter. Trailing twelve-month completions came in at 10,222 units, and the regional average effective rent moved to $2,851 per month. Investment sales touched $913 million in the quarter. Capital is selective, but it is awake.
+    </p>
+    <p>
+      The Santa Monica / Marina del Rey submarket is where that clean number breaks. The inventory base of 47,741 units is large enough to absorb shocks, and a 4.6 percent vacancy rate is still tight. But Q1 2026 net absorption was negative 116 units, and the trailing-twelve-month figure of positive 224 units is a thin cushion in a corridor that is about to take on more deliveries than it has in a decade. Zero deliveries in Q1 is not the story. The story is the cluster of buildings that opened in the eighteen months before — and the next wave already pouring concrete on Wilshire and Pico.
+    </p>
+
+    <div class="pullquote">
+      The face rent is the marketing. The concession is the truth. The rent growth question is whether the truth can keep moving up five percent a year while the marketing keeps a straight face.
+      <cite>— Issue 01, The Goldmine</cite>
+    </div>
+
+    <h2 id="data"><span class="num">02 · The Five Percent Test</span>Can rents continue to grow at 5%? Run the math, not the mood.</h2>
+    <p>
+      The five-percent rent growth assumption is the silent load-bearing beam of nearly every Westside multifamily underwriting we’ve seen this cycle. It is also the number least likely to survive contact with the lease-up grids being printed at 700 Broadway, the Santa Monica Collection, Willow, Catherine, Junction, and 1902 Wilshire. Five percent is what the model wants. The market is voting differently.
+    </p>
+    <p>
+      To stress-test it, decompose the number. A five-percent year is a combination of base contract growth, loss-to-lease burn-down on renewals, ancillary fee monetization, and concession compression. If face rents are flat, but concessions go from nine weeks to four, the effective rent moves roughly nine percent. If concessions stay where they are and face rents grow three percent, the effective rent moves three percent. The question is not whether five is the headline; it is which lever you are actually pulling.
+    </p>
+
+    <table class="editorial">
+      <caption>How a five-percent year can be earned (or faked).</caption>
+      <thead>
+        <tr><th>Lever</th><th>What it actually moves</th><th class="num">Plausible 2026 range</th><th>Investor read</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Face rent growth</td><td>Sticker on the door</td><td class="num">0% – 3%</td><td>Capped by competing lease-ups within walking distance.</td></tr>
+        <tr><td>Concession compression</td><td>Net effective rent</td><td class="num">+3% – +9%</td><td>The single biggest near-term lever in Class A Santa Monica.</td></tr>
+        <tr><td>Loss-to-lease burn-down</td><td>Renewal trade-out</td><td class="num">+1% – +4%</td><td>Constrained by tenant turnover and competing concession offers.</td></tr>
+        <tr><td>Ancillary income</td><td>Parking, storage, utility, pet, tech</td><td class="num">+2% – +6%</td><td>Underweighted in most rent rolls; the new frontier.</td></tr>
+        <tr><td>Operating expense control</td><td>NOI (not rent, but it pays)</td><td class="num">flat – +2%</td><td>Insurance and property tax are working against you.</td></tr>
+      </tbody>
+    </table>
+    <p>
+      A five-percent year is achievable on the Westside in 2026 and 2027, but almost nowhere is it achievable purely through face rent. The buildings that hit five will hit it by compressing concessions and converting ancillaries into a second rent roll. The buildings that miss will miss because they tried to push the sticker.
+    </p>
+
+    <div class="chart-card">
+      <h4>Net effective rent compression at common concession levels</h4>
+      <div class="sub">13-month lease assumption · Rent loss = (free weeks ÷ lease weeks)</div>
+      <div class="chart-canvas"><canvas id="concessionChart"></canvas></div>
+    </div>
+
+    <h2><span class="num">03 · The Westside Engine</span>Why the demand never quite breaks, even when supply does.</h2>
+    <p>
+      The Westside is no longer a postcard economy. It is a working capital engine for applied artificial intelligence, gaming, streaming, defense-adjacent space technology, biotech, and the venture infrastructure that funds all of it. Santa Monica anchors mature technology and venture capital — Upfront, Greycroft, M13, March. Culver City is where Apple is putting a 500,000 square-foot campus and where Amazon Studios, HBO, and Sony are already entrenched. Westwood is the academic and medical engine. El Segundo and Hawthorne, just south of the Westside, are pulling Westside engineers and Westside capital into space and defense-tech.
+    </p>
+    <p>
+      The renter pool that result of that mix is structurally different from the one a typical underwriting still assumes. It is older than a college graduate, younger than a homeowner, with a household income that can absorb a $4,500 to $6,500 net effective rent but begins to fight back at $7,500 and refuses at $9,000. The fight starts above $7,500. That is the cliff. Every Class A asset on the Westside is, in some way, navigating that cliff.
+    </p>
+
+    <h2><span class="num">04 · The Supply Wave</span>Eight buildings, one corridor, one quiet rent discovery.</h2>
+    <p>
+      Santa Monica delivered zero units in Q1 2026 on the official count. The lived experience says otherwise. Downtown and the Lincoln corridor are now hosting an active simultaneous lease-up across 700 Broadway, 501 Broadway, 1430 Lincoln, 1650 Lincoln, Willow Santa Monica, Catherine Santa Monica, Junction Santa Monica, and the Evani / Wilshire frontier. Together they are running what is, in practice, the largest real-time rent discovery experiment the Westside has seen since the post-recession Class A wave a decade ago.
+    </p>
+
+    <table class="editorial">
+      <caption>Active Class A lease-up cluster · Santa Monica · May 2026</caption>
+      <thead>
+        <tr>
+          <th>Ocean rank</th><th>Property</th><th class="num">Units</th>
+          <th class="num">Studio face</th><th class="num">1BR face</th><th class="num">2BR face</th>
+          <th>Concession</th><th>Strategic read</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td class="num">1</td><td>501 Broadway</td><td class="num">89</td><td class="num">$3,296</td><td class="num">$3,636–$4,151</td><td class="num">$5,090–$5,779</td><td>Up to 9 weeks free</td><td>Best beach proximity; concessions still active.</td></tr>
+        <tr><td class="num">2</td><td>700 Broadway</td><td class="num">280</td><td class="num">$3,895–$5,080</td><td class="num">$5,295–$6,945</td><td class="num">$8,590–$9,705</td><td>Up to 8 weeks · Equinox incentive</td><td>Deepest amenity package; the most aggressive ask.</td></tr>
+        <tr><td class="num">3</td><td>Willow Santa Monica</td><td class="num">40</td><td class="num">$2,937–$3,249</td><td class="num">$3,006–$4,157</td><td class="num">$5,749–$7,256</td><td>6–8 weeks free</td><td>Boutique scale; net effective well below face.</td></tr>
+        <tr><td class="num">4</td><td>1430 Lincoln</td><td class="num">97</td><td class="num">$2,731–$3,731</td><td class="num">$3,000s–$4,000s</td><td class="num">low–mid $5,000s</td><td>Up to 9 weeks free</td><td>Value-tilted relative to 700 Broadway.</td></tr>
+        <tr><td class="num">5</td><td>1650 Lincoln</td><td class="num">98</td><td class="num">$2,936</td><td class="num">$3,396–$3,861</td><td class="num">mid–high $6,000s</td><td>Up to 9 weeks free</td><td>Must win on relative value, not newness.</td></tr>
+        <tr><td class="num">6</td><td>Catherine Santa Monica</td><td class="num">281</td><td class="num">$2,999+</td><td class="num">$3,572+</td><td class="num">$5,214+</td><td>Rent savings advertised</td><td>Prior-wave Class A still discounting.</td></tr>
+        <tr><td class="num">7</td><td>Junction Santa Monica</td><td class="num">66</td><td class="num">$2,595+</td><td class="num">—</td><td class="num">up to $3,870</td><td>—</td><td>2020 delivery; part of the five-year wave.</td></tr>
+        <tr><td class="num">8</td><td>Evani · 3223 Wilshire</td><td class="num">53</td><td class="num">$2,699+</td><td class="num">—</td><td class="num">up to $5,870</td><td>—</td><td>Eastern Wilshire; price-sensitive tilt.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-card">
+      <h4>Face vs. net effective rent · sample 1BR across the cluster</h4>
+      <div class="sub">Assumes 8 weeks free on a 13-month lease</div>
+      <div class="chart-canvas"><canvas id="faceVsNetChart"></canvas></div>
+    </div>
+
+    <h2><span class="num">05 · The New Dawn</span>Parking, cable, water, storage — the second rent roll.</h2>
+    <p>
+      For thirty years, the unspoken contract in a Westside apartment was that rent was rent. Parking was included, water was included, basic cable was a wink, and storage was a closet you never opened. That contract is over. The new dawn is an unbundled lease, where the headline rent is no longer the whole rent — and where the operator who understands ancillary income can earn a second rent roll without ever moving the sticker.
+    </p>
+    <p>
+      The practical arithmetic is striking. A single covered parking space in Santa Monica can carry $200 to $350 per month. A second space — and many two-bedroom households want two — can carry $250 to $400. A storage cage runs $50 to $150. Premium tech (a managed Wi-Fi product, a smart-home package) is now a $35 to $75 line. Utility ratio billing — RUBS for water, sewer, and trash — moves another $60 to $120 per door per month off the operator’s ledger and onto the resident’s. Pet rent, once a $25 nod, is now $75 to $125 per pet, often with a non-refundable component.
+    </p>
+
+    <table class="editorial">
+      <caption>The second rent roll · monthly ancillary potential per door · Class A Westside</caption>
+      <thead>
+        <tr><th>Ancillary</th><th class="num">Conservative</th><th class="num">Aggressive</th><th>Operating note</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Parking (1st space)</td><td class="num">$200</td><td class="num">$350</td><td>Tandem and EV stalls carry premium.</td></tr>
+        <tr><td>Parking (2nd space)</td><td class="num">$250</td><td class="num">$400</td><td>Two-bedroom households drive demand.</td></tr>
+        <tr><td>Storage cage</td><td class="num">$50</td><td class="num">$150</td><td>Underwritten as 30–60% capture.</td></tr>
+        <tr><td>Tech / Wi-Fi bundle</td><td class="num">$35</td><td class="num">$75</td><td>Often packaged with smart-lock.</td></tr>
+        <tr><td>RUBS (water/sewer/trash)</td><td class="num">$60</td><td class="num">$120</td><td>Net expense reduction, treated as income.</td></tr>
+        <tr><td>Pet rent</td><td class="num">$75</td><td class="num">$125</td><td>Per pet; non-refundable fee at move-in.</td></tr>
+        <tr><td>Trash valet</td><td class="num">$25</td><td class="num">$45</td><td>Near-100% capture in Class A.</td></tr>
+        <tr><td class="num"><b>Total per door</b></td><td class="num"><b>$695</b></td><td class="num"><b>$1,265</b></td><td>Before furnished/short-stay overlays.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-card">
+      <h4>Where the second rent roll comes from</h4>
+      <div class="sub">Aggressive Class A bundle · $1,265 per door per month</div>
+      <div class="chart-canvas"><canvas id="ancillaryChart"></canvas></div>
+    </div>
+
+    <p>
+      A $695 to $1,265 second rent roll, applied across a 200-unit asset, is $1.7 to $3.0 million per year of ancillary revenue. At a 5.25 percent cap rate, that is $32 to $58 million of value created without moving the sticker rent a single dollar. That is the silent edge sitting inside half the buildings on Lincoln right now.
+    </p>
+
+    <h2><span class="num">06 · The Tenant Question</span>Two years versus ten — the most important number on the rent roll.</h2>
+    <p>
+      The average market-rate Class A tenant on the Westside stays for approximately two years. The average move-in is less than five hours. The average departure is a Saturday in July. The average reason for leaving is the building across the street.
+    </p>
+    <p>
+      The subsidized tenant — the resident in a deed-restricted unit at 30, 50, or 80 percent of area median income — stays for approximately ten years. The unit clears at a below-market rent. The turnover is small. The marketing budget is essentially zero. From a pure cash-on-cash perspective, the subsidized resident is one of the most stable line items on the rent roll, and most owners treat it as a regulatory cost rather than an operational asset. That framing is exactly backwards.
+    </p>
+
+    <div class="pullquote">
+      The perfect tenant is one who loves the area and never leaves. The second-best tenant is one who can’t afford to leave. The third-best tenant is the one you market to every June.
+      <cite>— The Goldmine, Issue 01</cite>
+    </div>
+
+    <table class="editorial">
+      <caption>The retention spread · why turnover is the silent killer</caption>
+      <thead>
+        <tr><th>Tenant type</th><th class="num">Avg stay</th><th class="num">Rent posture</th><th class="num">Turn cost / yr (per door)</th><th>Investor read</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Market-rate Class A</td><td class="num">~2 years</td><td class="num">Face minus concession</td><td class="num">$2,400–$4,200</td><td>The headline rent disguises the friction.</td></tr>
+        <tr><td>Subsidized / deed-restricted</td><td class="num">~10 years</td><td class="num">Below market</td><td class="num">$300–$600</td><td>Quietly the most stable revenue on the rent roll.</td></tr>
+        <tr><td>“Loves it here” market tenant</td><td class="num">5+ years</td><td class="num">Renewal trade-out</td><td class="num">$500–$900</td><td>The product to design the asset around.</td></tr>
+      </tbody>
+    </table>
+
+    <div class="chart-card">
+      <h4>Average tenant tenure · Class A Westside vs. subsidized</h4>
+      <div class="sub">Years; operator-level averages, not census</div>
+      <div class="chart-canvas"><canvas id="tenureChart"></canvas></div>
+    </div>
+
+    <h2><span class="num">07 · The Goldmine Framework</span>How to keep a tenant when a new building opens every six months.</h2>
+    <p>
+      The defensive playbook for Westside multifamily in 2026 is no longer “raise rent five percent and hope.” It is to build an asset, an operation, and a resident experience that compounds tenure. Every additional twelve months a tenant stays is roughly $2,500 to $4,000 of turn cost not incurred, three to six weeks of vacancy not absorbed, and one renewal where loss-to-lease quietly closes.
+    </p>
+    <p>
+      Five levers actually move retention on the Westside, in order of return on management attention:
+    </p>
+    <ol>
+      <li><b>Renewal as a product, not a notice.</b> A renewal letter that arrives 120 days out, framed as a relationship, with two or three pricing options and a small concession, holds tenants who otherwise tour the building across the street.</li>
+      <li><b>Parking, storage, and pet as the moat.</b> A resident who has settled a second car, a bike, a kayak, and a dog into their unit is not casually moving 0.4 miles east.</li>
+      <li><b>Service responsiveness.</b> Two-hour maintenance acknowledgment, twenty-four-hour resolution standard. This is cheap, and it is the single most quoted reason in exit surveys.</li>
+      <li><b>Amenity programming, not amenity inventory.</b> A rooftop is not retention. A weekly programming calendar — wine, fitness, founder coffee — is retention.</li>
+      <li><b>Renewal cadence that beats the competing lease-up.</b> If 700 Broadway is offering eight weeks free in October, your renewal letter in August is the only thing standing between your resident and a tour.</li>
+    </ol>
+
+    <h2><span class="num">08 · The Developer Scorecard</span>Who has actually delivered units in Santa Monica.</h2>
+    <p>
+      A pipeline list is not a delivery list. The most important filter on a Santa Monica multifamily underwriting today is sponsor execution history — measured in actual units delivered, in this city, in the last five years.
+    </p>
+
+    <table class="editorial">
+      <caption>Sponsor execution · documented Santa Monica delivery</caption>
+      <thead>
+        <tr><th>Sponsor / team</th><th class="num">Built / near-new</th><th class="num">Underway</th><th>How to use it</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Cypress Equity Investments</td><td class="num">440</td><td class="num">326</td><td>The deepest local execution track record in the active set.</td></tr>
+        <tr><td>Tishman Speyer (Santa Monica Collection)</td><td class="num">284 market + 56 affordable</td><td class="num">—</td><td>Most concentrated downtown lease-up cluster.</td></tr>
+        <tr><td>Related California / Albertsons</td><td class="num">280 (700 Broadway)</td><td class="num">—</td><td>Flagship mixed-use; grocery + fitness anchor.</td></tr>
+        <tr><td>Hankey Capital / SMHC 23</td><td class="num">—</td><td class="num">219 requested</td><td>Capital strength; watch starts vs. entitlements.</td></tr>
+        <tr><td>Affordable sponsors (pending list)</td><td class="num">—</td><td class="num">139 requested</td><td>Politically essential; not direct Class A competition.</td></tr>
+      </tbody>
+    </table>
+
+    <h2><span class="num">09 · Stress Signals</span>Where the next basis reset will come from.</h2>
+    <p>
+      The clearest distress marker in the cluster is the 249-unit luxury asset at 500 Broadway, where a loan default above $400 million was reported in late 2025. The lesson is structural: high basis plus aggressive face rent plus retail complexity plus elevated interest rates equals a narrow stabilized-buyer universe. The Westside is not short of demand. It is short of capital that can carry an underwriting written in 2021.
+    </p>
+    <p>
+      Watch three signals weekly:
+    </p>
+    <ul>
+      <li>Concessions that keep extending instead of compressing.</li>
+      <li>Availability counts that do not burn down over a sixty- to ninety-day window.</li>
+      <li>Debt maturities that arrive before NOI stabilizes.</li>
+    </ul>
+
+    <h2><span class="num">10 · The Verdict</span>So — can rents grow at five percent?</h2>
+    <p>
+      The honest answer, written for an investor and not for a brochure: yes, on the right asset, with the right basis, the right operator, and the right ancillary playbook. No, on the wrong one — and the wrong one is the asset that tries to earn its five percent by pushing the sticker in a corridor where six other lease-ups are still buying occupancy with concessions.
+    </p>
+    <p>
+      The Westside thesis is intact. The demand is real. The ownership alternative is still expensive enough to keep the renter pool deep and rational. But the rent-growth assumption needs to be earned in a different currency now: concession compression, ancillary income, retention, and operator quality. That is the goldmine. That is what we will be writing about, market by market, building by building, in every issue of <em>The Goldmine</em> going forward.
+    </p>
+
+    <div class="pullquote">
+      Five percent is no longer a number you assume. It is a number you build.
+      <cite>— The Goldmine, Issue 01</cite>
+    </div>
+
+    <p class="kicker">End of Issue 01 · Next issue · Culver City and the convergence corridor.</p>
+
+  </section>
+</article>
+
+<!-- ============ SERIES BANNER ============ -->
+<section class="series-banner">
+  <div class="eyebrow">The Goldmine · Monthly Series</div>
+  <h2><em>The Goldmine</em>: how to keep a tenant in a market with a new apartment complex every six months.</h2>
+  <p>One issue a month. One market. One question every professional and private investor is already asking. Free to read for members.</p>
+  <a href="#subscribe" style="display:inline-block;background:var(--gold);color:var(--matisse-deep);padding:14px 22px;font-family:'Space Mono',monospace;font-size:12px;letter-spacing:.28em;text-transform:uppercase;text-decoration:none;border:1px solid var(--gold);">Subscribe to the series</a>
+</section>
+
+<!-- ============ CONTACT (message box, no email shown) ============ -->
+<section class="contact" id="contact">
+  <div class="contact-card">
+    <div class="gate-eyebrow">Contact us</div>
+    <h3>Send us a note.</h3>
+    <p>Questions on the analysis, a specific asset, or a private engagement? Send a short message and we will route it to the right desk.</p>
+    <form class="contact-form" id="contactForm" novalidate>
+      <div class="field">
+        <label for="c-name">Name</label>
+        <input id="c-name" name="name" type="text" required />
+      </div>
+      <div class="field">
+        <label for="c-org">Firm (optional)</label>
+        <input id="c-org" name="org" type="text" />
+      </div>
+      <div class="field full">
+        <label for="c-msg">Message</label>
+        <textarea id="c-msg" name="message" rows="4" required></textarea>
+      </div>
+      <!-- honeypot -->
+      <div class="hp full" aria-hidden="true">
+        <label>URL</label>
+        <input type="text" name="url" id="c-url" tabindex="-1" autocomplete="off" />
+      </div>
+      <div class="full">
+        <button type="submit" class="submit-btn" id="contactSubmit">Send message →</button>
+      </div>
+      <div class="form-msg full" id="contactMsg" role="status" aria-live="polite"></div>
+    </form>
+  </div>
+</section>
+
+<footer class="foot">
+  © 2026 realfimodel · The Goldmine · Issue 01 · <a href="https://www.realfimodel.com">www.realfimodel.com</a>
+</footer>
+
+<script>
+/* =========================================================
+   Subscription gate + bot defenses
+   - honeypot
+   - randomized math question
+   - time-on-page minimum (3 seconds)
+   - human checkbox
+   - POSTs to https://submit-zuirpy7nza-uc.a.run.app
+   ========================================================= */
+(function(){
+  const PAGE_LOADED_AT = Date.now();
+  const MIN_DWELL_MS = 3000;
+
+  // Randomize math captcha
+  const a = Math.floor(Math.random()*7)+2;
+  const b = Math.floor(Math.random()*7)+2;
+  document.getElementById('mathA').textContent = a;
+  document.getElementById('mathB').textContent = b;
+  const expected = a + b;
+
+  const form = document.getElementById('gateForm');
+  const msg  = document.getElementById('gateMsg');
+  const btn  = document.getElementById('gateSubmit');
+  const locked = document.getElementById('locked');
+
+  // If user previously subscribed in this session, unlock
+  if (sessionStorage.getItem('rfm_goldmine_unlocked') === '1') {
+    locked.classList.add('is-open');
+    locked.setAttribute('aria-hidden','false');
+  }
+
+  form.addEventListener('submit', async function(e){
+    e.preventDefault();
+    msg.className = 'form-msg';
+    msg.textContent = '';
+
+    const dwell = Date.now() - PAGE_LOADED_AT;
+    const hp1 = document.getElementById('g-website').value.trim();
+    const human = document.getElementById('g-human').checked;
+    const answer = parseInt(document.getElementById('mathAnswer').value, 10);
+
+    // Bot guards (silent on honeypot to not telegraph the trap)
+    if (hp1 !== '') return;
+    if (dwell < MIN_DWELL_MS) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please take a moment to review before submitting.';
+      return;
+    }
+    if (!human) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please confirm you are human.';
+      return;
+    }
+    if (answer !== expected) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Quick check did not match. Please try again.';
+      return;
+    }
+
+    const name  = document.getElementById('g-name').value.trim();
+    const email = document.getElementById('g-email').value.trim();
+    const role  = document.getElementById('g-role').value;
+    const market = document.getElementById('g-market').value.trim();
+
+    if (!name || !email || !role) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please complete name, email, and role.';
+      return;
+    }
+    // Basic email shape
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Please enter a valid email.';
+      return;
+    }
+
+    btn.disabled = true;
+    btn.textContent = 'Sending…';
+
+    const payload = {
+      source: 'realfimodel · goldmine · issue 01',
+      page: location.href,
+      name, email, role, market,
+      submitted_at: new Date().toISOString(),
+      dwell_ms: dwell,
+      ua: navigator.userAgent
+    };
+
+    try {
+      await fetch('https://submit-zuirpy7nza-uc.a.run.app', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      // no-cors → opaque response; assume accepted unless network throws
+      sessionStorage.setItem('rfm_goldmine_unlocked', '1');
+      msg.className = 'form-msg ok';
+      msg.textContent = 'You are in. Unlocking Issue 01…';
+      btn.textContent = 'Unlocked ✓';
+      locked.classList.add('is-open');
+      locked.setAttribute('aria-hidden','false');
+      // Smooth scroll to start of locked content
+      setTimeout(()=> locked.scrollIntoView({ behavior:'smooth', block:'start' }), 400);
+
+      // Analytics
+      if (typeof gtag === 'function') {
+        gtag('event', 'subscribe', { method: 'gate_form', value: 1, role: role });
+      }
+    } catch (err) {
+      msg.className = 'form-msg error';
+      msg.textContent = 'Submission failed. Please try again in a moment.';
+      btn.disabled = false;
+      btn.textContent = 'Unlock the issue →';
+    }
+  });
+
+  /* Contact form */
+  const cForm = document.getElementById('contactForm');
+  const cMsg  = document.getElementById('contactMsg');
+  const cBtn  = document.getElementById('contactSubmit');
+
+  cForm.addEventListener('submit', async function(e){
+    e.preventDefault();
+    cMsg.className = 'form-msg'; cMsg.textContent = '';
+    const hp2 = document.getElementById('c-url').value.trim();
+    if (hp2 !== '') return;
+
+    const cName = document.getElementById('c-name').value.trim();
+    const cOrg  = document.getElementById('c-org').value.trim();
+    const cTxt  = document.getElementById('c-msg').value.trim();
+    if (!cName || !cTxt) {
+      cMsg.className = 'form-msg error';
+      cMsg.textContent = 'Please add your name and a short message.';
+      return;
+    }
+    cBtn.disabled = true; cBtn.textContent = 'Sending…';
+
+    const payload = {
+      source: 'realfimodel · goldmine · contact',
+      page: location.href,
+      kind: 'contact',
+      name: cName, org: cOrg, message: cTxt,
+      submitted_at: new Date().toISOString(),
+      ua: navigator.userAgent
+    };
+
+    try {
+      await fetch('https://submit-zuirpy7nza-uc.a.run.app', {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(payload)
+      });
+      cMsg.className = 'form-msg ok';
+      cMsg.textContent = 'Thank you. We will be in touch.';
+      cBtn.textContent = 'Sent ✓';
+      if (typeof gtag === 'function') gtag('event', 'contact_submit', { value: 1 });
+    } catch (err) {
+      cMsg.className = 'form-msg error';
+      cMsg.textContent = 'Could not send. Please try again shortly.';
+      cBtn.disabled = false; cBtn.textContent = 'Send message →';
+    }
+  });
+})();
+
+/* =========================================================
+   Charts
+   ========================================================= */
+window.addEventListener('load', function(){
+  if (typeof Chart === 'undefined') return;
+
+  const INK     = '#0e1a2b';
+  const MATISSE = '#1a3a6b';
+  const GOLD    = '#b08d2c';
+  const BUTTER  = '#f6e7a3';
+  const RULE    = '#d9d2c4';
+
+  Chart.defaults.font.family = "'Cormorant Garamond', Georgia, serif";
+  Chart.defaults.color = INK;
+
+  // 1. Concession compression
+  new Chart(document.getElementById('concessionChart'), {
+    type: 'bar',
+    data: {
+      labels: ['No concession','4 wks free','6 wks free','8 wks free','9 wks free','10 wks free'],
+      datasets: [{
+        label: 'Net effective rent · % of face',
+        data: [100, 92.3, 88.5, 84.6, 82.7, 80.8],
+        backgroundColor: [MATISSE, MATISSE, MATISSE, GOLD, GOLD, '#7a1f1f'],
+        borderRadius: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        y: { min: 75, max: 102, grid: { color: RULE }, ticks: { callback: v => v + '%' } },
+        x: { grid: { display: false }, ticks: { font: { family: "'Space Mono', monospace", size: 10 } } }
+      }
+    }
+  });
+
+  // 2. Face vs net effective (1BR)
+  new Chart(document.getElementById('faceVsNetChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Willow', '1430 Lincoln', '1650 Lincoln', '501 Broadway', '700 Broadway'],
+      datasets: [
+        { label: 'Face rent', data: [3582, 3500, 3629, 3894, 6120], backgroundColor: BUTTER, borderColor: GOLD, borderWidth: 1 },
+        { label: 'Net effective (8 wks free)', data: [3030, 2961, 3070, 3294, 5177], backgroundColor: MATISSE }
+      ]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'bottom', labels: { font: { family: "'Space Mono', monospace", size: 10 } } }
+      },
+      scales: {
+        y: { grid: { color: RULE }, ticks: { callback: v => '$' + v.toLocaleString() } },
+        x: { grid: { display: false }, ticks: { font: { family: "'Space Mono', monospace", size: 10 } } }
+      }
+    }
+  });
+
+  // 3. Ancillary breakdown (doughnut)
+  new Chart(document.getElementById('ancillaryChart'), {
+    type: 'doughnut',
+    data: {
+      labels: ['Parking 1','Parking 2','Storage','Tech','RUBS','Pet rent','Trash valet'],
+      datasets: [{
+        data: [350, 400, 150, 75, 120, 125, 45],
+        backgroundColor: [MATISSE, '#2a5895', GOLD, '#d9b557', BUTTER, '#c9a45e', '#7a8aa0'],
+        borderColor: '#fff', borderWidth: 2
+      }]
+    },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: {
+        legend: { position: 'right', labels: { font: { family: "'Space Mono', monospace", size: 11 }, boxWidth: 12 } }
+      }
+    }
+  });
+
+  // 4. Tenure
+  new Chart(document.getElementById('tenureChart'), {
+    type: 'bar',
+    data: {
+      labels: ['Market-rate Class A', '"Loves it here" tenant', 'Subsidized / deed-restricted'],
+      datasets: [{
+        label: 'Avg tenure (years)',
+        data: [2, 5, 10],
+        backgroundColor: [MATISSE, GOLD, '#0f2649'],
+        borderRadius: 2
+      }]
+    },
+    options: {
+      indexAxis: 'y',
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false } },
+      scales: {
+        x: { grid: { color: RULE }, ticks: { callback: v => v + ' yr' } },
+        y: { grid: { display: false }, ticks: { font: { family: "'Space Mono', monospace", size: 11 } } }
+      }
+    }
+  });
+});
+</script>
+
+</body>
+</html>

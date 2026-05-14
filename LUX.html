@@ -1,0 +1,1008 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>LUX | Urban — Private Investment Opportunity</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,500;0,700;1,400;1,700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --ivory:#F9F6EF;--warm-white:#FDFCF9;--ink:#16120E;--ink-60:rgba(22,18,14,.6);--ink-30:rgba(22,18,14,.3);
+  --copper:#B5793A;--copper-light:#D4975A;--copper-pale:#F4EAD8;--copper-ultra:#FDF6EC;
+  --sage:#7A9B88;--sage-pale:#EFF4F1;--sand:#C8B99A;--sand-pale:#F5EFE5;
+  --charcoal:#2C2820;--rule:rgba(22,18,14,.12);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--warm-white);color:var(--ink);font-size:14px;line-height:1.65;-webkit-font-smoothing:antialiased}
+@media print{.no-print{display:none!important}body{font-size:11px;background:white}}
+
+/* ── NAV ── */
+.nav{position:fixed;top:0;left:0;right:0;z-index:300;display:flex;align-items:center;justify-content:space-between;padding:0 48px;height:60px;background:rgba(249,246,239,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--rule)}
+.nav-brand{font-family:'Playfair Display',serif;font-size:18px;letter-spacing:.06em;color:var(--ink);font-style:italic}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--ink-60);text-decoration:none;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--copper)}
+.nav-cta{color:var(--warm-white)!important;background:var(--copper);padding:9px 20px;font-size:11px!important;letter-spacing:.1em}
+.nav-cta:hover{background:var(--copper-light)!important}
+
+/* ── HERO ── */
+.hero{min-height:100vh;background:var(--ink);display:flex;flex-direction:column;justify-content:flex-end;padding:120px 80px 96px;position:relative;overflow:hidden}
+.hero-texture{position:absolute;inset:0;pointer-events:none;background:radial-gradient(ellipse at 72% 28%,rgba(181,121,58,.13) 0%,transparent 55%),radial-gradient(ellipse at 12% 78%,rgba(122,155,136,.07) 0%,transparent 45%)}
+.hero-grain{position:absolute;inset:0;pointer-events:none;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");background-size:200px}
+.hero-label{font-size:10px;letter-spacing:.4em;text-transform:uppercase;color:var(--copper-light);font-weight:500;margin-bottom:32px;position:relative}
+.hero-title{font-family:'Playfair Display',serif;font-size:clamp(64px,9vw,116px);font-weight:400;line-height:.9;color:var(--ivory);margin-bottom:14px;position:relative}
+.hero-title em{font-style:italic;color:var(--copper-light)}
+.hero-sub{font-size:clamp(14px,1.8vw,19px);color:rgba(249,246,239,.38);letter-spacing:.06em;font-weight:300;margin-bottom:16px;position:relative}
+.hero-codename{display:inline-block;background:rgba(181,121,58,.18);border:1px solid rgba(181,121,58,.35);color:var(--copper-light);font-size:10px;letter-spacing:.25em;text-transform:uppercase;padding:6px 16px;margin-bottom:56px;position:relative}
+.hero-rule{width:1px;height:72px;background:var(--copper);margin-bottom:44px;position:relative}
+.hero-pillars{display:flex;gap:56px;flex-wrap:wrap;margin-bottom:60px;position:relative}
+.pillar-num{font-family:'Playfair Display',serif;font-size:42px;font-weight:400;color:var(--ivory);line-height:1;display:block}
+.pillar-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(249,246,239,.38);margin-top:5px;display:block}
+.hero-cta-row{display:flex;gap:14px;flex-wrap:wrap;position:relative}
+.btn-copper{display:inline-block;background:var(--copper);color:white;padding:15px 38px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:500;border:1px solid var(--copper);transition:all .25s;cursor:pointer}
+.btn-copper:hover{background:var(--copper-light);border-color:var(--copper-light)}
+.btn-ghost-light{display:inline-block;background:transparent;color:rgba(249,246,239,.6);padding:15px 38px;font-size:11px;letter-spacing:.14em;text-transform:uppercase;text-decoration:none;font-weight:400;border:1px solid rgba(249,246,239,.2);transition:all .25s;cursor:pointer}
+.btn-ghost-light:hover{border-color:var(--copper);color:var(--copper-light)}
+
+/* ── SECTIONS ── */
+section{padding:96px 80px}
+.inner{max-width:1200px;margin:0 auto}
+.eyebrow{font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--copper);font-weight:500;margin-bottom:16px}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(30px,4vw,50px);font-weight:400;line-height:1.1;color:var(--ink);margin-bottom:24px}
+.sec-title em{font-style:italic;color:var(--copper)}
+.sec-body{font-size:15px;color:var(--ink-60);line-height:1.8;max-width:660px;margin-bottom:52px;font-weight:300}
+.copper-bar{width:40px;height:2px;background:var(--copper);margin-bottom:32px}
+
+/* ── SUBSCRIBER GATE ── */
+.sub-gate{background:var(--charcoal);padding:80px;text-align:center;position:relative}
+.sub-gate::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse at 50% 0%,rgba(181,121,58,.1) 0%,transparent 60%)}
+.sub-gate h2{font-family:'Playfair Display',serif;font-size:clamp(28px,3.5vw,44px);color:var(--ivory);font-weight:400;margin-bottom:16px;position:relative}
+.sub-gate h2 em{font-style:italic;color:var(--copper-light)}
+.sub-gate p{font-size:15px;color:rgba(249,246,239,.55);max-width:580px;margin:0 auto 40px;line-height:1.8;position:relative}
+.sub-form{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;position:relative;margin-bottom:16px}
+.sub-form input{padding:14px 20px;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.18);color:var(--ivory);font-family:'DM Sans',sans-serif;font-size:13px;width:280px;outline:none;transition:border-color .2s}
+.sub-form input::placeholder{color:rgba(249,246,239,.35)}
+.sub-form input:focus{border-color:var(--copper)}
+.sub-form button{padding:14px 32px;background:var(--copper);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.14em;text-transform:uppercase;cursor:pointer;font-weight:500;transition:background .2s}
+.sub-form button:hover{background:var(--copper-light)}
+.sub-note{font-size:11px;color:rgba(249,246,239,.3);position:relative}
+.sub-success{display:none;background:rgba(122,155,136,.15);border:1px solid var(--sage);padding:20px 32px;color:var(--sage);font-size:13px;margin-top:16px;position:relative}
+
+/* ── GATED CONTENT ── */
+.gated-content{position:relative}
+.gated-overlay{position:absolute;inset:0;z-index:10;display:flex;flex-direction:column;align-items:center;justify-content:center;background:linear-gradient(to bottom,rgba(253,252,249,0) 0%,rgba(253,252,249,.92) 18%,rgba(253,252,249,1) 35%);pointer-events:none}
+.gated-overlay.hidden{display:none}
+.gate-message{text-align:center;padding:48px;pointer-events:all;margin-top:120px}
+.gate-message h3{font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--copper);margin-bottom:12px}
+.gate-message p{font-size:14px;color:var(--ink-60);margin-bottom:24px;line-height:1.7}
+.blurred{filter:blur(4px);pointer-events:none;user-select:none}
+
+/* ── NDA SECTION ── */
+.nda-section{background:var(--ivory);padding:80px}
+.nda-box{max-width:860px;margin:0 auto}
+.nda-header{text-align:center;margin-bottom:48px}
+.nda-header .badge{display:inline-block;background:var(--copper);color:white;font-size:10px;letter-spacing:.3em;text-transform:uppercase;padding:8px 24px;margin-bottom:24px}
+.nda-header h2{font-family:'Playfair Display',serif;font-size:36px;font-weight:400;color:var(--ink);margin-bottom:12px}
+.nda-header h2 em{font-style:italic;color:var(--copper)}
+.nda-header p{font-size:13px;color:var(--ink-60);line-height:1.7;max-width:540px;margin:0 auto}
+.nda-body{background:white;border:1px solid var(--rule);padding:48px;font-size:13px;color:var(--ink-60);line-height:1.85;margin-bottom:40px}
+.nda-body h3{font-family:'Playfair Display',serif;font-size:22px;color:var(--ink);margin-bottom:16px;font-weight:400}
+.nda-body p{margin-bottom:16px}
+.nda-body p:last-child{margin-bottom:0}
+.nda-body strong{color:var(--ink);font-weight:600}
+.nda-sign{background:white;border:1px solid var(--rule);padding:40px;margin-bottom:24px}
+.nda-sign h4{font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--copper);margin-bottom:24px;font-weight:600}
+.sign-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.sign-field{display:flex;flex-direction:column;gap:6px}
+.sign-field label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);font-weight:500}
+.sign-field input,.sign-field textarea{padding:10px 14px;border:1px solid var(--rule);background:var(--ivory);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;resize:none}
+.sign-field input:focus,.sign-field textarea:focus{border-color:var(--copper)}
+.sign-field.full{grid-column:1/-1}
+.sig-canvas-wrap{border:1px solid var(--rule);background:var(--ivory);position:relative;margin-top:6px}
+.sig-canvas-wrap canvas{display:block;cursor:crosshair;touch-action:none}
+.sig-actions{display:flex;gap:8px;margin-top:8px}
+.sig-clear{background:none;border:1px solid var(--rule);color:var(--ink-60);font-size:11px;padding:6px 16px;cursor:pointer;font-family:'DM Sans',sans-serif}
+.sig-clear:hover{border-color:var(--copper);color:var(--copper)}
+.nda-terms-check{display:flex;align-items:flex-start;gap:12px;margin-bottom:24px}
+.nda-terms-check input[type=checkbox]{margin-top:3px;accent-color:var(--copper);width:16px;height:16px;flex-shrink:0}
+.nda-terms-check label{font-size:13px;color:var(--ink-60);line-height:1.6;cursor:pointer}
+.nda-submit{width:100%;padding:16px;background:var(--ink);color:var(--ivory);border:none;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.18em;text-transform:uppercase;cursor:pointer;font-weight:500;transition:background .25s}
+.nda-submit:hover{background:var(--copper)}
+.nda-success{display:none;text-align:center;padding:40px;background:var(--sage-pale);border:1px solid var(--sage)}
+.nda-success h3{font-family:'Playfair Display',serif;font-size:26px;color:var(--sage);margin-bottom:12px}
+.nda-success p{font-size:13px;color:var(--ink-60);line-height:1.7}
+
+/* ── SANTA MONICA ── */
+.sm-bg{background:var(--charcoal)}
+.sm-bg .sec-title{color:var(--ivory)}
+.sm-bg .sec-body{color:rgba(249,246,239,.5)}
+.sm-bg .eyebrow{color:var(--copper-light)}
+.driver-grid{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.06);margin-top:48px}
+.driver-card{background:rgba(255,255,255,.03);padding:44px 36px;border-top:1px solid rgba(255,255,255,.07);transition:background .25s}
+.driver-card:hover{background:rgba(181,121,58,.07)}
+.driver-card h4{font-family:'Playfair Display',serif;font-size:22px;color:var(--copper-light);margin-bottom:14px;line-height:1.2;font-weight:400}
+.driver-card p{font-size:13px;color:rgba(249,246,239,.5);line-height:1.85;font-weight:300}
+.driver-stat{font-family:'Playfair Display',serif;font-size:38px;color:var(--ivory);display:block;line-height:1;margin-top:20px}
+.driver-stat-label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:rgba(249,246,239,.3)}
+.reinvestment-callout{margin-top:64px;padding:48px;background:rgba(181,121,58,.08);border-left:2px solid var(--copper)}
+.reinvestment-callout h3{font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--copper-light);margin-bottom:16px}
+.reinvestment-callout p{font-size:14px;color:rgba(249,246,239,.6);line-height:1.8;font-weight:300}
+
+/* ── PROPERTY ── */
+.prop-bg{background:var(--ivory)}
+.asset-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);border:1px solid var(--rule);margin-top:48px}
+.asset-card{background:var(--warm-white);padding:36px 28px;transition:background .2s}
+.asset-card:hover{background:var(--copper-ultra)}
+.asset-num{font-family:'Playfair Display',serif;font-size:44px;font-weight:400;color:var(--ink);line-height:1;display:block}
+.asset-num.copper{color:var(--copper)}
+.asset-label{font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-60);margin-top:10px;display:block}
+.asset-note{font-size:12px;color:var(--ink-60);margin-top:6px;line-height:1.5}
+.two-panel{display:grid;grid-template-columns:1fr 1fr;gap:80px;align-items:start}
+.amenity-list{columns:2;column-gap:32px;font-size:13px;color:var(--ink-60);line-height:2.1;font-weight:300;list-style:none}
+.amenity-list li{padding-left:16px;position:relative}
+.amenity-list li::before{content:'—';position:absolute;left:0;color:var(--copper);font-size:10px;top:4px}
+
+/* ── RENT ROLL ── */
+.rr-bg{background:var(--warm-white)}
+.floor-accordion{margin-top:8px;border:1px solid var(--rule)}
+.floor-btn{width:100%;display:flex;justify-content:space-between;align-items:center;padding:14px 20px;background:var(--copper-pale);border:none;cursor:pointer;font-family:'DM Sans',sans-serif;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--copper);font-weight:600;text-align:left;border-bottom:1px solid var(--rule);transition:background .2s}
+.floor-btn:hover{background:#eedfc4}
+.floor-btn .chevron{font-size:14px;transition:transform .3s;display:inline-block}
+.floor-btn.open .chevron{transform:rotate(180deg)}
+.floor-body{display:none;overflow:hidden}
+.floor-body.open{display:block}
+.retail-btn{background:var(--sand-pale);color:#8A6030}
+.retail-btn:hover{background:#ede2d0}
+.rr-table{width:100%;border-collapse:collapse;font-size:12px}
+.rr-table thead tr{background:var(--ink)}
+.rr-table th{padding:10px 12px;text-align:right;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.6);font-weight:500;white-space:nowrap}
+.rr-table th:first-child,.rr-table th:nth-child(2),.rr-table th:last-child{text-align:left}
+.rr-table td{padding:9px 12px;text-align:right;border-bottom:1px solid var(--rule);color:var(--ink-60)}
+.rr-table td:first-child,.rr-table td:nth-child(2),.rr-table td:last-child{text-align:left}
+.rr-table .restricted{color:#A0522D;font-style:italic}
+.rr-total{background:var(--ink);color:var(--ivory)!important;font-weight:600;font-size:13px}
+.rr-total td{border:none;color:var(--ivory)!important;text-align:right!important}
+.rr-total td:first-child{text-align:left!important}
+
+/* ── RENTAL COMP ── */
+.rent-bg{background:var(--ivory)}
+.comp-wrap{overflow-x:auto;margin-top:40px}
+.comp-table{width:100%;border-collapse:collapse;font-size:12.5px;min-width:820px}
+.comp-table thead tr{background:var(--ink)}
+.comp-table th{color:rgba(249,246,239,.65);padding:12px 14px;font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:500;text-align:left;white-space:nowrap}
+.comp-table td{padding:12px 14px;border-bottom:1px solid var(--rule);color:var(--ink-60);vertical-align:top}
+.comp-table td:first-child{color:var(--ink);font-weight:500}
+.comp-table tr.subject td{background:var(--copper-pale)}
+.comp-table tr.subject td:first-child{color:var(--copper);font-weight:600}
+.comp-table tbody tr:hover td{background:var(--copper-ultra);transition:background .15s}
+.comp-table tr.subject:hover td{background:var(--copper-pale)}
+.rent-conclusion{margin-top:48px;padding:40px 48px;background:var(--ink)}
+.rent-conclusion h3{font-family:'Playfair Display',serif;font-size:24px;font-style:italic;color:var(--copper-light);margin-bottom:14px}
+.rent-conclusion p{font-size:13px;color:rgba(249,246,239,.6);line-height:1.85;font-weight:300}
+
+/* ── FINANCIALS ── */
+.fin-bg{background:var(--ivory)}
+.stat-strip{display:flex;flex-wrap:wrap;border:1px solid var(--rule);margin:0 0 64px}
+.stat-strip-item{flex:1;min-width:160px;padding:32px 24px;border-right:1px solid var(--rule);text-align:center}
+.stat-strip-item:last-child{border-right:none}
+.stat-big{font-family:'Playfair Display',serif;font-size:38px;color:var(--copper);line-height:1;display:block}
+.stat-lbl{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);margin-top:8px}
+
+.fin-wrap{overflow-x:auto;margin-top:24px}
+.fin-table{width:100%;border-collapse:collapse;font-size:12px;min-width:820px}
+.fin-table thead tr{background:var(--ink)}
+.fin-table th{padding:11px 14px;text-align:right;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.65);font-weight:500;white-space:nowrap}
+.fin-table th:first-child{text-align:left;min-width:220px}
+.fin-table td{padding:9px 14px;text-align:right;border-bottom:1px solid var(--rule);color:var(--ink-60)}
+.fin-table td:first-child{text-align:left;color:var(--ink)}
+.fin-table tr.sec-hdr td{background:var(--copper-pale);color:var(--copper);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;padding:11px 14px;border-bottom:none}
+.fin-table tr.sub-hdr td{background:var(--sand-pale);color:#8A6030;font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:600;padding:10px 14px;border-bottom:none}
+.fin-table tr.subtotal td{font-weight:700;color:var(--ink);background:var(--sand-pale);border-top:2px solid var(--sand)}
+.fin-table tr.noi td{background:var(--ink);color:var(--ivory);font-weight:700;font-size:13px;border:none}
+.fin-table tr.cf td{background:var(--copper);color:white;font-weight:700;font-size:13px;border:none}
+.fin-table tr.indent td:first-child{padding-left:28px;font-size:12px}
+
+.res-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:36px}
+.res-table thead tr{background:var(--charcoal)}
+.res-table th{padding:12px 16px;text-align:center;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.6);font-weight:500}
+.res-table th:first-child{text-align:left}
+.res-table td{padding:11px 16px;text-align:center;border-bottom:1px solid var(--rule);color:var(--ink-60)}
+.res-table td:first-child{text-align:left;font-weight:600;color:var(--ink)}
+.res-table tr.hi td{background:var(--copper-pale)}
+.res-table tr.mid td{background:var(--sand-pale)}
+.res-table tr.lo td{background:var(--sage-pale)}
+
+.ltl-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:32px;max-width:680px}
+.ltl-table thead tr{background:var(--charcoal)}
+.ltl-table th{padding:11px 16px;text-align:right;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.6);font-weight:500}
+.ltl-table th:first-child{text-align:left}
+.ltl-table td{padding:10px 16px;text-align:right;border-bottom:1px solid var(--rule);color:var(--ink-60)}
+.ltl-table td:first-child{text-align:left;color:var(--ink)}
+.ltl-table tr.ltl-note td{background:var(--copper-ultra);border-left:2px solid var(--copper);font-style:italic;font-size:12px;color:var(--copper);font-weight:600}
+
+.mc-table{width:100%;border-collapse:collapse;font-size:12.5px;margin-top:24px;max-width:620px}
+.mc-table thead tr{background:var(--ink)}
+.mc-table th{padding:10px 14px;text-align:right;font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.6);font-weight:500}
+.mc-table th:first-child{text-align:left}
+.mc-table td{padding:9px 14px;text-align:right;border-bottom:1px solid var(--rule);color:var(--ink-60)}
+.mc-table td:first-child{text-align:left;font-weight:500;color:var(--ink)}
+.mc-table tr.mc-sub td{background:var(--copper-pale)}
+.mc-table tr.mc-sub td:first-child{color:var(--copper);font-weight:600}
+
+.fin-note{margin-top:24px;padding:18px 22px;background:var(--copper-ultra);border-left:2px solid var(--copper);font-size:11.5px;color:var(--ink-60);line-height:1.75}
+.fin-note strong{color:var(--copper)}
+
+/* ── SOCIO ── */
+.socio-bg{background:var(--warm-white)}
+.socio-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.socio-card{padding:36px 32px;border-top:2px solid var(--copper-pale);background:var(--ivory);transition:border-color .25s}
+.socio-card:hover{border-top-color:var(--copper)}
+.socio-card h4{font-family:'Playfair Display',serif;font-size:21px;color:var(--ink);margin-bottom:12px;font-weight:400}
+.socio-card p{font-size:13px;color:var(--ink-60);line-height:1.8;font-weight:300}
+
+/* ── THESIS ── */
+.thesis-bg{background:var(--charcoal)}
+.thesis-bg .sec-title{color:var(--ivory)}
+.thesis-bg .sec-body{color:rgba(249,246,239,.5)}
+.thesis-bg .eyebrow{color:var(--copper-light)}
+.thesis-col{display:grid;grid-template-columns:1fr 1fr;gap:2px;background:rgba(255,255,255,.06);margin-top:48px}
+.thesis-item{background:rgba(255,255,255,.03);padding:40px 36px}
+.thesis-item h4{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--copper-light);margin-bottom:14px}
+.thesis-item ul{list-style:none;padding:0}
+.thesis-item ul li{font-size:13px;color:rgba(249,246,239,.5);line-height:2;padding-left:18px;position:relative;font-weight:300}
+.thesis-item ul li::before{content:'—';position:absolute;left:0;color:var(--copper);font-size:10px;top:5px}
+
+/* ── MESSAGE BOX ── */
+.msg-section{background:var(--ivory);padding:80px}
+.msg-box{max-width:640px;margin:0 auto;background:white;border:1px solid var(--rule);padding:48px}
+.msg-box h3{font-family:'Playfair Display',serif;font-size:28px;font-style:italic;color:var(--ink);margin-bottom:8px}
+.msg-box .sub{font-size:13px;color:var(--ink-60);margin-bottom:32px}
+.msg-field{display:flex;flex-direction:column;gap:6px;margin-bottom:16px}
+.msg-field label{font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-60);font-weight:500}
+.msg-field input,.msg-field textarea,.msg-field select{padding:11px 14px;border:1px solid var(--rule);background:var(--ivory);font-family:'DM Sans',sans-serif;font-size:13px;color:var(--ink);outline:none;transition:border-color .2s;resize:none}
+.msg-field input:focus,.msg-field textarea:focus{border-color:var(--copper)}
+.msg-submit{width:100%;padding:15px;background:var(--copper);color:white;border:none;font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:.16em;text-transform:uppercase;cursor:pointer;font-weight:500;margin-top:8px;transition:background .2s}
+.msg-submit:hover{background:var(--copper-light)}
+.msg-success{display:none;background:var(--sage-pale);border:1px solid var(--sage);padding:20px 24px;color:var(--sage);font-size:13px;margin-top:16px;text-align:center}
+
+/* ── CTA ── */
+.cta-section{background:var(--copper);padding:100px 80px;text-align:center}
+.cta-section h2{font-family:'Playfair Display',serif;font-size:clamp(32px,5vw,56px);font-weight:400;color:white;margin-bottom:18px;line-height:1.1}
+.cta-section h2 em{font-style:italic}
+.cta-section p{font-size:16px;color:rgba(255,255,255,.75);margin-bottom:44px;max-width:560px;margin-left:auto;margin-right:auto;font-weight:300;line-height:1.75}
+.btn-white{display:inline-block;background:white;color:var(--copper);padding:16px 44px;font-size:11px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none;font-weight:600;border:1px solid white;margin:0 8px;transition:all .25s;cursor:pointer}
+.btn-white:hover{background:var(--ink);color:white;border-color:var(--ink)}
+
+/* ── FOOTER / DISCLAIMER ── */
+footer{background:var(--ink);padding:52px 80px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.footer-logo{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--copper-light)}
+.footer-links{display:flex;gap:32px;list-style:none}
+.footer-links a{font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:rgba(249,246,239,.35);text-decoration:none;transition:color .2s}
+.footer-links a:hover{color:var(--copper-light)}
+.footer-contact{text-align:right;font-size:12px;color:rgba(249,246,239,.4);line-height:1.9}
+.footer-contact a{color:var(--copper-light);text-decoration:none}
+.disclaimer{background:#0E0B08;padding:36px 80px;text-align:center;font-size:10.5px;color:rgba(249,246,239,.25);line-height:1.7}
+.disclaimer a{color:var(--copper);text-decoration:none}
+.inline-cta{background:var(--ink);padding:40px 48px;margin-top:64px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:24px}
+.inline-cta p{font-family:'Playfair Display',serif;font-size:20px;font-style:italic;color:var(--copper-light);max-width:520px}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav class="nav no-print">
+  <span class="nav-brand">LUX <em style="color:var(--copper)">|</em> Urban</span>
+  <ul class="nav-links">
+    <li><a href="#longterm">Market</a></li>
+    <li><a href="#property">Asset</a></li>
+    <li><a href="#rentals">Rental Analysis</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#nda">Confidentiality</a></li>
+    <li><a href="https://forms.gle/2hEYLZ5M6REwRjDx7" target="_blank" class="nav-cta">Request CA</a></li>
+  </ul>
+</nav>
+
+<!-- ══════ HERO ══════ -->
+<section class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-grain"></div>
+  <p class="hero-label">Private Investment Opportunity · Santa Monica, California</p>
+  <h1 class="hero-title">LUX<em>|</em>Urban</h1>
+  <p class="hero-sub">Westside Los Angeles · Promenade District · Steps from the Pacific</p>
+  <div class="hero-codename">Code Name — LUX | Urban &nbsp;·&nbsp; Address disclosed upon CA execution</div>
+  <div class="hero-rule"></div>
+  <div class="hero-pillars">
+    <div><span class="pillar-num">40</span><span class="pillar-label">Residential Units</span></div>
+    <div><span class="pillar-num">3</span><span class="pillar-label">Retail Tenants</span></div>
+    <div><span class="pillar-num">2013</span><span class="pillar-label">Year Built</span></div>
+    <div><span class="pillar-num">5</span><span class="pillar-label">Stories</span></div>
+    <div><span class="pillar-num">52,954</span><span class="pillar-label">Building SF</span></div>
+  </div>
+  <div class="hero-cta-row">
+    <a href="https://forms.gle/2hEYLZ5M6REwRjDx7" target="_blank" class="btn-copper">Execute CA — Full Memorandum</a>
+    <a href="#financials" class="btn-ghost-light">View 5-Year Model</a>
+  </div>
+</section>
+
+<!-- ══════ SANTA MONICA — LONG VIEW (moved to top) ══════ -->
+<section class="sm-bg" id="longterm">
+  <div class="inner">
+    <p class="eyebrow">The Long View</p>
+    <h2 class="sec-title">Santa Monica Does Not<br>Go Backward. <em>It Compounds.</em></h2>
+    <p class="sec-body">Every decade, a new economic wave absorbs into the Santa Monica fabric and raises the floor. This is not a cyclical story — it is structural, driven by geography, policy-enforced scarcity, and the relentless accumulation of high-income employers who insist on being here.</p>
+    <div class="driver-grid">
+      <div class="driver-card">
+        <h4>A Supply Constraint That Cannot Be Legislated Away</h4>
+        <p>Santa Monica has maintained strict height limits, coastal overlay restrictions, and one of the most active neighborhood opposition cultures in California for four decades. The pending pipeline of over 1,300 requested units is administrative activity — not delivery. In the trailing 12 months through Q1 2026, the submarket delivered just 89 units. Against a demand base of 47,000+ existing units and sustained population growth, that number tells you where rents go from here.</p>
+        <span class="driver-stat">89</span>
+        <span class="driver-stat-label">Units delivered — trailing 12 months, SM submarket</span>
+      </div>
+      <div class="driver-card">
+        <h4>Technology, Space & AI — The New Employment Floor</h4>
+        <p>The Westside tech economy has matured beyond entertainment adjacency. SpaceX in Hawthorne, Snap in Venice, Google and Meta along Wilshire, and a dense network of AI-native startups from Santa Monica to Culver City now provide the high-income employment base that fills luxury apartments. Engineers, researchers, and product leaders earning $150,000–$400,000 are the target renter — and their employers are not moving.</p>
+        <span class="driver-stat">$3,827</span>
+        <span class="driver-stat-label">Average effective rent — SM / Marina del Rey, Q1 2026</span>
+      </div>
+      <div class="driver-card">
+        <h4>The Ocean & Mountain Duality — A Geographic Monopoly</h4>
+        <p>No coastal city in California pairs walkable Pacific access with immediate mountain proximity the way Santa Monica does. The Santa Monica Mountains begin at the city's northern edge. The beach is under half a mile from LUX|Urban's front door. This lifestyle proposition commands a documented 15–25% premium over comparable inland product and has held across every market cycle since the 1990s. Geography does not depreciate.</p>
+        <span class="driver-stat">95.3%</span>
+        <span class="driver-stat-label">LA Metro multifamily occupancy — Q1 2026</span>
+      </div>
+      <div class="driver-card">
+        <h4>Entertainment, Talent & Creative Capital</h4>
+        <p>CAA, UTA, and WME all maintain Santa Monica presences. Major streaming platforms, independent studios, and post-production infrastructure have consolidated on the Westside as the creative economy migrated from Hollywood proper. The creative executive earning $250,000–$1M+ in total compensation represents the high-water mark of Santa Monica's renter demand — consistently occupying the $4,500–$6,000/month tier.</p>
+        <span class="driver-stat">3.8M</span>
+        <span class="driver-stat-label">Annual visitors to Santa Monica from outside LA County</span>
+      </div>
+    </div>
+    <div class="reinvestment-callout">
+      <h3>Film & Production — State Reinvestment as a Structural Driver</h3>
+      <p>California's expanded production tax credit program has drawn back major studio shoots, streaming originals, and post-production pipelines that had migrated to Georgia, New Mexico, and Canada over the prior decade. The result is a growing base of production professionals — directors, writers, cinematographers, post-production supervisors, and studio executives — returning to Los Angeles and re-entering the premium rental market. Santa Monica is the primary beneficiary. This is not a single-season dynamic. It is a multi-year repatriation of high-income creative talent to a market that cannot build fast enough to meet them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SUBSCRIBER GATE ══════ -->
+<section class="sub-gate" id="subscribe">
+  <div style="position:relative;z-index:1;">
+    <p style="font-size:10px;letter-spacing:.35em;text-transform:uppercase;color:var(--copper-light);margin-bottom:20px;font-weight:500;">Investor Access</p>
+    <h2>Continue Reading. <em>Gain Full Access.</em></h2>
+    <p>The asset overview, rental analysis, financial model, and investment thesis are available to registered subscribers. Enter your details to continue — your information is received directly by Real Estate Services.</p>
+    <form class="sub-form" id="subForm" onsubmit="handleSubscribe(event)">
+      <input type="text" id="subName" placeholder="Full Name" required>
+      <input type="email" id="subEmail" placeholder="Email Address" required>
+      <button type="submit">Access Full Report</button>
+    </form>
+    <p class="sub-note">From Real Estate Services · Your information is confidential and used solely for investor communications.</p>
+    <div class="sub-success" id="subSuccess">
+      Access granted. Scroll down to continue reviewing LUX | Urban.
+    </div>
+  </div>
+</section>
+
+<!-- ══════ GATED WRAPPER ══════ -->
+<div id="gatedContent" class="gated-content">
+  <div class="gated-overlay" id="gateOverlay">
+    <div class="gate-message">
+      <h3>Investor Access Required</h3>
+      <p>Subscribe above to unlock the full asset profile,<br>rental analysis, financial model, and investment thesis.</p>
+      <a href="#subscribe" class="btn-copper">Subscribe Now</a>
+    </div>
+  </div>
+  <div id="gatedInner" class="blurred">
+
+<!-- ══════ PROPERTY ══════ -->
+<section class="prop-bg" id="property">
+  <div class="inner">
+    <p class="eyebrow">The Asset</p>
+    <h2 class="sec-title">A Fully Realized Mixed-Use Building<br><em>at the Center</em> of It All</h2>
+    <p class="sec-body">LUX|Urban is a 40-unit luxury residential building with three income-producing ground floor tenants — a coffee shop, a café, and a credit union anchor — occupying the most visible commercial position adjacent to the Third Street Promenade. Address and full property details are disclosed upon CA execution.</p>
+    <div class="asset-grid">
+      <div class="asset-card"><span class="asset-num">40</span><span class="asset-label">Residential Units — 2nd Through 5th Floor</span><p class="asset-note">11 units on 2nd, 10 on 3rd, 10 on 4th, 9 on 5th. One and two bedroom configurations throughout — each with private patio or deck.</p></div>
+      <div class="asset-card"><span class="asset-num copper">20–30%</span><span class="asset-label">Larger Than Competing Luxury Properties</span><p class="asset-note">Well-laid-out floor plans average 805 SF (1BR) and 1,009 SF (2BR). Verified against comparable product in the submarket.</p></div>
+      <div class="asset-card"><span class="asset-num">44,075</span><span class="asset-label">Residential Rentable SF</span><p class="asset-note">Private patios and decks from 53 to 300+ SF per unit — not counted in unit square footage.</p></div>
+      <div class="asset-card"><span class="asset-num copper">3</span><span class="asset-label">Ground Floor Income Producers — NNN</span><p class="asset-note">Coffee shop, café (both new tenants), and credit union bank (option renewal). NNN leases with expense reimbursements — income layered below residential.</p></div>
+      <div class="asset-card"><span class="asset-num">8,794</span><span class="asset-label">Retail & Commercial SF</span><p class="asset-note">Street-activating retail and café storage. Credit union anchor provides institutional-grade tenancy at the base.</p></div>
+      <div class="asset-card"><span class="asset-num">3</span><span class="asset-label">Subterranean Parking Levels</span><p class="asset-note">~75 spaces. EV charging. Controlled access. Significant parking income upside at $150/space/month.</p></div>
+    </div>
+    <div class="two-panel" style="margin-top:72px;">
+      <div>
+        <p class="eyebrow">Location</p>
+        <h3 class="sec-title" style="font-size:30px;">Steps to Dining,<br>Entertainment, <em>and the Pacific.</em></h3>
+        <p style="font-size:14px;color:var(--ink-60);line-height:1.85;font-weight:300;margin-bottom:20px;">LUX|Urban is walking distance to the 3rd Street Promenade — one of the nation's highest-traffic retail and entertainment corridors — and to the Pacific Ocean. Expo Line connects to Downtown LA in under 46 minutes. The renter this location attracts does not negotiate on geography.</p>
+        <p style="font-size:14px;color:var(--ink-60);line-height:1.85;font-weight:300;">Walkable dining, galleries, boutiques, farmers' markets, and entertainment surround the building in every direction. For the tenant choosing LUX|Urban, this is not just an apartment — it is the cost of entry to a specific version of Westside life.</p>
+      </div>
+      <div>
+        <p class="eyebrow">Building Amenities</p>
+        <h3 class="sec-title" style="font-size:30px;">Every Unit Built<br>to <em>Hold Premium Rent</em></h3>
+        <ul class="amenity-list">
+          <li>In-unit full-size washer & dryer</li>
+          <li>Central HVAC in every unit</li>
+          <li>Caesarstone countertops throughout</li>
+          <li>Stainless steel appliances</li>
+          <li>Private patios & decks — all units</li>
+          <li>Double-paned windows</li>
+          <li>European glass shower enclosures</li>
+          <li>Custom solar / privacy shades</li>
+          <li>Vinyl plank and ceramic tile flooring</li>
+          <li>Ice makers & filtered water</li>
+          <li>Mountain, city, or partial ocean views*</li>
+          <li>Dual master bedrooms available*</li>
+          <li>Keyless entry & controlled access</li>
+          <li>EV charging on P1 level</li>
+          <li>50+ secure bike storage spaces</li>
+          <li>Open-air landscaped courtyard</li>
+          <li>Upscale lobby with skylights</li>
+          <li>Fiber internet (Verizon, AT&T, Spectrum)</li>
+          <li>7 storage lockers — 100% occupied</li>
+          <li>Pet-friendly (cats & dogs under 30 lbs)</li>
+        </ul>
+        <p style="font-size:11px;color:var(--ink-30);margin-top:14px;">*In select units only.</p>
+      </div>
+    </div>
+    <div class="inline-cta no-print">
+      <p>"The ground floor income — coffee shop, café, and a bank — adds a layer of revenue stability that pure residential cannot offer."</p>
+      <a href="#nda" class="btn-copper">Execute CA for Full Address</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ RENT ROLL ══════ -->
+<section class="rr-bg" id="rentroll">
+  <div class="inner">
+    <p class="eyebrow">Unit Rent Roll</p>
+    <h2 class="sec-title">40 Residential Units.<br><em>Three Ground Floor</em> Income Producers.</h2>
+    <p class="sec-body">Six units carry subsidized compliance rents and are modeled as flat throughout the hold — no growth, no turnover assumed. Market-rate units shown at current pricing. Click each floor to expand the rent detail.</p>
+
+    <!-- RETAIL -->
+    <div class="floor-accordion">
+      <button class="floor-btn retail-btn" onclick="toggleFloor(this)">Ground Floor — Retail NNN (+ Expense Reimbursements) <span class="chevron">▾</span></button>
+      <div class="floor-body">
+        <table class="rr-table">
+          <thead><tr><th>Unit</th><th>Type</th><th>SF</th><th>Monthly Rent</th><th>Annual Rent</th><th>$/SF/Mo</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>100</td><td>Retail</td><td>2,250</td><td>$11,588</td><td>$139,050</td><td>$5.15</td><td>Coffee Shop — New Tenant</td></tr>
+            <tr><td>120</td><td>Retail</td><td>2,844</td><td>$16,595</td><td>$199,135</td><td>$5.84</td><td>Café — New Tenant</td></tr>
+            <tr><td>130</td><td>Storage</td><td>566</td><td>$824</td><td>$9,888</td><td>$1.46</td><td>Café Storage</td></tr>
+            <tr><td>150</td><td>Retail</td><td>3,134</td><td>$21,160</td><td>$253,915</td><td>$6.75</td><td>Credit Union Bank — Option Renewal</td></tr>
+            <tr class="rr-total"><td colspan="3">Retail Subtotal</td><td>$50,166/mo</td><td>$601,988</td><td>—</td><td>+ Expense Recoveries: $170,440/yr</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 2ND FLOOR -->
+    <div class="floor-accordion" style="margin-top:4px;">
+      <button class="floor-btn" onclick="toggleFloor(this)">2nd Floor — 11 Units <span class="chevron">▾</span></button>
+      <div class="floor-body">
+        <table class="rr-table">
+          <thead><tr><th>Unit</th><th>Type</th><th>SF</th><th>Patio SF</th><th>Monthly Rent</th><th>Annual Rent</th><th>$/SF/Mo</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>201</td><td>2+2</td><td>921</td><td>62</td><td class="restricted">$1,733</td><td class="restricted">$20,796</td><td class="restricted">$1.88</td><td class="restricted">Subsidized — Flat / No Growth</td></tr>
+            <tr><td>202</td><td>2+2</td><td>918</td><td>62</td><td>$3,902</td><td>$46,824</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>203</td><td>2+2</td><td>1,128</td><td>56</td><td>$4,794</td><td>$57,528</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>204</td><td>1+1</td><td>877</td><td>50</td><td>$3,946</td><td>$47,352</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>205</td><td>1+1</td><td>622</td><td>66</td><td>$2,799</td><td>$33,588</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>206</td><td>1+1</td><td>727</td><td>50</td><td>$3,272</td><td>$39,264</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>207</td><td>1+1</td><td>866</td><td>75</td><td>$3,897</td><td>$46,764</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>208</td><td>2+2</td><td>1,180</td><td>277</td><td>$5,015</td><td>$60,180</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>209</td><td>1+1</td><td>838</td><td>113</td><td class="restricted">$0</td><td class="restricted">$0</td><td class="restricted">—</td><td class="restricted">Manager Unit — Flat / No Growth</td></tr>
+            <tr><td>210</td><td>1+1</td><td>835</td><td>300+</td><td>$3,758</td><td>$45,096</td><td>$4.50</td><td>Market Rate — Oversized Patio</td></tr>
+            <tr><td>211</td><td>1+1</td><td>827</td><td>155</td><td>$3,722</td><td>$44,664</td><td>$4.50</td><td>Market Rate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 3RD FLOOR -->
+    <div class="floor-accordion" style="margin-top:4px;">
+      <button class="floor-btn" onclick="toggleFloor(this)">3rd Floor — 10 Units <span class="chevron">▾</span></button>
+      <div class="floor-body">
+        <table class="rr-table">
+          <thead><tr><th>Unit</th><th>Type</th><th>SF</th><th>Patio SF</th><th>Monthly Rent</th><th>Annual Rent</th><th>$/SF/Mo</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>301</td><td>2+2</td><td>921</td><td>62</td><td class="restricted">$1,014</td><td class="restricted">$12,168</td><td class="restricted">$1.10</td><td class="restricted">Subsidized — Flat / No Growth</td></tr>
+            <tr><td>302</td><td>2+2</td><td>918</td><td>62</td><td>$3,902</td><td>$46,824</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>303</td><td>2+2</td><td>1,018</td><td>115</td><td>$4,326</td><td>$51,912</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>304</td><td>1+1</td><td>823</td><td>236</td><td>$3,704</td><td>$44,448</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>306</td><td>1+1</td><td>674</td><td>236</td><td>$3,033</td><td>$36,396</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>307</td><td>1+1</td><td>841</td><td>75</td><td>$3,784</td><td>$45,408</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>308</td><td>2+2</td><td>1,180</td><td>114</td><td>$5,015</td><td>$60,180</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>309</td><td>1+1</td><td>838</td><td>83</td><td>$3,771</td><td>$45,252</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>310</td><td>1+1</td><td>836</td><td>77</td><td>$3,762</td><td>$45,144</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>311</td><td>1+1</td><td>827</td><td>69</td><td>$3,722</td><td>$44,664</td><td>$4.50</td><td>Market Rate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 4TH FLOOR -->
+    <div class="floor-accordion" style="margin-top:4px;">
+      <button class="floor-btn" onclick="toggleFloor(this)">4th Floor — 10 Units <span class="chevron">▾</span></button>
+      <div class="floor-body">
+        <table class="rr-table">
+          <thead><tr><th>Unit</th><th>Type</th><th>SF</th><th>Patio SF</th><th>Monthly Rent</th><th>Annual Rent</th><th>$/SF/Mo</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>401</td><td>2+2</td><td>921</td><td>62</td><td class="restricted">$1,818</td><td class="restricted">$21,816</td><td class="restricted">$1.97</td><td class="restricted">Subsidized — Flat / No Growth</td></tr>
+            <tr><td>402</td><td>2+2</td><td>918</td><td>62</td><td>$3,902</td><td>$46,824</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>403</td><td>2+2</td><td>1,016</td><td>53</td><td>$4,318</td><td>$51,816</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>404</td><td>1+1</td><td>820</td><td>56</td><td>$3,690</td><td>$44,280</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>406</td><td>1+1</td><td>675</td><td>56</td><td>$3,038</td><td>$36,456</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>407</td><td>1+1</td><td>843</td><td>75</td><td>$3,794</td><td>$45,528</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>408</td><td>2+2</td><td>1,180</td><td>114</td><td>$5,015</td><td>$60,180</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>409</td><td>1+1</td><td>838</td><td>83</td><td>$3,771</td><td>$45,252</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>410</td><td>1+1</td><td>837</td><td>77</td><td class="restricted">$1,700</td><td class="restricted">$20,400</td><td class="restricted">$2.03</td><td class="restricted">Subsidized — Flat / No Growth</td></tr>
+            <tr><td>411</td><td>1+1</td><td>827</td><td>69</td><td>$3,722</td><td>$44,664</td><td>$4.50</td><td>Market Rate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- 5TH FLOOR -->
+    <div class="floor-accordion" style="margin-top:4px;">
+      <button class="floor-btn" onclick="toggleFloor(this)">5th Floor — 9 Units <span class="chevron">▾</span></button>
+      <div class="floor-body">
+        <table class="rr-table">
+          <thead><tr><th>Unit</th><th>Type</th><th>SF</th><th>Patio SF</th><th>Monthly Rent</th><th>Annual Rent</th><th>$/SF/Mo</th><th>Notes</th></tr></thead>
+          <tbody>
+            <tr><td>501</td><td>2+2</td><td>921</td><td>62</td><td class="restricted">$1,850</td><td class="restricted">$22,200</td><td class="restricted">$2.01</td><td class="restricted">Subsidized — Flat / No Growth</td></tr>
+            <tr><td>502</td><td>2+2</td><td>918</td><td>62</td><td>$3,902</td><td>$46,824</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>503</td><td>2+2</td><td>1,080</td><td>250</td><td>$4,590</td><td>$55,080</td><td>$4.25</td><td>Market Rate</td></tr>
+            <tr><td>506</td><td>1+1</td><td>733</td><td>50</td><td>$3,298</td><td>$39,576</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>507</td><td>1+1</td><td>847</td><td>75</td><td>$3,812</td><td>$45,744</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>508</td><td>2+2</td><td>790</td><td>114</td><td>$3,700</td><td>$44,400</td><td>$4.68</td><td>Market Rate (Current Lease)</td></tr>
+            <tr><td>509</td><td>1+1</td><td>838</td><td>83</td><td>$3,771</td><td>$45,252</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>510</td><td>1+1</td><td>837</td><td>90</td><td>$3,766</td><td>$45,192</td><td>$4.50</td><td>Market Rate</td></tr>
+            <tr><td>511</td><td>1+1</td><td>827</td><td>69</td><td>$3,722</td><td>$44,664</td><td>$4.50</td><td>Market Rate</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- TOTALS -->
+    <table class="rr-table" style="margin-top:4px;">
+      <tbody>
+        <tr class="rr-total"><td colspan="4">RESIDENTIAL TOTAL — 40 UNITS</td><td>$140,050/mo</td><td>$1,680,600/yr</td><td>$3,826 avg</td><td>per unit / month</td></tr>
+        <tr style="background:var(--copper);"><td colspan="4" style="color:white;font-weight:600;padding:11px 12px;border:none;text-align:left;">RETAIL TOTAL — NNN (incl. storage)</td><td style="color:white;font-weight:600;border:none;text-align:right;">$50,166/mo</td><td style="color:white;font-weight:600;border:none;text-align:right;">$601,988/yr</td><td style="color:white;border:none;text-align:right;">—</td><td style="color:white;font-size:11px;border:none;text-align:left;">+ $170,440 Recoveries</td></tr>
+      </tbody>
+    </table>
+
+    <p style="font-size:11px;color:var(--ink-30);margin-top:12px;font-style:italic;">Subsidized units (201, 209, 301, 401, 410, 501) are modeled flat throughout the hold — no growth, no turnover assumed. This is conservative; natural turnover would convert these to market rate at buyer's election.</p>
+  </div>
+</section>
+
+<!-- ══════ RENTAL ANALYSIS ══════ -->
+<section class="rent-bg" id="rentals">
+  <div class="inner">
+    <p class="eyebrow">Rental Competitive Analysis</p>
+    <h2 class="sec-title">Where LUX|Urban Stands<br><em>in the Real Rent Stack</em></h2>
+    <p class="sec-body">Face rents are the opening position, not the closing number. Once you adjust for concessions — which the downtown Santa Monica lease-up set is running at 6–9 weeks free — the subject's net effective position is competitive against assets asking materially more on paper.</p>
+    <div class="comp-wrap">
+      <table class="comp-table">
+        <thead>
+          <tr><th>Property</th><th>Dist. to Ocean</th><th>1BR Asking</th><th>2BR Asking</th><th>Concession</th><th>Est. Eff. 1BR</th><th>Est. Eff. 2BR</th><th>Position</th></tr>
+        </thead>
+        <tbody>
+          <tr class="subject"><td>LUX | Urban (Subject)</td><td>~0.45 mi</td><td>$3,500–$4,800</td><td>$4,500</td><td>None</td><td>$3,500–$4,800</td><td>$4,500</td><td>Subject — no discount applied</td></tr>
+          <tr><td>Residences on 3rd St Promenade</td><td>~0.35 mi</td><td>$4,295+</td><td>$5,995+</td><td>1 mo free on select leases</td><td>~$3,937+</td><td>~$5,495+</td><td>Beach / retail premium comp</td></tr>
+          <tr><td>The Park Santa Monica</td><td>~0.55 mi</td><td>$5,039–$6,533</td><td>$7,001–$9,119</td><td>8 weeks free</td><td>~$4,199–$5,444</td><td>~$5,834–$7,599</td><td>Luxury ceiling; amenity heavy</td></tr>
+          <tr><td>Sway, 525 Broadway</td><td>~0.55 mi</td><td>$4,281–$5,495</td><td>$4,670–$9,506</td><td>Up to 8 weeks free</td><td>~$3,568–$4,579</td><td>~$3,892–$7,922</td><td>Most relevant new-supply pressure</td></tr>
+          <tr><td>Riva, 1410 5th St</td><td>~0.60 mi</td><td>$3,087–$10,005 (1–3BR)</td><td>—</td><td>None found</td><td>Unit-by-unit basis</td><td>—</td><td>Lifestyle comp</td></tr>
+          <tr><td>Willow Santa Monica</td><td>~0.70 mi</td><td>~$4,002</td><td>~$5,856–$7,256</td><td>None found</td><td>~$4,002</td><td>~$5,856–$7,256</td><td>Wilshire-Montana comp</td></tr>
+          <tr><td colspan="8" style="background:var(--sand-pale);padding:12px 14px;font-size:11.5px;color:var(--ink-60);font-style:italic;text-align:left;">Broader SM market: ~$2,959 avg 1BR / ~$3,879 avg 2BR (citywide). SM / MdR submarket: $3,827 avg effective rent at 4.6% vacancy (Q1 2026, realfimodel.com). LUX|Urban is a downtown-premium asset, not a citywide-average comparison.</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="rent-conclusion">
+      <h3>The Honest Rent Read</h3>
+      <p>LUX|Urban is not underpriced on 1-bedrooms against broad Santa Monica averages — it is defensible against downtown luxury comps once concessions are stripped out. The pressure is on the 2BR side, where newer Broadway product shows a higher face rent but buys demand with up to 8 weeks free, pulling effective rents back toward the subject. Carry a 1BR real rent of <strong style="color:var(--copper-light);">$3,650–$4,250</strong> depending on size, floor, and view. The $4,800 ask is achievable for larger or premium-view units. For the 2BR, carry <strong style="color:var(--copper-light);">$4,450–$4,750 real rent</strong> before parking and utility adjustments. The subject's $4,500 2BR looks competitive against the newer luxury set; the real test is whether prospects compare it to Sway's smaller 2BR entry point after concessions are applied.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ FINANCIALS ══════ -->
+<section class="fin-bg" id="financials">
+  <div class="inner">
+    <p class="eyebrow">5-Year Investment Model</p>
+    <h2 class="sec-title">The Numbers Behind<br><em>Five Years of Compounding</em></h2>
+    <p class="sec-body">Year 1 reflects current rent roll. Market-rate residential rents grow at 2.5% annually from Year 2. Retail at 3% CPI. Subsidized unit rents are held flat — no growth, no turnover — throughout the hold. Property taxes of $437,500 in Year 1 grow at 2% annually per Prop 13.</p>
+
+    <div class="stat-strip">
+      <div class="stat-strip-item"><span class="stat-big">$2.60M</span><span class="stat-lbl">Year 1 Potential Gross Revenue</span></div>
+      <div class="stat-strip-item"><span class="stat-big">$1.51M</span><span class="stat-lbl">Year 1 Net Operating Income</span></div>
+      <div class="stat-strip-item"><span class="stat-big">$1.68M</span><span class="stat-lbl">Year 5 NOI (projected)</span></div>
+      <div class="stat-strip-item"><span class="stat-big">$437,500</span><span class="stat-lbl">Year 1 Real Estate Taxes</span></div>
+    </div>
+
+    <!-- Market Leasing Comps -->
+    <div style="margin-top:48px;">
+      <p class="eyebrow">Market Leasing Comps — Year 2 Base & Growth</p>
+      <h3 class="sec-title" style="font-size:26px;"><em>$3,500 / 1BR</em> and <em>$4,500 / 2BR</em> — Year 2 Stabilized Base</h3>
+      <table class="mc-table">
+        <thead><tr><th>Unit Type</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr></thead>
+        <tbody>
+          <tr class="mc-sub"><td>1BR Market Rent</td><td>$3,500</td><td>$3,588</td><td>$3,677</td><td>$3,769</td><td>$3,862</td></tr>
+          <tr class="mc-sub"><td>2BR Market Rent</td><td>$4,500</td><td>$4,613</td><td>$4,728</td><td>$4,846</td><td>$4,967</td></tr>
+          <tr><td colspan="6" style="background:var(--sand-pale);font-style:italic;font-size:11.5px;color:var(--ink-60);text-align:left;padding:11px 14px;">Grown at 2.5% annually. Applied to all 34 market-rate units.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Subsidized Units -->
+    <div style="margin-top:48px;">
+      <p class="eyebrow">Subsidized Units — Held Flat Throughout Hold</p>
+      <h3 class="sec-title" style="font-size:26px;">Six Units. <em>Modeled Conservative.</em><br>Natural Turnover = Unmodeled Upside.</h3>
+      <table class="ltl-table">
+        <thead><tr><th>Unit</th><th>Type / SF</th><th>Current Rent</th><th>Market Rent</th><th>Model Treatment</th></tr></thead>
+        <tbody>
+          <tr><td>201</td><td>2+2 / 921 SF</td><td>$1,733/mo</td><td>$4,500+/mo</td><td>Flat — subsidized, no growth</td></tr>
+          <tr><td>301</td><td>2+2 / 921 SF</td><td>$1,014/mo</td><td>$4,500+/mo</td><td>Flat — subsidized, no growth</td></tr>
+          <tr><td>401</td><td>2+2 / 921 SF</td><td>$1,818/mo</td><td>$4,500+/mo</td><td>Flat — subsidized, no growth</td></tr>
+          <tr><td>410</td><td>1+1 / 837 SF</td><td>$1,700/mo</td><td>$3,500+/mo</td><td>Flat — subsidized, no growth</td></tr>
+          <tr><td>501</td><td>2+2 / 921 SF</td><td>$1,850/mo</td><td>$4,500+/mo</td><td>Flat — subsidized, no growth</td></tr>
+          <tr><td>209</td><td>1+1 / 838 SF</td><td>$0/mo</td><td>$3,500+/mo</td><td>Flat — manager unit, no growth</td></tr>
+          <tr class="ltl-note"><td colspan="5">These six units are modeled conservatively as permanent. Natural turnover converting any to market rate represents unmodeled NOI upside that accrues to the buyer with zero additional capital.</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- 5-Year Pro Forma -->
+    <div style="margin-top:56px;">
+      <p class="eyebrow">5-Year Pro Forma</p>
+      <div class="fin-wrap">
+        <table class="fin-table">
+          <thead>
+            <tr><th>Line Item</th><th>Year 1</th><th>Year 2</th><th>Year 3</th><th>Year 4</th><th>Year 5</th></tr>
+          </thead>
+          <tbody>
+            <tr class="sec-hdr"><td colspan="6">GROSS REVENUE</td></tr>
+            <tr class="indent"><td>Potential Gross Revenue (all sources)</td><td>$2,596,428</td><td>$2,665,201</td><td>$2,735,809</td><td>$2,808,301</td><td>$2,882,729</td></tr>
+            <tr class="indent"><td>Vacancy & Credit Loss (5.5% residential)</td><td>($92,433)</td><td>($94,744)</td><td>($97,112)</td><td>($99,540)</td><td>($102,029)</td></tr>
+            <tr class="subtotal"><td>Effective Gross Revenue</td><td>$2,503,995</td><td>$2,570,457</td><td>$2,638,696</td><td>$2,708,761</td><td>$2,780,700</td></tr>
+
+            <tr class="sec-hdr"><td colspan="6">FIXED EXPENSES</td></tr>
+            <tr class="indent"><td>Real Estate Taxes (+2%/yr, Prop 13)</td><td>($437,500)</td><td>($446,250)</td><td>($455,175)</td><td>($464,279)</td><td>($473,565)</td></tr>
+            <tr class="indent"><td>Insurance</td><td>($52,800)</td><td>($54,384)</td><td>($56,016)</td><td>($57,696)</td><td>($59,427)</td></tr>
+            <tr class="indent"><td>Utilities (Common Area)</td><td>($52,000)</td><td>($53,560)</td><td>($55,167)</td><td>($56,822)</td><td>($58,526)</td></tr>
+            <tr class="subtotal"><td>Total Fixed Expenses</td><td>($542,300)</td><td>($554,194)</td><td>($566,358)</td><td>($578,797)</td><td>($591,518)</td></tr>
+
+            <tr class="sub-hdr"><td colspan="6">VARIABLE EXPENSES</td></tr>
+            <tr class="indent"><td>Payroll / On-Site Management</td><td>($168,000)</td><td>($173,040)</td><td>($178,231)</td><td>($183,578)</td><td>($189,085)</td></tr>
+            <tr class="indent"><td>Management Fee (5% EGR)</td><td>($125,200)</td><td>($128,523)</td><td>($131,935)</td><td>($135,438)</td><td>($139,035)</td></tr>
+            <tr class="indent"><td>General Building / Repairs</td><td>($36,000)</td><td>($37,080)</td><td>($38,192)</td><td>($39,338)</td><td>($40,518)</td></tr>
+            <tr class="indent"><td>Cleaning / Janitorial</td><td>($32,000)</td><td>($32,960)</td><td>($33,949)</td><td>($34,967)</td><td>($36,016)</td></tr>
+            <tr class="indent"><td>Plumbing / Mechanical</td><td>($20,000)</td><td>($20,600)</td><td>($21,218)</td><td>($21,855)</td><td>($22,510)</td></tr>
+            <tr class="indent"><td>HVAC Maintenance</td><td>($18,000)</td><td>($18,540)</td><td>($19,096)</td><td>($19,669)</td><td>($20,259)</td></tr>
+            <tr class="indent"><td>General & Administrative</td><td>($28,000)</td><td>($28,840)</td><td>($29,705)</td><td>($30,596)</td><td>($31,514)</td></tr>
+            <tr class="indent"><td>Parking Operations</td><td>($12,000)</td><td>($12,360)</td><td>($12,731)</td><td>($13,113)</td><td>($13,506)</td></tr>
+            <tr class="indent"><td>Elevator Service Contract</td><td>($14,400)</td><td>($14,832)</td><td>($15,277)</td><td>($15,735)</td><td>($16,207)</td></tr>
+            <tr class="subtotal"><td>Total Variable Expenses</td><td>($453,600)</td><td>($466,775)</td><td>($480,334)</td><td>($494,289)</td><td>($508,650)</td></tr>
+            <tr class="subtotal"><td>Total Operating Expenses</td><td>($995,900)</td><td>($1,020,969)</td><td>($1,046,692)</td><td>($1,073,086)</td><td>($1,100,168)</td></tr>
+
+            <tr class="noi"><td>NET OPERATING INCOME</td><td>$1,508,095</td><td>$1,549,488</td><td>$1,592,004</td><td>$1,635,675</td><td>$1,680,532</td></tr>
+
+            <tr class="sec-hdr"><td colspan="6">LEASING & CAPITAL</td></tr>
+            <tr class="indent"><td>Retail Leasing Commissions (7% of 3-yr lease value, Yrs 1 & 4)</td><td>($126,417)</td><td>($0)</td><td>($0)</td><td>($138,140)</td><td>($0)</td></tr>
+            <tr class="indent"><td>Capital Reserves ($250/unit/yr)</td><td>($10,000)</td><td>($10,000)</td><td>($10,000)</td><td>($10,000)</td><td>($10,000)</td></tr>
+
+            <tr class="cf"><td>CASH FLOW BEFORE DEBT SERVICE</td><td>$1,371,678</td><td>$1,539,488</td><td>$1,582,004</td><td>$1,487,535</td><td>$1,670,532</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="fin-note"><strong>Assumptions:</strong> Market-rate residential rents grow 2.5% annually from Year 2. Subsidized units flat throughout. Retail at 3% CPI. Property taxes $437,500 Year 1 +2%/yr (Prop 13). Vacancy 5.5% residential only. Management at 5% EGR. All variable expenses at 3% annual growth. Capital reserves $250/unit/yr. Retail leasing commissions at 7% of 3-year lease value at Years 1 and 4. Verify against current leases, tax bill, and property condition assessment.</div>
+    </div>
+
+    <!-- Residual Valuation -->
+    <div style="margin-top:56px;">
+      <p class="eyebrow">Residual Valuation</p>
+      <h3 class="sec-title" style="font-size:28px;">Terminal Value Range:<br><em>$31.5M — $40.0M</em></h3>
+      <p style="font-size:14px;color:var(--ink-60);line-height:1.8;font-weight:300;margin-bottom:0;">Exit values derived from Year 5 NOI at three cap rate scenarios.</p>
+      <table class="res-table">
+        <thead><tr><th>Scenario</th><th>Exit Cap Rate</th><th>Year 5 NOI</th><th>Year 5 Terminal Value</th></tr></thead>
+        <tbody>
+          <tr class="hi"><td>Base Case</td><td>4.5%</td><td>$1,680,532</td><td>$37,345,156</td></tr>
+          <tr class="mid"><td>Conservative</td><td>5.0%</td><td>$1,680,532</td><td>$33,610,640</td></tr>
+          <tr class="lo"><td>Stress / Floor</td><td>5.25%</td><td>$1,680,532</td><td>$32,010,133</td></tr>
+          <tr><td colspan="4" style="background:var(--copper-ultra);font-style:italic;font-size:11.5px;color:var(--ink-60);text-align:left;padding:12px 16px;border-left:2px solid var(--copper);">Stated range of $31.5M–$40.0M reflects stress to base case exits. All residuals are before debt paydown and financing benefit. Subsidized unit upside (~$180,948/yr embedded spread vs. market) is excluded — unmodeled optionality to buyer.</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ SOCIOECONOMIC ══════ -->
+<section class="socio-bg" id="socio">
+  <div class="inner">
+    <p class="eyebrow">Los Angeles & Santa Monica</p>
+    <h2 class="sec-title">Why Here. Why Now.<br><em>The Economic Case</em> for the Westside.</h2>
+    <p class="sec-body">Santa Monica is not a market that requires a thesis. It requires a position. The economic drivers that sustain rental demand here — and that have sustained it through every rate cycle, pandemic, and correction of the past four decades — are structural, not cyclical.</p>
+    <div class="socio-grid">
+      <div class="socio-card"><h4>The Knowledge Economy at Scale</h4><p>Over 54% of Santa Monica residents 25 and older hold a bachelor's degree or higher. Approximately 60% work in managerial or professional occupations. This is the demographic that rents premium product, pays on time, and values location above price.</p></div>
+      <div class="socio-card"><h4>Technology & the New Economy</h4><p>Snap, Google, Meta, and a dense network of AI-native companies from Santa Monica to Culver City have matured into a persistent employment engine. AI engineers and data scientists with $180,000–$400,000 in total compensation are the core Class A renter. They are not leaving.</p></div>
+      <div class="socio-card"><h4>Aerospace, Space & Defense</h4><p>SpaceX, Relativity Space, the Aerospace Corporation, and dozens of defense-adjacent technology companies operate within a 12-mile radius. This sector draws engineering talent that skews younger, higher-earning, and decidedly urban in lifestyle preference.</p></div>
+      <div class="socio-card"><h4>Entertainment, Talent & Creative Capital</h4><p>CAA, UTA, and WME all maintain Santa Monica presences. Major streaming platforms, independent studios, and post-production infrastructure have consolidated on the Westside. The creative executive earning $250,000–$1M+ is the consistent occupant of the $4,500–$6,000/month tier.</p></div>
+      <div class="socio-card"><h4>Health, Wellness & Longevity</h4><p>Santa Monica has become a global node for the wellness economy — longevity medicine, biohacking, and digital health startups are clustered here. This sector draws affluent, health-conscious professionals who price ocean proximity and walkability into their rent decision.</p></div>
+      <div class="socio-card"><h4>Tourism & the 3.8M Visitor Economy</h4><p>Santa Monica attracts 3.8 million visitors annually from outside LA County. This visitor base sustains the retail, dining, and entertainment ecosystem that underpins the ground-floor income at LUX|Urban. The coffee shop, café, and credit union benefit directly.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ INVESTMENT THESIS ══════ -->
+<section class="thesis-bg" id="invest">
+  <div class="inner">
+    <p class="eyebrow">Investment Thesis</p>
+    <h2 class="sec-title">Why LUX|Urban.<br><em>Why Now.</em></h2>
+    <p class="sec-body">A stabilized, well-located mixed-use building in the most supply-constrained coastal market in the country, with embedded optionality that requires no renovation, no repositioning, and no lease-up risk.</p>
+    <div class="thesis-col">
+      <div class="thesis-item">
+        <h4>The Structural Case</h4>
+        <ul>
+          <li>2013 construction — none of the deferred maintenance risk in older SM product</li>
+          <li>Three NNN ground-floor tenants provide institutional-grade income below the residential base</li>
+          <li>Units 20–30% larger than competing luxury product — a lasting competitive advantage</li>
+          <li>Zero concessions required — while comps give away 8–9 weeks of free rent</li>
+          <li>Parking at $150/space is near-term upside with no capital required</li>
+          <li>Storage 100% occupied, waiting list — revenue line not yet optimized</li>
+        </ul>
+      </div>
+      <div class="thesis-item">
+        <h4>The Compounding Upside</h4>
+        <ul>
+          <li>Subsidized units modeled flat — natural turnover converts each to market rate permanently, with zero capital and full NOI step-up accruing to buyer</li>
+          <li>2.5% annual residential rent growth is conservative against SM's historical performance</li>
+          <li>Retail renewals at market provide structured income step-ups</li>
+          <li>Film and production reinvestment in California is driving multi-year repatriation of high-income creative talent to the Westside</li>
+          <li>Terminal value range of $31.5M–$40.0M reflects stress and conservative exits — base case at 4.5% cap produces $37.3M at Year 5</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+  </div><!-- end gatedInner -->
+</div><!-- end gatedContent -->
+
+<!-- ══════ NDA / CONFIDENTIALITY AGREEMENT ══════ -->
+<section class="nda-section" id="nda">
+  <div class="nda-box">
+    <div class="nda-header">
+      <div class="badge">Confidentiality Agreement Required</div>
+      <h2>Execute Your CA.<br><em>Access the Full Offering.</em></h2>
+      <p>Complete and submit the Confidentiality Agreement below. Once received, Real Estate Services will confirm your access and provide the full offering memorandum including the property address and complete diligence package.</p>
+    </div>
+
+    <div id="ndaFormSection">
+      <div class="nda-body">
+        <h3>Confidentiality and Non-Disclosure Agreement</h3>
+        <p>This Confidentiality and Non-Disclosure Agreement ("Agreement") is entered into as of the date below between <strong>LORM LLC | Real Estate Services</strong> (Avril Hue | Juliet Der Avanessian), 1411 5th Street, #318, Santa Monica, CA 90401 (referred to herein as "RE Services | RE310") and the undersigned Potential Buyer, including its affiliates, companies, agents, partners, professionals, representatives and related parties.</p>
+        <p>WHEREAS RE310 wishes to provide to Potential Buyer Real Estate Services and information on Real Estate Assets related to Multifamily, Apartments, Office, Retail, and Industrial assets primarily for the purpose of acquiring such assets and performing due diligence and asset-level review.</p>
+        <p><strong>Fee Agreement:</strong> We agree that on the acquisition of the Property a 1% sourcing/consulting/brokerage fee will be included in Closing Cost on the Purchase and Sale Agreement as compensation to RE310 and paid at closing by Buyer.</p>
+        <p>RE310 represents and warrants that all of RE310's work product, information, illustrations, documents, recommendations and explanations (collectively "RE310 Materials and Contracts") are proprietary and confidential and are the result of extensive research, professional assistance and advice. RE310 Materials and Contracts may not be utilized independently by Potential Buyer other than in contemplation of the transaction via RE310, nor copied, communicated, used or disclosed in any manner to any third party without explicit, advance, written permission of RE310 (except in good faith with financial partners or advisors in contemplation of the transaction).</p>
+        <p>RE310 and Potential Buyer both understand and acknowledge that any violation of this Agreement would cause irreparable harm and damage to RE310. The Potential Buyer hereby agrees not to circumvent or attempt to circumvent RE310 or any party associated directly or indirectly with RE310.</p>
+        <p>This Agreement is governed by the laws of the State of California. Exclusive venue and jurisdiction shall be Los Angeles County, California. The prevailing party shall be entitled to attorneys' fees and costs. This Agreement shall terminate within <strong>18 months</strong> of the date below.</p>
+        <p style="font-size:12px;color:var(--ink-30);">CA DRE #01403368</p>
+      </div>
+
+      <div class="nda-sign">
+        <h4>Potential Buyer — Signature and Information</h4>
+        <form id="ndaForm" onsubmit="handleNDA(event)">
+          <div class="sign-grid">
+            <div class="sign-field"><label>Full Name *</label><input type="text" id="ndaName" required placeholder="Your full legal name"></div>
+            <div class="sign-field"><label>Title *</label><input type="text" id="ndaTitle" required placeholder="Partner / Principal / Investor"></div>
+            <div class="sign-field full"><label>Company / Entity</label><input type="text" id="ndaCompany" placeholder="Company or fund name"></div>
+            <div class="sign-field full"><label>Address *</label><input type="text" id="ndaAddress" required placeholder="Street address"></div>
+            <div class="sign-field"><label>Phone *</label><input type="tel" id="ndaPhone" required placeholder="(310) 000-0000"></div>
+            <div class="sign-field"><label>Email *</label><input type="email" id="ndaEmail" required placeholder="email@firm.com"></div>
+            <div class="sign-field full">
+              <label>Signature (draw below) *</label>
+              <div class="sig-canvas-wrap">
+                <canvas id="sigCanvas" width="760" height="100"></canvas>
+              </div>
+              <div class="sig-actions">
+                <button type="button" class="sig-clear" onclick="clearSig()">Clear Signature</button>
+                <span id="sigStatus" style="font-size:11px;color:var(--ink-30);padding:6px 0;">Draw your signature above</span>
+              </div>
+            </div>
+            <div class="sign-field"><label>Date</label><input type="text" id="ndaDate" placeholder="Auto-filled on submit" readonly style="background:#f5f5f0;color:var(--ink-60)"></div>
+          </div>
+          <div class="nda-terms-check" style="margin-top:20px;">
+            <input type="checkbox" id="ndaAgree" required>
+            <label for="ndaAgree">I have read and agree to the terms of this Confidentiality and Non-Disclosure Agreement. I understand that a 1% sourcing/consulting/brokerage fee will be due to RE310 at closing on any acquisition facilitated through RE Services. I agree not to circumvent RE310 or its affiliated parties.</label>
+          </div>
+          <button type="submit" class="nda-submit">Submit Confidentiality Agreement</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="nda-success" id="ndaSuccess">
+      <h3>Confidentiality Agreement Received</h3>
+      <p>Thank you. RE310 has received your signed CA. A member of the team will follow up within one business day with the full offering memorandum and property address. For immediate follow-up, message us directly below.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════ MESSAGE BOX ══════ -->
+<section class="msg-section" id="contact">
+  <div class="msg-box">
+    <h3>Message Real Estate Services</h3>
+    <p class="sub">Inquire about LUX | Urban, arrange a property review, or discuss the model. Your message is received directly and confidentially.</p>
+    <form id="msgForm" onsubmit="handleMsg(event)">
+      <div class="msg-field"><label>Your Name *</label><input type="text" id="msgName" required placeholder="Full name"></div>
+      <div class="msg-field"><label>Email *</label><input type="email" id="msgEmail" required placeholder="email@firm.com"></div>
+      <div class="msg-field"><label>Company / Fund</label><input type="text" id="msgCompany" placeholder="Optional"></div>
+      <div class="msg-field"><label>Message *</label><textarea id="msgBody" rows="5" required placeholder="I would like to discuss LUX | Urban..."></textarea></div>
+      <button type="submit" class="msg-submit">Send Message</button>
+    </form>
+    <div class="msg-success" id="msgSuccess">Your message has been received. A member of the RE Services team will respond within one business day.</div>
+  </div>
+</section>
+
+<!-- ══════ CTA ══════ -->
+<section class="cta-section">
+  <h2>You Know What<br><em>a Good Deal Looks Like.</em></h2>
+  <p>This is the asset. This is the submarket. The window is not permanently open. Execute your CA to receive the full memorandum, complete diligence package, and property address.</p>
+  <a href="https://forms.gle/2hEYLZ5M6REwRjDx7" target="_blank" class="btn-white">Execute CA — Full Offering</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">Real Estate Services</span>
+  <ul class="footer-links">
+    <li><a href="#longterm">Market</a></li>
+    <li><a href="#property">Asset</a></li>
+    <li><a href="#financials">Financials</a></li>
+    <li><a href="#nda">CA</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="footer-contact">
+    <p>officeRE310 [at] gmail.com</p>
+    <p><a href="https://www.realfimodel.com" target="_blank">www.realfimodel.com</a></p>
+  </div>
+</footer>
+
+<div class="disclaimer">
+  Prepared by Real Estate Services for informational purposes only. Does not constitute an offer to sell, solicitation to purchase, or investment advice. Financial projections are illustrative and based on stated assumptions. All investors should conduct independent due diligence prior to any investment decision. Market data sourced from realfimodel.com research and publicly available sources as of May 2026. Property tax estimates should be verified with the Los Angeles County Treasurer and Tax Collector. © 2026 Real Estate Services · <a href="https://www.realfimodel.com" target="_blank">www.realfimodel.com</a> · CA DRE #01403368
+</div>
+
+<script>
+// ── SUBSCRIBER GATE ──
+let subscriberUnlocked = false;
+
+function handleSubscribe(e) {
+  e.preventDefault();
+  const name = document.getElementById('subName').value.trim();
+  const email = document.getElementById('subEmail').value.trim();
+  if (!name || !email) return;
+
+  // Submit to Google Apps Script endpoint
+  const endpoint = 'https://submit-zuirpy7nza-uc.a.run.app';
+  fetch(endpoint, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',
+    body: JSON.stringify({
+      type: 'subscriber',
+      source: 'real-estate',
+      name, email,
+      asset: 'LUX|Urban',
+      timestamp: new Date().toISOString()
+    })
+  }).catch(() => {}); // no-cors will always "fail" but data is sent
+
+  unlockContent();
+  document.getElementById('subSuccess').style.display = 'block';
+  document.getElementById('subForm').style.display = 'none';
+}
+
+function unlockContent() {
+  if (subscriberUnlocked) return;
+  subscriberUnlocked = true;
+  document.getElementById('gateOverlay').classList.add('hidden');
+  document.getElementById('gatedInner').classList.remove('blurred');
+  document.getElementById('gatedInner').style.pointerEvents = 'auto';
+}
+
+// ── FLOOR ACCORDION ──
+function toggleFloor(btn) {
+  const body = btn.nextElementSibling;
+  const isOpen = body.classList.contains('open');
+  body.classList.toggle('open', !isOpen);
+  btn.classList.toggle('open', !isOpen);
+}
+
+// ── SIGNATURE PAD ──
+const canvas = document.getElementById('sigCanvas');
+const ctx = canvas.getContext('2d');
+let drawing = false, hasSig = false;
+
+ctx.strokeStyle = '#16120E';
+ctx.lineWidth = 2;
+ctx.lineCap = 'round';
+ctx.lineJoin = 'round';
+
+function getPos(e) {
+  const r = canvas.getBoundingClientRect();
+  const t = e.touches ? e.touches[0] : e;
+  return { x: (t.clientX - r.left) * (canvas.width / r.width), y: (t.clientY - r.top) * (canvas.height / r.height) };
+}
+
+canvas.addEventListener('mousedown', e => { drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+canvas.addEventListener('mousemove', e => { if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigStatus').textContent = 'Signature recorded'; });
+canvas.addEventListener('mouseup', () => { drawing = false; });
+canvas.addEventListener('touchstart', e => { e.preventDefault(); drawing = true; const p = getPos(e); ctx.beginPath(); ctx.moveTo(p.x, p.y); });
+canvas.addEventListener('touchmove', e => { e.preventDefault(); if (!drawing) return; const p = getPos(e); ctx.lineTo(p.x, p.y); ctx.stroke(); hasSig = true; document.getElementById('sigStatus').textContent = 'Signature recorded'; });
+canvas.addEventListener('touchend', () => { drawing = false; });
+
+function clearSig() { ctx.clearRect(0, 0, canvas.width, canvas.height); hasSig = false; document.getElementById('sigStatus').textContent = 'Draw your signature above'; }
+
+// ── NDA SUBMIT ──
+function handleNDA(e) {
+  e.preventDefault();
+  if (!hasSig) { alert('Please draw your signature before submitting.'); return; }
+
+  const sigData = canvas.toDataURL('image/png');
+  const today = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+  document.getElementById('ndaDate').value = today;
+
+  const payload = {
+    type: 'nda',
+    source: 'real-estate',
+    asset: 'LUX|Urban',
+    name: document.getElementById('ndaName').value,
+    title: document.getElementById('ndaTitle').value,
+    company: document.getElementById('ndaCompany').value,
+    address: document.getElementById('ndaAddress').value,
+    phone: document.getElementById('ndaPhone').value,
+    email: document.getElementById('ndaEmail').value,
+    date: today,
+    signature: sigData,
+    timestamp: new Date().toISOString()
+  };
+
+  // Submit to endpoint
+  fetch('https://submit-zuirpy7nza-uc.a.run.app', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+
+  // Also submit to Google Form
+  const gfUrl = 'https://docs.google.com/forms/d/e/1FAIpQLSfjFPgQAWf-PdQR1YWZYL2VvqJr5C6vQtyYj0bCZ0XYmAgjRQ/formResponse';
+  const gfData = new FormData();
+  // Open the Google Form link separately for backup capture
+  window.open('https://forms.gle/2hEYLZ5M6REwRjDx7', '_blank');
+
+  document.getElementById('ndaFormSection').style.display = 'none';
+  document.getElementById('ndaSuccess').style.display = 'block';
+}
+
+// ── MESSAGE BOX ──
+function handleMsg(e) {
+  e.preventDefault();
+  const payload = {
+    type: 'contact',
+    source: 'real-estate',
+    asset: 'LUX|Urban',
+    name: document.getElementById('msgName').value,
+    email: document.getElementById('msgEmail').value,
+    company: document.getElementById('msgCompany').value,
+    message: document.getElementById('msgBody').value,
+    timestamp: new Date().toISOString()
+  };
+
+  fetch('https://submit-zuirpy7nza-uc.a.run.app', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    mode: 'no-cors',
+    body: JSON.stringify(payload)
+  }).catch(() => {});
+
+  document.getElementById('msgForm').style.display = 'none';
+  document.getElementById('msgSuccess').style.display = 'block';
+}
+</script>
+</body>
+</html>

@@ -1,0 +1,357 @@
+<!-- ============================================================= -->
+<!--  1031 CHEAT SHEET  —  RealFiModel.com                          -->
+<!--                                                                 -->
+<!--  SUBSCRIBE: wired to your submit endpoint.                      -->
+<!--  To change it, edit RFM_SUBSCRIBE_ENDPOINT in the <script>      -->
+<!--  at the bottom. The email is POSTed as  email=<address>.        -->
+<!-- ============================================================= -->
+
+<section class="rfm-1031" aria-label="1031 Exchange Cheat Sheet">
+  <style>
+    /* Scoped to .rfm-1031 so it won't fight the rest of your site */
+    .rfm-1031{
+      --ink:#15202B; --ink-soft:#3A4A57; --paper:#FBFAF7; --paper-2:#F1EEE6;
+      --amber:#E8A33D; --amber-deep:#B97E1E; --clay:#B5462F; --green:#2E6E55;
+      --line:#DED9CC; --chip:#1B2A38;
+      box-sizing:border-box; width:100%; max-width:920px; margin:0 auto;
+      padding:clamp(18px,4vw,40px); background:var(--paper); color:var(--ink);
+      font-family:"Helvetica Neue",Helvetica,Arial,system-ui,sans-serif;
+      line-height:1.55; -webkit-font-smoothing:antialiased;
+      border:1px solid var(--line); border-radius:14px; overflow-wrap:anywhere;
+    }
+    .rfm-1031 *{box-sizing:border-box; max-width:100%;}
+    .rfm-1031 .eyebrow{
+      font:600 12px/1.3 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;
+      letter-spacing:.18em; text-transform:uppercase; color:var(--amber-deep);
+      margin:0 0 10px;
+    }
+    .rfm-1031 h2.rfm-title{
+      font-size:clamp(26px,5.4vw,42px); line-height:1.05; font-weight:800;
+      letter-spacing:-.02em; margin:0 0 6px; color:var(--ink);
+    }
+    .rfm-1031 .rfm-sub{
+      font-size:clamp(14px,2.4vw,17px); color:var(--ink-soft);
+      font-style:italic; margin:0 0 22px; max-width:60ch;
+    }
+    .rfm-1031 p{margin:0 0 16px; font-size:clamp(15px,2.3vw,16.5px);}
+    .rfm-1031 strong{color:var(--ink);}
+    .rfm-1031 a{color:var(--amber-deep); font-weight:600; text-decoration:none;
+      border-bottom:1.5px solid var(--amber); overflow-wrap:anywhere;}
+    .rfm-1031 a:hover{background:#F7ECD6;}
+
+    /* SHOUT-OUT — the snark, styled like a stamped margin note */
+    .rfm-1031 .shout{
+      position:relative; margin:22px 0; padding:18px 20px 18px 22px;
+      background:#FFF7E9; border:1.5px solid var(--amber);
+      border-radius:10px; box-shadow:3px 3px 0 rgba(232,163,61,.22);
+    }
+    .rfm-1031 .shout::before{
+      content:"SHOUT-OUT"; position:absolute; top:-11px; left:16px;
+      background:var(--ink); color:var(--amber); font:700 10px/1 ui-monospace,monospace;
+      letter-spacing:.16em; padding:6px 9px; border-radius:5px;
+    }
+    .rfm-1031 .shout.danger{background:#FBEDE9; border-color:var(--clay);
+      box-shadow:3px 3px 0 rgba(181,70,47,.18);}
+    .rfm-1031 .shout.danger::before{content:"RED FLAG"; color:#FBEDE9; background:var(--clay);}
+    .rfm-1031 .shout p{margin:0; font-size:clamp(15px,2.4vw,17px); font-weight:600;
+      color:var(--ink);}
+    .rfm-1031 .shout.danger p{color:#7F2E1D;}
+
+    /* SUBSCRIBE block */
+    .rfm-1031 .sub-card{
+      margin:26px 0; padding:clamp(18px,3.5vw,26px); border-radius:12px;
+      background:linear-gradient(135deg,#15202B,#22394B); color:var(--paper);
+      display:flex; flex-wrap:wrap; align-items:center; gap:16px 22px;
+      justify-content:space-between;
+    }
+    .rfm-1031 .sub-card .sc-copy{flex:1 1 240px; min-width:0;}
+    .rfm-1031 .sub-card h3{margin:0 0 4px; font-size:clamp(18px,3vw,22px);
+      font-weight:800; letter-spacing:-.01em; color:#fff;}
+    .rfm-1031 .sub-card p{margin:0; color:#C7D2DC; font-size:14.5px; font-style:normal;}
+    .rfm-1031 .sub-btn{
+      flex:0 0 auto; display:inline-block; background:var(--amber); color:#15202B;
+      font-weight:800; font-size:16px; letter-spacing:.01em; text-decoration:none;
+      padding:14px 26px; border-radius:9px; border:none; white-space:nowrap;
+      box-shadow:0 4px 0 var(--amber-deep); transition:transform .08s ease;
+    }
+    .rfm-1031 .sub-btn:hover{background:#F2B658; transform:translateY(-1px);}
+    .rfm-1031 .sub-btn:active{transform:translateY(2px); box-shadow:0 2px 0 var(--amber-deep);}
+    .rfm-1031 .sub-btn:disabled{opacity:.65; cursor:default; transform:none;}
+
+    /* email capture form */
+    .rfm-1031 .sub-form{
+      flex:0 0 auto; display:flex; flex-wrap:wrap; align-items:center; gap:10px;
+      min-width:0;
+    }
+    .rfm-1031 .sub-email{
+      flex:1 1 200px; min-width:0; width:100%; padding:13px 14px; border-radius:9px;
+      border:1.5px solid #3A546B; background:#0E1822; color:#fff; font-size:15px;
+      font-family:inherit; outline:none;
+    }
+    .rfm-1031 .sub-email::placeholder{color:#7E93A4;}
+    .rfm-1031 .sub-email:focus{border-color:var(--amber); box-shadow:0 0 0 3px rgba(232,163,61,.25);}
+    .rfm-1031 .sub-status{
+      flex:1 1 100%; margin:2px 0 0; font-size:13px; font-weight:600; min-height:1px;
+      font-style:normal;
+    }
+    .rfm-1031 .sub-status.ok{color:#7FE0B6;}
+    .rfm-1031 .sub-status.err{color:#F6B6A6;}
+
+    /* CARDS grid — wraps cleanly on any width */
+    .rfm-1031 .grid{
+      display:grid; grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+      gap:16px; margin:24px 0;
+    }
+    .rfm-1031 .card{
+      background:#fff; border:1px solid var(--line); border-radius:11px;
+      padding:18px 18px 16px; min-width:0;
+    }
+    .rfm-1031 .card .num{
+      font:700 12px/1 ui-monospace,monospace; letter-spacing:.12em;
+      color:var(--amber-deep); display:inline-block; margin-bottom:8px;
+    }
+    .rfm-1031 .card h4{margin:0 0 8px; font-size:17px; font-weight:800; letter-spacing:-.01em;}
+    .rfm-1031 .card p{margin:0 0 10px; font-size:14.5px; color:var(--ink-soft);}
+    .rfm-1031 .card p:last-child{margin-bottom:0;}
+    .rfm-1031 .card ul{margin:0; padding-left:18px;}
+    .rfm-1031 .card li{font-size:14.5px; color:var(--ink-soft); margin-bottom:6px;}
+    .rfm-1031 .card li:last-child{margin-bottom:0;}
+
+    /* data chips for the hard numbers */
+    .rfm-1031 .chip{
+      display:inline-block; background:var(--chip); color:#fff;
+      font:700 13px/1 ui-monospace,monospace; letter-spacing:.03em;
+      padding:5px 9px; border-radius:6px; margin:2px 4px 2px 0; white-space:nowrap;
+    }
+    .rfm-1031 .chip.warn{background:var(--clay);}
+    .rfm-1031 .chip.go{background:var(--green);}
+
+    .rfm-1031 .section-label{
+      font:700 12px/1 ui-monospace,monospace; letter-spacing:.16em;
+      text-transform:uppercase; color:var(--ink); margin:30px 0 4px;
+      padding-bottom:8px; border-bottom:2px solid var(--ink);
+    }
+
+    .rfm-1031 .rfm-foot{
+      margin-top:30px; padding-top:18px; border-top:1px solid var(--line);
+      font-size:12.5px; color:var(--ink-soft);
+    }
+    .rfm-1031 .rfm-foot strong{color:var(--ink);}
+
+    @media (max-width:480px){
+      .rfm-1031 .sub-btn{width:100%; text-align:center;}
+      .rfm-1031 .sub-card{flex-direction:column; align-items:stretch;}
+    }
+    @media (prefers-reduced-motion:reduce){
+      .rfm-1031 .sub-btn{transition:none;}
+    }
+  </style>
+
+  <p class="eyebrow">RealFiModel · Field Notes</p>
+  <h2 class="rfm-title">The 1031 Cheat Sheet</h2>
+  <p class="rfm-sub">Everything you need to defer the tax without driving the deal off a cliff. The rules are boring. The behavior they encourage is where the bodies are buried.</p>
+
+  <!-- INTRO: first two paragraphs, then the subscribe block -->
+  <p>A 1031 exchange lets you sell an investment property, roll the whole proceeds into another <strong>like-kind</strong> real property, and <strong>defer</strong> the capital gains tax you'd otherwise owe. Not erase — defer. The IRS isn't your friend here; it's your extremely patient creditor, and it always gets paid eventually: when you finally sell for cash, or when you die without one more exchange queued up. Used on a deal you'd happily own anyway, it's a genuine wealth-builder. Used to dodge a tax bill at any cost, it's a leash that drags you into properties you'd never touch with clear eyes.</p>
+
+  <p>This sheet covers the actual 2026 rules — the clocks, the identification options, the equal-or-up math, the intermediary you can't skip — plus the traps that quietly turn a "tax-free" swap into a taxable one. Keep it next to the model, not in place of it. Because the exchange will defer your gain into a brilliant acquisition and a catastrophic one with exactly the same enthusiasm. Knowing the rules is step one. Underwriting the deal is the step nobody can do for you.</p>
+
+  <!-- ===================== SUBSCRIBE BLOCK ===================== -->
+  <div class="sub-card">
+    <div class="sc-copy">
+      <h3>Subscribe for more</h3>
+      <p>Cheat sheets, deal autopsies, and the math behind the snark — straight to your inbox.</p>
+    </div>
+    <form class="sub-form" id="rfmSubForm" novalidate>
+      <label for="rfmEmail" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">Email address</label>
+      <input class="sub-email" id="rfmEmail" type="email" name="email" inputmode="email"
+             autocomplete="email" placeholder="you@email.com" required />
+      <button class="sub-btn" id="rfmSubBtn" type="submit">Subscribe →</button>
+      <p class="sub-status" id="rfmSubStatus" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+  <!-- =================== END SUBSCRIBE BLOCK =================== -->
+
+  <div class="shout">
+    <p>Defer ≠ erase. Every time you "skip" the tax, you're not avoiding the monster — you're feeding it and giving it a bigger room.</p>
+  </div>
+
+  <p class="section-label">The Rule</p>
+  <div class="grid">
+    <div class="card">
+      <span class="num">01</span>
+      <h4>What qualifies</h4>
+      <p>Real property held for <strong>investment or business use</strong>, swapped for like-kind real property. The "like-kind" bar is broad: an apartment building for raw land, one rental for a portfolio, a warehouse for retail.</p>
+      <p><strong>Does NOT qualify:</strong> your home, a personal-use vacation place, or a fix-and-flip held for resale. Since 2018, personal property (equipment, vehicles) is out entirely — real estate only.</p>
+    </div>
+    <div class="card">
+      <span class="num">02</span>
+      <h4>The real tax bill</h4>
+      <p>When you finally pay, it's not just capital gains. It's gains <strong>plus</strong> depreciation recapture (higher rate) <strong>plus</strong> the 3.8% NIIT for high earners <strong>plus</strong> your state's cut.</p>
+      <p>Stacked, that commonly lands at <span class="chip warn">30–40% of the gain</span>. That's the monster the deferral keeps in the closet.</p>
+    </div>
+    <div class="card">
+      <span class="num">03</span>
+      <h4>Swap till you drop</h4>
+      <p>Chain exchanges indefinitely and you keep deferring. Die still holding, and under current law heirs get a <strong>stepped-up basis</strong> — the deferred gains can evaporate.</p>
+      <p>Great for patient people who own things they understand. Dangerous when the tax tail starts wagging the deal.</p>
+    </div>
+  </div>
+
+  <div class="shout danger">
+    <p>You don't get 225 days. You get 180 total. The 45-day and 180-day clocks run at the SAME time, from the same Day Zero. People lose entire deals over this math.</p>
+  </div>
+
+  <p class="section-label">The Clocks</p>
+  <div class="grid">
+    <div class="card">
+      <span class="num">▶</span>
+      <h4>Day 0 — the sale closes</h4>
+      <p>Both clocks start the day your relinquished property closes and the QI takes the proceeds. Not the day you list. Not the day you go under contract. <strong>Closing.</strong></p>
+    </div>
+    <div class="card">
+      <span class="num">45</span>
+      <h4>Identify by Day 45</h4>
+      <p>Identify replacement property <strong>in writing, signed, delivered to your QI</strong> (not your agent) by Day 45. <span class="chip warn">No extensions</span> for weekends, holidays, or anything else.</p>
+    </div>
+    <div class="card">
+      <span class="num">180</span>
+      <h4>Close by Day 180 — or sooner</h4>
+      <p>Acquire the replacement by the <strong>earlier</strong> of 180 days <strong>or</strong> your tax-return due date. Sell late in the year? File an extension or your window gets amputated.</p>
+    </div>
+  </div>
+
+  <p class="section-label">Pick Your Identification Rule (by Day 45)</p>
+  <div class="grid">
+    <div class="card">
+      <span class="num">A</span>
+      <h4>3-Property Rule</h4>
+      <p>Name up to <strong>three</strong> properties, any value. The default for most investors. Pro tip: use all three slots even if you're sure — your sure thing can fall through.</p>
+    </div>
+    <div class="card">
+      <span class="num">B</span>
+      <h4>200% Rule</h4>
+      <p>Name <strong>any number</strong> of properties, as long as their combined value is ≤ 200% of what you sold.</p>
+    </div>
+    <div class="card">
+      <span class="num">C</span>
+      <h4>95% Rule</h4>
+      <p>Name unlimited properties of any value — but you must actually close on <strong>95%</strong> of that identified value. For people who enjoy living dangerously.</p>
+    </div>
+  </div>
+
+  <div class="shout">
+    <p>Trade equal-or-UP on price AND debt — or you create "boot," and boot is taxable. Buy cheaper, pocket cash, or carry less leverage, and you just taxed yourself in a "tax-free" deal.</p>
+  </div>
+
+  <p class="section-label">The Non-Negotiables</p>
+  <div class="grid">
+    <div class="card">
+      <span class="num">QI</span>
+      <h4>Hire a Qualified Intermediary first</h4>
+      <p>The exchange agreement must be in place <strong>before</strong> you close the sale. You may <strong>never touch the proceeds</strong> — one minute in your account kills the whole exchange.</p>
+      <p><strong>Disqualified persons</strong> (can't be your QI): your CPA, attorney, real estate agent, broker, employee — anyone who's been your agent in the past two years — or your relatives.</p>
+    </div>
+    <div class="card">
+      <span class="num">8824</span>
+      <h4>Report it on Form 8824</h4>
+      <p>Filed with the return for the year you <strong>sold</strong> (not the year you bought), even if the deal straddles two calendar years.</p>
+      <p>Numbers must match your closing statements exactly — mismatches are a classic audit trigger.</p>
+    </div>
+    <div class="card">
+      <span class="num">$$</span>
+      <h4>Equal-or-up, in plain math</h4>
+      <p>Replacement price ≥ net sale price of what you sold, <strong>and</strong> replace the debt you paid off.</p>
+      <p><span class="chip go">Trade up = full deferral</span> &nbsp; <span class="chip warn">Trade down = taxable boot</span></p>
+    </div>
+  </div>
+
+  <div class="shout danger">
+    <p>A low cap rate three states from home isn't a feature — it's a warning label. You're paying full price today for growth that has to show up tomorrow, in a market you don't know, on a broker's word.</p>
+  </div>
+
+  <p class="section-label">Where It Goes Off The Rails</p>
+  <div class="grid">
+    <div class="card">
+      <span class="num">!</span>
+      <h4>The traps that tax you</h4>
+      <ul>
+        <li><strong>Missing Day 45</strong> — the most common failure. No grace period. Exchange dies.</li>
+        <li><strong>Touching the proceeds</strong> — even briefly. Instant disqualification.</li>
+        <li><strong>Trading down</strong> on price or debt — creates taxable boot.</li>
+        <li><strong>Disqualified QI</strong> — using your own agent/CPA/attorney.</li>
+        <li><strong>Q4 timing</strong> — tax-return due date quietly shortens your 180 days.</li>
+      </ul>
+    </div>
+    <div class="card">
+      <span class="num">CA</span>
+      <h4>The state clawback</h4>
+      <p>Exchange a gain <strong>out of a high-tax state</strong> (California is the famous one — Form FTB 3840) and the state still considers that deferred gain theirs.</p>
+      <p>You file an annual return tracking it <strong>indefinitely</strong>, so they can collect when you finally cash out. You moved the building. You didn't move the tax.</p>
+    </div>
+    <div class="card">
+      <span class="num">EGO</span>
+      <h4>The behavioral trap</h4>
+      <p>Three wins in a row and you stop underwriting deals — you start underwriting your streak.</p>
+      <p>The fix is unglamorous: model the worst case <strong>before</strong> the best one, every time, win or lose. Let the numbers lead, not the ego.</p>
+    </div>
+  </div>
+
+  <div class="shout">
+    <p>The person selling you the assumptions never pays for them being wrong. The broker gets paid at closing. You get paid only if the pro forma was true. Verify every number yourself.</p>
+  </div>
+
+  <p>Bottom line: a 1031 is a tool, not a cheat code. It defers tax — it does not make a bad deal good, underwrite your property, or save you from leverage and optimism. Use it on a deal you'd own even if the exchange didn't exist. Stress-test the downside, keep your deferred liability (including any out-of-state clawback) visible on the books, and stay in the markets where your knowledge is a real edge. Model it before you commit at <a href="https://www.realfimodel.com" target="_blank" rel="noopener">RealFiModel.com</a>.</p>
+
+  <div class="rfm-foot">
+    <p><strong>Not tax or investment advice.</strong> 1031 exchanges carry strict, unforgiving deadlines and disqualification rules. Work with a Qualified Intermediary and a CPA before acting on anything here. Rules current as of 2026 and subject to change — yes, everyone disclaims; now you know why.</p>
+  </div>
+
+  <script>
+  (function(){
+    // >>> Your subscriber submit endpoint. Change here if it ever moves. <<<
+    var RFM_SUBSCRIBE_ENDPOINT = "https://submit-zuirpy7nza-uc.a.run.app";
+
+    var form   = document.getElementById('rfmSubForm');
+    var input  = document.getElementById('rfmEmail');
+    var btn    = document.getElementById('rfmSubBtn');
+    var status = document.getElementById('rfmSubStatus');
+    if(!form) return;
+
+    function setStatus(msg, kind){
+      status.textContent = msg;
+      status.className = 'sub-status' + (kind ? ' ' + kind : '');
+    }
+    var EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      var email = (input.value || '').trim();
+      if(!EMAIL_RE.test(email)){
+        setStatus('Enter a valid email address.', 'err');
+        input.focus();
+        return;
+      }
+      btn.disabled = true;
+      setStatus('Subscribing…', '');
+
+      // Sent as application/x-www-form-urlencoded (field: email) so it reaches
+      // the endpoint without a CORS preflight. Response is opaque (no-cors),
+      // so we confirm optimistically once the request is delivered.
+      fetch(RFM_SUBSCRIBE_ENDPOINT, {
+        method: 'POST',
+        mode: 'no-cors',
+        headers: { 'Content-Type': 'application/x-www-form-urlencoded;charset=UTF-8' },
+        body: 'email=' + encodeURIComponent(email)
+      }).then(function(){
+        setStatus("You're in. Watch your inbox.", 'ok');
+        input.value = '';
+      }).catch(function(){
+        setStatus('Something went wrong — please try again.', 'err');
+      }).finally(function(){
+        btn.disabled = false;
+      });
+    });
+  })();
+  </script>
+</section>

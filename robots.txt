@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://www.realfimodel.com/sitemap.xml
+Sitemap: https://www.realfimodel.com/vetted/sitemap.xml

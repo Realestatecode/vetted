@@ -1311,15 +1311,46 @@ body { background: var(--paper); }
 .rf-bottom-sub .rf-bigsub { max-width: 760px; margin: 0 auto; }
 .rf-sources { font-size: 12.5px; line-height: 1.6; color: var(--text-muted); border-top: 1px solid var(--border); padding-top: 10px; margin-top: 18px; }
 .rf-sources b { font-family: 'Oswald', sans-serif; letter-spacing: .1em; text-transform: uppercase; color: var(--ink); font-weight: 600; }
+/* logo badge */
+.rf-logo { display: inline-flex; align-items: center; background: var(--ink); padding: 4px 10px; border: 2px solid var(--ink); line-height: 0; }
+.rf-logo img { height: 34px; width: auto; display: block; }
+@media (max-width: 640px) { .rf-logo { flex: 0 0 auto; } .rf-logo img { height: 28px; } .rf-top .rf-sub-btn { margin-left: auto; } }
+/* offers: one per row, Stripe box on the right so it never spills out */
+.rf-offer-grid { grid-template-columns: 1fr !important; }
+.rf-offer { display: grid; grid-template-columns: minmax(0,1fr) 320px; gap: 8px 24px; align-items: center; }
+.rf-offer > .tag, .rf-offer > h3, .rf-offer > .rf-price, .rf-offer > ul { grid-column: 1; }
+.rf-offer > .rf-stripe, .rf-offer > .rf-paylink, .rf-offer > .rf-btn { grid-column: 2; grid-row: 1 / span 4; justify-self: stretch; }
+.rf-offer > .rf-paylink { grid-row: 5; }
+.rf-stripe { width: 320px; max-width: 100%; overflow: hidden; }
+.rf-price { font-family: 'Anton', sans-serif; font-size: 26px; line-height: 1.1; }
+.rf-price small { font-family: 'Inter', sans-serif; font-size: 13px; color: #444; margin-left: 4px; }
+@media (max-width: 760px) {
+  .rf-offer { grid-template-columns: 1fr; }
+  .rf-offer > .rf-stripe, .rf-offer > .rf-paylink, .rf-offer > .rf-btn { grid-column: 1; grid-row: auto; }
+  .rf-stripe { width: 100%; }
+}
+/* inline signup under the big Subscribe buttons */
+.rf-bigsub-or { font-size: 13.5px; color: var(--ink); margin-top: 6px; }
+.rf-inline-signup { display: grid; grid-template-columns: 1fr 1fr auto; gap: 8px; width: 100%; max-width: 620px; }
+.rf-inline-signup .rf-form-msg { grid-column: 1 / -1; text-align: center; margin: 0; }
+.rf-inline-signup .cf-input { background: #fff; }
+@media (max-width: 640px) { .rf-inline-signup { grid-template-columns: 1fr; } }
+.rf-bigsub input.cf-input { width: 100%; text-align: left; font-family: "Inter", sans-serif; font-size: 14px; padding: 9px 12px; }
 
 </style>
+<link rel="icon" href="/favicon.ico" sizes="any"/>
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png"/>
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png"/>
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
+<link rel="manifest" href="/site.webmanifest"/>
+<meta name="theme-color" content="#0D0D0D"/>
 <meta property="og:site_name" content="REAL FI MODEL"/>
 <meta property="article:published_time" content="2026-10-23"/>
 <script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','977070775066942');fbq('track','PageView');</script>
 <noscript><img height='1' width='1' style='display:none' alt='' src='https://www.facebook.com/tr?id=977070775066942&ev=PageView&noscript=1'/></noscript>
 </head>
 <body>
-<div class="rf-top" role="banner"><a class="rf-logo" href="/">REAL <span>FI</span> MODEL</a><nav class="rf-nav"><a href="/#pull">This Week</a><a href="/#summary">Summary Sheet</a><a href="/#dealflow">Deal Flow</a><a href="/#contact">Contact</a></nav><a class="rf-sub-btn" href="/#summary">Subscribe</a></div>
+<div class="rf-top" role="banner"><a class="rf-logo" href="/" aria-label="REAL FI MODEL home"><img src="/logo-wordmark.png" alt="REAL FI MODEL" width="246" height="63"></a><nav class="rf-nav"><a href="/#pull">This Week</a><a href="/#summary">Summary Sheet</a><a href="/#dealflow">Deal Flow</a><a href="/#contact">Contact</a></nav><a class="rf-sub-btn" href="/#summary">Subscribe</a></div>
 <div class="rf-grid" style="grid-template-columns:minmax(0,820px);justify-content:center"><main class="rf-main"><article class="rf-card rf-long expanded"><div class="rf-kicker">Weekly market read · October 23, 2026</div><h2>The Market Just Split in Two. You Get to Pick Your Side.</h2><p class="rf-deck">Rates are up, special servicing just hit a 13-year high, and lenders are taking buildings back. Apartments and warehouses are also filling faster than they have in years. Here's what both markets mean for you this week.</p><div class="rf-prose"><hr>
 <p>You opened your phone this week to two completely different real estate markets.</p>
 <p>In one, the 30-year mortgage is above 7%, the Fed is hiking again, and the share of commercial loans sitting with special servicers is the highest it's been since 2013. Lenders are taking back office towers. A mall in upstate New York has turned into a courtroom fight with a town board standing in the middle of it.</p>
